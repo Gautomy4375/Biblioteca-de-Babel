@@ -2,19 +2,16 @@
   "name": "backend",
   "version": "1.0.0",
   "type": "module",
-  "main": "dist/server.js",
+  "main": "dist/backend.js",
   "scripts": {
-    "dev": "tsx watch src/server.ts",
+    "dev": "tsx watch src/backend.ts",
     "build": "tsc",
-    "start": "node dist/server.js",
+    "start": "node dist/backend.js",
     "importar": "tsx scripts/importar-libros.ts",
     "test": "tsx tests/api.test.ts"
   },
   "keywords": [],
   "author": "Tomás Gaudio",
   "license": "ISC",
-  "description": "Backend de La Librería de Babel",
-  "devDependencies": {
-    "typescript": "^7.0.2"
-  }
+  "description": "Backend de La Librería de Babel"
 }
