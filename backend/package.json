@@ -1,12 +1,17 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "main": "index.js",
+  "type": "module",
+  "main": "dist/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "tsx watch src/server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "importar": "tsx scripts/importar-libros.ts",
+    "test": "tsx tests/api.test.ts"
   },
   "keywords": [],
-  "author": "",
+  "author": "Tomás Gaudio",
   "license": "ISC",
-  "description": ""
+  "description": "Backend de La Librería de Babel"
 }
