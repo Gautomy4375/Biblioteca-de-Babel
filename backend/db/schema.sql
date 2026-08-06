@@ -27,7 +27,7 @@ CREATE TABLE books IF NOT EXISTS (
 )
 CREATE TABLE categorias IF NOT EXISTS (
     CategoryID INT PRIMARY KEY,
-    Category_Name VARCHAR(64),
+    Category_Name VARCHAR(64) PRIMARY KEY,
 )
 CREATE TABLE book_in_category IF NOT EXISTS (
     BookID INT PRIMARY KEY,
@@ -53,4 +53,33 @@ CREATE TABLE books_progress IF NOT EXISTS (
     Amount_Read INT, 
     Starting_Date DATE, 
 )
-CREATE TABLE 
+CREATE TABLE reviews IF NOT EXISTS (
+    BookID INT PRIMARY KEY,
+    UserID INT PRIMARY KEY, 
+    ReviewID INT PRIMARY KEY, 
+    Review_Content TEXT, 
+    Creation_Date DATE,
+)
+CREATE TABLE followers IF NOT EXISTS (
+    FollowingID INT PRIMARY KEY,
+    FollowerID INT PRIMARY KEY, 
+    FollowedID INT PRIMARY KEY,
+    Following_Date DATE, 
+)
+CREATE TABLE list IF NOT EXISTS (
+    ListID INT PRIMARY KEY,
+    UserID INT PRIMARY KEY, 
+    List_Name VARCHAR(64) PRIMARY KEY, 
+    Is_Public BOOLEAN,
+    Date_Created DATE, 
+)
+CREATE TABLE books_in_list IF NOT EXISTS (
+    Book_In_ListID INT PRIMARY KEY,
+    BookID INT PRIMARY KEY,
+    ListID INT PRIMARY KEY, 
+    Order SMALLINT, 
+)
+CREATE TABLE likes IF NOT EXISTS (
+    UserID INT PRIMARY KEY,
+    ListID INT PRIMARY KEY, 
+)
