@@ -1,158 +1,170 @@
 body {
-    margin: 0;
-    /* Espacio en el cuerpo para que la barra no tape el contenido */
-    padding-top: 60px; 
+  margin: 0;
 
-  }
-  
-  .mi-barra {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 60px;
-    background-color: #1e1e24;
-    color: #ffffff;
-    opacity: 0.8;
-  
-    /* Alinea todo horizontalmente y junto */
-    display: flex;
-    align-items: center;
-    justify-content: flex-start; /* Cambia a 'center' si quieres todo centrado */
-    gap: 30px; /* Espacio exacto entre el logo y el menú */
-  
-    padding: 0 20px;
-    box-sizing: border-box;
-    z-index: 1000;
-  }
-  
-  /* Estilo del Logo */
-  .nombre {
-    font-size: 1.3rem;
-    font-weight: bold;
-  }
-  
-  /* Estilo del Menú */
-  .menu {
-    display: flex;
-    gap: 68.55px; /* Espacio entre cada uno de los enlaces */
-    font-size: 30px;
-  }
-  
-  .menu a {
-    color: white;
-    text-decoration: none;
-  }
-
-  .logo {
-    width: 40px;
-    height: 40px;
-    position: relative;
-    background-color: #d9d9d9;
-  }
-  
-  .buscador {
-      border-radius: 21000px;
-      border-style: solid;
-      border-color: white;
-    }
-    
-    .barra {
-        position: relative;
-        display: inline-block;
-    }
-    .input-container { /*esto es para el padding y etc*/
-        position: relative;
-        display: inline-block;
-        width: 318px; /* O el ancho que prefieras */
-        padding-right: 150px;
-
-}
-  
-  .input-icon {
-    position: absolute;
-    left: 12px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 20px;  /* Ajusta el tamaño de la foto */
-    height: 20px;
-    pointer-events: none; /* Permite hacer clic a través de la imagen hacia el input */
-  }
-  
-  /* Ajustes del campo de texto */
-  .input-container input {
-    width: 100%;
-    padding: 10px 12px;
-    padding-left: 40px; /* ¡CLAVE! Empuja el texto/placeholder hacia la derecha */
-    box-sizing: border-box;
-  }
-
-  .foto {
-    width: 99.2vw;
-    height: auto
-  }
-
-  .containerfotoycita {
-    position: relative;
-    display: inline-block; /* Keeps container tightly fit around the image */
-    width: 100%;
-  }
-
-  .cita {
-    /* 1. Posicionamiento independiente en la pantalla */
-    position: absolute; /* Cambia a 'fixed' si quieres que no se mueva al hacer scroll */
-    
-    /* 2. Eliges la distancia exacta desde la parte superior de la página */
-    top: 400px; /* Modifica este valor (en px o %) para subir o bajar la caja */
-    
-    /* 3. Centrado horizontal perfecto respecto a la ventana del navegador */
-    left: 50%;
-    transform: translateX(-50%);
-    
-    /* 4. Estilos visuales de la caja (personalizables) */
-    background-color: rgba(0, 0, 0, 0.85); /* Fondo negro semi-transparente */
-    color: #ffffff;                        /* Texto blanco */
-    padding: 15px 30px;                    /* Espaciado interno */
-    border-radius: 8px;                    /* Bordes redondeados */
-    text-align: center;                    /* Texto centrado por dentro */
-    width: auto;                          /* Ancho de la caja */
-    box-sizing: border-box;                /* Evita que el padding altere el ancho */
-    z-index: 9999;                         /* Asegura que flote por encima de todo */
-    opacity: 0.8;
-
-}
-.cita h3 {
-    font-size: 30px;
-}
-.cita p {
-    font-size: 25px;
-}
-
-.inscribirse {
-    /* 1. Posicionamiento independiente en la pantalla */
-    position: absolute; /* Cambia a 'fixed' si quieres que no se mueva al hacer scroll */
-    
-    /* 2. Eliges la distancia exacta desde la parte superior de la página */
-    top: 580px; /* Modifica este valor (en px o %) para subir o bajar la caja */
-    
-    /* 3. Centrado horizontal perfecto respecto a la ventana del navegador */
-    left: 50%;
-    transform: translateX(-50%);
-    
-    /* 4. Estilos visuales de la caja (personalizables) */
-    color: #ffffff;                        /* Texto blanco */
-    padding: 15px 30px;                    /* Espaciado interno */
-    border-radius: 8px;                    /* Bordes redondeados */
-    text-align: center;                    /* Texto centrado por dentro */
-    width: auto;                          /* Ancho de la caja */
-    box-sizing: border-box;                /* Evita que el padding altere el ancho */
-    z-index: 9999;                         /* Asegura que flote por encima de todo */
-    opacity: 0.8;
 
 }
 
-.inscribirse .mailfirstinput{
+.barra {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background-color: #1e1e24;
+  color: #ffffff;
+  opacity: 0.8;
+
+  /* Alinea todo horizontalmente y junto */
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 30px; /* padding de nombre de app */
+
+  padding: 0 20px;
+  box-sizing: border-box;
+  z-index: 1000;
+}
+
+
+.nombre { /* estilo del "babel" */
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.menu {
+  display: flex;
+  gap: 68.55px; /* espacio entre cada link */
+  font-size: 30px;
+}
+
+.menu a {
+  color: white;
+  text-decoration: none;
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  background-color: #d9d9d9;
+}
+
+.buscador {
     border-radius: 21000px;
     border-style: solid;
     border-color: white;
+  }
+  
+  .barralinks {
+      position: relative;
+      display: inline-block;
+  }
+  .buscador-container { /*esto es para el padding y etc*/
+      position: relative;
+      display: inline-block;
+      width: 318px; /* O el ancho que prefieras */
+      padding-right: 150px;
+
 }
+
+
+.buscador-container input { /*estilos para el placeholder e input del buscador*/
+    width: 100%;
+    padding: 10px 12px;
+    padding-left: 40px;
+    box-sizing: border-box;
+}
+
+.lupita {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  pointer-events: none; /* Permite hacer clic a través de la imagen hacia el input */
+}
+
+.fondofoto {
+  width: 99.2vw;
+  height: auto
+}
+
+.containerfotoycita {
+  position: relative;
+  display: inline-block; /* Keeps container tightly fit around the image */
+  width: 100%;
+}
+
+.cita {
+  position: absolute; /* se mueve con la pantalla */
+  top: 400px; /* distancia desde top */
+  left: 50%;
+  transform: translateX(-50%);
+  
+  background-color: rgba(0, 0, 0, 0.60); 
+  color: #ffffff;
+  padding: 15px 30px;
+  border-radius: 8px;
+  text-align: center;
+  width: auto;
+  box-sizing: border-box;
+  z-index: 9999;
+
+}
+.cita h3 {
+  font-size: 30px;
+}
+.cita p {
+  font-size: 25px;
+}
+
+.inscribirse {
+  position: absolute;  
+  top: 580px;  
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+
+
+  color: #ffffff;
+  padding: 15px 30px;
+  border-radius: 8px;
+  text-align: center;
+  width: auto;
+  box-sizing: border-box;
+  z-index: 9999;
+
+  
+
+}
+.inscribirse .mailfirstinput{
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 21000px;
+  border: none;
+  border-color: white;
+  font-size: 20px;
+
+  width: 280px;
+  height: 40px;
+
+
+}
+
+ .inscribirse button {
+  border-style: solid;
+  background-color: rgb(0, 206, 0);
+  border-style: solid;
+  border-color: rgb(0, 206, 0);
+  height: 41px;
+  width: auto;
+  font-size: 25px;
+  transition: transform .5s; /* animacion */
+  
+ }
+
+ .inscribirse button:hover {
+  transform: scale(1.2)
+ }
