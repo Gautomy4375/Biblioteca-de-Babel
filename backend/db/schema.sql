@@ -1,7 +1,7 @@
 CREATE TABLE users IF NOT EXISTS (
     UserID INT PRIMARY KEY,
-    Email VARCHAR(64) PRIMARY KEY, 
-    Password VARCHAR(32), 
+    Email VARCHAR(64) NOT NULL UNIQUE, 
+    Password VARCHAR(64) NOT NULL, 
     Username VARCHAR(64),
     Region CHAR(3),
     Avatar TEXT,
@@ -11,8 +11,8 @@ CREATE TABLE users IF NOT EXISTS (
     GoogleID VARCHAR(30),
 )
 CREATE TABLE books IF NOT EXISTS (
-    BookID VARCHAR(64) PRIMARY KEY,
-    Title VARCHAR(512) PRIMARY KEY,
+    BookID INT PRIMARY KEY,
+    Title VARCHAR(512),
     Sinopsis TEXT, 
     Autores TEXT,
     Portada TEXT,
@@ -21,27 +21,38 @@ CREATE TABLE books IF NOT EXISTS (
     Link_Compra TEXT,
     Link_Gratis TEXT,
     Fecha_Publicacion DATE,
-    Google_Books_ID VARCHAR(512) PRIMARY KEY, 
+    Google_Books_ID VARCHAR(512) NOT NULL UNIQUE, 
     Fecha_Cacheada DATE,
     Cantidad_Interacciones SMALLINT,
 )
 CREATE TABLE categorias IF NOT EXISTS (
     CategoryID INT PRIMARY KEY,
-    Category_Name VARCHAR(64) PRIMARY KEY,
+    Category_Name VARCHAR(64) NOT NULL,
 )
 CREATE TABLE book_in_category IF NOT EXISTS (
-    BookID INT PRIMARY KEY,
-    CategoryID INT PRIMARY KEY,
+    BookID INT,
+    CategoryID INT,
+
+    PRIMARY KEY(BookID, CategoryID)
+    
+    FOREIGN KEY (BookID) REFERENCES books(BookID)
+    FOREIGN KEY (CategoryID) REFERENCES categorias(CategoryID)
 )
 CREATE TABLE preference_category IF NOT EXISTS (
     UserID INT PRIMARY KEY,
     CategoryID INT PRIMARY KEY, 
     Preference_Weight SMALLINT,  
+
+     FOREIGN KEY (UserID) REFERENCES users(UserID),
+     FOREIGN KEY (CategoryID) REFERENCES categorias(CategoryID)
 )
 CREATE TABLE preferences IF NOT EXISTS (
     PreferenceID INT PRIMARY KEY,
     UserID INT PRIMARY KEY,
     BookID INT PRIMARY KEY,
+
+     FOREIGN KEY (UserID) REFERENCES users(UserID),
+     FOREIGN KEY (BookID) REFERENCES books(BookID)
 )
 CREATE TABLE books_progress IF NOT EXISTS (
     ProgressID INT PRIMARY KEY,
@@ -52,6 +63,9 @@ CREATE TABLE books_progress IF NOT EXISTS (
     Puntuacion INT, 
     Amount_Read INT, 
     Starting_Date DATE, 
+
+     FOREIGN KEY (UserID) REFERENCES users(UserID),
+     FOREIGN KEY (BookID) REFERENCES books(BookID)
 )
 CREATE TABLE reviews IF NOT EXISTS (
     BookID INT PRIMARY KEY,
@@ -59,12 +73,19 @@ CREATE TABLE reviews IF NOT EXISTS (
     ReviewID INT PRIMARY KEY, 
     Review_Content TEXT, 
     Creation_Date DATE,
+
+     FOREIGN KEY (UserID) REFERENCES users(UserID),
+     FOREIGN KEY (BookID) REFERENCES books(BookID)
 )
 CREATE TABLE followers IF NOT EXISTS (
     FollowingID INT PRIMARY KEY,
     FollowerID INT PRIMARY KEY, 
     FollowedID INT PRIMARY KEY,
     Following_Date DATE, 
+
+    FOREIGN KEY (FollowerID) REFERENCES users(UserID),
+
+    FOREIGN KEY (FollowedID) REFERENCES users(UserID)
 )
 CREATE TABLE list IF NOT EXISTS (
     ListID INT PRIMARY KEY,
@@ -72,14 +93,20 @@ CREATE TABLE list IF NOT EXISTS (
     List_Name VARCHAR(64) PRIMARY KEY, 
     Is_Public BOOLEAN,
     Date_Created DATE, 
+
+     FOREIGN KEY (UserID) REFERENCES users(UserID),
 )
 CREATE TABLE books_in_list IF NOT EXISTS (
     Book_In_ListID INT PRIMARY KEY,
     BookID INT PRIMARY KEY,
     ListID INT PRIMARY KEY, 
     Order SMALLINT, 
+
+    FOREIGN KEY (BookID) REFERENCES books(BookID)
 )
 CREATE TABLE likes IF NOT EXISTS (
     UserID INT PRIMARY KEY,
     ListID INT PRIMARY KEY, 
+
+     FOREIGN KEY (UserID) REFERENCES users(UserID), 
 )
