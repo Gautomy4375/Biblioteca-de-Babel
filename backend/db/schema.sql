@@ -33,3 +33,8 @@ CREATE TABLE book_in_category IF NOT EXISTS (
     BookID INT PRIMARY KEY,
     CategoryID INT PRIMARY KEY,
 )
+CREATE TABLE preference_category IF NOT EXISTS (
+    UserID INT PRIMARY KEY,
+    CategoryID INT PRIMARY KEY, 
+    Preference_Weight SMALLINT,  
+)
