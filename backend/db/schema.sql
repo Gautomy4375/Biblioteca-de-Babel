@@ -38,3 +38,8 @@ CREATE TABLE preference_category IF NOT EXISTS (
     CategoryID INT PRIMARY KEY, 
     Preference_Weight SMALLINT,  
 )
+CREATE TABLE preferences IF NOT EXISTS (
+    PreferenceID INT PRIMARY KEY,
+    UserID INT PRIMARY KEY,
+    BookID INT PRIMARY KEY,
+)
