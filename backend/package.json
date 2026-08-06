@@ -13,5 +13,10 @@
   "keywords": [],
   "author": "Tomás Gaudio",
   "license": "ISC",
-  "description": "Backend de La Librería de Babel"
+  "description": "Backend de La Librería de Babel",
+  "devDependencies": {
+    "@types/node": "^26.1.2",
+    "tsx": "^4.23.9",
+    "typescript": "^7.0.2"
+  }
 }
