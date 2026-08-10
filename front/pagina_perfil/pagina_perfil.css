@@ -1,3 +1,5 @@
+
+
 .mi-barra {
     position: fixed;
     top: 0;
@@ -8,11 +10,11 @@
     color: #ffffff;
     opacity: 0.8;
   
-    /* Alinea todo horizontalmente y junto */
+   
     display: flex;
     align-items: center;
-    justify-content: flex-start; /* Cambia a 'center' si quieres todo centrado */
-    gap: 30px; /* Espacio exacto entre el logo y el menú */
+    justify-content: flex-start; 
+    gap: 30px; 
   
     padding: 0 20px;
     box-sizing: border-box;
@@ -82,7 +84,7 @@
     padding-left: 40px; 
     box-sizing: border-box;
   }
-  /* Hasta aca es el header. */
+  /* YTSMA-Hasta aca es el header. */
 
   .img_nomb_aju{
     display: flex;
@@ -104,10 +106,22 @@
     text-align: center;
     
   }
+  .USU2{
+   margin-top: 25px;
+  }
   .ajuste_nombre{
     margin-left: -298px;
     margin-top: 27px;
     width: 155px;
     height: 47px;
+  }
+  .fav_paraleer{
+    margin-top: 47px;
+    margin-left: 118px;
+  }
+  .favs{
+    background-color:#D9D9D9;
+    width: 932px;
+    height: 292px;
   }
 
