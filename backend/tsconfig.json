@@ -19,7 +19,7 @@
     "sourceMap": true,
     "declaration": true,
     "declarationMap": true,
-
+//pero que dificil che este bakcend
     // Stricter Typechecking Options
     "noUncheckedIndexedAccess": true,
     "exactOptionalPropertyTypes": true,
@@ -41,4 +41,4 @@
     "moduleDetection": "force",
     "skipLibCheck": true,
   }
-}
+} //hola gaudio como estas

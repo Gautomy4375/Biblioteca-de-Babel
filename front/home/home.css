@@ -151,7 +151,7 @@ body {
 
 
 }
-
+/*HOLA POSTE COMO ESTAS*/
  .inscribirse button {
   border-style: solid;
   background-color: rgb(0, 206, 0);
@@ -161,7 +161,7 @@ body {
   width: auto;
   font-size: 25px;
   transition: transform .5s; /* animacion */
-  
+  /*MUY BUENO QUEDO POSTE TE FELICITO*/
  }
 
  .inscribirse button:hover {
