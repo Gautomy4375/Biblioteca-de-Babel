@@ -9,7 +9,6 @@ CREATE TABLE IF NOT EXISTS users (
     Notifications BOOLEAN DEFAULT false,
     Perfil_Publico BOOLEAN DEFAULT true,
     GoogleID VARCHAR(30) UNIQUE,
-/*hola gaudio como estas*/
     CHECK (Password IS NOT NULL OR GoogleID IS NOT NULL)
 );
 CREATE TABLE IF NOT EXISTS books (
