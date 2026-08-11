@@ -86,5 +86,43 @@
   }
   /* YTSMA-Hasta aca es el header. */
 
- 
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: 0;
+}
+body{
+  height: 100vh;
+}
+
+.arriba_perfil{
+  background-color: rgb(235, 233, 233);
+  margin-top: 60px;
+  width: 100%;
+  height: 31%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .logo_grande{
+    height: 66%;
+    aspect-ratio: 1/1;
+  }
+
+  .costado_logo{
+    height: 40%;
+    aspect-ratio: 14/6 ;
+    background-color: rgb(150, 148, 148);
+    margin-left: 1.14%;
+    
+
+    .nombre_logo{
+      background-color: black;
+      height: 50%;
+      width: 100%;
+    }
+
+  
+  }
+}
 
