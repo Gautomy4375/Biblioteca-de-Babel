@@ -86,42 +86,5 @@
   }
   /* YTSMA-Hasta aca es el header. */
 
-  .img_nomb_aju{
-    display: flex;
-    margin-top: 124px;
-    margin-left: 122px;
-  }
-  
-  .logo_perfil_grande{
-    width: 220px;
-    height: 220px;
-    display: flex;
-  }
-  .nombre_usu {
-    margin-top: 88px;
-    margin-left: 35px;
-    background-color: grey;
-    width: 298px;
-    height: 69px;
-    text-align: center;
-    
-  }
-  .USU2{
-   margin-top: 25px;
-  }
-  .ajuste_nombre{
-    margin-left: -298px;
-    margin-top: 27px;
-    width: 155px;
-    height: 47px;
-  }
-  .fav_paraleer{
-    margin-top: 47px;
-    margin-left: 118px;
-  }
-  .favs{
-    background-color:#D9D9D9;
-    width: 932px;
-    height: 292px;
-  }
+ 
 

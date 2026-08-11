@@ -17,12 +17,12 @@
 
     // Other Outputs
     "sourceMap": true,
-    "declaration": true,
+    "declaration": true, //HOLA GAUDIO COMO VA LA VIDA
     "declarationMap": true,
 //pero que dificil che este bakcend
     // Stricter Typechecking Options
     "noUncheckedIndexedAccess": true,
-    "exactOptionalPropertyTypes": true,
+    "exactOptionalPropertyTypes": true, //676767676767676767676767
 
     // Style Options
     // "noImplicitReturns": true,
@@ -32,12 +32,12 @@
     // "noFallthroughCasesInSwitch": true,
     // "noPropertyAccessFromIndexSignature": true,
 
-    // Recommended Options
+    // Recommended Options 
     "strict": true,
     "jsx": "react-jsx",
     "verbatimModuleSyntax": true,
     "isolatedModules": true,
-    "noUncheckedSideEffectImports": true,
+    "noUncheckedSideEffectImports": true, //HOLAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
     "moduleDetection": "force",
     "skipLibCheck": true,
   }

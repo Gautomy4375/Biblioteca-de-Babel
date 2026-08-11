@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "tsx watch src/backend.ts",
     "build": "tsc",
-    "start": "node dist/backend.js",
+    "start": "node dist/backend.js", 
     "importar": "tsx scripts/importar-libros.ts",
     "test": "tsx tests/api.test.ts"
   },
