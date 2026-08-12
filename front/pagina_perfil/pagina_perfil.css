@@ -103,12 +103,13 @@ body{
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
 
   .arriba_perfil_izq{
     width: 29%;
     height: 100%;
     display: flex;
+    
     align-items: center;
     justify-content: center;
 
@@ -127,6 +128,7 @@ body{
       flex-direction: column;
       align-items: start;
       justify-content: end;
+      margin-bottom: 6.5%;
       
       
   
@@ -152,6 +154,31 @@ body{
       }
   
    
+    }
+  }
+  .arriba_perfil_der{
+    width: 19.57%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+
+    .todo_stats{
+      background-color: black;
+      height: 31%;
+      width: 100%;
+      display: flex;
+      display: inline-block;
+
+      .stat_libro{
+        background-color: rgb(255, 0, 0);
+        height: 100%;
+        width: 22.22%;
+      }
+      stat_seguidor{
+        background-color: rgb(255, 0, 0);
+        height: 100%;
+        width: 22.22%;
+      }
     }
   }
 
