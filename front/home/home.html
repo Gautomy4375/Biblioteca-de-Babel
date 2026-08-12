@@ -41,12 +41,15 @@
                 <h3 class="lora-font">"Siempre imagine que el paraíso seria una especie de biblioteca"</h3>
                 <p class="lora-font">-Jorge Luis Borges</p>
             </div>
-            <div class="descripcion box enter lora-font">
-                Llevá un registro de los libros que leiste.<br>Guardá las que querés leer.<br>Decile a tus amigos cual es tu gusto
-            </div>
-            <div class="inscribirse box enter">
-                <input class="mailfirstinput plus-jakarta-sans" type="text" placeholder="Escribí tu Mail">
-                <button class="plus-jakarta-sans">¡Empezá!</button>
+            <div class="inscridesc">
+
+                <div class="descripcion box enter lora-font">
+                    Llevá un registro de los libros que leiste.<br>Guardá las que querés leer.<br>Decile a tus amigos cual es tu gusto
+                </div>
+                <div class="inscribirse box enter">
+                    <input class="mailfirstinput plus-jakarta-sans" type="text" placeholder="Escribí tu Mail">
+                    <button class="plus-jakarta-sans">¡Empezá!</button>
+                </div>
             </div>
         </section>
     </section>
@@ -54,12 +57,11 @@
     <!--ANIMACIONES-->
     <script>
         const container = document.getElementById('animatedContainer');
-    
+
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 30) {
+            // Se activa cuando el usuario scrolea más de 30px
+            if (window.scrollY > 200) {
                 container.classList.add('active');
-            } else {
-                container.classList.remove('active'); // Hace que vuelva al subir
             }
         });
     </script>
