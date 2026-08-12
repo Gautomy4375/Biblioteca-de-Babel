@@ -1,4 +1,4 @@
-import bcrypt from'bcryptjs';  
+import bcrypt from 'bcryptjs';  
 
 const saltRounds = 12;
 const a = true;
@@ -21,7 +21,7 @@ function register(): void { 
 
 } 
 
-async function login(): Promise<void> {
+async function login(): Promise<Boolean> {
 const coinciden: boolean = await CheckPassword(plainPassword, PasswordinDB);
 if(coinciden) {
 console.log("Acceso Exitoso");
@@ -29,6 +29,7 @@ console.log("Acceso Exitoso");
 else {
 console.log("Acceso denegado. Contraseña o Usuario incorrecto.");
 }
+return coinciden
 } 
 
 if (a) {
