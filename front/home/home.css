@@ -54,15 +54,15 @@ body {
     border-color: white;
   }
   
-  .barralinks {
-      position: relative;
-      display: inline-block;
-  }
-  .buscador-container { /*esto es para el padding y etc*/
-      position: relative;
-      display: inline-block;
-      width: 318px; /* O el ancho que prefieras */
-      padding-right: 150px;
+.barralinks {
+    position: relative;
+    display: inline-block;
+}
+.buscador-container { /*esto es para el padding y etc*/
+    position: relative;
+    display: inline-block;
+    width: 318px; /* O el ancho que prefieras */
+    padding-right: 150px;
 
 }
 
@@ -84,86 +84,92 @@ body {
   pointer-events: none; /* Permite hacer clic a través de la imagen hacia el input */
 }
 
-.fondofoto {
-  width: 99.2vw;
-  height: auto
-}
 
-.containerfotoycita {
+
+.foto {
   position: relative;
-  display: inline-block; /* Keeps container tightly fit around the image */
   width: 100%;
-}
+  height: auto;
+  background-image: url(https://www.designer-daily.com/wp-content/uploads/2022/03/rozier-babel-library-scaled.jpg);
+  background-position: center;
+  aspect-ratio: 3/2;
+  background-size: cover;
+  background-repeat: no-repeat;
 
-.cita {
-  position: absolute; /* se mueve con la pantalla */
-  top: 400px; /* distancia desde top */
-  left: 50%;
-  transform: translateX(-50%);
+  .citaeinscribirse {
+    background-color: red;
+    top: 50%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    .cita {
+      position: relative; /* se mueve con la pantalla */
+      left: 50%;
+      transform: translateX(-50%);
+      
+      background-color: rgba(0, 0, 0, 0.60); 
+      color: #ffffff;
+      padding: 15px 30px;
+      border-radius: 8px;
+      text-align: center;
+      width: auto;
+      box-sizing: border-box;
+      z-index: 9999;
+    
+      h3 {
+        font-size: 30px;
+      }
+    
+      p {
+        font-size: 25px;
+      }
+    
+    }
+    
+    .inscribirse {
+      position: relative;  
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 10px;
+    
+    
+      color: #ffffff;
+      padding: 15px 30px;
+      border-radius: 8px;
+      align-items: center;
+      justify-content: center;
+      width: auto;
+      box-sizing: border-box;
+      z-index: 9999;
+    
+      .mailfirstinput{
+        padding-left: 10px;
+        padding-right: 10px;
+        border-radius: 21000px;
+        border: none;
+        border-color: white;
+        font-size: 20px;
+      
+        width: 280px;
+        height: 40px;
+      }
+      button {
+      border-style: solid;
+      background-color: rgb(0, 206, 0);
+      border-style: solid;
+      border-color: rgb(0, 206, 0);
+      height: 41px;
+      width: auto;
+      font-size: 25px;
+      transition: transform .5s; /* animacion */
+     }
+    
+      button:hover {
+      transform: scale(1.2)
+     }
+    }
   
-  background-color: rgba(0, 0, 0, 0.60); 
-  color: #ffffff;
-  padding: 15px 30px;
-  border-radius: 8px;
-  text-align: center;
-  width: auto;
-  box-sizing: border-box;
-  z-index: 9999;
+  }
 
-}
-.cita h3 {
-  font-size: 30px;
-}
-.cita p {
-  font-size: 25px;
-}
-
-.inscribirse {
-  position: absolute;  
-  top: 580px;  
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 10px;
-
-
-  color: #ffffff;
-  padding: 15px 30px;
-  border-radius: 8px;
-  text-align: center;
-  width: auto;
-  box-sizing: border-box;
-  z-index: 9999;
-
-  
-
-}
-.inscribirse .mailfirstinput{
-  padding-left: 10px;
-  padding-right: 10px;
-  border-radius: 21000px;
-  border: none;
-  border-color: white;
-  font-size: 20px;
-
-  width: 280px;
-  height: 40px;
-
-
-}
-/*HOLA POSTE COMO ESTAS*/
- .inscribirse button {
-  border-style: solid;
-  background-color: rgb(0, 206, 0);
-  border-style: solid;
-  border-color: rgb(0, 206, 0);
-  height: 41px;
-  width: auto;
-  font-size: 25px;
-  transition: transform .5s; /* animacion */
-  /*MUY BUENO QUEDO POSTE TE FELICITO*/
- }
-
- .inscribirse button:hover {
-  transform: scale(1.2)
- }
+}  
