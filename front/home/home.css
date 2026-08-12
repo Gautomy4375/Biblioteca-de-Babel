@@ -32,14 +32,16 @@ body {
 
 .menu {
   display: flex;
-  gap: 68.55px; /* espacio entre cada link */
+  gap: 19%; /* espacio entre cada link */
   font-size: 30px;
+  padding-right: clamp(20px, 5%, 50px);
+  a {
+    color: white;
+    text-decoration: none;
+    text-wrap: nowrap;
+  }
 }
 
-.menu a {
-  color: white;
-  text-decoration: none;
-}
 
 .logo {
   width: 40px;
@@ -52,18 +54,22 @@ body {
     border-radius: 21000px;
     border-style: solid;
     border-color: white;
+    height: 39;
   }
+.buscador-container { /*esto es para el padding y etc*/
+    position: relative;
+    display: inline-block;
+    width: 23%;
+    padding-right: 10%;
+    height: 39;
+
+
+}
   
 .barralinks {
     position: relative;
     display: inline-block;
-}
-.buscador-container { /*esto es para el padding y etc*/
-    position: relative;
-    display: inline-block;
-    width: 318px; /* O el ancho que prefieras */
-    padding-right: 150px;
-
+    width: 18%;
 }
 
 
@@ -98,7 +104,7 @@ body {
 
   .citaeinscribirse {
     background-color: red;
-    top: 50%;
+    top: 50vh;
     display: flex;
     flex-direction: column;
     position: relative;
@@ -112,16 +118,16 @@ body {
       padding: 15px 30px;
       border-radius: 8px;
       text-align: center;
-      width: auto;
+      width: 50%;
       box-sizing: border-box;
       z-index: 9999;
     
       h3 {
-        font-size: 30px;
+        font-size: 2.5vw;
       }
     
       p {
-        font-size: 25px;
+        font-size: 2vw;
       }
     
     }
@@ -129,6 +135,7 @@ body {
     .inscribirse {
       position: relative;  
       left: 50%;
+      padding-top: 66%;
       transform: translateX(-50%);
       display: flex;
       gap: 10px;
@@ -139,7 +146,7 @@ body {
       border-radius: 8px;
       align-items: center;
       justify-content: center;
-      width: auto;
+      width: 100%;
       box-sizing: border-box;
       z-index: 9999;
     
@@ -151,7 +158,7 @@ body {
         border-color: white;
         font-size: 20px;
       
-        width: 280px;
+        width: 20%;
         height: 40px;
       }
       button {
@@ -159,9 +166,9 @@ body {
       background-color: rgb(0, 206, 0);
       border-style: solid;
       border-color: rgb(0, 206, 0);
-      height: 41px;
-      width: auto;
-      font-size: 25px;
+      height: 40%;
+      width: 9%;
+      font-size:  1.8cqw;;
       transition: transform .5s; /* animacion */
      }
     
