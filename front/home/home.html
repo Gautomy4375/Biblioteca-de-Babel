@@ -9,7 +9,6 @@
     <title>Home</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    
     <!--FONTS-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,29 +23,45 @@
         <img class="logo" src="https://img.magnific.com/vector-gratis/vector-degradado-logotipo-colorido-pajaro_343694-1365.jpg?semt=ais_test_b&w=740&q=80" alt="">
         <div class="nombre lora-font">Babel</div>
         <div class="buscador-container">
-  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9wiYOfiSl6tCHwpDPn72D9SZys0KGLXcgtrD5GIAWJQ&s=10" alt="Icono" class="lupita">
-  <input class="buscador plus-jakarta-sans"  type="text" placeholder="Buscar...">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9wiYOfiSl6tCHwpDPn72D9SZys0KGLXcgtrD5GIAWJQ&s=10" alt="Icono" class="lupita">
+            <input class="buscador plus-jakarta-sans" type="text" placeholder="Buscar...">
         </div>
         <div class="barralinks">
             <nav class="menu plus-jakarta-sans">
-            <a href="#">Libros</a> 
-            <a href="#">Listas</a>
-            <a href="#">Sign In</a>
+                <button><a class="botonmenu plus-jakarta-sans" href="#">Libros</a></button>
+                <button><a class="botonmenu plus-jakarta-sans" href="#">Listas</a></button>
+                <button><a class="botonmenu plus-jakarta-sans" href="#">Sign In</a></button>
             </nav>
         </div>
     </section>
+
     <section class="foto">
-        <section class="citaeinscribirse">
-            <div class="cita">
+        <section class="citaeinscribirse container" id="animatedContainer">
+            <div class="cita box exit">
                 <h3 class="lora-font">"Siempre imagine que el paraíso seria una especie de biblioteca"</h3>
                 <p class="lora-font">-Jorge Luis Borges</p>
             </div>
-            <div class="inscribirse">
-                <input class="mailfirstinput plus-jakarta-sans"  type="text" placeholder="Escribí tu Mail">
-                    <button class="plus-jakarta-sans">¡Empezá!</button>
+            <div class="descripcion box enter lora-font">
+                Llevá un registro de los libros que leiste.<br>Guardá las que querés leer.<br>Decile a tus amigos cual es tu gusto
+            </div>
+            <div class="inscribirse box enter">
+                <input class="mailfirstinput plus-jakarta-sans" type="text" placeholder="Escribí tu Mail">
+                <button class="plus-jakarta-sans">¡Empezá!</button>
             </div>
         </section>
     </section>
-      
+
+    <!--ANIMACIONES-->
+    <script>
+        const container = document.getElementById('animatedContainer');
+    
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 30) {
+                container.classList.add('active');
+            } else {
+                container.classList.remove('active'); // Hace que vuelva al subir
+            }
+        });
+    </script>
 </body>
 </html>
