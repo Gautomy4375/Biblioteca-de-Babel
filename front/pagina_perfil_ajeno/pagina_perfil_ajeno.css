@@ -96,14 +96,13 @@ body{
 }
 
 .arriba_perfil{
-  background-color: rgb(235, 233, 233);
   width: 100%;
   height: 31%;
   top: 60px;
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-around;
 
   .arriba_perfil_izq{
     width: 29%;
@@ -112,8 +111,6 @@ body{
     
     align-items: center;
     justify-content: center;
-
-
 
     .logo_grande{
       height: 66%;
@@ -130,30 +127,12 @@ body{
       justify-content: end;
       margin-bottom: 6.5%;
       
-      
-  
       .nombre_logo{
         order: 2;
         background-color: rgb(85, 85, 85);
         height: 50%;
         width: 100%;
       }
-      .ajustes_logo{
-        order: 1;
-        height: 50%;
-        width: 100%;
-  
-        .ajustes_logo_mini{
-          background-color: rgb(85, 85, 85);
-          width: 50%;
-          height: 75%;
-  
-        }
-      
-        
-      }
-  
-   
     }
   }
   .arriba_perfil_der{
@@ -163,26 +142,72 @@ body{
     align-items: center;
 
     .todo_stats{
-      background-color: black;
       height: 31%;
       width: 100%;
       display: flex;
-      display: inline-block;
+      flex-direction: row;
+      justify-content: space-evenly;
+      
 
       .stat_libro{
-        background-color: rgb(255, 0, 0);
+        background-color: rgb(131, 127, 127);
         height: 100%;
-        width: 22.22%;
+        width: 21%;
       }
-      stat_seguidor{
-        background-color: rgb(255, 0, 0);
+      .stat_seguidor{
+        background-color: rgb(131, 127, 127);
         height: 100%;
-        width: 22.22%;
+        width: 21%;
+      }
+      .stat_seguido{
+        background-color: rgb(131, 127, 127);
+        height: 100%;
+        width: 21%;
+      }
+      .stat_listas{
+        background-color: rgb(131, 127, 127);
+        height: 100%;
+        width: 21%;
       }
     }
   }
+}
+.abajo_perfil{
+  background-color: #d9d9d9;
+  width: 100%;
+  height: 62.59%;
+  margin-top: 60px;
+  display: flex;
 
+
+  .abajo_perfil_i{
+    width: 57%;
+    height: 100%;
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    .favoritos{
+      background-color: #414040;
+      width: 85%;
+      aspect-ratio: 67/21;
+      
+    }
+    .leidos{
+      background-color: #414040;
+      width: 85%;
+      aspect-ratio: 67/21;
+      
+    }
+  }
+  .abajo_perfil_d{
+    background: #414040;
+    width: 42%;
+    height: 100%;
+  }
+  
 
 
 }
-
