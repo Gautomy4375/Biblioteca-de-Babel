@@ -97,7 +97,7 @@ body{
 
 .arriba_perfil{
   width: 100%;
-  height: 35vh;
+  height: 35%;
   top: 60px;
   position: relative;
   display: flex;
@@ -193,7 +193,7 @@ body{
 }
 .abajo_perfil{
   width: 100%;
-  height: 62.59vh;
+  height: 62.59%;
   margin-top: 60px;
   display: flex;
 
@@ -225,38 +225,38 @@ body{
 
         .fav_1{
           display: block;
-          background-color: #464646;
+          background-color: #F9F9F9;
           width: 16%;
           height: 100%;
         }
         .fav_2{
           display: block;
-          background-color: #464646;
+          background-color: #F9F9F9;
           width: 16%;
           height: 100%;
         }
         .fav_3{
           display: block;
-          background-color: #464646;
+          background-color: #F9F9F9;
           width: 16%;
           height: 100%;
         }
         .fav_4{
           display: block;
-          background-color: #464646;
+          background-color: #F9F9F9;
           width: 16%;
           height: 100%;
         }
         .fav_5{
           display: block;
-          background-color: #464646;
+          background-color: #F9F9F9;
           width: 16%;
           height: 100%;
         }
       }
       .favs_title{
         order: 1;
-        background-color: #464646;
+        background-color: #F9F9F9;
         width: 24%;
         height: 14%;
       }
@@ -273,7 +273,7 @@ body{
 
       .lei_title{
         order: 1;
-        background-color: #464646;
+        background-color: #F9F9F9;
         width: 24%;
         height: 12.7%;
 
@@ -281,18 +281,82 @@ body{
 
       .imgs_lei{
         order: 2;
-        background-color: #888686;
         width: 91.2%;
         height: 58%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
 
         .imgs_lei_so{
-          background-color: #464646;
           width: 64%;
           height: 100%;
-
+          display: flex;
+       
           .lei_1{
-            background-color: black;
+            box-shadow: 10px 0 15px -5px rgba(0, 0, 0, 0.3);
+            display: block;
+            background-color: #F9F9F9;
+            width: 23%;
+            height: 100%;
+            position: relative;
+            z-index: 6;
           }
+          .lei_2{
+            box-shadow: 10px 0 15px -5px rgba(0, 0, 0, 0.3);
+            display: block;
+            background-color: #F9F9F9;
+            width: 23%;
+            height: 100%;
+            margin-left: -7.44%;
+            position: relative;
+            z-index: 5;
+          }
+          .lei_3{
+            box-shadow: 10px 0 15px -5px rgba(0, 0, 0, 0.3);
+            display: block;
+            background-color: #F9F9F9;
+            width: 23%;
+            height: 100%;
+            margin-left: -7.44%;
+            position: relative;
+            z-index: 4;
+          }
+          .lei_4{
+            box-shadow: 10px 0 15px -5px rgba(0, 0, 0, 0.3);
+            display: block;
+            background-color: #F9F9F9;
+            width: 23%;
+            height: 100%;
+            margin-left: -7.44%;
+            position: relative;
+            z-index: 3;
+          }
+          .lei_5{
+            box-shadow: 10px 0 15px -5px rgba(0, 0, 0, 0.3);
+            display: block;
+            background-color: #F9F9F9;
+            width: 23%;
+            height: 100%;
+            margin-left: -7.44%;
+            position: relative;
+            z-index: 2;
+          }
+          .lei_6{
+            box-shadow: 10px 0 15px -5px rgba(0, 0, 0, 0.3);
+            display: block;
+            background-color: #F9F9F9;
+            width: 23%;
+            height: 100%;
+            margin-left: -7.44%;
+            position: relative;
+            z-index: 1;
+          }
+        }
+        .ver_mas_leidos{
+          background-color: #F9F9F9;
+          width: 22%;
+          height: 23%;
+          margin-right: 4.12%;
         }
       }
     }
@@ -311,6 +375,97 @@ body{
       width: 81%;
       height: 33.81%;
       margin-left: 5.5%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-evenly;
+
+      .para_leer{
+        order: 1;
+        background-color: #F9F9F9;
+        width: 24.75%;
+        height: 14%;
+      }
+      .imgs_pl{
+        order: 2;
+        width: 90%;
+        height: 58%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        
+
+        .imgs_pl_so{
+          width: 72.21%;
+          height: 100%;
+          display: flex;
+
+          .pl_1{
+            box-shadow: 10px 0 15px -5px rgba(0, 0, 0, 0.3);
+            display: block;
+            background-color: #F9F9F9;
+            width: 23%;
+            height: 100%;
+            position: relative;
+            z-index: 6;
+          }
+          .pl_2{
+            box-shadow: 10px 0 15px -5px rgba(0, 0, 0, 0.3);
+            display: block;
+            background-color: #F9F9F9;
+            width: 23%;
+            height: 100%;
+            margin-left: -7.34%;
+            position: relative;
+            z-index: 5;
+          }
+          .pl_3{
+            box-shadow: 10px 0 15px -5px rgba(0, 0, 0, 0.3);
+            display: block;
+            background-color: #F9F9F9;
+            width: 23%;
+            height: 100%;
+            margin-left: -7.34%;
+            position: relative;
+            z-index: 4;
+          }
+          .pl_4{
+            box-shadow: 10px 0 15px -5px rgba(0, 0, 0, 0.3);
+            display: block;
+            background-color: #F9F9F9;
+            width: 23%;
+            height: 100%;
+            margin-left: -7.34%;
+            position: relative;
+            z-index: 3;
+          }
+          .pl_5{
+            box-shadow: 10px 0 15px -5px rgba(0, 0, 0, 0.3);
+            display: block;
+            background-color: #F9F9F9;
+            width: 23%;
+            height: 100%;
+            margin-left: -7.34%;
+            position: relative;
+            z-index: 2;
+          }
+          .pl_6{
+            box-shadow: 10px 0 15px -5px rgba(0, 0, 0, 0.3);
+            display: block;
+            background-color: #F9F9F9;
+            width: 23%;
+            height: 100%;
+            margin-left: -7.34%;
+            position: relative;
+            z-index: 1;
+          }
+        }
+        .ver_mas_pl{
+          background-color: #F9F9F9;
+          width: 22%;
+          height: 22%;
+        }
+      }
     }
 
     .liatas{
@@ -320,11 +475,26 @@ body{
       margin-left: 5.5%;
     }
   }
-  
-.cacona{
-  display: block;
-  width: 100px;
-  height: 100px;
 }
+.abajo_reseñas{
+  background-color: #f3f2f2;
+  width: 100%;
+  height: 136%;
 
+  .reseña_pri{
+    width: 100%;
+    height: 6.76%;
+    display: flex;
+    align-items: center;
+    
+    .reseña_pri_text{
+      background-color:  #D9D9D9;
+      width: 9.8%;
+      height: 38.29%;
+      margin-left: 4.2%;
+    }
+  }
+
+  
+ 
 }
