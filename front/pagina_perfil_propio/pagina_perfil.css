@@ -494,7 +494,42 @@ body{
       margin-left: 4.2%;
     }
   }
+  .res_1{
+    height: 25%;
+    width: 100%;
+    background-color: rgb(102, 102, 102);
 
-  
- 
+    .res_1_den{
+      
+      width: 51.4%;
+      height: 100%;
+      margin-left: 4.2%;
+      display: flex;
+      align-items: center;
+
+      .foto_res_1{
+        display: block;
+        background-color: #1e1e24;
+        width: 15.8%;
+        height: 66.2%;
+      }
+       
+    }
+  }
+  .res_2{
+    height: 25%;
+    width: 100%;
+    background-color: rgb(102, 102, 102);
+  }
+  .res_3{
+    height: 25%;
+    width: 100%;
+    background-color: rgb(102, 102, 102);
+  }
+  .res_4{
+    height: 25%;
+    width: 100%;
+    background-color: rgb(102, 102, 102);
+  }
+
 }
