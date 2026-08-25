@@ -6,8 +6,6 @@ ACLARACIONES:
 3. Estos tipos se van a usar para guardarlos temporalmente y mandarlos al JSON
 
 */
-
-
 export interface User {
 id: number;
 email: string;
