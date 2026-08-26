@@ -37,11 +37,11 @@ export interface VolumenGoogle {
       items?: VolumenGoogle[]; 
     } 
     // Esto es lo que devuelve google  
-    
-export async function buscarLibros(baseURL: string, q: string): Promise<string> {
+
+export async function buscarLibros(baseURL: string, CosaQueBuscar: string): Promise<string> {
 
   const url = new URL(baseURL); // el "new" es necesario ya que es algo nuevo, sino no funciona.
-    url.searchParams.set("q", q);
+    url.searchParams.set("q", CosaQueBuscar);
     url.searchParams.set("maxResults", "20")
     url.searchParams.set("country", "AR")
     if (Google_Books_API_KEY) {
