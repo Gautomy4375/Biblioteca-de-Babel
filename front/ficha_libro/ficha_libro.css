@@ -299,7 +299,52 @@
 .reviews {
   margin-top: 10px;
   .titulo {
-
     font-size: 2.8rem;
   }
-}
+  padding: 50px;
+  padding-top: 0px;
+
+  .resenia {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    .estrellas {
+      display: inline-flex;
+      gap: 4px;
+      display: flex;
+      flex-direction: row;
+      .star {
+        width: 32px;
+        height: 32px;
+        display: block;
+        fill: #ffb400;
+      }
+      .grey {
+        fill: #d3d3d3;
+      }
+    }
+    
+    .usuario {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 10px;
+      
+      .profile_pic {
+        width: 2.625rem;
+        aspect-ratio: 1/1;
+      }
+
+      .username {
+        text-decoration: none;
+        color: black;
+        font-size: 1.2rem;
+      }
+
+    }
+    .texto {
+      font-size: 1.5rem;
+    }
+    }
+  }
