@@ -1,12 +1,13 @@
 import {type Books} from "../db/json/types.js";
 
 const baseURL = "https://www.googleapis.com/books/v1/volumes";
-let q = "a"
+let LibroPedido = "Harry Potter"
+let q = LibroPedido
 const Google_Books_API_KEY = "🤡😱🥳🦁😨" // por si algun bot de github intenta de conseguirla...
 
 export interface VolumenGoogle {
-    id: string; 
-    volumeInfo: {
+      id: string; 
+      volumeInfo: {
       title: string;
       subtitle?: string;
       authors?: string[];

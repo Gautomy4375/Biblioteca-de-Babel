@@ -16,13 +16,11 @@ export async function LeerDB(File: string, CosaParaLeer: string): Promise<string
     return null;
   }
 }
-
 // Escribir Archivos JSON 
-
 export async function EscribirDB(File: string, content: string): Promise<void> {
   try {
     await fs.writeFile(File, content, 'utf-8');
-    console.log('Archivo guardado con éxito');
+    console.log('Archivo guardado de forma Existosa');
   } catch (err) {
     console.error(`Error escribiendo el archivo JSON ${File}`);
     console.error(err);
