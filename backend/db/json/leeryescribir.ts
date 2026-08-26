@@ -8,18 +8,8 @@ export async function LeerDB(File: string, CosaParaLeer: string): Promise<string
   try {
     const data = await fs.readFile(File, 'utf-8'); // utf-8 lo convierte de bytes a texto. Como estoy intentando conseguir ambos err y la data, no es necesario especificarlo
     // HAY QUE ESPECIFICAR QUE ES LO QUE ESTAMOS BUSCANDO, todavia nose como 
-    let Datos_En_Objeto: User = JSON.parse(data);
-    let Usuario = CosaParaLeer
-    for(const user of usuarios) {
-        if(user.nombre === Usuario) {
-            let usuarioEncontrado = Usuario
-            console.log(usuarioEncontrado?.email);
-            break; // Rompe el ciclo for; habria que ver si tambien rompe la funcion mientras hace esto
-        }
-    }
     console.log('File contents:', data);       
     return data;  
-
   } catch (err) {
     console.error(`Error leyendo el archivo json ${File}`); 
     console.error(err);
@@ -34,7 +24,7 @@ export async function EscribirDB(File: string, content: string): Promise<void> {
     await fs.writeFile(File, content, 'utf-8');
     console.log('Archivo guardado con éxito');
   } catch (err) {
-    console.error(`Error escribiendo el archivo json ${File}`);
+    console.error(`Error escribiendo el archivo JSON ${File}`);
     console.error(err);
   }
 }

@@ -8,6 +8,7 @@ ACLARACIONES:
 */
 export interface User {
 id: number;
+nombre: string;
 email: string;
 password: string;
 region: string;
@@ -86,4 +87,18 @@ orden_libro: number;
 export interface Likes {
 id_usuario: number;
 id_lista: number;
+}
+export interface DB {
+    users: [],  
+    books: [],
+    categories: [],
+    book_categories: [],
+    category_preferences: [],
+    preferences: [],
+    book_progress: [],
+    reviews: [], 
+    followers: [],
+    likes: [],
+    lists: [],
+    list_books: []
 }
