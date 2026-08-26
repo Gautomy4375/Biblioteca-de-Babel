@@ -1,0 +1,350 @@
+.lora-font {
+    font-family: "Lora", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+  }
+  
+  .plus-jakarta-sans {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+  }
+  
+  body {
+    margin: 0;
+  }
+  
+  /* #region navbar */
+
+  .mi-barra {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #1e1e24;
+    color: #ffffff;
+    opacity: 0.8;
+  
+   
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; 
+    gap: 30px; 
+  
+    padding: 0 20px;
+    box-sizing: border-box;
+    z-index: 1000;
+  }
+  .nombre {
+    text-decoration: none;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: white;
+    
+  }
+  
+  
+  .menu {
+    display: flex;
+    gap: 68.55px; 
+    font-size: 30px;
+  }
+  
+  .menu a {
+    color: white;
+    text-decoration: none;
+  }
+
+  .logo {
+    width: 40px;
+    height: 40px;
+    position: relative;
+  }
+  .logo_perfil {
+    width: 40px;
+    height: 40px;
+    position: relative;
+  }
+  
+  .buscador {
+      border-radius: 21000px;
+      border-style: solid;
+      border-color: white;
+    }
+    
+    .barra {
+        position: relative;
+        display: inline-block;
+    }
+    .input-container { 
+        position: relative;
+        display: inline-block;
+        width: 318px; 
+        padding-right: 150px;
+
+}
+  
+  .input-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;  
+    height: 20px;
+    pointer-events: none; 
+  }
+  
+  
+  .input-container input {
+    width: 100%;
+    padding: 10px 12px;
+    padding-left: 40px; 
+    box-sizing: border-box;
+  }
+
+  /* #endregion */
+
+.todo-arriba {
+    display: flex;
+    flex-direction: row;
+    margin-top: 60px;
+
+    * {
+        display: flex;
+        flex-direction: inherit;
+        align-items: center;
+      }
+
+    .izq, .med, .der {
+        display: flex;
+        flex-direction: column;
+
+        width: calc(1/3 * 100%); /*1/3 de la pantalla*/
+        align-items: center;
+        margin-top: 6vh;
+        
+    }
+    .izq {
+        .tapa {
+            width: 60%;
+            height: auto;
+        }
+
+        .links {
+          width: 74%;
+          margin-top: 3.2%;
+          text-align: center;
+          border: #1e1e24 solid ;
+          hr {
+            width: 100%;
+          }
+        }
+    }
+
+    .med {
+      .title_auth_sinops {
+        .titulo {
+          font-size: 3.75rem;
+          margin-bottom: 2%;
+        }
+        .autor {
+          font-size: 2.8rem;
+        }
+        .sinopsis {
+          margin-top: 1rem;
+          font-size: 1.75rem;
+          text-align: center;
+
+          width: 80%;
+
+        }
+      }
+
+      .specs {
+        display: flex;
+        flex-direction: row;
+        margin-top: 42px;
+
+        width: 75%;
+        .renglon {
+          width: 100%;
+
+          display: flex;
+          flex-direction: column;
+          .spec {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            
+          }
+          
+          .spec-abajo {
+            padding-top: 10px;
+          }
+          
+          .divider-middle {
+            border-right: 1px solid #000000;
+          }
+          
+          .divider-bottom {
+            border-bottom: 1px solid black;
+            padding-bottom: 10px;
+          }
+        }
+      }
+    }
+    .spec-name { /*estan afuera xq despues los vuelvo a usar*/
+      font-size: 1.875rem
+    }
+    
+    .spec-info {
+      font-size: 1.5625rem;
+      
+    }
+
+    .der {
+      /* #region rating*/
+      .star-rating {
+        display: inline-flex;
+        flex-direction: row-reverse;
+        justify-content: flex-end;
+        gap: 6px;
+
+        padding-bottom: 2%;
+
+      }
+      
+      .star-rating input {
+        display: none !important;
+      }
+      
+      .star-rating label {
+        cursor: pointer;
+        width: 73px;
+        height: 73px;
+        display: inline-block;
+        flex-shrink: 0;
+      }
+      
+      .star-rating label .star {
+        width: 100%;
+        height: 100%;
+        display: block;
+        fill: #d3d3d3; /* Default gray state */
+        transition: fill 0.2s ease, transform 0.1s ease;
+      }
+      
+      /* Hover & Checked State Logic */
+      .star-rating label:hover .star,
+      .star-rating label:hover ~ label .star,
+      .star-rating input:checked ~ label .star {
+        fill: #ffb400; /* Active gold highlight color */
+      }
+      
+      .star-rating label:active .star {
+        transform: scale(0.9);
+      }
+      /* #endregion*/
+
+      hr {
+        width: 70%;
+      }
+
+      .botones {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        flex-direction: row;
+
+        width: 70%;
+        height: 14% ;
+      }
+      .promedio {
+        height: 20%;
+        width: 70%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        .star-promedio {
+          display: inline-flex;
+          gap: 4px;
+          display: flex;
+          flex-direction: row;
+          .star {
+            width: 32px;
+            height: 32px;
+            display: block;
+            fill: #ffb400;
+          }
+          .grey {
+            fill: #d3d3d3;
+          }
+        }
+
+        .texto-promedio {
+          padding: 2px;
+        }
+
+        .nro-promedio {
+          font-size: 2.375rem;
+
+        }
+      }
+      
+    }
+}
+
+.reviews {
+  margin-top: 10px;
+  .titulo {
+    font-size: 2.8rem;
+  }
+  padding: 50px;
+  padding-top: 0px;
+
+  .resenia {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    .estrellas {
+      display: inline-flex;
+      gap: 4px;
+      display: flex;
+      flex-direction: row;
+      .star {
+        width: 32px;
+        height: 32px;
+        display: block;
+        fill: #ffb400;
+      }
+      .grey {
+        fill: #d3d3d3;
+      }
+    }
+    
+    .usuario {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 10px;
+      
+      .profile_pic {
+        width: 2.625rem;
+        aspect-ratio: 1/1;
+      }
+
+      .username {
+        text-decoration: none;
+        color: black;
+        font-size: 1.2rem;
+      }
+
+    }
+    .texto {
+      font-size: 1.5rem;
+    }
+    }
+  }
