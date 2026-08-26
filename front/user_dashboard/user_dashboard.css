@@ -1,0 +1,88 @@
+  /* #region navbar */
+
+  .mi-barra {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #1e1e24;
+    color: #ffffff;
+    opacity: 0.8;
+  
+   
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; 
+    gap: 30px; 
+  
+    padding: 0 20px;
+    box-sizing: border-box;
+    z-index: 1000;
+  }
+  .nombre {
+    text-decoration: none;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: white;
+    
+  }
+  
+  
+  .menu {
+    display: flex;
+    gap: 68.55px; 
+    font-size: 30px;
+  }
+  
+  .menu a {
+    color: white;
+    text-decoration: none;
+  }
+
+  .logo {
+    width: 40px;
+    height: 40px;
+    position: relative;
+  }
+  .logo_perfil {
+    width: 40px;
+    height: 40px;
+    position: relative;
+  }
+  
+  .buscador {
+      border-radius: 21000px;
+      border-style: solid;
+      border-color: white;
+    }
+    
+    .barra {
+        position: relative;
+        display: inline-block;
+    }
+    .input-container { 
+        position: relative;
+        display: inline-block;
+        width: 318px; 
+        padding-right: 150px;
+
+}
+  
+  .input-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;  
+    height: 20px;
+    pointer-events: none; 
+  }
+  
+  
+  .input-container input {
+    width: 100%;
+    padding: 10px 12px;
+    padding-left: 40px; 
+    box-sizing: border-box;
+  }
