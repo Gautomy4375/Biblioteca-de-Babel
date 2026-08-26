@@ -108,9 +108,7 @@
 .todo-arriba {
     display: flex;
     flex-direction: row;
-    position: relative;
-
-    top: 60px;
+    margin-top: 60px;
 
     * {
         display: flex;
@@ -179,16 +177,8 @@
             flex-direction: column;
             width: 100%;
             
-            .spec-name {
-              font-size: 1.875rem
-            }
-            
-            .spec-info {
-              font-size: 1.5625rem;
-              
-            }
           }
-
+          
           .spec-abajo {
             padding-top: 10px;
           }
@@ -204,4 +194,112 @@
         }
       }
     }
+    .spec-name { /*estan afuera xq despues los vuelvo a usar*/
+      font-size: 1.875rem
+    }
+    
+    .spec-info {
+      font-size: 1.5625rem;
+      
+    }
+
+    .der {
+      /* #region rating*/
+      .star-rating {
+        display: inline-flex;
+        flex-direction: row-reverse;
+        justify-content: flex-end;
+        gap: 6px;
+
+        padding-bottom: 2%;
+
+      }
+      
+      .star-rating input {
+        display: none !important;
+      }
+      
+      .star-rating label {
+        cursor: pointer;
+        width: 73px;
+        height: 73px;
+        display: inline-block;
+        flex-shrink: 0;
+      }
+      
+      .star-rating label .star {
+        width: 100%;
+        height: 100%;
+        display: block;
+        fill: #d3d3d3; /* Default gray state */
+        transition: fill 0.2s ease, transform 0.1s ease;
+      }
+      
+      /* Hover & Checked State Logic */
+      .star-rating label:hover .star,
+      .star-rating label:hover ~ label .star,
+      .star-rating input:checked ~ label .star {
+        fill: #ffb400; /* Active gold highlight color */
+      }
+      
+      .star-rating label:active .star {
+        transform: scale(0.9);
+      }
+      /* #endregion*/
+
+      hr {
+        width: 70%;
+      }
+
+      .botones {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        flex-direction: row;
+
+        width: 70%;
+        height: 14% ;
+      }
+      .promedio {
+        height: 20%;
+        width: 70%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        .star-promedio {
+          display: inline-flex;
+          gap: 4px;
+          display: flex;
+          flex-direction: row;
+          .star {
+            width: 32px;
+            height: 32px;
+            display: block;
+            fill: #ffb400;
+          }
+          .grey {
+            fill: #d3d3d3;
+          }
+        }
+
+        .texto-promedio {
+          padding: 2px;
+        }
+
+        .nro-promedio {
+          font-size: 2.375rem;
+
+        }
+      }
+      
+    }
+}
+
+.reviews {
+  margin-top: 10px;
+  .titulo {
+
+    font-size: 2.8rem;
+  }
 }
