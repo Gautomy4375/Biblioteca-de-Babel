@@ -1,4 +1,4 @@
-import {type Books} from "../db/json/types.js";
+import {type Books} from "./types.js";
 
 const baseURL = "https://www.googleapis.com/books/v1/volumes";
 let LibroPedido = "Harry Potter"
@@ -11,14 +11,34 @@ export interface VolumenGoogle {
       title: string;
       subtitle?: string;
       authors?: string[];
+      description?: string;
       publishedDate?: string;
       pageCount?: number;
+      language?: string;
       categories?: string[];
       imageLinks?: { thumbnail?: string };
       industryIdentifiers?: { type: string; identifier: string }[];
     };
-  }
+    saleInfo?: {
+      saleability?: string;
+      buyLink?: string;
+    };
+    accessInfo?: {
+      webReaderLink?: string;
+      viewability?: string;
+    };
+    
   // Segun la google books API, hay que usar ?: ya que hace que si no hay nada lo ponga como null, ya que para muchos libros, no contiene esta informacion.
+
+    }
+    export interface RespuestaGoogle {
+      kind: string;
+      totalItems: number;
+      items?: VolumenGoogle[]; 
+    }
+    // Esto es lo que devuelve google   
+
+
 
 export async function buscarLibros(baseURL: string, q: string): Promise<string> {
 
@@ -26,7 +46,9 @@ export async function buscarLibros(baseURL: string, q: string): Promise<string> 
     url.searchParams.set("q", q);
     url.searchParams.set("maxResults", "20")
     url.searchParams.set("country", "AR")
-    url.searchParams.set("key", Google_Books_API_KEY)
+    if (Google_Books_API_KEY) {
+    url.searchParams.set('key', Google_Books_API_KEY)
+    }
     const res = await fetch(url);
     if(!res.ok) {
        throw Error(`La API de google respondio ${res.status}`); 

@@ -19,17 +19,18 @@ perfil_publico: boolean;
 }
 export interface Books {
 id: number; 
-google_id: number;
+google_id: string;
 title: string;
 description: string;
-authors?: string;
-portada?: string;
+authors: string[];
+portada: string;
 cantidad_paginas: number;
 idioma: string;
-link_compra?: string;
-link_gratis?: string;
-fecha_publicacion?: string;
-cantidad_interacciones?: number;
+link_compra: string;
+link_gratis: string;
+fecha_publicacion: string;
+cantidad_interacciones: number;
+// Habria que, en algun momento, hacer una funcion que lo quen no nos da google books lo ponga como "" (un empty string)
 }
 export interface Categorias {
 id: number;

@@ -1,5 +1,5 @@
 import * as fs from 'fs/promises';
-import type { User } from './types.js';
+import type { User } from '../../src/types.js';
 
 // Decidir que archivo y cosa leer
 // Leer Archivos JSON
