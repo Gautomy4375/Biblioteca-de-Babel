@@ -13,7 +13,7 @@ const RUTA_DB = path.join(import.meta.dirname, 'database.json');
 
 export async function LeerDB(): Promise<DB> {
   const texto = await fs.readFile(RUTA_DB, 'utf-8');
-  const TextoLimpio = JSON.parse(texto) as DB; // as JSON para que el .parse este "seguro" de que esto esta en formato JSON
+  const TextoLimpio = JSON.parse(texto) as DB; 
   return TextoLimpio;
 }
 

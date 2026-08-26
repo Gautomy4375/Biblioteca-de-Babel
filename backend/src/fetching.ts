@@ -35,11 +35,9 @@ export interface VolumenGoogle {
       kind: string;
       totalItems: number;
       items?: VolumenGoogle[]; 
-    }
-    // Esto es lo que devuelve google   
-
-
-
+    } 
+    // Esto es lo que devuelve google  
+    
 export async function buscarLibros(baseURL: string, q: string): Promise<string> {
 
   const url = new URL(baseURL); // el "new" es necesario ya que es algo nuevo, sino no funciona.
