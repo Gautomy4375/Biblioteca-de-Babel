@@ -29,7 +29,7 @@ aunque puede ser una reseña negativa, igualmente muestra que tiene interes en e
 
 
 // sumar
-function CalcularPeso(interaccion: string, puntuacion: number=0, usuario: string) {
+function CalcularPeso(interaccion: string, puntuacion: number=0, usuario: string): number {
     // Recibir Usuario
     // Calcular el peso actual de este usuario
     let Peso = 0

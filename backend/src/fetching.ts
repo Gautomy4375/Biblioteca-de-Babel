@@ -38,7 +38,7 @@ export interface VolumenGoogle {
     } 
     // Esto es lo que devuelve google  
 
-export async function buscarLibros(baseURL: string, CosaQueBuscar: string): Promise<string> {
+export async function buscarLibros(baseURL: string, CosaQueBuscar: string): Promise<RespuestaGoogle> {
 
   const url = new URL(baseURL); // el "new" es necesario ya que es algo nuevo, sino no funciona.
     url.searchParams.set("q", CosaQueBuscar);
