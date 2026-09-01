@@ -1,0 +1,31 @@
+.signup {
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .signupdiv {
+        display: flex;
+        flex-direction: column;
+        height: 40%;
+        aspect-ratio: 1/2;
+        background-color: cyan;
+        justify-content: space-between;
+        .boton {
+            width: 65%;
+            height: 5%;
+    
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            img {
+                aspect-ratio: 1/1;
+                height: 65%;
+    
+            }
+        }
+
+    }
+}
