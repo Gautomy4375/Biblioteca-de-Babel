@@ -348,3 +348,121 @@
     }
     }
   }
+
+  .review {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(128, 128, 128, .5);
+    z-index: 10000;
+    
+    /* transition */
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+  }
+  
+  .review.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+  
+  .review1 {
+    z-index: 100000;
+    display: flex;
+    flex-direction: column;
+
+    background-color: cyan;
+    justify-content: space-between;
+
+    .tapayresenia {
+      display: flex;
+      img {
+        width: 15vh;
+      }
+      .title-review {
+        display: flex;
+        flex-direction: column;
+        .titulo {
+          display: flex;
+          align-items: center;
+          gap: 5px;
+        }
+
+        .input-review {
+          display: block;
+          resize: vertical; /* Enables vertical drag-to-resize */
+          overflow: auto !important; /* Ensures the handle renders */
+          width: 100%;
+          min-height: 38px;  /* Initial starting height */
+          max-height: 300px; /* Optional cap so it doesn't break your modal layout */
+          
+          padding: 8px; 
+          box-sizing: border-box; 
+          font-family: inherit; 
+          font-size: 14px;
+        
+          /* Overrides flexbox parent constraints */
+          flex-shrink: 0; 
+          align-self: flex-start;
+        }
+        .star-rating {
+          display: inline-flex;
+          flex-direction: row-reverse;
+          justify-content: flex-end;
+          gap: 6px;
+  
+          padding-bottom: 2%;
+  
+        }
+        .star-rating input {
+          display: none !important;
+        }
+        
+        .star-rating label {
+          cursor: pointer;
+          width: 40px;
+          height: 40px;
+          display: inline-block;
+          flex-shrink: 0;
+        }
+        
+        .star-rating label .star {
+          width: 100%;
+          height: 100%;
+          display: block;
+          fill: #d3d3d3; /* Default gray state */
+          transition: fill 0.2s ease, transform 0.1s ease;
+        }
+        
+        /* Hover & Checked State Logic */
+        .star-rating label:hover .star,
+        .star-rating label:hover ~ label .star,
+        .star-rating input:checked ~ label .star {
+          fill: #ffb400; /* Active gold highlight color */
+        }
+        
+        .star-rating label:active .star {
+          transform: scale(0.9);
+        }
+      }
+      .boton {
+          width: 65%;
+          height: 5%;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          img {
+              aspect-ratio: 1/1;
+              height: 65%;
+          }
+      }
+
+    }
+    
+  }
