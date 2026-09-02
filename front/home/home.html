@@ -8,17 +8,37 @@
     <link rel="stylesheet" href="home.css">
     <title>Home</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    
     <!--FONTS-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
-
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
 </head>
 <body>
+    <article id="signupOverlay" class="signup hidden">
+        <section class="signup1">
+            <h1>Sign Up</h1>
+            <div class="cat">
+                <div class="dato">Nombre de Usuario</div>
+                <input type="text" class="input-text" name="" id="usernamesu">
+            </div>
+            <div class="cat">
+                <div class="dato">E-Mail</div>
+                <input type="text" class="input-text" name="" id="mailsu">
+            </div>
+            <div class="cat">
+                <div class="dato">Contraseña</div>
+                <input type="text" class="input-text" name="" id="passwordsu">
+            </div>
+            <button class="dato" id="signupbtnsend">Sign Up</button>
+        </section>
+    </article>
+
+
     <section class="barra">
         <img class="logo" src="../logo.svg" alt="">
         <div class="nombre lora-font">Babel</div>
@@ -28,9 +48,10 @@
         </div>
         <div class="barralinks">
             <nav class="menu plus-jakarta-sans">
-                <button><a class="botonmenu plus-jakarta-sans" href="#">Libros</a></button>
-                <button><a class="botonmenu plus-jakarta-sans" href="#">Listas</a></button>
-                <button><a class="botonmenu plus-jakarta-sans" href="#">Sign In</a></button>
+                <button class="botonmenu plus-jakarta-sans"><a href="#">Libros</a></button>
+                <button class="botonmenu plus-jakarta-sans"><a href="#">Listas</a></button>
+                <button class="botonmenu plus-jakarta-sans"><a href="#">Sign In</a></button>
+                <button id="signupbtn" class="botonmenu plus-jakarta-sans"><a href="#">Sign Up</a></button>
             </nav>
         </div>
     </section>
@@ -54,16 +75,14 @@
         </section>
     </section>
 
-    <!--ANIMACIONES-->
-    <script>
-        const container = document.getElementById('animatedContainer');
 
-        window.addEventListener('scroll', () => {
-            // Se activa cuando el usuario scrolea más de 30px
-            if (window.scrollY > 200) {
-                container.classList.add('active');
-            }
-        });
+
+    <!--ANIMACIONES-->
+    <script src="home.js">
+        
+
+
+
     </script>
 </body>
 </html>

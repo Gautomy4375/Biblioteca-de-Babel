@@ -7,20 +7,20 @@
     <title>Document</title>
 </head>
 <body>
-    <section class="signup">
-        <section class="signupdiv">
+
+    <!-- 1. The Trigger Button -->
+    <button id="openSignupBtn" style="padding: 10px 20px; font-size: 16px; margin: 20px; cursor: pointer;">
+        Open Sign Up
+    </button>
+
+    <!-- 2. Your Signup Article (Acts as the full-screen background overlay) -->
+    <!-- Added id="signupOverlay" and the "hidden" class by default -->
+    <article id="signupOverlay" class="signup hidden">
+        <section class="signup1">
             <h1>Sign Up</h1>
-            <div class="cat">
-                <div class="dato">Nombre Completo</div>
-                <input type="text" class="input-text" name="" id="">
-            </div>
             <div class="cat">
                 <div class="dato">Nombre de Usuario</div>
                 <input type="text" class="input-text" name="" id="">
-            </div>
-            <div class="cat">
-                <div class="dato">Fecha de Nacimiento</div>
-                <input type="date" name="" id="">
             </div>
             <div class="cat">
                 <div class="dato">E-Mail</div>
@@ -32,6 +32,24 @@
             </div>
             <button class="dato">Sign Up</button>
         </section>
-    </section>
+    </article>
+
+    <script>
+        const openSignupBtn = document.getElementById('signupbtn');
+        const signupOverlay = document.getElementById('signupOverlay');
+
+        // Show the form when clicking the main trigger button
+        openSignupBtn.addEventListener('click', () => {
+            signupOverlay.classList.remove('hidden');
+        });
+
+        // Hide the form ONLY when clicking the gray background overlay
+        signupOverlay.addEventListener('click', (event) => {
+            // event.target ensures they clicked the background, not the nested .signup1 elements
+            if (event.target === signupOverlay) {
+                signupOverlay.classList.add('hidden');
+            }
+        });
+    </script>
 </body>
 </html>
