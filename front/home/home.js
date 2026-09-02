@@ -1,3 +1,4 @@
+//signup
 let usernamesusave = "";
 let mailsusave = "";
 let passwordsusave = "";
@@ -25,33 +26,53 @@ subtnsend.addEventListener("click", () => {
     }
 });
 
+//signin
+let usernamesisave = "";
+let mailsisave = "";
+let passwordsisave = "";
 
+// Fixed: Target the correct element IDs
+const usernamesi = document.getElementById("usernamesi");
+const mailsi = document.getElementById("mailsi"); 
+const passwordsi = document.getElementById("passwordsi"); 
+
+const sibtnsend = document.getElementById("signinbtnsend");
+
+sibtnsend.addEventListener("click", () => {
+    usernamesisave = usernamesi.value;
+    passwordsisave = passwordsi.value;
+
+        console.log("Saved:", usernamesisave);
+        console.log("Saved:", passwordsisave);
+    }
+);
 
 //VISUALES
-const container = document.getElementById('animatedContainer');
 
-        window.addEventListener('scroll', () => {
-            // Se activa cuando el usuario scrolea más de 30px
-            if (window.scrollY > 200) {
-                container.classList.add('active');
-            }
-        });
+function opensignup () {
+    signupOverlay.classList.remove('hidden');
+}
 
-        const openSignupBtn = document.getElementById('signupbtn');
-        const signupOverlay = document.getElementById('signupOverlay');
+function opensignin () {
+    signinOverlay.classList.remove('hidden');
+}
 
-        // Show the form when clicking the main trigger button
-        openSignupBtn.addEventListener('click', () => {
-            signupOverlay.classList.remove('hidden');
-        });
 
-        // Hide the form ONLY when clicking the gray background overlay
-        signupOverlay.addEventListener('click', (event) => {
-            // event.target ensures they clicked the background, not the nested .signup1 elements
-            if (event.target === signupOverlay) {
-                signupOverlay.classList.add('hidden');
-            }
-        });
+// Hide the form ONLY when clicking the gray background overlay
+signupOverlay.addEventListener('click', (event) => {
+// event.target ensures they clicked the background, not the nested .signup1 elements
+if (event.target === signupOverlay) {
+    signupOverlay.classList.add('hidden');
+}
+});
+
+// Hide the form ONLY when clicking the gray background overlay
+signinOverlay.addEventListener('click', (event) => {
+// event.target ensures they clicked the background, not the nested .signin1 elements
+if (event.target === signinOverlay) {
+    signinOverlay.classList.add('hidden');
+}
+});
 
         // hacer un addeventlistener, que cuando lo tocas manda la info a backend (esto lo haces dsp), vas a recibir si fue exitoso o no y haces un programa que edite el texto de respuesta dependiendo si fue exitoso o no.
         // si no fue exitoso pones contraseña O usuario incorrecto, 

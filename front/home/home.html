@@ -19,6 +19,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
 </head>
 <body>
+<!-- #region signup popup -->
     <article id="signupOverlay" class="signup hidden">
         <section class="signup1">
             <h1>Sign Up</h1>
@@ -37,7 +38,25 @@
             <button class="dato" id="signupbtnsend">Sign Up</button>
         </section>
     </article>
+<!-- #endregion -->
 
+<!-- #region signin popup -->
+<article id="signinOverlay" class="signup hidden">
+    <section class="signin1">
+        <h1>Sign Up</h1>
+        <div class="cat">
+            <div class="dato">Nombre de Usuario o E-Mail</div>
+            <input type="text" class="input-text" name="" id="usernamesi">
+        </div>
+
+        <div class="cat">
+            <div class="dato">Contraseña</div>
+            <input type="text" class="input-text" name="" id="passwordsi">
+        </div>
+        <button class="dato" id="signinbtnsend">Sign in</button>
+    </section>
+</article>
+<!-- #endregion -->
 
     <section class="barra">
         <img class="logo" src="../logo.svg" alt="">
@@ -50,39 +69,28 @@
             <nav class="menu plus-jakarta-sans">
                 <button class="botonmenu plus-jakarta-sans"><a href="#">Libros</a></button>
                 <button class="botonmenu plus-jakarta-sans"><a href="#">Listas</a></button>
-                <button class="botonmenu plus-jakarta-sans"><a href="#">Sign In</a></button>
-                <button id="signupbtn" class="botonmenu plus-jakarta-sans"><a href="#">Sign Up</a></button>
+                <button onclick="opensignin()" class="botonmenu plus-jakarta-sans"><a href="#">Sign In</a></button>
+                <button onclick="opensignup()" class="botonmenu plus-jakarta-sans"><a href="#">Sign Up</a></button>
             </nav>
         </div>
     </section>
 
     <section class="foto">
-        <section class="citaeinscribirse container" id="animatedContainer">
+        <section class="citaeinscribirse">
             <div class="cita box exit">
-                <h3 class="lora-font">"Siempre imagine que el paraíso seria una especie de biblioteca"</h3>
+                <h3 class="lora-font">"Siempre imaginé que el paraíso sería una especie de biblioteca"</h3>
                 <p class="lora-font">-Jorge Luis Borges</p>
             </div>
-            <div class="inscridesc">
-
-                <div class="descripcion box enter lora-font">
-                    Llevá un registro de los libros que leiste.<br>Guardá las que querés leer.<br>Decile a tus amigos cual es tu gusto
-                </div>
-                <div class="inscribirse box enter">
-                    <input class="mailfirstinput plus-jakarta-sans" type="text" placeholder="Escribí tu Mail">
-                    <button class="plus-jakarta-sans">¡Empezá!</button>
-                </div>
+            <div class="descripcion lora-font">
+                Llevá un registro de los libros que leiste.<br>Guardá los que querés leer.<br>Contale a tus amigos cual es tu gusto
             </div>
+            <button class="plus-jakarta-sans" onclick="opensignup()"><a href="">Empezá, ¡es gratis!</a></button>
         </section>
     </section>
 
 
 
     <!--ANIMACIONES-->
-    <script src="home.js">
-        
-
-
-
-    </script>
+    <script src="home.js"></script>
 </body>
 </html>

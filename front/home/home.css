@@ -48,6 +48,10 @@ body {
     width: 23%;
     padding-right: 10%;
     height: 39px;
+
+  @media (width<1500px) {
+      padding-right: 0%;
+    }
     
     .buscador {
       border-radius: 21000px;
@@ -73,17 +77,19 @@ body {
   }
 
   .barralinks {
-    position: relative;
+    width: 70vw;
     display: flex;
-    width: 18%;
-  
+    
     .menu {
+      position: relative;
+      width: 40%;
       display: flex;
-      gap: 19%; /* espacio entre cada link */
+      flex-direction: row;
+      gap: 35%;
       font-size: 30px;
       padding-right: clamp(20px, 5%, 50px);
       button {
-        width: 200px;
+        width: 30vh;
         height: 40px;
         border-radius: 8px;
         background: #FFF;
@@ -113,7 +119,6 @@ body {
   background-repeat: no-repeat;
   display: flex;
   justify-content: center;
-  align-items: center;
 
   .citaeinscribirse {
     width: 100%;
@@ -123,53 +128,42 @@ body {
     justify-content: center;
     height: 200px;
     position: relative;
-    top: 0vh;
-
-    .box {
-      
-      text-align: center;
-      box-sizing: border-box;
-      z-index: 10;
-      opacity: 0;
-    }
+    top: 35vh;
 
     .cita {
       opacity: 1;
-      width: 50%;
       background-color: rgba(0, 0, 0, 0.60); 
       color: #ffffff;
       padding: 20px 30px;
       border-radius: 8px;
-      opacity: 1;
       transform: translateY(0);
-      transition: opacity 0.8s ease, transform 0.8s ease;
+      text-align: center;
 
      
 
       h3 {
-        font-size: 2.5vw;
-        font-weight: 550;
+        font-size: 2rem;
+        font-weight: 450;
         margin: 0px;
       }
     
       p {
-        font-size: 2vw;
-        font-weight: 400;
+        font-size: 1.6rem;
+        font-weight: 350;
         margin: 0px;
         padding-top: 12px;
       }
     }
-  .inscridesc {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    width: 100%;
-    margin-top: 10%;
-
     .descripcion {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      font-weight: 550;
+      width: 100%;
       font-size: 2vw;
+      text-align: center;
       line-height: 1.6;
       width: 40%;
       background-color: rgba(0, 0, 0, 0.60); 
@@ -177,84 +171,35 @@ body {
       padding: 5px 10px;
       padding-bottom: 5px;
       border-radius: 8px;
-      opacity: 0;
       transform: translateY(50px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
     }
-    
-    .inscribirse {
-      display: flex;
-      gap: 15px;
-      color: #ffffff;
-      padding: 15px 30px;
+
+    button {
+      margin-top: 8vh;
       border-radius: 8px;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-      box-sizing: border-box;
-      z-index: 10;
-    
-      .mailfirstinput {
-        padding-left: 10px;
-        padding-right: 10px;
-        border-radius: 8px;
-        border: none;
-        font-size: 20px;
-        width: 25%;
-        height: 40px;
-      }
-    
-      button {
-        border-style: solid;
-        background-color: #d47a5b;
-        border-color: #d47a5b;
-        width: 12%;
-        height: 40px;
-        font-size: 1.2cqw;
-        transition: transform .5s; /* animacion */
-        border-radius: 10px;
-        color: white;
-        cursor: pointer;
-      }
-    
-      button:hover {
-        transform: scale(1.1);
+      background: #FFF;
+      border-style: solid;
+      border-color: #FFF;
+
+      color: #000000;
+      text-decoration: none;
+      text-wrap: nowrap;
+      font-size: 20px;
+      padding: 8px;
+
+      transition: transform .5s; /* animacion */
+
+      a {
+        color: #000000;
+        text-decoration: none;
+        text-wrap: nowrap;
+        font-size: 2rem;
       }
     }
+    button:hover {
+      transform: scale(1.1);
 
-  }
-}
-}  
-
-/* animaciones */
-
-.container.active .exit {
-  animation: fadeOutUp 0.8s forwards;
-}
-
-.container.active .enter {
-  animation: fadeInUp 0.8s forwards;
-}
-
-@keyframes fadeOutUp {
-  from {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  to {
-    opacity: 0;
-    transform: translateY(-50px);
-  }
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+    }
   }
 }
 
@@ -282,6 +227,52 @@ body {
 }
 
 .signup .signup1 {
+  z-index: 100000;
+  display: flex;
+  flex-direction: column;
+  height: 40%;
+  aspect-ratio: 1/2;
+  background-color: cyan;
+  justify-content: space-between;
+  
+  .boton {
+      width: 65%;
+      height: 5%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      img {
+          aspect-ratio: 1/1;
+          height: 65%;
+      }
+  }
+}
+
+
+.signin {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(128, 128, 128, .5);
+  z-index: 10000;
+  
+  /* transition */
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.signin.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.signin .signin1 {
   z-index: 100000;
   display: flex;
   flex-direction: column;
