@@ -123,7 +123,7 @@
     
     
       }
-      .medio{
+      .arriba_medio{
         width: 87vw;
         height: 61.66vh;
         display: grid;
@@ -178,11 +178,73 @@
                   }
                   .uno{
                     z-index: 6;
-                    margin-left: ;
+                  }
+                  .dos{
+                    z-index: 5;
+                    margin-left: -2.29vw;
+                  }
+                  .tres{
+                    z-index: 4;
+                    margin-left: -2.29vw;
+                  }
+                  .cuatro{
+                    z-index: 3;
+                    margin-left: -2.29vw;
+                  }
+                  .cinco{
+                    z-index: 2;
+                    margin-left: -2.29vw;
+                  }
+                  .seis{
+                    z-index: 1;
+                    margin-left: -2.29vw;
                   }
 
                 }
             }
         }
       }
+      
+}
+.todo_medio{
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .medio{
+      width: 100%;
+      margin-top: 14vh;
+
+      .medio_arriba{
+        width: 100%;
+        height: 12.9vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .title_ml{
+          background-color:#A9A9A9;
+          width: 23.9vw;
+          height: 26.6%;
+        }
+      }
+      .medio_abajo{
+        background-color: #ebe6e6;
+        width: 100%;
+        height: 33.1vw;
+        display: grid;
+        grid-template-columns: repeat(2,  max-content);
+        grid-template-rows: repeat(2, max-content);
+        gap: 3.5vw 11.5vw;
+        justify-content: center;
+        align-content: center;
+
+        .medios{
+          background-color: #e4e4e4;
+          width: 34.4vw;
+          height: 14.7vw;
+        }
+        
+      }
+    }
 }
