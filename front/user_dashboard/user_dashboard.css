@@ -1,4 +1,8 @@
-  /* #region navbar */
+*{
+  margin: 0px;
+  padding: 0;
+  box-sizing: 0;
+}
 
   .mi-barra {
     position: fixed;
@@ -86,3 +90,19 @@
     padding-left: 40px; 
     box-sizing: border-box;
   }
+
+/*SOY YTSMA, HASTA ACÁ ES EL HEADER (SEPARO PORUQE SINO ES UN LIO)*/
+
+.arriba{
+  width: 100%;
+  height: 9.4vw;
+  margin-top: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .title{
+    background-color: #D9D9D9;
+    width: 15.15vw;
+    height: 30.3%;
+  }
+}
