@@ -281,15 +281,14 @@ body {
   background-color: cyan;
   justify-content: space-between;
   
-  .boton {
-      width: 65%;
-      height: 5%;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      img {
-          aspect-ratio: 1/1;
-          height: 65%;
-      }
-  }
+  
+
+}
+.boton {
+    width: 65%;
+    height: 5%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
 }
