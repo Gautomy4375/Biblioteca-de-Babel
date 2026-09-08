@@ -58,7 +58,7 @@ sibtnsend.addEventListener("click", () => {
     console.log("Saved:", passwordsisave);
 
     //aca se manda al back
-    let status = "200" //lo pongo a mano para probar, pero llega del back
+    let status = "400" //lo pongo a mano para probar, pero llega del back
     if (status === "200") { //todo bien
         mensajesi.innerText = "Bienvenido " + "username" +" !" //donde dice "username" va el username
         mensajesi.style.color = "green"
