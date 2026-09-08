@@ -101,8 +101,8 @@
         margin-top: 60px;
         display: flex;
         align-items: center;
-        justify-content: start;
-        gap: 21.25vw;
+        justify-content: center;
+      
     
         .title{
             order: 2;
@@ -111,15 +111,7 @@
             height: 6vh;
             
         }
-        .crear{
-            display: block;
-            order: 1;
-            background-color: #646464;
-            width: 9.5vh;
-            height: 9.5vh;
-            border-radius: 50%;
-            margin-left: 13.1vw;
-        }
+       
     
     
       }
