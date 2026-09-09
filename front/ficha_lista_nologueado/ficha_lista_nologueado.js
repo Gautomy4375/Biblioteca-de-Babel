@@ -100,6 +100,3 @@ if (event.target === signinOverlay) {
 });
 
 //#endregion
-
-        // hacer un addeventlistener, que cuando lo tocas manda la info a backend (esto lo haces dsp), vas a recibir si fue exitoso o no y haces un programa que edite el texto de respuesta dependiendo si fue exitoso o no.
-        // si no fue exitoso pones contraseña O usuario incorrecto, 

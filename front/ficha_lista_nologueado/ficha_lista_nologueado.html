@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="ficha_lista_nologueado.css">
+</head>
+<body>
+<!-- #region signup y login popups y header -->
+   <!-- #region signup popup -->
+   <article id="signupOverlay" class="signup hidden">
+    <section class="signup1">
+        <h1>Sign Up</h1>
+        <div class="cat">
+            <div class="dato">Nombre de Usuario</div>
+            <input type="text" class="input-text" name="" id="usernamesu">
+        </div>
+        <div class="cat">
+            <div class="dato">E-Mail</div>
+            <input type="text" class="input-text" name="" id="mailsu">
+        </div>
+        <div class="cat">
+            <div class="dato">Contraseña</div>
+            <input type="text" class="input-text" name="" id="passwordsu">
+        </div>
+        <button class="dato boton" id="signupbtnsend">Sign Up</button>
+        <div id="mensajesu" class="mensajesu"></div>
+    </section>
+</article>
+
+<!-- #endregion -->
+
+    <!-- #region signin popup -->
+    <article id="signinOverlay" class="signup hidden">
+        <section class="signin1">
+            <h1>Sign Up</h1>
+            <div class="cat">
+                <div class="dato">Nombre de Usuario o E-Mail</div>
+                <input type="text" class="input-text" name="" id="usernamesi">
+            </div>
+
+            <div class="cat">
+                <div class="dato">Contraseña</div>
+                <input type="text" class="input-text" name="" id="passwordsi">
+            </div>
+            <button class="boton" id="signinbtnsend">Sign in</button>
+
+            <div id="mensajesi" class="mensajesi"></div>
+        </section> 
+    </article>
+    <!-- #endregion -->
+
+    <section class="barra">
+        <img class="logo" src="../logo.svg" alt="">
+        <div class="nombre lora-font">Babel</div>
+        <div class="buscador-container">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9wiYOfiSl6tCHwpDPn72D9SZys0KGLXcgtrD5GIAWJQ&s=10" alt="Icono" class="lupita">
+            <input class="buscador plus-jakarta-sans" type="text" placeholder="Buscar...">
+        </div>
+        <div class="barralinks">
+            <nav class="menu plus-jakarta-sans">
+                <button class="botonmenu plus-jakarta-sans"><a href="#">Libros</a></button>
+                <button class="botonmenu plus-jakarta-sans"><a href="#">Listas</a></button>
+                <button onclick="opensignin()" class="botonmenu plus-jakarta-sans"><a href="#">Sign In</a></button>
+                <button onclick="opensignup()" class="botonmenu plus-jakarta-sans"><a href="#">Sign Up</a></button>
+            </nav>
+        </div>
+    </section> 
+<!-- #endregion -->
+
+    <article class="arriba">
+        <section class="info">
+            <div class="nombres">
+                <h1 class="list-name" id="list-name">Nombre de Lista</h1>
+                <h2 id="author-name">Nombre de Autor</h2>
+            </div>
+
+            <div class="desc">
+                <h2>Descripción</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus ea, totam, repellat esse nisi autem nam distinctio at sequi blanditiis placeat, eos animi porro quia numquam dicta earum ipsam ex.
+                Dolorem illum fuga sunt consequatur debitis eius voluptatibus quaerat distinctio eum repudiandae. Id nihil ratione eos natus dignissimos aliquam quidem quod. Illum quod dolore reprehenderit exercitationem repellat eius eum? Inventore?</p>
+            </div>
+        </section>
+        <section class="likes">
+            <div>
+                <h2>Likes</h2>
+                <div class="nrolikes">
+                    <div class="nrodelikes" id="nrodelikes">###</div>
+                    <div class="heart-toggle">
+                        <input type="checkbox" id="heart-btn" name="like" />
+                        <label for="heart-btn" title="Like">
+                          <svg viewBox="0 0 24 24" class="heart">
+                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                          </svg>
+                        </label>
+                      </div>
+                </div>
+            </div>
+        </section>
+    </article>
+
+
+    <script src="ficha_lista_nologueado.js"></script>
+</body>
+</html>
