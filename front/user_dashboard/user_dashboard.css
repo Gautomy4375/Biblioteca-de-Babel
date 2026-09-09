@@ -188,10 +188,112 @@
   .reco_le{
     width: 100%;
     height: 15vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 
     .recomendaciones{
       height: 100%;
+      width: 35vw;
+      display: flex;
+      align-items: center;
+
+      .libro{
+        background-color: #D9D9D9;
+        height: 11vw;
+        width: 9vw;
+        box-shadow: 10px 0 15px -5px rgba(0, 0, 0, 0.3);
+      }
+      .uno{
+        z-index: 5;
+      }
+      .dos{
+        z-index: 4;
+        margin-left: -2.8vw;
+      }
+      .tres{
+        z-index: 3;
+        margin-left: -2.8vw;
+      }
+      .cuatro{
+        z-index: 2;
+        margin-left: -2.8vw;
+      }
+      .cinco{
+        z-index: 1;
+        margin-left: -2.8vw;
+      }
     }
+    .leidos{
+      width: 39vw;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    
+    
+      .imagene {
+        width: 39vw;
+        height: 100%;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+      }
+    
+      #imagene {
+        display: flex;
+        gap: 1.2vw;
+      }
+    
+      .libros {
+        flex-shrink: 0;
+        width: 9vw ;
+        height: 11vw ;
+      }
+    
+      .k {
+        background-color: aqua;
+      }
+    
+      .l {
+        background-color: brown;
+      }
+    
+      .m {
+        background-color: blue;
+      }
+    
+      .n {
+        background-color: aquamarine;
+      }
+    
+      .o {
+        background-color: cadetblue;
+      }
+    
+      .p {
+        background-color: chocolate;
+      }
+    
+      .q {
+        background-color: chartreuse;
+      }
+    
+      .r {
+        background-color: burlywood;
+      }
+    
+      .s {
+        background-color: blueviolet;
+      }
+    
+      .t {
+        background-color: black;
+      }
+    }
+    
+
+    
   }
 
   
