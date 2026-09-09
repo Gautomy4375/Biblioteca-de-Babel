@@ -14,6 +14,14 @@
   body {
     margin: 0;
   }
+  h2, h1, p {
+    padding: 0px;
+    margin: 0px;
+}
+
+
+
+
   
   .barra {
     position: fixed;
@@ -199,58 +207,120 @@
 
   .arriba {
     margin-top: 60px;
-    padding-left: 2vw;
-    padding-right: 2vw;
+    padding-top: 8vh;
+    padding-left: 8vw;
+    padding-right: 8vw;
+    gap: 9vw;
     display: flex;
 
-    h2, h1, p {
-        padding: 0px;
-        margin: 0px;
+
+    h2 {
+        font-size: 2.7rem;
     }
 
     .info {
-        width: 92vw;
+        width: 50vw;
+        display: flex;
+        flex-direction: column;
+        gap: 3.5vh;
+        .nombres {
+            .list-name {
+                font-size: 3.75rem;
+            }
+
+        }
+        hr {
+            width: 100%;
+        }
+        .desc {
+            .descripcion {
+                font-size: 1.8rem;
+
+            }
+        }
     }
 
     .likes {
-        width: 35vw;
-        background-color: cyan;
-        .nrolikes {
+        display: flex;
+        justify-content: center;
+        .container {
+            width: 20vw;
+            height: 19vh;
+            background-color: cyan;
             display: flex;
+            flex-direction: column;
+            justify-content: center;
 
-            .heart-toggle {
-                display: inline-block;
-              
-                /* Hide checkbox control */
-                input {
-                  display: none !important;
-              
-                  /* Turn heart red when checked */
-                  &:checked + label .heart {
-                    fill: #e0245e;
+            h2{
+                margin-left: 10%;
+                font-size: 2.25rem;
+            }
+            .nrolikes {
+                margin-left: 10%;
+                display: flex;
+                .heart-toggle {
+                    display: inline-block;
+                  
+                    /* Hide checkbox control */
+                    input {
+                      display: none !important;
+                  
+                      /* Turn heart red when checked */
+                      &:checked + label .heart {
+                        fill: #e0245e;
+                      }
+                    }
+                  
+                    /* Label & Icon Styles */
+                    label {
+                      cursor: pointer;
+                      display: inline-block;
+                      width: 32px;
+                      height: 32px;
+                  
+                      .heart {
+                        width: 100%;
+                        height: 100%;
+                        display: block;
+                        fill: #d3d3d3; /* Default gray */
+                        transition: fill 0.2s ease, transform 0.15s ease;
+                      }
+                  
+                      &:active .heart {
+                        transform: scale(0.85);
+                      }
+                    }
                   }
+                
+                .nrodelikes {
+                    font-size: 3.125rem;
                 }
-              
-                /* Label & Icon Styles */
-                label {
-                  cursor: pointer;
-                  display: inline-block;
-                  width: 32px;
-                  height: 32px;
-              
-                  .heart {
-                    width: 100%;
-                    height: 100%;
-                    display: block;
-                    fill: #d3d3d3; /* Default gray */
-                    transition: fill 0.2s ease, transform 0.15s ease;
-                  }
-              
-                  &:active .heart {
-                    transform: scale(0.85);
-                  }
-                }
-              }
+            }
         }
     }
   }
+
+  .libros-grid {
+    display: grid;
+
+    grid-template-columns: repeat(5, 1fr); 
+    gap: 5vw;
+    padding: 20px;
+
+    .libro {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        p {
+            padding-top: 1vh;
+            text-align: center;
+            font-size: 2rem;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+    }

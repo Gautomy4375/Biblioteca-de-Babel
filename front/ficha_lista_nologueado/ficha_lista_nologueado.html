@@ -73,17 +73,17 @@
         <section class="info">
             <div class="nombres">
                 <h1 class="list-name" id="list-name">Nombre de Lista</h1>
-                <h2 id="author-name">Nombre de Autor</h2>
+                <h2 id="author-name" class="author-name">Nombre de Autor</h2>
             </div>
-
+            <hr>
             <div class="desc">
                 <h2>Descripción</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus ea, totam, repellat esse nisi autem nam distinctio at sequi blanditiis placeat, eos animi porro quia numquam dicta earum ipsam ex.
+                <p class="descripcion" id="descripcion">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus ea, totam, repellat esse nisi autem nam distinctio at sequi blanditiis placeat, eos animi porro quia numquam dicta earum ipsam ex.
                 Dolorem illum fuga sunt consequatur debitis eius voluptatibus quaerat distinctio eum repudiandae. Id nihil ratione eos natus dignissimos aliquam quidem quod. Illum quod dolore reprehenderit exercitationem repellat eius eum? Inventore?</p>
             </div>
         </section>
         <section class="likes">
-            <div>
+            <div class="container">
                 <h2>Likes</h2>
                 <div class="nrolikes">
                     <div class="nrodelikes" id="nrodelikes">###</div>
@@ -99,6 +99,13 @@
             </div>
         </section>
     </article>
+    <article class="libros-grid" id="libros-grid">
+        <template id="libro-template">
+            <div class="libro">
+                <img src="" alt="Portada">
+                <p class="titulo"></p>
+            </div>
+        </template>
 
 
     <script src="ficha_lista_nologueado.js"></script>
