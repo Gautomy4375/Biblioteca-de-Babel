@@ -1,0 +1,203 @@
+*{
+    margin: 0px;
+    padding: 0;
+    box-sizing: 0;
+}
+
+.mi-barra {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #1e1e24;
+    color: #ffffff;
+    opacity: 0.8;
+  
+   
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; 
+    gap: 30px; 
+  
+    padding: 0 20px;
+    box-sizing: border-box;
+    z-index: 1000;
+  }
+  .nombre {
+    font-size: 1.3rem;
+    font-weight: bold;
+  }
+  
+  
+  .menu {
+    display: flex;
+    gap: 68.55px; 
+    font-size: 30px;
+  }
+  
+  .menu a {
+    color: white;
+    text-decoration: none;
+  }
+
+  .logo {
+    width: 40px;
+    height: 40px;
+    position: relati ;
+    background-color: #d9d9d9;
+  }
+  .logo_perfil {
+    width: 40px;
+    height: 40px;
+    position: relative;
+  }
+  
+  .buscador {
+      border-radius: 21000px;
+      border-style: solid;
+      border-color: white;
+    }
+    
+    .barra {
+        position: relative;
+        display: inline-block;
+    }
+    .input-container { 
+        position: relative;
+        display: inline-block;
+        width: 318px; 
+        padding-right: 150px;
+
+}
+  
+  .input-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;  
+    height: 20px;
+    pointer-events: none; 
+  }
+  
+  
+  .input-container input {
+    width: 100%;
+    padding: 10px 12px;
+    padding-left: 40px; 
+    box-sizing: border-box;
+  }
+
+  /*Ytsma dice que hasta aca es el header*/
+
+  .arriba{
+    width: 100%;
+    height: 28vh;
+    margin-top: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .popu{
+        background-color: #d9d9d9;
+        width: 26.6875rem;
+        height: 5.125rem;
+    }
+  }
+  .populares{
+    width: 100%;
+    height: 21.67vw;
+    display: flex;
+    justify-content: center;
+  
+  
+    .imagenes {
+      width: 81vw;
+      height: 100%;
+      overflow: hidden;
+    }
+  
+    #imagenes {
+      display: flex;
+      gap: 2.4vw;
+    }
+  
+    .ima {
+      flex-shrink: 0;
+      width: 11.5vw ;
+      height: 21.67vw ;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      .title{
+        background-color: black;
+        width: 100%;
+        height: 5.5%;
+      }
+      .imag{
+        background-color: black;
+        width: 100%;
+        height: 75%;
+      }
+      .estrellas{
+        background-color: black;
+        width: 100%;
+        height: 10.4%;
+      }
+    }
+  
+    .a {
+      background-color: aqua;
+    }
+  
+    .b {
+      background-color: brown;
+    }
+  
+    .c {
+      background-color: blue;
+    }
+  
+    .d {
+      background-color: aquamarine;
+    }
+  
+    .e {
+      background-color: cadetblue;
+    }
+  
+    .f {
+      background-color: chocolate;
+    }
+  
+    .g {
+      background-color: chartreuse;
+    }
+  
+    .h {
+      background-color: burlywood;
+    }
+  
+    .i {
+      background-color: blueviolet;
+    }
+  
+    .j {
+      background-color: rgb(146, 94, 148);
+    }
+  }
+  .mas{
+    width: 100%;
+    height: 12.7vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .li{
+        background-color: #d9d9d9;
+        width: 21.4375rem;
+        height: 4.3125rem;
+    }
+  }
