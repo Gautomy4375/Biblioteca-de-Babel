@@ -221,8 +221,8 @@
       
       .star-rating label {
         cursor: pointer;
-        width: 73px;
-        height: 73px;
+        width: 4vw;
+        aspect-ratio: 1/1;
         display: inline-block;
         flex-shrink: 0;
       }
