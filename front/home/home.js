@@ -29,9 +29,9 @@ subtnsend.addEventListener("click", () => {
         if (status === "201") { //todo bien
             mensajesu.innerHTML = "Creación de cuenta exitosa.<br>Bienvenido username!" //donde dice "username" va el username
             mensajesu.style.color = "green"
-            //window.location.href = "link del dashboard de usuario";
+            window.location.href = "../user_dashboard/user_dashboard.html";
             } else if (status === "409") { //400 es la contraseña mal y 404 es el usuario no existe
-            mensajesu.innerText = "Este nombre de usuario o un usuario con este mail ya existe."
+            mensajesu.innerText = "Este ya existe una cuenta con este mail y/o nombre de usuario."
             mensajesu.style.color = "red"
             } 
     }
@@ -58,11 +58,11 @@ sibtnsend.addEventListener("click", () => {
     console.log("Saved:", passwordsisave);
 
     //aca se manda al back
-    let status = "400" //lo pongo a mano para probar, pero llega del back
+    let status = "200" //lo pongo a mano para probar, pero llega del back
     if (status === "200") { //todo bien
         mensajesi.innerText = "Bienvenido " + "username" +" !" //donde dice "username" va el username
         mensajesi.style.color = "green"
-        //window.location.href = "link del dashboard de usuario";
+        window.location.href = "../user_dashboard/user_dashboard.html";
      } else if (status === "400"||status === "404") { //400 es la contraseña mal y 404 es el usuario no existe
         mensajesi.innerText = "El nombre de usuario, el mail y/o la contarseña son incorrectos."
         mensajesi.style.color = "red"
