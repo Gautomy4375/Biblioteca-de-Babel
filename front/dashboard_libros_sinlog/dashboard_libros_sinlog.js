@@ -43,8 +43,3 @@ function ant() {
         imag.style.transform = `translateX(-${posi * 14}vw)`;
     }
 }
-
-
-
-
- 
