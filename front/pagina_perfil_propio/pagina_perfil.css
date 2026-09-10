@@ -478,60 +478,28 @@ body{
     }
   }
 }
-.abajo_reseñas{
-  background-color: #f3f2f2;
+.abajo{
   width: 100%;
-  height: 136%;
+  height: 128vh;
+  display: flex;
+  flex-direction: column;
 
-  .reseña_pri{
+  .res{
     width: 100%;
-    height: 6.76%;
+    height: 8.7vh;
     display: flex;
     align-items: center;
-    
-    .reseña_pri_text{
-      background-color:  #D9D9D9;
-      width: 9.8%;
-      height: 38.29%;
-      margin-left: 4.2%;
+
+    .title{
+      width: 11.8125rem;
+      height: 2.25rem;
+      background-color: #D9D9D9;
+      margin-left: 4.25vw;
     }
   }
-  .res_1{
-    height: 25%;
-    width: 100%;
-    background-color: rgb(102, 102, 102);
-
-    .res_1_den{
-      
-      width: 51.4%;
-      height: 100%;
-      margin-left: 4.2%;
-      display: flex;
-      align-items: center;
-
-      .foto_res_1{
-        display: block;
-        background-color: #1e1e24;
-        width: 15.8%;
-        height: 66.2%;
-      }
-       
-    }
-  }
-  .res_2{
-    height: 25%;
-    width: 100%;
-    background-color: rgb(102, 102, 102);
-  }
-  .res_3{
-    height: 25%;
-    width: 100%;
-    background-color: rgb(102, 102, 102);
-  }
-  .res_4{
-    height: 25%;
-    width: 100%;
-    background-color: rgb(102, 102, 102);
-  }
-
+  
 }
+.resb{
+    width: 89vw;
+    margin-left: 4.25vw ;
+  }
