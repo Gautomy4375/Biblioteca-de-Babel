@@ -54,7 +54,6 @@
       position: relative;
       display: inline-block;
       width: 23%;
-      padding-right: 10%;
       height: 39px;
   
     @media (width<1500px) {
@@ -93,22 +92,66 @@
         width: 40%;
         display: flex;
         flex-direction: row;
-        gap: 35%;
+        gap: 3vw;
         font-size: 30px;
         padding-right: clamp(20px, 5%, 50px);
         button {
-          width: 30vh;
+          display: flex;
+          align-items: center;
+          justify-content: center;
           height: 40px;
           border-radius: 8px;
           background: #FFF;
           border-style: solid;
           border-color: #FFF;
-  
+          
           a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 8vw;
+            gap: 5px;
+            height: 40px;
             color: #000000;
             text-decoration: none;
             text-wrap: nowrap;
             font-size: 20px;
+
+            img {
+              height: 90%;
+              aspect-ratio: 1/1;
+            }
+          }
+        }
+      }
+
+      .botonperfil {
+        position: absolute;
+        right: 5vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 30vh;
+        height: 40px;
+        border-radius: 8px;
+        background-color:transparent;
+        border-style: none;
+        border-color: #FFF;
+
+        a {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 5px;
+          height: 40px;
+          color: white;
+          text-decoration: none;
+          text-wrap: nowrap;
+          font-size: 20px;
+
+          img {
+            height: 90%;
+            aspect-ratio: 1/1;
           }
         }
       }
