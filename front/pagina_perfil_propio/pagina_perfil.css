@@ -1,4 +1,8 @@
-
+*{
+    margin: 0px;
+    padding: 0;
+    box-sizing: 0;
+}
 
 .mi-barra {
     position: fixed;
@@ -91,3 +95,148 @@
   padding: 0;
   box-sizing: 0;
 }
+.mi-barra {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #1e1e24;
+    color: #ffffff;
+    opacity: 0.8;
+  
+   
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; 
+    gap: 30px; 
+  
+    padding: 0 20px;
+    box-sizing: border-box;
+    z-index: 1000;
+  }
+  .nombre {
+    font-size: 1.3rem;
+    font-weight: bold;
+  }
+  
+  
+  .menu {
+    display: flex;
+    gap: 68.55px; 
+    font-size: 30px;
+  }
+  
+  .menu a {
+    color: white;
+    text-decoration: none;
+  }
+
+  .logo {
+    width: 40px;
+    height: 40px;
+    position: relati ;
+    background-color: #d9d9d9;
+  }
+  .logo_perfil {
+    width: 40px;
+    height: 40px;
+    position: relative;
+  }
+  
+  .buscador {
+      border-radius: 21000px;
+      border-style: solid;
+      border-color: white;
+    }
+    
+    .barra {
+        position: relative;
+        display: inline-block;
+    }
+    .input-container { 
+        position: relative;
+        display: inline-block;
+        width: 318px; 
+        padding-right: 150px;
+
+}
+  
+  .input-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;  
+    height: 20px;
+    pointer-events: none; 
+  }
+  
+  
+  .input-container input {
+    width: 100%;
+    padding: 10px 12px;
+    padding-left: 40px; 
+    box-sizing: border-box;
+  }
+
+  /*Ytsma dice que hasta aca es el header*/
+
+  .arriba{
+    margin-top: 60px;
+
+    width: 100%;
+    height: 30vh;
+    display: flex;
+    align-items: center;
+    gap: 31vw;
+
+    .arriba_i{
+      width: 28.8vw;
+      height: 100%;
+      margin-left: 6.3vw;
+      display: flex;
+      align-items: center;
+      gap: 1.8vw;
+
+      .ima{
+        width: 11.5vw;
+        aspect-ratio: 1/1;
+        border-radius: 50%;
+        background-color: #d9d9d9;
+      }
+      .nom_aju{
+        width: 15.5vw;
+        height: 6.7vw;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: space-between;
+
+        .ajustes{
+          width: 8vw;
+          height: 36%;
+          background-color:  #898989;
+
+        }
+        .nom{
+          width: 100%;
+          height: 53%;
+          background-color:  #898989;
+        }
+      }
+    }
+    .arriba_d{
+      width: 20.6vw;
+      height: 5.1vw;
+      display: flex;
+      align-items: center;
+      gap: .7vw;
+
+      .stat{
+        height: 100%;
+        width: 4.375vw;
+        background-color: #d9d9d9;
+      }
+    }
+  }
