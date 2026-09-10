@@ -132,17 +132,17 @@
       justify-content: space-between;
 
       .title{
-        background-color: black;
+        background-color: #d9d9d9;
         width: 100%;
         height: 5.5%;
       }
       .imag{
-        background-color: black;
+        background-color: #d9d9d9;
         width: 100%;
         height: 75%;
       }
       .estrellas{
-        background-color: black;
+        background-color: #d9d9d9;
         width: 100%;
         height: 10.4%;
       }
@@ -199,5 +199,74 @@
         background-color: #d9d9d9;
         width: 21.4375rem;
         height: 4.3125rem;
+    }
+  }
+  .abajo{
+    width: 100%;
+    height: 19.9vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+  
+    .imagene {
+      background-color: #d9d9d9;
+      width: 81.6vw;
+      height: 100%;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+    }
+  
+    #imagene {
+      height: 100%;
+      display: flex;
+      gap: 2.4vw;
+    }
+  
+    .libros {
+      flex-shrink: 0;
+      width: 11.56vw ;
+      height: 100% ;
+    }
+  
+    .k {
+      background-color: aqua;
+    }
+  
+    .l {
+      background-color: brown;
+    }
+  
+    .m {
+      background-color: blue;
+    }
+  
+    .n {
+      background-color: aquamarine;
+    }
+  
+    .o {
+      background-color: cadetblue;
+    }
+  
+    .p {
+      background-color: chocolate;
+    }
+  
+    .q {
+      background-color: chartreuse;
+    }
+  
+    .r {
+      background-color: burlywood;
+    }
+  
+    .s {
+      background-color: blueviolet;
+    }
+  
+    .t {
+      background-color: black;
     }
   }
