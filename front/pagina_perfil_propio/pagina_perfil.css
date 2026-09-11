@@ -240,3 +240,23 @@
       }
     }
   }
+  .medio{
+    width: 100%;
+    height: 33vw;
+    display: grid;
+    grid-template-columns: max-content max-content;
+    gap: 6.4vw;
+
+    .medio_i{
+      width: 48.5vw;
+      height: 100%;
+      background-color: #d9d9d9;
+      margin-left: 6.3vw;
+    }
+
+    .medio_d{
+      width: 31.5vw;
+      height: 100%;
+      background-color: #d9d9d9;
+    }
+  }
