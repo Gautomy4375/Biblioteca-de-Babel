@@ -1,13 +1,12 @@
-let formbu = document.getElementById('formulario-busqueda');
-let inputbu = document.getElementById('buscador');
+let enter = document.getElementById('busca');
+let input = document.getElementById('buscador');
 
-if (formbu && inputbu){
-    formbu.addEventListener('submit', function(event){
-        event.preventDefault();
-        let tex = inputbu.value.trim();
+enter.addEventListener('submit', function(event){
+    event.preventDefault;
 
-        if (tex){
-            window.location.href = `../resultados_busqueda/resultados_busqueda.html?q=${encodeURIComponent(tex)}`
-        }
-    })
-}
+    let titulo = input.ariaValueMax.trim();
+
+    if(titulo){
+        window.location.href= `../resultados_busqueda/resultados_busqueda.html?q=${encodeURIComponent(titulo)}`; 
+    }
+})

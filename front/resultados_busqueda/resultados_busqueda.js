@@ -1,21 +1,10 @@
-let titu = document.getElementById('palabra-buscada');
-let contenedorLibros = document.getElementById('lista');
-let paramUrl = new URLSearchParams(window.location.search);
-let buscado = paramUrl.get('q');
-
-if (buscado){
-    titu.textContent = `"${buscado}"`;
-
-    pedirLibros(buscado);
-}
-else {
-    titu.textContent = "Búsqueda vacía";
-    if (contenedorLibros) {
-        contenedorLibros.textContent = "Por favor, escribí un término en el buscador.";
-    } 
-}
 
 
-async function pedirLibros(palabra) {
-    
-}
+
+/*
+COMO TIENE QUE FUNCIONAR:
+1. CONSIGUE LA BUSQUEDA DEL USUARIO MEDIANTE UN ADDEVENTLISTENER 'ENTER' QUE PONEN EN LA LUPA DE BUSQUEDAS
+2. HACE UN FETCH DE ESE TITULO A LA API QUE ESTA EN EL README QUE GAUDIS PASO. EL UNICO PARAMETRO ES EL TITULO DEL LIBRO
+3. DEVOLVER DATOS AL USUARIO
+
+*/
