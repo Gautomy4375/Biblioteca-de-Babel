@@ -17,91 +17,230 @@
   font-style: normal;
 }
 
+.barra {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background: #842739;
+  color: #ffffff;
 
-.mi-barra {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 60px;
-    background-color: #1e1e24;
-    color: #ffffff;
-    opacity: 0.8;
-  
-   
-    display: flex;
-    align-items: center;
-    justify-content: flex-start; 
-    gap: 30px; 
-  
-    padding: 0 20px;
-    box-sizing: border-box;
-    z-index: 1000;
-  }
-  .nombre {
-    font-size: 1.3rem;
-    font-weight: bold;
-  }
-  
-  
-  .menu {
-    display: flex;
-    gap: 68.55px; 
-    font-size: 30px;
-  }
-  
-  .menu a {
-    color: white;
-    text-decoration: none;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 30px; /* padding de nombre de app */
 
+  padding: 0 20px;
+  box-sizing: border-box;
+  z-index: 1000;
+  
   .logo {
-    width: 40px;
-    height: 40px;
-    position: relati ;
-    background-color: #d9d9d9;
-  }
-  .logo_perfil {
     width: 40px;
     height: 40px;
     position: relative;
   }
-  
-  .buscador {
+  .nombre { /* estilo del "babel" */
+      font-size: 2.5rem;
+      font-weight: 400;
+  }
+  .buscador-container { /*esto es para el padding y etc*/
+    position: relative;
+    display: inline-block;
+    width: 23%;
+    height: 39px;
+
+  @media (width<1500px) {
+      padding-right: 0%;
+    }
+    
+    .buscador {
       border-radius: 21000px;
       border-style: solid;
       border-color: white;
+      height: 39px;
     }
+    input { /*estilos para el placeholder e input del buscador*/
+        width: 100%;
+        padding: 10px 12px;
+        padding-left: 40px;
+        box-sizing: border-box;
+    }
+    .lupita {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 20px;
+      height: 20px;
+      pointer-events: none; /* Permite hacer clic a través de la imagen hacia el input */
+    }
+  }
+
+  .barralinks {
+    width: 70vw;
+    display: flex;
     
-    .barra {
-        position: relative;
-        display: inline-block;
+    .menu {
+      position: relative;
+      width: 40%;
+      display: flex;
+      flex-direction: row;
+      gap: 3vw;
+      font-size: 30px;
+      padding-right: clamp(20px, 5%, 50px);
+      button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 40px;
+        border-radius: 8px;
+        background: #FFF;
+        border-style: solid;
+        border-color: #FFF;
+        
+        a {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 8vw;
+          gap: 5px;
+          height: 40px;
+          color: #000000;
+          text-decoration: none;
+          text-wrap: nowrap;
+          font-size: 20px;
+
+          img {
+            height: 90%;
+            aspect-ratio: 1/1;
+          }
+        }
+      }
     }
-    .input-container { 
-        position: relative;
-        display: inline-block;
-        width: 318px; 
-        padding-right: 150px;
+
+    .botonperfil {
+      position: absolute;
+      right: 5vw;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 30vh;
+      height: 40px;
+      border-radius: 8px;
+      background-color:transparent;
+      border-style: none;
+      border-color: #FFF;
+
+      a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        height: 40px;
+        color: white;
+        text-decoration: none;
+        text-wrap: nowrap;
+        font-size: 20px;
+
+        img {
+          height: 90%;
+          aspect-ratio: 1/1;
+        }
+      }
+    }
+  }
+}
+
+.signup {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(128, 128, 128, .5);
+  z-index: 10000;
+  
+  /* transition */
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.signup.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.signup .signup1 {
+  z-index: 100000;
+  display: flex;
+  flex-direction: column;
+  height: 40%;
+  aspect-ratio: 1/2;
+  background-color: cyan;
+  justify-content: space-between;
+  
+  .boton {
+      width: 65%;
+      height: 5%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      img {
+          aspect-ratio: 1/1;
+          height: 65%;
+      }
+  }
+}
+
+
+.signin {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(128, 128, 128, .5);
+  z-index: 10000;
+  
+  /* transition */
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.signin.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.signin .signin1 {
+  z-index: 100000;
+  display: flex;
+  flex-direction: column;
+  height: 40%;
+  aspect-ratio: 1/2;
+  background-color: cyan;
+  justify-content: space-between;
+  
+  
 
 }
-  
-  .input-icon {
-    position: absolute;
-    left: 12px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 20px;  
-    height: 20px;
-    pointer-events: none; 
-  }
-  
-  
-  .input-container input {
-    width: 100%;
-    padding: 10px 12px;
-    padding-left: 40px; 
-    box-sizing: border-box;
-  }
+.boton {
+    width: 65%;
+    height: 5%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+}
 
   /*Ytsma dice que hasta aca es el header*/
 
