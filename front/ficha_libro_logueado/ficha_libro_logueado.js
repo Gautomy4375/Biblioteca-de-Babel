@@ -8,3 +8,9 @@ reviewOverlay.addEventListener('click', (event) => {
         reviewOverlay.classList.add('hidden');
     }
     });
+    
+    libro = 'harry potter y la odisea'
+    ////async function(libro) {
+    //    let descripcion = await fetch(`/api/libros/:${libro}`)
+    //} 
+    //let descicipon = descripcion.descripcion 
