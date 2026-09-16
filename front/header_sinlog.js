@@ -323,9 +323,11 @@ window.opensignup = function () {
           } else {
               let status = "201";
               if (status === "201") {
-                  mensajesu.innerHTML = "Creación de cuenta exitosa.<br>Bienvenido " + usernamesusave + "!";
+                  mensajesu.innerHTML = "Creación de cuenta exitosa.<br>Bienvenido " + usernamesusave + "!<br>Redirigiendote...";
                   mensajesu.style.color = "green";
-                  window.location.href = "../user_dashboard/user_dashboard.html";
+                  setTimeout(() => {
+                    window.location.href = "../user_dashboard/user_dashboard.html"; // espera de 3 seg
+                }, 3000);
               } else if (status === "409") {
                   mensajesu.innerText = "Ya existe una cuenta con este mail y/o nombre de usuario.";
                   mensajesu.style.color = "red";
