@@ -230,6 +230,7 @@ body{
           }
           
           .verm{
+            display: block;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -245,6 +246,7 @@ body{
             font-style: normal;
             font-weight: 400;
             line-height: normal;
+            text-decoration: none;
 
 
           }
@@ -329,9 +331,22 @@ body{
           
           }
           .vermp{
+            display: block;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             width: 7.6875rem;
             height: 1.75rem;
-            background-color: #FAFAFA;
+            border-radius: .4vw;
+            background-color: #842739;
+            color: #FFF;
+            text-align: center;
+            font-family: "Plus Jakarta Sans";
+            font-size: 1.5625rem;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            text-decoration: none;
           }
         }
       }
