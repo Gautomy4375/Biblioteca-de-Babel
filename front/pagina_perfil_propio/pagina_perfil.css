@@ -326,3 +326,27 @@ body{
       }
     }
   }
+  .abajo{
+    .titleres{
+      height: 8.7vh;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      
+      .title_resea{
+        width: 11.8125rem;
+        height: 2.25rem;
+        background-color: #d9d9d9;
+        margin-left: 6.3vw;
+      }
+    }
+    .res{
+      height: 31.5vh;
+      width: 100%;
+      background-color: #FAFAFA;
+      border-bottom: 3px solid black;
+    }
+    .primero{
+      border-top: 3px solid black;
+    }
+  }

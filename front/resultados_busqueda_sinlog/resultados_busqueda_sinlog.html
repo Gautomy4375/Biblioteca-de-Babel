@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="resultados_busqueda_sinlog.css">
+
+        <!--FONTS-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="mi-barra">
+        <img class="logo" src="https://img.magnific.com/vector-gratis/vector-degradado-logotipo-colorido-pajaro_343694-1365.jpg?semt=ais_test_b&w=740&q=80" alt="">
+        <div class="nombre">BABEL</div>
+        <div class="input-container">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9wiYOfiSl6tCHwpDPn72D9SZys0KGLXcgtrD5GIAWJQ&s=10" alt="Icono" class="input-icon">
+        <form id="formulario-busqueda">
+            <input class="buscador"  type="text" placeholder="Buscar...">
+        </form>
+        </div>
+        <div class="barra">
+            <nav class="menu">
+            <a href="../dashboard_libros_log/dashboard_libros_log.html">Libros</a>
+            <a href="../listas/listas.html">Listas</a>
+            <a href="#">Clubes</a>
+            <a href="pagina_perfil.html">nombre de perfil</a>
+            <a href="#">
+                <img class="logo_perfil" src="https://cdn-icons-png.flaticon.com/512/12225/12225881.png" alt="Imagen de perfil">
+            </a>
+            </nav>
+        </div>
+      </header>
+      <main class="ejemplo">
+        <h2>Resultados para: <span id="palabra-buscada" style="color: purple;"></span></h2>
+        <div id="lista"></div>
+      </main>
+    
+    <script src="resultados_busqueda_sinlog.js"></script>
+</body>
+</html>

@@ -44,7 +44,7 @@ function mostrarLibros(libros){
     if (i < libros.length){
         let divs = document.createElement('a');
         divs.classList.add('boton_libro');
-        divs.href= `../ficha_libro_logueado/ficha_libro_logueado.html?id=${libros.id}`
+        divs.href= `../ficha_libro_logueado/ficha_libro_nologueado.html?id=${libros.id}`
 
         divs.innerHTML=`
         <img><img>
