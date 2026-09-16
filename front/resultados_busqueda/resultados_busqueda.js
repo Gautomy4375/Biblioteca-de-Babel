@@ -16,7 +16,43 @@ else{
 }
 
 async function buscarLibros(palabra) {
-    
+
+    let endpoint = '/api/libros'; //ES UN EJEMPLO ACA VA LO DE GAUDIO
+
+    let respuesta = await fetch(endpoint);
+
+    if (respuesta.ok){
+        let libros = await respuesta.json();
+
+        if (libros.length > 0){
+            mostrarLibros(libros);
+        }
+        else{
+            conLi.textContent = 'No se encontraron libros'
+        }
+    }
+    else{
+        conLi.textContent = 'Hubo un error'
+    }
+}
+
+function mostrarLibros(libros){
+    conLi.innerHTML = '';
+
+    let i = 0;
+
+    if (i < libros.length){
+        let divs = document.createElement('a');
+        divs.classList.add('boton_libro');
+
+        divs.innerHTML=`
+        <img><img>
+        <h3><h3>
+
+
+
+        `
+    } //aca voy a poner los endpoints que me da gaudio (NO ME LO DA PORQUE NO SE NO LE SALE)
 }
 
 
