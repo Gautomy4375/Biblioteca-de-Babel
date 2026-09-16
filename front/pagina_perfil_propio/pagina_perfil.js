@@ -1,6 +1,12 @@
 let enter = document.getElementById('busca');
 let input = document.getElementById('buscador');
 
+
+let nombre = document.getElementById('nom');
+nombre.textContent = 'nombre';
+
+
+
 enter.addEventListener('submit', function(event){
     event.preventDefault();
 
@@ -10,3 +16,4 @@ enter.addEventListener('submit', function(event){
         window.location.href= `../resultados_busqueda/resultados_busqueda.html?q=${encodeURIComponent(titulo)}`; 
     }
 })
+
