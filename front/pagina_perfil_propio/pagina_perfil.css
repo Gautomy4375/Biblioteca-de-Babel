@@ -157,7 +157,6 @@ body{
           .lib{
             width: 7.3vw;
             height: 100%;
-            background-color: #FAFAFA;
           }
         }
       }
@@ -165,17 +164,26 @@ body{
       .le{
         width: 100%;
         height: 51%;
-        background-color: #d9d9d9;
+        border-radius: .4vw;
+        background: #FFF;
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: 2.4vh;
 
         .t{
+          display: flex;
+          justify-content: center;
           margin-top: 3.7vh;
           width: 14.125rem;
           height: 2.5625rem;
-          background-color: #FAFAFA;
+          color: #1F1A16;
+          text-align: center;
+          font-family: Lora;
+          font-size: 32px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
         }
 
         .aba{
@@ -222,9 +230,23 @@ body{
           }
           
           .verm{
-            width: 11.9375rem;
-            height: 2.8125rem;
-            background-color: #FAFAFA;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: .4vw;
+            width: 7rem;
+            height: 2rem;
+            margin-left: 3vw;
+            background-color: #842739;
+            color: #FFF;
+            text-align: center;
+            font-family: "Plus Jakarta Sans";
+            font-size: 1.5625rem;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+
+
           }
         }
       }
