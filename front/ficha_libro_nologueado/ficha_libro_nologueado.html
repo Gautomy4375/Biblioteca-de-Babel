@@ -29,7 +29,8 @@
       <div class="tapayresenia">
         <img src="https://images.cdn2.buscalibre.com/fit-in/360x360/d9/1f/d91fe3e3e534deec6995a67458a17126.jpg" alt="">
         <div class="title-review">
-          <div class="lora-font titulo">El Principito <p class="lora-font anio">año</p></div>
+          <div class="lora-font titulo book-title" id="titulo"></div>
+          <div class="lora-font anio" id="año"></div>
           <textarea class="lora-font input-review" rows="1" placeholder="Escribí tu reseña..."></textarea>
           <section class="lora-font star-rating">
             <input type="radio" id="star5" name="rating" value="5" />
@@ -77,7 +78,7 @@
               </svg>
             </label>
           </section>
-          <button class="lora-font dato" id="reviewbtnsend">Sign Up</button>
+          <button class="lora-font dato" id="reviewbtnsend">Publicar</button>
         </div>
         </div>
     </section>
@@ -85,58 +86,58 @@
 <!-- #endregion -->
     <section class="lora-font todo-arriba">
         <section class="lora-font izq">
-            <img class="lora-font tapa" src="https://images.cdn2.buscalibre.com/fit-in/360x360/d9/1f/d91fe3e3e534deec6995a67458a17126.jpg" alt="tapa">
+            <img class="lora-font tapa" src="https://images.cdn2.buscalibre.com/fit-in/360x360/d9/1f/d91fe3e3e534deec6995a67458a17126.jpg" alt="tapa" id="tapa">
             <section class="lora-font links">
                 <section class="lora-font comprar">
                     <div class="lora-font titulo">Comprar Libro</div>
                     <div class="link-botones-buy">
-                      <button class="plus-jakarta-sans link-boton"><a href="https://cuspide.com/" target="_blank">Yenny</a></button>
-                      <button class="plus-jakarta-sans link-boton"><a href="https://cuspide.com/" target="_blank">Cúspide</a></button>
-                      <button class="plus-jakarta-sans link-boton"><a href="https://cuspide.com/" target="_blank">Otra</a></button>
+                      <button class="plus-jakarta-sans link-boton"><a target="_blank" id="link1">Yenny</a></button>
+                      <button class="plus-jakarta-sans link-boton"><a target="_blank" id="link2">Cúspide</a></button>
+                      <button class="plus-jakarta-sans link-boton"><a target="_blank" id="link3">Otra</a></button>
                     </div>
                 </section>
                 <hr>
                 <section class="lora-font gratis">
                     <div class="lora-font titulo">Leer Gratis</div>
-                    <button class="plus-jakarta-sans link-boton"><a href="https://archive.org/" target="_blank">Link Gratis</a></button>
+                    <button class="plus-jakarta-sans link-boton"><a target="_blank" id="link4">Link Gratis</a></button>
                 </section>
             </section>
         </section>
 
         <section class="lora-font med">
             <section class="lora-font title_auth_sinops">
-                <div class="lora-font titulo">El Principito</div>
-                <div class="lora-font autor">Autor</div>
-                <div class="lora-font sinopsis">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora ducimus esse, et magni rem alias ipsam tenetur nihil nam provident consectetur, eos accusantium quis quasi explicabo ad voluptatem aut modi? Lorem ipsum dolor sit amet consectetur adipisicing elit. A illo dolorem laudantium quidem deleniti odio ducimus facilis velit! Vero quisquam sunt voluptates aspernatur eos optio esse ratione nesciunt laudantium quae?</div>
+                <div class="lora-font titulo book-title" id="titulo"></div>
+                <div class="lora-font autor" id="autor"></div>
+                <div class="lora-font sinopsis" id="desc"></div>
             </section>
 
             <section class="lora-font specs">
                 <section class="lora-font renglon">
                     <div class="lora-font spec divider-middle divider-bottom">
-                        <div class="lora-font spec-name">idioma</div>
-                        <div class="lora-font spec-info">idioma</div>
+                        <div class="lora-font spec-name">Idioma</div>
+                        <div class="lora-font spec-info" id="idioma"></div>
                     </div>
                     <div class="lora-font spec divider-middle spec-abajo">
-                        <div class="lora-font spec-name">año</div>
-                        <div class="lora-font spec-info">año</div>
+                        <div class="lora-font spec-name">Fecha</div>
+                        <div class="lora-font spec-info anio" id="año"></div>
                     </div>
                 </section>
 
                 <section class="lora-font renglon">
                     <div class="lora-font spec  divider-bottom">
-                        <div class="lora-font spec-name">genero</div>
-                        <div class="lora-font spec-info">genero</div>
+                        <div class="lora-font spec-name">Género</div>
+                        <div class="lora-font spec-info" id="genero"></div>
                     </div>
                     <div class="lora-font spec spec-abajo">
-                        <div class="lora-font spec-name">hojas</div>
-                        <div class="lora-font spec-info">hojas</div>
+                        <div class="lora-font spec-name"> Cant. de Hojas</div>
+                        <div class="lora-font spec-info" id="hojas"></div>
                     </div>
                 </section>
             </section>
         </section>
 
         <section class="lora-font der">
-            <section class="lora-font star-rating" onclick=opensignup()>
+            <section onclick=opensignup() class="lora-font star-rating">
                 <input type="radio" id="star5" name="rating" value="5" />
                 <label for="star5" title="5 stars">
                   <svg viewBox="0 0 1280 1181" class="lora-font star">
@@ -193,13 +194,13 @@
             </section>
             <hr>
             <section class="lora-font botones">
-                <button class="plus-jakarta-sans boton ancho" onclick="opensignup()">Añadir Reseña</button>
+                <button onclick=opensignup() class="plus-jakarta-sans boton ancho">Añadir Reseña</button>
             </section>
             <hr>
             <section class="lora-font promedio">
                 <div class="lora-font spec-name texto-promedio">Ratings</div>
                 <div class="lora-font spec-info texto-promedio">Promedio</div>
-                <div class="lora-font puntaje texto-promedio nro-promedio">6.7</div>
+                <div class="lora-font puntaje texto-promedio nro-promedio" id="promedio"></div>
                 <div class="lora-font star-promedio">
                     <svg viewBox="0 0 1280 1181" class="lora-font star">
                       <g transform="translate(0.000000,1181.000000) scale(0.100000,-0.100000)">
@@ -269,8 +270,8 @@
                   </svg>
             </section>
             <section class="lora-font usuario">
-                <img class="lora-font profile_pic" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/3840px-Default_pfp.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail" alt="">
-                <a href="../pagina_perfil_ajeno/pagina_perfil_ajeno.html" class="lora-font username">username</a>
+                <img class="lora-font profile_pic" id="fotoperfil1" alt="">
+                <a id="username1" class="lora-font username">username</a>
             </section>
             <section class="lora-font texto">
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Velit animi quod consequuntur enim excepturi aliquid sit. Et laudantium numquam doloremque accusamus saepe autem dolores consectetur hic adipisci? Maxime, dolor cupiditate.
@@ -306,8 +307,8 @@
                   </svg>
             </section>
             <section class="lora-font usuario">
-                <img class="lora-font profile_pic" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/3840px-Default_pfp.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail" alt="">
-                <a href="../pagina_perfil_ajeno/pagina_perfil_ajeno.html" class="lora-font username">username</a>
+                <img class="lora-font profile_pic" id="fotoperfil2" alt="">
+                <a id="username2" class="lora-font username">username</a>
             </section>
             <section class="lora-font texto">
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Velit animi quod consequuntur enim excepturi aliquid sit. Et laudantium numquam doloremque accusamus saepe autem dolores consectetur hic adipisci? Maxime, dolor cupiditate.
@@ -343,8 +344,8 @@
                   </svg>
             </section>
             <section class="lora-font usuario">
-                <img class="lora-font profile_pic" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/3840px-Default_pfp.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail" alt="">
-                <a href="../pagina_perfil_ajeno/pagina_perfil_ajeno.html" class="lora-font username">username</a>
+                <img class="lora-font profile_pic" id="fotoperfil3" alt="">
+                <a id="username3" class="lora-font username">username</a>
             </section>
             <section class="texto">
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Velit animi quod consequuntur enim excepturi aliquid sit. Et laudantium numquam doloremque accusamus saepe autem dolores consectetur hic adipisci? Maxime, dolor cupiditate.
