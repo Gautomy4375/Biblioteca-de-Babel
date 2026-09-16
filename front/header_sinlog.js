@@ -25,7 +25,10 @@ window.opensignup = function () {
     font-optical-sizing: auto;
     font-style: normal;
   }
-  
+  button {
+  cursor: pointer;
+  }
+
   
 
     .barra {
