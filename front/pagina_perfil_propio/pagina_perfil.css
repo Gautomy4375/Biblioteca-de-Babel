@@ -332,6 +332,8 @@ body{
       width: 100%;
       display: flex;
       align-items: center;
+
+
       
       .title_resea{
         width: 11.8125rem;
@@ -340,13 +342,22 @@ body{
         margin-left: 6.3vw;
       }
     }
-    .res{
-      height: 31.5vh;
-      width: 100%;
-      background-color: #FAFAFA;
-      border-bottom: 3px solid black;
+    .todas_res{
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      .res{
+        height: 31.5vh;
+        width: 86.8vw;
+        background-color: #FAFAFA;
+      }
+      .linea{
+        margin: 0;
+        width: 86.8vw;
+        height: 2px;
+        background-color: black;
+      }
     }
-    .primero{
-      border-top: 3px solid black;
-    }
+    
   }
