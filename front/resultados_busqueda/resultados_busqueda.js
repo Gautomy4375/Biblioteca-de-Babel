@@ -1,7 +1,16 @@
+let q = new URLSearchParams(window.location.search);
+let titu = urlParams.get('q');
 
+if (titu){
+    let conTi = document.getElementById('palabra-buscada');
+
+    
+
+}
 
 
 /*
+GAUDIO:
 COMO TIENE QUE FUNCIONAR:
 1. CONSIGUE LA BUSQUEDA DEL USUARIO MEDIANTE UN ADDEVENTLISTENER 'ENTER' QUE PONEN EN LA LUPA DE BUSQUEDAS
 2. HACE UN FETCH DE ESE TITULO A LA API QUE ESTA EN EL README QUE GAUDIS PASO. EL UNICO PARAMETRO ES EL TITULO DEL LIBRO
