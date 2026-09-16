@@ -6,6 +6,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="home.css">
+    <script src="../header_sinlog.js" defer></script>
+
     <title>Home</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
@@ -19,66 +21,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
 </head>
 <body>
-<!-- #region signup popup -->
-    <article id="signupOverlay" class="signup hidden">
-        <section class="signup1">
-            <h1>Sign Up</h1>
-            <div class="cat">
-                <div class="dato">Nombre de Usuario</div>
-                <input type="text" class="input-text" name="" id="usernamesu">
-            </div>
-            <div class="cat">
-                <div class="dato">E-Mail</div>
-                <input type="text" class="input-text" name="" id="mailsu">
-            </div>
-            <div class="cat">
-                <div class="dato">Contraseña</div>
-                <input type="text" class="input-text" name="" id="passwordsu">
-            </div>
-            <button class="dato boton" id="signupbtnsend">Sign Up</button>
-            <div id="mensajesu" class="mensajesu"></div>
-        </section>
-    </article>
-
-<!-- #endregion -->
-
-<!-- #region signin popup -->
-<article id="signinOverlay" class="signup hidden">
-    <section class="signin1">
-        <h1>Sign Up</h1>
-        <div class="cat">
-            <div class="dato">Nombre de Usuario o E-Mail</div>
-            <input type="text" class="input-text" name="" id="usernamesi">
-        </div>
-
-        <div class="cat">
-            <div class="dato">Contraseña</div>
-            <input type="text" class="input-text" name="" id="passwordsi">
-        </div>
-        <button class="boton" id="signinbtnsend">Sign in</button>
-
-        <div id="mensajesi" class="mensajesi"></div>
-    </section> 
-</article>
-<!-- #endregion -->
-
-    <section class="barra">
-        <img class="logo" src="../logo.svg" alt="">
-        <div class="nombre lora-font">Babel</div>
-        <div class="buscador-container">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9wiYOfiSl6tCHwpDPn72D9SZys0KGLXcgtrD5GIAWJQ&s=10" alt="Icono" class="lupita">
-            <input class="buscador plus-jakarta-sans" type="text" placeholder="Buscar...">
-        </div>
-        <div class="barralinks">
-            <nav class="menu plus-jakarta-sans">
-                <button class="botonmenu plus-jakarta-sans"><a href="#">Libros</a></button>
-                <button class="botonmenu plus-jakarta-sans"><a href="#">Listas</a></button>
-                <button onclick="opensignin()" class="botonmenu plus-jakarta-sans"><a href="#">Sign In</a></button>
-                <button onclick="opensignup()" class="botonmenu plus-jakarta-sans"><a href="#">Sign Up</a></button>
-            </nav>
-        </div>
-    </section>
-
     <section class="foto">
         <section class="citaeinscribirse">
             <div class="cita box exit">
@@ -88,7 +30,7 @@
             <div class="descripcion lora-font">
                 Llevá un registro de los libros que leiste.<br>Guardá los que querés leer.<br>Contale a tus amigos cual es tu gusto
             </div>
-            <button class="plus-jakarta-sans" onclick="opensignup()"><a href="">Empezá, ¡es gratis!</a></button>
+            <button class="plus-jakarta-sans" onclick="opensignup()"><a href="javascript:void(0)">Empezá, ¡es gratis!</a></button>
         </section>
     </section>
 
