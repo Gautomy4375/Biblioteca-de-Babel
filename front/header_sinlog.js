@@ -253,8 +253,8 @@ window.opensignup = function () {
               </form>
               <div class="barralinks">
                   <nav class="menu plus-jakarta-sans">
-                      <button class="botonmenu plus-jakarta-sans"><a href="#">Libros</a></button>
-                      <button class="botonmenu plus-jakarta-sans"><a href="#">Listas</a></button>
+                      <button class="botonmenu plus-jakarta-sans"><a href="../dashboard_libros_sinlog/dashboard_libros_sinlog.html">Libros</a></button>
+                      <button class="botonmenu plus-jakarta-sans"><a href="../listas_nologueado/listas_nologueado.html">Listas</a></button>
                       <button onclick="opensignin()" class="botonmenu plus-jakarta-sans"><a href="javascript:void(0)">Sign In</a></button>
                       <button onclick="opensignup()" class="botonmenu plus-jakarta-sans"><a href="javascript:void(0)">Sign Up</a></button>
                   </nav>
