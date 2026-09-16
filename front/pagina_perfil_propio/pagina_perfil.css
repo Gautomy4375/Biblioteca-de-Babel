@@ -262,18 +262,28 @@ body{
       .pl{
         width: 100%;
         height: 33%;
-        background-color: #d9d9d9;
+        border-radius: .4vw;
+        background: #FFF;
         display: flex;
         flex-direction: column;
         gap: 1.4vh;
 
 
         .titl{
+          display: flex;
+          align-items: center;
+          justify-content: center;
           width: 9.375rem;
           height: 1.875rem;
-          background-color: #FAFAFA;
           margin-top: 1.8vh;
           margin-left: 1.7vw;
+          color: #1F1A16;
+          text-align: center;
+          font-family: Lora;
+          font-size: 2rem;
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
         }
         .abaj{
           margin-left: 1.7vw;
@@ -291,7 +301,6 @@ body{
             .book{
               width: 4.8vw;
               height: 100%;
-              background-color: #FAFAFA;
               box-shadow: 10px 0 15px -5px rgba(0, 0, 0, 0.3);
             }
             .one{

@@ -22,7 +22,7 @@ async function buscarLibros(palabra) {
     let respuesta = await fetch(endpoint);
 
     if (respuesta.ok){
-        let libros = await respuesta.json();
+        let libros = JSON.parse(respuesta);
 
         if (libros.length > 0){
             mostrarLibros(libros);
