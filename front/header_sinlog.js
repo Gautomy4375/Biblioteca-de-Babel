@@ -1,12 +1,12 @@
 // 1. Funciones globales para que las encuentre el onclick="" del HTML
 window.opensignup = function () {
     const signupOverlay = document.getElementById('signupOverlay');
-    if (signupOverlay) signupOverlay.classList.remove('hidden');
+    signupOverlay.classList.remove('hidden');
   };
   
   window.opensignin = function () {
     const signinOverlay = document.getElementById('signinOverlay');
-    if (signinOverlay) signinOverlay.classList.remove('hidden');
+    signinOverlay.classList.remove('hidden');
   };
   
   document.addEventListener("DOMContentLoaded", function() {
@@ -25,7 +25,10 @@ window.opensignup = function () {
     font-optical-sizing: auto;
     font-style: normal;
   }
-  
+  button {
+  cursor: pointer;
+  }
+
   
 
     .barra {

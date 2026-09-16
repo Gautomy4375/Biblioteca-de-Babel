@@ -22,10 +22,9 @@ document.addEventListener("DOMContentLoaded", function() {
             padding: 0px;
             margin: 0px;
         }
-
-
-
-
+        button {
+            cursor: pointer;
+        }
         
         .barra {
             position: fixed;
