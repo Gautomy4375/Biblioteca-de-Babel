@@ -1,11 +1,22 @@
-let q = new URLSearchParams(window.location.search);
-let titu = urlParams.get('q');
+let titleDesdePaginaanterior = new URLSearchParams(window.location.search);
+let titu = titleDesdePaginaanterior.get('q');
 
+let conTi = document.getElementById('palabra-buscada');
+let conLi = document.getElementById('lista')
 if (titu){
-    let conTi = document.getElementById('palabra-buscada');
 
+    if (conTi){
+        conTi.textContent = `Resultados de búsqueda para: "${titu}"`;
+
+        buscarLibros(titu);
+    }
+}
+else{
+    conLi.textContent = `Por favor, escribir un título en la barra de búsqueda`
+}
+
+async function buscarLibros(palabra) {
     
-
 }
 
 
