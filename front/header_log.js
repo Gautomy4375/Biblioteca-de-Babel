@@ -248,13 +248,15 @@ document.addEventListener("DOMContentLoaded", function() {
         <div class="nombre lora-font">Babel</div>
         <div class="buscador-container">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9wiYOfiSl6tCHwpDPn72D9SZys0KGLXcgtrD5GIAWJQ&s=10" alt="Icono" class="lupita">
-            <input class="buscador plus-jakarta-sans" type="text" placeholder="Buscar...">
+            <form id="busca">
+                <input class="buscador plus-jakarta-sans" id="buscador" type="text" placeholder="Buscar...">
+            </form>
         </div>
         <div class="barralinks">
             <nav class="menu plus-jakarta-sans">
-                <button class="botonmenu plus-jakarta-sans"><a href="#">Dashboard</a></button>
-                <button class="botonmenu plus-jakarta-sans"><a href="#">Libros</a></button>
-                <button class="botonmenu plus-jakarta-sans"><a href="#">Listas</a></button>
+                <button class="botonmenu plus-jakarta-sans"><a href="../user_dashboard/user_dashboard.html">Dashboard</a></button>
+                <button class="botonmenu plus-jakarta-sans"><a href="../dashboard_libros_log/dashboard_libros_log.html">Libros</a></button>
+                <button class="botonmenu plus-jakarta-sans"><a href="../listas/listas.html">Listas</a></button>
             </nav>
             <button class="botonperfil plus-jakarta-sans"><a id="username" class="username" href="../pagina_perfil_propio/pagina_perfil.html">Username <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/250px-Default_pfp.svg.png?utm_source=es.wikipedia.org&utm_campaign=index&utm_content=thumbnail" alt=""></a></button>
         </div>
