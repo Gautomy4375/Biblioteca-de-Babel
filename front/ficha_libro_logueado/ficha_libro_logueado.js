@@ -8,7 +8,7 @@ async function traerDatosBack(titulo) {
     let endpoint = '/api/libros' /*YTSMA ES UN EJEMPLO PORQUE GAUDIO NO TRAE LOS ENDPOINTS*/
 
     let res = await fetch(endpoint);
-    let libro = null;
+    let libro = null;                               //POSTE ACA HICE ALGUNOS FETCH, POR EL MOMENTO NO SE VA A MOSTRAR NADA
 
     if (res.ok){
         libro = await res.json();

@@ -25,9 +25,8 @@ body{
 
       .ima{
         width: 11.5vw;
-        aspect-ratio: 1/1;
-        border-radius: 50%;
-        background-color: #d9d9d9;
+        height: 11.5vw;
+        border-radius: 50%;;
       }
       .nom_aju{
         width: 15.5vw;
@@ -399,7 +398,6 @@ body{
               .librito{
                 width: 2.7vw;
                 height: 100%;
-                background-color: #FAFAFA;
                 box-shadow: 10px 0 15px -5px rgba(0, 0, 0, 0.3);
               }
               .uno{
@@ -407,23 +405,23 @@ body{
               }
               .dos{
                 z-index: 5;
-                margin-right: -0.8;
+                margin-right: -0.8vw;
               }
               .tres{
                 z-index: 4;
-                margin-right: -0.8;
+                margin-right: -0.8vw;
               }
               .cuatro{
                 z-index: 3;
-                margin-right: -0.8;
+                margin-right: -0.8vw;
               }
               .cinco{
                 z-index: 2;
-                margin-right: -0.8;
+                margin-right: -0.8vw;
               }
               .seis{
                 z-index: 1;
-                margin-right: -0.8;
+                margin-right: -0.8vw;
               }
             }
             .nombre{
@@ -435,12 +433,6 @@ body{
               font-style: normal;
               font-weight: 400;
               line-height: normal;
-            }
-            .autli{
-              width: 100%;
-              height: 2vh;
-              background-color: #FAFAFA;
-
             }
           }
         }
