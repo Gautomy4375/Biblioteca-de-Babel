@@ -22,7 +22,7 @@ async function buscarLibros(palabra) {
     let respuesta = await fetch(endpoint);
 
     if (respuesta.ok){
-        let libros = JSON.parse(respuesta);
+        let libros = await respuesta.json();
 
         if (libros.length > 0){
             mostrarLibros(libros);
@@ -50,6 +50,7 @@ function mostrarLibros(libros){
         <img><img>
         <h3><h3>
         `
+        i++
     } //aca voy a poner los endpoints que me da gaudio (NO ME LO DA PORQUE NO SE NO LE SALE)
 }
 

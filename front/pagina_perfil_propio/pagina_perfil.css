@@ -353,17 +353,27 @@ body{
       .listas{
         width: 100%;
         height: 64%;
-        background-color: #d9d9d9;
+        border-radius: 8px;
+        background: #FFF;
         display: flex;
         flex-direction: column;
         gap: 2.4vh;
 
         .titulo{
+          display: flex;
+          align-items: center;
+          justify-content: center;
           margin-top: 1.7vh;
           margin-left: 1.5vw;
           width: 9.375rem;
           height: 1.875rem;
-          background-color: #FAFAFA;
+          color: #1F1A16;
+          text-align: center;
+          font-family: Lora;
+          font-size: 32px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
         }
         .lime{
           width: 26.8vw;
@@ -416,10 +426,21 @@ body{
                 margin-right: -0.8;
               }
             }
-            .textito{
+            .nombre{
               width: 100%;
               height: 3.5vh;
+              color: #000;
+              font-family: Lora;
+              font-size: 20px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: normal;
+            }
+            .autli{
+              width: 100%;
+              height: 2vh;
               background-color: #FAFAFA;
+
             }
           }
         }

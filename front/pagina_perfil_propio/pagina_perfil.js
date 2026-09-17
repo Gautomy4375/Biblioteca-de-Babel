@@ -7,13 +7,10 @@ nombre.textContent = 'Nombre propio';
 
 let seguidores = document.getElementById('seguidores');
 seguidores.textContent = '56';
-
 let seguidos = document.getElementById('seguidos');
 seguidos.textContent = '98';
-
 let leidos = document.getElementById('leidos');
 leidos.textContent = '27';
-
 let listas = document.getElementById('listas');
 listas.textContent = '12';
 
@@ -53,6 +50,16 @@ let pl5 = document.getElementById('five');
 pl5.src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqPS1Es-Brcsfc0g7ZQovCNTvLISpbpLoOOUOgvzSSNspl0wds7TdJMw&s=10';
 let pl6 = docuemtn.getElementById('six');
 pl6.src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqPS1Es-Brcsfc0g7ZQovCNTvLISpbpLoOOUOgvzSSNspl0wds7TdJMw&s=10';
+
+
+let ein = document.getElementById('ein');
+ein.textContent = 'Nombre lista';
+let tzwei = document.getElementById('tzwei');
+tzwei.textContent = 'Nombre lista';
+let drei = document.getElementById('drei');
+drei.textContent = 'Nombre lista';
+let vier = document.getElementById('vier');
+vier.textContent = 'Nombre lista';
 
 
 enter.addEventListener('submit', function(event){

@@ -2,7 +2,22 @@ function openreview () {
     reviewOverlay.classList.remove('hidden');
 }
 
-// SOLO se esconde cuando apretas lo gris
+
+async function traerDatosBack(titulo) {
+
+    let endpoint = '/api/libros' /*YTSMA ES UN EJEMPLO PORQUE GAUDIO NO TRAE LOS ENDPOINTS*/
+
+    let res = await fetch(endpoint);
+    let libro = null;
+
+    if (res.ok){
+        libro = await res.json();
+    }
+    else{
+        console.log('Hubo un error');
+    }
+    
+}
 reviewOverlay.addEventListener('click', (event) => {
     if (event.target === reviewOverlay) {
         reviewOverlay.classList.add('hidden');
@@ -11,31 +26,31 @@ reviewOverlay.addEventListener('click', (event) => {
 
 let titulo = document.querySelectorAll('.book-title');
 titulo.forEach(element => {
-    element.textContent = 'El Principito'; //todos los divs con ese class (book-title)
+    element.textContent = 'El Principito'; 
     });
     
 let tapa = document.getElementById('tapa')
-tapa.src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqPS1Es-Brcsfc0g7ZQovCNTvLISpbpLoOOUOgvzSSNspl0wds7TdJMw&s=10';
+tapa.src = libro.tapa ; //falta parametro de verdad que obtendremos del endpoint (lo mismo en todas las siguentes).
 
 let autor = document.getElementById('autor');
-autor.textContent = 'Autor';
+autor.textContent = libro.autor;
 
 let descripcion = document.getElementById('desc');
-descripcion.textContent = 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora ducimus esse, et magni rem alias ipsam tenetur nihil nam provident consectetur, eos accusantium quis quasi explicabo ad voluptatem aut modi? Lorem ipsum dolor sit amet consectetur adipisicing elit. A illo dolorem laudantium quidem deleniti odio ducimus facilis velit! Vero quisquam sunt voluptates aspernatur eos optio esse ratione nesciunt laudantium quae?';
+descripcion.textContent = libro.descripcion;
 
 let idioma = document.getElementById('idioma');
-idioma.textContent = 'Español';
+idioma.textContent = libro.idioma;
 
 let año = document.querySelectorAll('.anio');
 año.forEach(element => {
-    element.textContent = '1957'; //todos los divs con ese class (anio)
+    element.textContent = '1957'; 
     });
 
 let genero = document.getElementById('genero');
-genero.textContent = 'Ficción';
+genero.textContent = libro.genero;
 
 let hojas = document.getElementById('hojas');
-hojas.textContent = '156';
+hojas.textContent = libro.cantidadhojas;
 
 let promedio = document.getElementById('promedio');
 promedio.textContent = '3.4';
