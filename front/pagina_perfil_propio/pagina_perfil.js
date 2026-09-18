@@ -114,7 +114,32 @@ ima24.src ='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqPS1Es-Brcsfc
 
 
 
+let resim1 = document.getElementById('a');
+resim1.src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqPS1Es-Brcsfc0g7ZQovCNTvLISpbpLoOOUOgvzSSNspl0wds7TdJMw&s=10'
+let resim2 = document.getElementById('b');
+resim2.src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqPS1Es-Brcsfc0g7ZQovCNTvLISpbpLoOOUOgvzSSNspl0wds7TdJMw&s=10'
+let resim3 = document.getElementById('c');
+resim3.src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqPS1Es-Brcsfc0g7ZQovCNTvLISpbpLoOOUOgvzSSNspl0wds7TdJMw&s=10'
+let resim4 = document.getElementById('d');
+resim4.src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqPS1Es-Brcsfc0g7ZQovCNTvLISpbpLoOOUOgvzSSNspl0wds7TdJMw&s=10'
 
+let resti1 = document.getElementById('tiUno');
+resti1.textContent = 'Poste';
+let resti2 = document.getElementById('tiDos');
+resti2.textContent = 'Poste';
+let resti3 = document.getElementById('tiTres');
+resti3.textContent = 'Poste';
+let resti4 = document.getElementById('tiCuatro');
+resti4.textContent = 'Poste';
+
+let des1 = document.getElementById('des1');
+des1.textContent = 'Es un cuento poético y filosófico. Narra la historia de un aviador varado en el desierto del Sahara que conoce a un pequeño príncipe de otro planeta. Es una obra maestra universal sobre la pérdida de la inocencia, el amor y los lazos afectivos';
+let des2 = document.getElementById('des2');
+des2.textContent = 'Es un cuento poético y filosófico. Narra la historia de un aviador varado en el desierto del Sahara que conoce a un pequeño príncipe de otro planeta. Es una obra maestra universal sobre la pérdida de la inocencia, el amor y los lazos afectivos';
+let des3 = document.getElementById('des3');
+des3.textContent = 'Es un cuento poético y filosófico. Narra la historia de un aviador varado en el desierto del Sahara que conoce a un pequeño príncipe de otro planeta. Es una obra maestra universal sobre la pérdida de la inocencia, el amor y los lazos afectivos';
+let des4 = document.getElementById('des4');
+des4.textContent = 'Es un cuento poético y filosófico. Narra la historia de un aviador varado en el desierto del Sahara que conoce a un pequeño príncipe de otro planeta. Es una obra maestra universal sobre la pérdida de la inocencia, el amor y los lazos afectivos';
 
 
 enter.addEventListener('submit', function(event){

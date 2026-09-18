@@ -44,7 +44,7 @@ body{
           color: #1F1A16;
           text-align: center;
           font-family: Lora;
-          font-size: 28px;
+          font-size: 1.45vw;
           font-style: normal;
           font-weight: 400;
           line-height: normal;
@@ -59,7 +59,7 @@ body{
           font-family: Lora;
           font-weight: 400;
           font-style: Regular;
-          font-size: 32px;
+          font-size: 1.6vw;
           line-height: 100%;
           letter-spacing: 0%;
           text-align: center;
@@ -87,7 +87,7 @@ body{
           color: #1F1A16;
           text-align: center;
           font-family: Lora;
-          font-size: 40px;
+          font-size: 2vw;
           font-style: normal;
           font-weight: 400;
           line-height: normal;
@@ -102,7 +102,7 @@ body{
           color: #1F1A16;
           text-align: center;
           font-family: Lora;
-          font-size: 15px;
+          font-size: 0.78vw;
           font-style: normal;
           font-weight: 400;
           line-height: normal;
@@ -452,8 +452,14 @@ body{
       .title_resea{
         width: 11.8125rem;
         height: 2.25rem;
-        background-color: #d9d9d9;
         margin-left: 6.3vw;
+        color: #1F1A16;
+        text-align: center;
+        font-family: Lora;
+        font-size: 2vw;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
       }
     }
     .todas_res{
@@ -461,10 +467,53 @@ body{
       justify-content: center;
       flex-direction: column;
       align-items: center;
+
+
       .res{
         height: 31.5vh;
         width: 86.8vw;
-        background-color: #FAFAFA;
+        display: flex;
+        align-items: center;
+        gap: 1.3vw;
+
+        .imagen{
+          width: 8.1vw;
+          height: 11.7vw;
+          background-color: #d9d9d9;
+        }
+        .ladoim{
+          height: 11.7vw;
+          width: 70vw;
+
+          .til{
+            width: 13.5vw;
+            height: 6.7vh;
+            color: #1F1A16;
+            text-align: center;
+            font-family: Lora;
+            font-size: 2vw;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+          }
+          .datos{
+            margin-top: 3.72vh;
+            width: 14.8vw;
+            height: 2.2vh;
+            background-color: #d9d9d9;
+          }
+          .des{
+            margin-top: 2.6vh;
+            width: 100%;
+            height: 10.9vh;
+            color: #000;
+            font-family: Lora;
+            font-size: 1.45vw;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+          }
+        }
       }
       .linea{
         margin: 0;
@@ -474,4 +523,8 @@ body{
       }
     }
     
+  }
+  .bottom{
+    width: 100%;
+    height: 45vh;
   }
