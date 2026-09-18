@@ -6,6 +6,7 @@
     <title>Perfil ajeno</title>
     <link rel="stylesheet" href="pagina_perfil_ajeno_sinlog.css">
     <script src="../header_sinlog.js" defer></script>
+    <script src="pagina_perfil_ajeno_sinlog.js" defer></script>
 
     
 
@@ -19,30 +20,173 @@
         <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
 </head>
 <body>
-      <section class="arriba_perfil">
-        <div class="arriba_perfil_izq">
-            <img class="logo_grande" src="https://cdn-icons-png.flaticon.com/512/12225/12225881.png" alt="">
-            <div class="costado_logo">
-                <div class="nombre_logo"></div>
+   <main class="arriba">
+        <section class="arriba_i">
+            <img class="ima" id="foto_perfil"></img>
+            <div class="nom_aju">
+                <div href="#" class="nom" id="nom"></div>
             </div>
-        </div>
-        <div class="arriba_perfil_der">
-            <div class="todo_stats">
-                <div class="stat_libro"></div>
-                <div class="stat_seguidor"></div>
-                <div class="stat_seguido"></div>
-                <div class="stat_listas"></div>
+        </section>
+        <section class="arriba_d">
+            <div class="stat">
+                <div class="stat_arriba" id="seguidores"></div>
+                <div class="stat_abajo">Seguidores</div>
             </div>
-        </div>
-      </section>
-      <section class="abajo_perfil">
-        <div class="abajo_perfil_i">
-            <div class="favoritos"></div>
-            <div class="leidos"></div>
-        </div>
-        <div class="abajo_perfil_d"></div>
-      </section>
-      
+            <div class="stat">
+                <div class="stat_arriba" id="seguidos"></div>
+                <div class="stat_abajo">Seguidos</div>
+            </div>
+            <div class="stat">
+                <div class="stat_arriba" id="leidos"></div>
+                <div class="stat_abajo">Leídos</div>
+            </div>
+            <div class="stat">
+                <div class="stat_arriba" id="listas"></div>
+                <div class="stat_abajo">Listas</div>
+            </div>
+        </section>
+    </main>
+    <main class="medio">
+        <section class="medio_i">
+            <div class="favs">
+                <div class="ti">Favoritos</div>
+                <div class="libs">
+                    <img class="lib" id="libro_uno"></img>
+                    <img class="lib" id="libro_dos"></img>
+                    <img class="lib" id="libro_tres"></img>
+                    <img class="lib" id="libro_cuatro"></img>
+                    <img class="lib" id="libro_cinco"></img>
+                </div>
+            </div>
+            <div class="le">
+                <div class="t">Leídos</div>
+                <div class="aba">
+                    <div class="lele">
+                        <img class="libr uno" id="libr_1"></img>
+                        <img class="libr dos" id="libr_2"></img>
+                        <img class="libr tres" id="libr_3"></img>
+                        <img class="libr cuatro" id="libr_4"></img>
+                        <img class="libr cinco" id="libr_5"></img>
+                        <img class="libr seis" id="libr_6"></img>
+                    </div>
+                    <a href="../Ver más leidos/mas_leidos.html" class="verm">Ver más</a>
+                </div>
+            </div>
+        </section>
+        <section class="medio_d">
+            <div class="pl">
+                <div class="titl">Por leer</div>
+                <div class="abaj">
+                    <div class="plpl">
+                        <img class="book one" id="one"></img>
+                        <img class="book two" id="two"></img>
+                        <img class="book three" id="three"></img>
+                        <img class="book four" id="four"></img>
+                        <img class="book five" id="five"></img>
+                        <img class="book six" id="six"></img>
+                    </div>
+                    <a href="../Ver más por leer/mas_leer.html" class="vermp">Ver más</a>
+                </div>
+            </div>
+            <div class="listas">
+                <div class="titulo">Listas</div>
+                <div class="lime">
+                    <div class="cali">
+                        <div class="minilista">
+                            <img class="librito uno" id="I"></img>
+                            <img class="librito dos" id="II"></img>
+                            <img class="librito tres" id="III"></img>
+                            <img class="librito cuatro" id="IV"></img>
+                            <img class="librito cinco" id="V"></img>
+                            <img class="librito seis" id="VI"></img>
+                        </div>
+                        <article class="nombre" id="ein"></article>
 
+                    </div>
+                    <div class="cali">
+                        <div class="minilista">
+                            <img class="librito uno" id="VII"></img>
+                            <img class="librito dos" id="VIII"></img>
+                            <img class="librito tres" id="IX"></img>
+                            <img class="librito cuatro" id="X"></img>
+                            <img class="librito cinco" id="XI"></img>
+                            <img class="librito seis" id="XII"></img>
+                        </div>
+                        <article class="nombre" id="tzwei"></article>
+                    </div>
+                    <div class="cali">
+                        <div class="minilista">
+                            <img class="librito uno" id="XIII"></img>
+                            <img class="librito dos" id="XIV"></img>
+                            <img class="librito tres" id="XV"></img>
+                            <img class="librito cuatro" id="XVI"></img>
+                            <img class="librito cinco" id="XVII"></img>
+                            <img class="librito seis" id="XVIII"></img>
+                        </div>
+                        <article class="nombre" id="drei"></article>
+                    </div>
+                    <div class="cali">
+                        <div class="minilista">
+                            <img class="librito uno" id="XIX"></img>
+                            <img class="librito dos" id="XX"></img>
+                            <img class="librito tres" id="XXI"></img>
+                            <img class="librito cuatro" id="XXII"></img>
+                            <img class="librito cinco" id="XXIII"></img>
+                            <img class="librito seis" id="XXIV"></img>
+                        </div>
+                        <article class="nombre" id="vier"></article>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <main class="abajo">
+        <section class="titleres">
+            <div class="title_resea">Reseñas</div>
+        </section>
+        <section class="todas_res">
+        <hr class="linea">
+        <section class="res">
+            <img class="imagen" id="a"></img>
+            <div class="ladoim">
+                <article class="til" id="tiUno"></article>
+                <article class="datos"></article>
+                <article class="des" id="des1"></article>
+            </div>
+        </section>
+        <hr class="linea">
+        <section class="res">
+            <img class="imagen" id="b"></img>
+            <div class="ladoim">
+                <article class="til" id="tiDos"></article>
+                <article class="datos"></article>
+                <article class="des" id="des2"></article>
+            </div>
+        </section>
+        <hr class="linea">
+        <section class="res">
+            <img class="imagen" id="c"></img>
+            <div class="ladoim">
+                <article class="til" id="tiTres"></article>
+                <article class="datos"></article>
+                <article class="des" id="des3"></article>
+            </div>
+        </section>
+        <hr class="linea">
+        <section class="res">
+            <img class="imagen" id="d"></img>
+            <div class="ladoim">
+                <article class="til" id="tiCuatro"></article>
+                <article class="datos"></article>
+                <article class="des" id="des4"></article>
+            </div>
+        </section>
+        <hr class="linea">
+        </section>
+    </main>
+    <main class="bottom"></main>
+
+
+      
 </body>
 </html>
