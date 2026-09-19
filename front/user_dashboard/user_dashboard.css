@@ -3,7 +3,10 @@
   padding: 0;
   box-sizing: 0;
 }
-/*SOY YTSMA, HASTA ACÁ ES EL HEADER (SEPARO PORUQE SINO ES UN LIO)*/
+
+body{
+  background-color: #F1EEE7;
+}
 
 .arriba{
   width: 100%;
@@ -12,10 +15,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
   .title{
-    background-color: #D9D9D9;
     width: 15.15vw;
     height: 30.3%;
+    color: #000;
+    font-family: Lora;
+    font-size: 3.1vw;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
   }
 }
 .tendencias{
@@ -23,6 +32,26 @@
   height: 14.7vw;
   display: flex;
   justify-content: center;
+
+  .flecha{
+    border: none;
+    background: none;
+    font-size: 4vw;
+    color: #666;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 1vw;
+
+  }
+  .flecha_izquierda{
+    border: none;
+    background: none;
+    font-size: 4vw;
+    color: #666;
+    font-weight: bold;
+    cursor: pointer;
+    margin-right: 1vw;
+  }
 
 
   .imagenes {
@@ -41,46 +70,6 @@
     width: 11vw ;
     height: 14.7vw ;
   }
-
-  .a {
-    background-color: aqua;
-  }
-
-  .b {
-    background-color: brown;
-  }
-
-  .c {
-    background-color: blue;
-  }
-
-  .d {
-    background-color: aquamarine;
-  }
-
-  .e {
-    background-color: cadetblue;
-  }
-
-  .f {
-    background-color: chocolate;
-  }
-
-  .g {
-    background-color: chartreuse;
-  }
-
-  .h {
-    background-color: burlywood;
-  }
-
-  .i {
-    background-color: blueviolet;
-  }
-
-  .j {
-    background-color: black;
-  }
 }
 .abajo{
 
@@ -90,11 +79,17 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
+    margin-bottom: -2vh;
 
     .titles{
-      background-color: #D9D9D9;
       height: 29.6%;
       width: 23.4vw;
+      color: #000;
+      font-family: Lora;
+      font-size: 3.1vw;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
     }
   }
   .reco_le{
@@ -112,12 +107,13 @@
 
       .libro{
         background-color: #D9D9D9;
-        height: 11vw;
+        height: 27vh;
         width: 9vw;
         box-shadow: 10px 0 15px -5px rgba(0, 0, 0, 0.3);
       }
       .uno{
         z-index: 5;
+        margin: 0;
       }
       .dos{
         z-index: 4;
@@ -142,6 +138,17 @@
       display: flex;
       justify-content: center;
       align-items: center;
+
+      .fle{
+        border: none;
+        background: none;
+        font-size: 3vw;
+        color: #666;
+        font-weight: bold;
+        cursor: pointer;
+        margin-right: 1vw;
+      
+      }
     
     
       .imagene {
@@ -160,48 +167,9 @@
       .libros {
         flex-shrink: 0;
         width: 9vw ;
-        height: 11vw ;
+        height: 27vh ;
       }
     
-      .k {
-        background-color: aqua;
-      }
-    
-      .l {
-        background-color: brown;
-      }
-    
-      .m {
-        background-color: blue;
-      }
-    
-      .n {
-        background-color: aquamarine;
-      }
-    
-      .o {
-        background-color: cadetblue;
-      }
-    
-      .p {
-        background-color: chocolate;
-      }
-    
-      .q {
-        background-color: chartreuse;
-      }
-    
-      .r {
-        background-color: burlywood;
-      }
-    
-      .s {
-        background-color: blueviolet;
-      }
-    
-      .t {
-        background-color: black;
-      }
     }
     
 
