@@ -266,14 +266,14 @@ window.opensignup = function () {
           <!-- #endregion -->
       `;
     
-      // Inyecta el HTML en el documento
+
       document.body.insertAdjacentHTML('afterbegin', headerContent);
   
-      // Captura los overlays AHORA QUE EXISTEN
+
       const signupOverlay = document.getElementById('signupOverlay');
       const signinOverlay = document.getElementById('signinOverlay');
   
-      // Cierre de popups al hacer clic en el fondo gris
+
       if (signupOverlay) {
         signupOverlay.addEventListener('click', (event) => {
           if (event.target === signupOverlay) {
@@ -305,11 +305,11 @@ window.opensignup = function () {
       }
   
       // SignUp
-      const usernamesu = document.getElementById("usernamesu");
-      const mailsu = document.getElementById("mailsu"); 
-      const passwordsu = document.getElementById("passwordsu"); 
-      const subtnsend = document.getElementById("signupbtnsend");
-      const mensajesu = document.getElementById("mensajesu");
+      let usernamesu = document.getElementById("usernamesu");
+      let mailsu = document.getElementById("mailsu"); 
+      let passwordsu = document.getElementById("passwordsu"); 
+      let subtnsend = document.getElementById("signupbtnsend");
+      let mensajesu = document.getElementById("mensajesu");
   
       if (subtnsend) {
         subtnsend.addEventListener("click", () => {
@@ -324,8 +324,10 @@ window.opensignup = function () {
               mensajesu.innerHTML = 'El nombre de usuario no puede tener "@".';
               mensajesu.style.color = "red";
           } else {
-              let status = "201";
-              if (status === "201") {
+            let endpointbase = '/api/auth/registro'
+            let datosPri = await fetch(endpointbase);
+            
+              if (res.created) {
                   mensajesu.innerHTML = "Creación de cuenta exitosa.<br>Bienvenido " + usernamesusave + "!<br>Redirigiendote...";
                   mensajesu.style.color = "green";
                   setTimeout(() => {
