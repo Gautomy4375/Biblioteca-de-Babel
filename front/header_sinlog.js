@@ -303,7 +303,16 @@ window.opensignup = function () {
           }
         });
       }
-  
+      async function datos(mail, usuario, contraseña,) {
+
+        let endpoint = `/api/auth/registro?username=${usuario}?email=${mail}?password=${contraseña}`;
+        let datosPri = await fetch(endpoint);
+        let datitos = await datosPri.json();
+
+        return datitos;
+
+
+      }
       // SignUp
       let usernamesu = document.getElementById("usernamesu");
       let mailsu = document.getElementById("mailsu"); 
@@ -324,14 +333,14 @@ window.opensignup = function () {
               mensajesu.innerHTML = 'El nombre de usuario no puede tener "@".';
               mensajesu.style.color = "red";
           } else {
-            let endpointbase = '/api/auth/registro'
-            let datosPri = await fetch(endpointbase);
-            
-              if (res.created) {
+            let objetoDatos = datos(mailsusave, usernamesusave, passwordsusave);
+              if (objetoDatos.created) {
+                let userIDStorage = objetoDatos.id;
+                localStorage.setItem('idUsu', userIDStorage);
                   mensajesu.innerHTML = "Creación de cuenta exitosa.<br>Bienvenido " + usernamesusave + "!<br>Redirigiendote...";
                   mensajesu.style.color = "green";
                   setTimeout(() => {
-                    window.location.href = "../user_dashboard/user_dashboard.html"; // espera de 3 seg
+                    window.location.href = "../user_dashboard/user_dashboard.html"; 
                 }, 3000);
               } else if (status === "409") {
                   mensajesu.innerText = "Ya existe una cuenta con este mail y/o nombre de usuario.";
