@@ -6,7 +6,7 @@ let conLi = document.getElementById('lista')
 if (titu){
 
     if (conTi){
-        conTi.textContent = `Resultados de búsqueda para: "${titu}"`;
+        conTi.textContent = `"${titu}"`;
 
         buscarLibros(titu);
     }
@@ -51,19 +51,18 @@ function mostrarLibros(libros){
         <h3>${libros.title}<h3>
         `
         i++
-    } //aca voy a poner los endpoints que me da gaudio (NO ME LO DA PORQUE NO SE NO LE SALE)
+    } 
 }
 
 let buscarLista = document.getElementById('listas');
 
-buscarLista.addEventListener
+buscarLista.addEventListener('click', function(event){
+    event.preventDefault();
 
+    let titul = titu;
 
-/*
-GAUDIO:
-COMO TIENE QUE FUNCIONAR:
-1. CONSIGUE LA BUSQUEDA DEL USUARIO MEDIANTE UN ADDEVENTLISTENER 'ENTER' QUE PONEN EN LA LUPA DE BUSQUEDAS
-2. HACE UN FETCH DE ESE TITULO A LA API QUE ESTA EN EL README QUE GAUDIS PASO. EL UNICO PARAMETRO ES EL TITULO DEL LIBRO
-3. DEVOLVER DATOS AL USUARIO
+    if(titul){
+        window.location.href = `../resultados_busqueda_listas/resultados_busqueda_listas.html?q=${encodeURIComponent(titul)}`
+    }
 
-*/
+})
