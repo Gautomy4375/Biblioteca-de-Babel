@@ -415,6 +415,9 @@ window.opensignup = function () {
               mensajesi.innerText = "Bienvenido " + usernamesisave + " !";
               mensajesi.style.color = "green";
               window.location.href = "../user_dashboard/user_dashboard.html";
+
+              localStorage.setItem('userId', userIDStorage);
+              localStorage.setItem('usernameSession', usernamesusave);
           } else if (status === "400" || status === "404") {
               mensajesi.innerText = "El nombre de usuario, el mail y/o la contraseña son incorrectos.";
               mensajesi.style.color = "red";
