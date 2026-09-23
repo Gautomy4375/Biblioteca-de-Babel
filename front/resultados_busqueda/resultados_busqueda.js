@@ -47,14 +47,16 @@ function mostrarLibros(libros){
         divs.href= `../ficha_libro_logueado/ficha_libro_logueado.html?id=${libros.id}`
 
         divs.innerHTML=`
-        <img><img>
-        <h3><h3>
+        <img>${libros.portada}<img>
+        <h3>${libros.title}<h3>
         `
         i++
     } //aca voy a poner los endpoints que me da gaudio (NO ME LO DA PORQUE NO SE NO LE SALE)
 }
 
 let buscarLista = document.getElementById('listas');
+
+buscarLista.addEventListener
 
 
 /*
