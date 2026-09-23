@@ -47,7 +47,7 @@ function mostrarLibros(libros){
         divs.href= `../ficha_libro_logueado/ficha_libro_logueado.html?id=${libros.id}`
 
         divs.innerHTML=`
-        <img>${libros.portada}<img>
+        <img src='${libros.portada}'><img>
         <h3>${libros.title}<h3>
         `
         i++
