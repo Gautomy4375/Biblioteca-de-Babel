@@ -381,7 +381,7 @@ window.opensignup = function () {
               mensajesu.style.color = "red";
           } else {
             let objetoDatos = datos(mailsusave, usernamesusave, passwordsusave);
-
+            let status = "200"
               if (objetoDatos.created) {
                 let userIDStorage = objetoDatos.id;
                 localStorage.setItem('userId', userIDStorage);
@@ -389,7 +389,7 @@ window.opensignup = function () {
                   mensajesu.innerHTML = "Creación de cuenta exitosa.<br>Bienvenido " + usernamesusave + "!<br>Redirigiendote...";
                   mensajesu.style.color = "green";
                   setTimeout(() => {
-                    window.location.href = "../user_dashboard/user_dashboard.html"; 
+                    window.location.replace("../user_dashboard/user_dashboard.html"); //espera y hace que no se pueda hacer para atras
                 }, 3000);
               } else if (status === "409") {
                   mensajesu.innerText = "Ya existe una cuenta con este mail y/o nombre de usuario.";
@@ -414,8 +414,9 @@ window.opensignup = function () {
           if (status === "200") {
               mensajesi.innerText = "Bienvenido " + usernamesisave + " !";
               mensajesi.style.color = "green";
-              window.location.href = "../user_dashboard/user_dashboard.html";
-
+              setTimeout(() => {
+                window.location.replace("../user_dashboard/user_dashboard.html"); //espera y hace que no se pueda hacer para atras
+            }, 3000);
               localStorage.setItem('userId', userIDStorage);
               localStorage.setItem('usernameSession', usernamesusave);
           } else if (status === "400" || status === "404") {
