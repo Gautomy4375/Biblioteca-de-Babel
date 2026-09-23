@@ -381,9 +381,11 @@ window.opensignup = function () {
               mensajesu.style.color = "red";
           } else {
             let objetoDatos = datos(mailsusave, usernamesusave, passwordsusave);
+
               if (objetoDatos.created) {
                 let userIDStorage = objetoDatos.id;
-                localStorage.setItem('idUsu', userIDStorage);
+                localStorage.setItem('userId', userIDStorage);
+                localStorage.setItem('usernameSession', usernamesusave);
                   mensajesu.innerHTML = "Creación de cuenta exitosa.<br>Bienvenido " + usernamesusave + "!<br>Redirigiendote...";
                   mensajesu.style.color = "green";
                   setTimeout(() => {
