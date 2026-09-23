@@ -1,8 +1,8 @@
-const usernameCheck = localStorage.getItem('usernameSession');
+//const usernameCheck = localStorage.getItem('usernameSession');
 // const userIdCheck = localStorage.getItem('userId'); LO PONGO ANOTADO XQ TODAVIA NO VA A ANDAR Y SE VA A ROMPER
-if (!usernameCheck || usernameCheck.trim() === "") {
-    window.location.replace("../home/home.html");
-}
+//if (!usernameCheck || usernameCheck.trim() === "") {
+//    window.location.replace("../home/home.html");
+//}
 
 document.addEventListener("DOMContentLoaded", function() {
     const usernameSession = localStorage.getItem('usernameSession');
