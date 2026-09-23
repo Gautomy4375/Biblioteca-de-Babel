@@ -110,3 +110,6 @@ eight.src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcrj66irT_0Mi
 nine.src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgmnd16pFGi-ycjUe-TzNYcnJ1i5ameqo9wudqhj3VvTQrqBKVwEr-RBbw&s=10';
 ten.src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjy_eO-aGOn4Ggvq7ds5cWDoQ7S_fHrGQ0yk26fvyCBlp2mUH_8mPROC8&s=10';
 
+let userName = document.getElementById('username');
+userName.textContent= "hola como va";
+
