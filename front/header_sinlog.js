@@ -382,7 +382,7 @@ window.opensignup = function () {
           } else {
             let objetoDatos = datos(mailsusave, usernamesusave, passwordsusave);
             let status = "200"
-              if (status==="200") {
+              if (objetoDatos.created) {
                 let userIDStorage = objetoDatos.id;
                 localStorage.setItem('userId', userIDStorage);
                 localStorage.setItem('usernameSession', usernamesusave);
