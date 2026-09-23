@@ -340,14 +340,21 @@ padding-top: 0px;
   z-index: 100000;
   display: flex;
   flex-direction: column;
-
-  background-color: cyan;
-  justify-content: space-between;
+  padding: 5px;
+  background-color:  #F1EEE7;
+  width: 60vw;
+  height: 60vh;
 
   .tapayresenia {
     display: flex;
+    width: 80%;
+    justify-content: space-around;
+    gap: 2vw;
+
+    margin-top: 4%;
     img {
-      width: 15vh;
+      width: 30vh;
+      height: 100%;
     }
     .title-review {
       display: flex;
@@ -356,19 +363,20 @@ padding-top: 0px;
         display: flex;
         align-items: center;
         gap: 5px;
+        font-size: 1.7rem;
+        padding-bottom: 2px;
       }
 
-      .input-review {
+      textarea.input-review {
         display: block;
         resize: vertical; /* Enables vertical drag-to-resize */
         overflow: auto !important; /* Ensures the handle renders */
-        width: 100%;
-        min-height: 38px;  /* Initial starting height */
+        width: 40vw;
+        min-height: 100px;  /* Initial starting height */
         max-height: 300px; /* Optional cap so it doesn't break your modal layout */
         
         padding: 8px; 
         box-sizing: border-box; 
-        font-family: inherit; 
         font-size: 14px;
       
         /* Overrides flexbox parent constraints */
@@ -425,6 +433,10 @@ padding-top: 0px;
             aspect-ratio: 1/1;
             height: 65%;
         }
+    }
+
+    #reviewbtnsend {
+      width: max-content;
     }
 
   }
