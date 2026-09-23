@@ -382,7 +382,7 @@ window.opensignup = function () {
           } else {
             let objetoDatos = datos(mailsusave, usernamesusave, passwordsusave);
             let status = "200"
-              if (objetoDatos.created) {
+              if (status==="200") {
                 let userIDStorage = objetoDatos.id;
                 localStorage.setItem('userId', userIDStorage);
                 localStorage.setItem('usernameSession', usernamesusave);
@@ -414,11 +414,11 @@ window.opensignup = function () {
           if (status === "200") {
               mensajesi.innerText = "Bienvenido " + usernamesisave + " !";
               mensajesi.style.color = "green";
+              //falta poner el user id, pero el username ya esta
+              localStorage.setItem('usernameSession', usernamesisave);
               setTimeout(() => {
                 window.location.replace("../user_dashboard/user_dashboard.html"); //espera y hace que no se pueda hacer para atras
             }, 3000);
-              localStorage.setItem('userId', userIDStorage);
-              localStorage.setItem('usernameSession', usernamesusave);
           } else if (status === "400" || status === "404") {
               mensajesi.innerText = "El nombre de usuario, el mail y/o la contraseña son incorrectos.";
               mensajesi.style.color = "red";
