@@ -17,7 +17,7 @@ else{
 
 async function buscarLibros(palabra) {
 
-    let endpoint = '/api/libros'; //ES UN EJEMPLO ACA VA LO DE GAUDIO
+    let endpoint = `/api/libros?titulo=${titu}`;
 
     let respuesta = await fetch(endpoint);
 
@@ -53,6 +53,8 @@ function mostrarLibros(libros){
         i++
     } //aca voy a poner los endpoints que me da gaudio (NO ME LO DA PORQUE NO SE NO LE SALE)
 }
+
+let buscarLista = document.getElementById('listas');
 
 
 /*
