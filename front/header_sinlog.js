@@ -353,8 +353,21 @@ window.opensignup = function () {
       async function datos(mail, usuario, contraseña,) {
 
         let endpoint = `/api/auth/registro?username=${usuario}?email=${mail}?password=${contraseña}`;
-        let datosPri = await fetch(endpoint);
-        let datitos = await datosPri.json();
+        
+        let data = {
+          email: mail,
+          username: usuario,
+          password: contraseña,
+        };
+        let respuesta = await fetch(endpoint, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+        });
+
+        let datitos = await respuesta.json();
 
         return datitos;
 
