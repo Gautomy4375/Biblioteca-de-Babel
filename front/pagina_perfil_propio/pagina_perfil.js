@@ -152,3 +152,13 @@ enter.addEventListener('submit', function(event){
     }
 })
 
+
+
+
+function logout() {
+    localStorage.removeItem('userId');
+    localStorage.removeItem('usernameSession');
+    window.location.replace("../home/home.html");
+
+}
+
