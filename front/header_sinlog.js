@@ -151,20 +151,38 @@ window.opensignup = function () {
       display: flex;
       flex-direction: column;
       height: 40%;
-      aspect-ratio: 1/2;
-      background-color: cyan;
+      width: 30%;
+      background-color: #F1EEE7;
       justify-content: space-between;
-      
+      align-items: center;
+
+      .cat {
+        width: 70%;
+
+        .dato {
+          font-size: 1.3rem;
+        }
+        .input-text {
+          width: 100%;
+          appearance: none;
+          background: white;
+          border: none;
+          border-bottom: 1.5px solid #c79298;
+          border-radius: 0;
+          outline: none;
+          box-shadow: none;
+        }
+
+      }
+
+    
       .boton {
-          width: 65%;
-          height: 5%;
-          display: flex;
-          flex-direction: row;
-          align-items: center;
-          img {
-            aspect-ratio: 1/1;
-            height: 65%;
-          }
+          font-size: 1.5rem;
+          text-align: center;
+          background-color: white;
+          border: none;
+          border-radius: 8px;
+          padding: 10px;
       }
     }
     
@@ -197,57 +215,86 @@ window.opensignup = function () {
       display: flex;
       flex-direction: column;
       height: 40%;
-      aspect-ratio: 1/2;
-      background-color: cyan;
+      width: 30%;
+      background-color: #F1EEE7;
       justify-content: space-between;
+      align-items: center;
+
+      .cat {
+        width: 70%;
+
+        .dato {
+          font-size: 1.3rem;
+        }
+        .input-text {
+          width: 100%;
+          appearance: none;
+          background: white;
+          border: none;
+          border-bottom: 1.5px solid #c79298;
+          border-radius: 0;
+          outline: none;
+          box-shadow: none;
+        }
+
+      }
+          
+      .boton {
+        font-size: 1.5rem;
+        text-align: center;
+        background-color: white;
+        border: none;
+        border-radius: 8px;
+        padding: 10px;
     }
+  }
         </style>
     
           <!-- #region signup y login popups y header -->
           <!-- #region signup popup -->
           <article id="signupOverlay" class="signup hidden">
               <section class="signup1">
-                  <h1>Sign Up</h1>
-                  <div class="cat">
-                      <div class="dato">Nombre de Usuario</div>
-                      <input type="text" class="input-text" name="" id="usernamesu">
+                  <h1 class="lora-font">Sign Up</h1>
+                  <div class="lora-font cat">
+                      <div class="lora-font dato">Nombre de Usuario</div>
+                      <input type="text" class="lora-font input-text" name="" id="usernamesu">
                   </div>
-                  <div class="cat">
-                      <div class="dato">E-Mail</div>
-                      <input type="text" class="input-text" name="" id="mailsu">
+                  <div class="lora-font cat">
+                      <div class="lora-font dato">E-Mail</div>
+                      <input type="text" class="lora-font input-text" name="" id="mailsu">
                   </div>
-                  <div class="cat">
-                      <div class="dato">Contraseña</div>
-                      <input type="text" class="input-text" name="" id="passwordsu">
+                  <div class="lora-font cat">
+                      <div class="lora-font dato">Contraseña</div>
+                      <input type="text" class="lora-font input-text" name="" id="passwordsu">
                   </div>
-                  <button class="dato boton" id="signupbtnsend">Sign Up</button>
-                  <div id="mensajesu" class="mensajesu"></div>
+                  <button class="plus-jakarta-sans dato boton" id="signupbtnsend">Sign Up</button>
+                  <div id="mensajesu" class="lora-font mensajesu"></div>
               </section>
           </article>
   
           <!-- #endregion -->
   
           <!-- #region signin popup -->
-          <article id="signinOverlay" class="signin hidden">
-              <section class="signin1">
+          <article id="signinOverlay" class="lora-font signin hidden">
+              <section class="lora-font signin1">
                   <h1>Sign In</h1>
-                  <div class="cat">
-                      <div class="dato">Nombre de Usuario o E-Mail</div>
-                      <input type="text" class="input-text" name="" id="usernamesi">
+                  <div class="lora-font cat">
+                      <div class="lora-font dato">Nombre de Usuario o E-Mail</div>
+                      <input type="text" class="lora-font input-text" name="" id="usernamesi">
                   </div>
   
-                  <div class="cat">
-                      <div class="dato">Contraseña</div>
-                      <input type="text" class="input-text" name="" id="passwordsi">
+                  <div class="lora-font cat">
+                      <div class="lora-font dato">Contraseña</div>
+                      <input type="text" class="lora-font input-text" name="" id="passwordsi">
                   </div>
-                  <button class="boton" id="signinbtnsend">Sign in</button>
+                  <button class="plus-jakarta-sans boton" id="signinbtnsend">Sign in</button>
   
-                  <div id="mensajesi" class="mensajesi"></div>
+                  <div id="mensajesi" class="lora-font mensajesi"></div>
               </section> 
           </article>
           <!-- #endregion -->
   
-          <section class="barra">
+          <section class="lora-font barra">
               <img class="logo" src="../logo.svg" alt="">
               <div class="nombre lora-font">Babel</div>
               <form id="busca" class="buscador-container">
@@ -299,7 +346,7 @@ window.opensignup = function () {
           event.preventDefault();
           let titulo = input ? input.value.trim() : '';
           if (titulo) {
-              window.location.href = `../resultados_busqueda/resultados_busqueda.html?q=${encodeURIComponent(titulo)}`; 
+              window.location.href = `../resultados_busqueda_sinlog/resultados_busqueda_sinlog.html?q=${encodeURIComponent(titulo)}`; 
           }
         });
       }
