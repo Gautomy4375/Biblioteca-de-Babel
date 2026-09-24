@@ -1,6 +1,7 @@
 let enter = document.getElementById('busca');
 let input = document.getElementById('buscador');
 
+
 /*ytsma, aca empiezo con lo de hacer los datos dinamicos*/
 let foto_perfil = document.getElementById('foto_perfil');
 foto_perfil.src = 'https://cdn-icons-png.flaticon.com/512/12225/12225881.png';
