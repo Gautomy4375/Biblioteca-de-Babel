@@ -1,0 +1,63 @@
+body{
+    margin: 0px;
+    padding: 0;
+    box-sizing: 0;
+    background-color: #F1EEE7;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4vh;
+}
+
+.imagen{
+    margin-top: 20vh;
+    width: 20vw;
+    aspect-ratio: 1/1;
+}
+
+h1{
+    font-family: Lora;
+}
+h2{
+    font-family: Lora;
+}
+.volver{
+    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 10vw;
+    height: 5vh;
+    border-radius: .4vw;
+    background-color: #842739;
+    color: #FFF;
+    text-align: center;
+    font-family: "Plus Jakarta Sans";
+    font-size: 1.5625rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-decoration: none;
+}
+
+#cargadorCon {
+    display: none;
+    width: 60px;
+    height: 60px;
+}
+
+.loader {
+    border: 6px solid #e0e0e0;
+    border-top: 6px solid #842739;
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    animation: girar 1s linear infinite;
+}
+
+@keyframes girar {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
