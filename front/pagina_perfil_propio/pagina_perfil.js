@@ -7,7 +7,7 @@ let foto_perfil = document.getElementById('foto_perfil');
 foto_perfil.src = 'https://cdn-icons-png.flaticon.com/512/12225/12225881.png';
 
 let nombre = document.getElementById('nom');
-nombre.textContent = 'Nombre propio';
+nombre.textContent = localStorage.getItem('usernameSession');
 
 let seguidores = document.getElementById('seguidores');
 seguidores.textContent = '56';
