@@ -12,7 +12,7 @@ if (titu){
     }
 }
 else{
-    conLi.textContent = `Por favor, escribir un título en la barra de búsqueda`
+    conLi.textContent = `Por favor, escribí un término en el buscador`;
 }
 
 async function buscarLibros(palabra) {
@@ -33,6 +33,7 @@ async function buscarLibros(palabra) {
     }
     else{
         conLi.textContent = 'Hubo un error'
+        windown.location.href = '../pagina_error_log/pagina_error_log.html';
     }
 }
 

@@ -1,19 +1,23 @@
-let tituloPaginaAnterior = URLSearchParams(window.location.search);
+let tituloPaginaAnterior = new URLSearchParams(window.location.search);
 let titu = tituloPaginaAnterior.get('q');
 
 let conTi = document.getElementById('palabra-buscada');
 let conLi = document.getElementById('lista');
 
 if(titu){
+    if(conTi){
+        conTi.textContent= `"${titu}"`;
 
-    conTi.textContent= `'${titu}'`;
-
-    buscarListas(titu);
+        buscarListas(titu);
+    }  
+}
+else{
+    conLi.textContent = 'Por favor, escribí un término en el buscador';
 }
 
-async function buscarlistas(titu){
+async function buscarListas(titu){
 
-    let endpoint = '/api'; //GAUDIO DAME LOS ENDPOINTSS
+    let endpoint = ''; //GAUDIO DAME LOS ENDPOINTSS
 
     let respuesta = await fetch(endpoint);
 
@@ -28,7 +32,7 @@ async function buscarlistas(titu){
         }
     }
     else{
-        conLi.textContent = 'Hubo un error'
+        windown.location.href = '../pagina_error_log/pagina_error_log.html';
     }
 }
 
