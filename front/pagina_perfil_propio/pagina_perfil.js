@@ -1,6 +1,58 @@
 let enter = document.getElementById('busca');
 let input = document.getElementById('buscador');
 
+let id = localStorage.getItem('userId');
+
+async function traerSeguidos(id){
+
+    let endpoint = `/api/usuarios/:${id}/seguidos`;
+    let respuesta = await fetch(endpoint);
+    let datosSeguidos = null;
+
+    if(respuesta.ok){
+        datosSegudios = await respuesta.json();
+    }
+    else{
+        console.log('hubo un error');
+        window.location.href = '../pagina_error_log/pagina_error_log.html';
+    }
+
+    return datosSeguidos;
+}
+async function traerSeguidores(id){
+
+    let endpoint = `/api/usuarios/:${id}/seguidores`;
+    let respuesta = await fetch(endpoint);
+    let datosSeguidores = null;
+
+    if(respuesta.ok){
+        datosSeguidores = await respuesta.json();
+    }
+    else{
+        console.log('hubo un error');
+        window.location.href = '../pagina_error_log/pagina_error_log.html';
+    }
+
+    return datosSeguidores;
+}
+async function traerReseñas(id){
+
+    let endpoint = `/api/usuarios/:${id}/reseñas`;
+    let respuesta = await fetch(endpoint);
+    let datosReseñas = null;
+
+    if(respuesta.ok){
+        datosReseñas = await respuesta.json();
+    }
+    else{
+        console.log('hubo un error');
+        window.location.href = '../pagina_error_log/pagina_error_log.html';
+    }
+
+    return datosReseñas;
+}
+
+
 
 /*ytsma, aca empiezo con lo de hacer los datos dinamicos*/
 let foto_perfil = document.getElementById('foto_perfil');
@@ -10,9 +62,9 @@ let nombre = document.getElementById('nom');
 nombre.textContent = localStorage.getItem('usernameSession');
 
 let seguidores = document.getElementById('seguidores');
-seguidores.textContent = '56';
+seguidores.textContent = traerSeguidores(id);
 let seguidos = document.getElementById('seguidos');
-seguidos.textContent = '98';
+seguidos.textContent = traerSeguidos(id);
 let leidos = document.getElementById('leidos');
 leidos.textContent = '27';
 let listas = document.getElementById('listas');
@@ -153,9 +205,6 @@ enter.addEventListener('submit', function(event){
     }
 })
 
-
-
-
 function logout() {
     localStorage.removeItem('userId');
     localStorage.removeItem('usernameSession');
@@ -167,8 +216,10 @@ let charlie = document.getElementById('charlie');
 if(charlie){
     charlie.addEventListener('click', function(event){
         event.preventDefault();
-        window.location.href='../charlie/charlie.html';
+        window.location.href ='../charlie/charlie.html';
     
     })
 }
+
+
 
