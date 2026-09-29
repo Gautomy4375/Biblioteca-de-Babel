@@ -94,6 +94,23 @@ eight.textContent = 'Macbeth';
 nine.textContent = 'La biblioteca de Babel';
 ten.textContent = 'Bestiario';
 
+let librosLike = querySelectorAll('.ima');
+
+let a = librosLike[0];
+let b = librosLike[1];
+let c = librosLike[2];
+let d = librosLike[3];
+let e = librosLike[4];
+let f = librosLike[5];
+let g = librosLike[6];
+let h = librosLike[7];
+let i = librosLike[8];
+let j = librosLike[9];
+
+a.src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3p69eG5HCNR743z3D4anxhZsIWJfDfddPrrR-CRsl3A&s=10';
+b.src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTQ6EuPooqA4iRMAv_otdD9y4_1G8rTM1pni2pC5m0Cw&s=10';
+c.src = '';
+
 
 
 

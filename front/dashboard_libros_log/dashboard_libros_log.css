@@ -83,11 +83,6 @@ body{
         width: 100%;
         height: 75%;
       }
-      .estrellas{
-        background-color: #d9d9d9;
-        width: 100%;
-        height: 10.4%;
-      }
     }
   }
   .mas{
@@ -98,9 +93,12 @@ body{
     justify-content: center;
 
     .li{
-        background-color: #d9d9d9;
-        width: 21.4375rem;
-        height: 4.3125rem;
+      color: #000;
+      font-family: Lora;
+      font-size: 3.1vw;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
     }
   }
   .abajo{
@@ -110,6 +108,16 @@ body{
     justify-content: center;
     align-items: center;
     margin-bottom: 10vh;
+
+    .fle{
+      border: none;
+      background: none;
+      font-size: 4vw;
+      color: #666;
+      font-weight: bold;
+      cursor: pointer;
+      margin-left: 1vw;
+    }
   
   
     .imagene {
@@ -141,7 +149,6 @@ body{
         height: 6%;
       }
       .ima{
-        background-color: #d9d9d9;
         width: 100%;
         height: 80%;
       }
@@ -151,44 +158,5 @@ body{
         height: 4.2%;
       }
     }
-  
-    .k {
-      background-color: aqua;
-    }
-  
-    .l {
-      background-color: brown;
-    }
-  
-    .m {
-      background-color: blue;
-    }
-  
-    .n {
-      background-color: aquamarine;
-    }
-  
-    .o {
-      background-color: cadetblue;
-    }
-  
-    .p {
-      background-color: chocolate;
-    }
-  
-    .q {
-      background-color: chartreuse;
-    }
-  
-    .r {
-      background-color: burlywood;
-    }
-  
-    .s {
-      background-color: blueviolet;
-    }
-  
-    .t {
-      background-color: black;
-    }
+
   }

@@ -211,15 +211,9 @@ function logout() {
     window.location.replace("../home/home.html");
 
 }
-let charlie = document.getElementById('charlie');
-
-if(charlie){
-    charlie.addEventListener('click', function(event){
-        event.preventDefault();
-        window.location.href ='../charlie/charlie.html';
-    
-    })
-}
+ function charlie(){
+    window.location.href= '../charlie/charlie.html';
+ }
 
 
 
