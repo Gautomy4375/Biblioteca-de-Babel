@@ -24,19 +24,27 @@ body{
         gap: 21.25vw;
     
         .title{
-            order: 2;
-            background-color: #646464;
-            width: 24vw;
-            height: 6vh;
+          order: 2;
+          color: #000;
+          font-family: Lora;
+          font-size: 3.1vw;
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
             
         }
         .crear{
-            display: block;
-            order: 1;
-            width: 9.5vh;
-            height: 9.5vh;
-            border-radius: 50%;
-            margin-left: 13.1vw;
+          display: inline-block;
+          width: 9.5vh;
+          height: 9.5vh;
+          background-image: url('file:///C:/Users/50700256/Downloads/Captura%20de%20pantalla%202026-09-30%20110813.png');
+          border-radius: 50%;
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+          text-decoration: none;
+          margin-left: 13.1vw
+
         }
     
     
@@ -63,15 +71,21 @@ body{
                 
 
                 .al_1{
-                    background-color: #d9d9d9;
-                    width: 32%;
-                    height: 46.6%;
-                    margin-left: 1.7vw;
+                    color: #000;
+                    font-family: Lora;
+                    font-size: 2.1vw;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: normal;
+                    margin-left: 1.5vw;
                 }
                 .al_2{
-                    background-color: #d9d9d9;
-                    width: 30.4%;
-                    height: 26%;
+                    color: #000;
+                    font-family: Lora;
+                    font-size: 1.5vw;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: normal;
                     margin-left: 3vw;
                     margin-top: 1.25vw;
                    
@@ -120,6 +134,9 @@ body{
 
                 }
             }
+        }
+        .abajo{
+          border-top: none;
         }
       }
       
