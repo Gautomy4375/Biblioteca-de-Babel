@@ -37,7 +37,7 @@ body{
           display: inline-block;
           width: 9.5vh;
           height: 9.5vh;
-          background-image: url('file:///C:/Users/50700256/Downloads/Captura%20de%20pantalla%202026-09-30%20110813.png');
+          background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoXn8CIAOxQEUts0G39sJyHwaJJF4ccuvtaiPmdSaO9-k8juCcDJFfr-w&s=10');
           border-radius: 50%;
           background-size: cover;
           background-position: center;
@@ -60,8 +60,8 @@ body{
         .listas{
             width: 38.7vw;
             height: 17.18vw;
-            border-bottom: 3px solid #646464;
-            border-top: 3px solid #646464;
+            border-bottom: 3px solid #842739;
+            border-top: 3px solid #842739;
 
             .arriba_lista{
                 width: 38.7vw;
@@ -78,6 +78,7 @@ body{
                     font-weight: 400;
                     line-height: normal;
                     margin-left: 1.5vw;
+                    margin-top: 2vh;
                 }
                 .al_2{
                     color: #000;
@@ -158,9 +159,13 @@ body{
         justify-content: center;
 
         .title_ml{
-          background-color:#A9A9A9;
-          width: 23.9vw;
-          height: 26.6%;
+          color: #000;
+          text-align: center;
+          font-family: Lora;
+          font-size: 3.1vw;
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
         }
       }
       .medio_medio{
@@ -181,18 +186,24 @@ body{
             height: 27.78%;
             width: 100%;
             display: flex;
+            gap: 1.2vw;
 
             .nom_res{
-              background-color: #A9A9A9;
-              height: 60.7%;
-              width: 14.7vw;
+              color: #000;
+              font-family: Lora;
+              font-size: 2.1vw;
+              font-style: normal;
+              font-weight: 400;
+              line-height: normal;
             }
             .aut_res{
-              background-color: #A9A9A9;
-              height: 34%;
-              width: 11.7vw;
-              margin-left: 2vw;
-              margin-top: 2.1vh;
+              color: #000;
+              font-family: Lora;
+              font-size: 1.5vw;
+              font-style: normal;
+              font-weight: 400;
+              line-height: normal;
+              margin-top: .6vw;
             }
           }
           .abm{

@@ -265,7 +265,7 @@ window.opensignup = function () {
                   </div>
                   <div class="lora-font cat">
                       <div class="lora-font dato">Contraseña</div>
-                      <input type="text" class="lora-font input-text" name="" id="passwordsu">
+                      <input type="password" class="lora-font input-text" name="" id="passwordsu">
                   </div>
                   <button class="plus-jakarta-sans dato boton" id="signupbtnsend">Sign Up</button>
                   <div id="mensajesu" class="lora-font mensajesu"></div>
@@ -285,7 +285,7 @@ window.opensignup = function () {
   
                   <div class="lora-font cat">
                       <div class="lora-font dato">Contraseña</div>
-                      <input type="text" class="lora-font input-text" name="" id="passwordsi">
+                      <input type="password" class="lora-font input-text" name="" id="passwordsi">
                   </div>
                   <button class="plus-jakarta-sans boton" id="signinbtnsend">Sign in</button>
   

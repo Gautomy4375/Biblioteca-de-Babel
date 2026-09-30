@@ -5,10 +5,10 @@ let dos = nombresLista[1];
 let tres = nombresLista[2];
 let cuatro = nombresLista[3];
 
-uno.textContent = 'nombre';
-dos.textContent = 'nombre';
-tres.textContent = 'nombre';
-cuatro.textContent = 'nombre';
+uno.textContent = 'Nombre';
+dos.textContent = 'Nombre';
+tres.textContent = 'Nombre';
+cuatro.textContent = 'Nombre';
 
 let autoresLista = document.querySelectorAll('.al_2');
 
@@ -50,7 +50,39 @@ im[21].src = 'https://images.cdn1.buscalibre.com/fit-in/360x360/c6/78/c678ab2c90
 im[22].src = 'https://images.cdn1.buscalibre.com/fit-in/360x360/c6/78/c678ab2c90ed50d7d8849e30bc92b05a.jpg';
 im[23].src = 'https://images.cdn1.buscalibre.com/fit-in/360x360/c6/78/c678ab2c90ed50d7d8849e30bc92b05a.jpg';
 
+let nom = document.querySelectorAll('.nom_res');
 
+nom[0].textContent = 'Nombre';
+nom[1].textContent = 'Nombre';
+nom[2].textContent = 'Nombre';
+nom[3].textContent = 'Nombre';
+
+let aut = document.querySelectorAll('.aut_res');
+
+aut[0].textContent = 'Nombre del autor';
+aut[1].textContent = 'Nombre del autor';
+aut[2].textContent = 'Nombre del autor';
+aut[3].textContent = 'Nombre del autor';
+
+
+let ima = document.querySelectorAll('.lib');
+
+ima[0].src = 'https://images.cdn1.buscalibre.com/fit-in/360x360/c6/78/c678ab2c90ed50d7d8849e30bc92b05a.jpg';
+ima[1].src = 'https://images.cdn1.buscalibre.com/fit-in/360x360/c6/78/c678ab2c90ed50d7d8849e30bc92b05a.jpg'; 
+ima[2].src = 'https://images.cdn1.buscalibre.com/fit-in/360x360/c6/78/c678ab2c90ed50d7d8849e30bc92b05a.jpg'; 
+ima[3].src = 'https://images.cdn1.buscalibre.com/fit-in/360x360/c6/78/c678ab2c90ed50d7d8849e30bc92b05a.jpg'; 
+ima[4].src = 'https://images.cdn1.buscalibre.com/fit-in/360x360/c6/78/c678ab2c90ed50d7d8849e30bc92b05a.jpg'; 
+ima[5].src = 'https://images.cdn1.buscalibre.com/fit-in/360x360/c6/78/c678ab2c90ed50d7d8849e30bc92b05a.jpg'; 
+ima[6].src = 'https://images.cdn1.buscalibre.com/fit-in/360x360/c6/78/c678ab2c90ed50d7d8849e30bc92b05a.jpg'; 
+ima[7].src = 'https://images.cdn1.buscalibre.com/fit-in/360x360/c6/78/c678ab2c90ed50d7d8849e30bc92b05a.jpg'; 
+ima[8].src = 'https://images.cdn1.buscalibre.com/fit-in/360x360/c6/78/c678ab2c90ed50d7d8849e30bc92b05a.jpg'; 
+ima[9].src = 'https://images.cdn1.buscalibre.com/fit-in/360x360/c6/78/c678ab2c90ed50d7d8849e30bc92b05a.jpg'; 
+ima[10].src = 'https://images.cdn1.buscalibre.com/fit-in/360x360/c6/78/c678ab2c90ed50d7d8849e30bc92b05a.jpg'; 
+ima[11].src = 'https://images.cdn1.buscalibre.com/fit-in/360x360/c6/78/c678ab2c90ed50d7d8849e30bc92b05a.jpg'; 
+ima[12].src = 'https://images.cdn1.buscalibre.com/fit-in/360x360/c6/78/c678ab2c90ed50d7d8849e30bc92b05a.jpg'; 
+ima[13].src = 'https://images.cdn1.buscalibre.com/fit-in/360x360/c6/78/c678ab2c90ed50d7d8849e30bc92b05a.jpg'; 
+ima[14].src = 'https://images.cdn1.buscalibre.com/fit-in/360x360/c6/78/c678ab2c90ed50d7d8849e30bc92b05a.jpg'; 
+ima[15].src = 'https://images.cdn1.buscalibre.com/fit-in/360x360/c6/78/c678ab2c90ed50d7d8849e30bc92b05a.jpg'; 
 
 
 
