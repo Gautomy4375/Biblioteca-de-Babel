@@ -49,31 +49,44 @@ window.opensignup = function () {
       box-sizing: border-box;
       z-index: 1000;
       
-      .logo {
-        width: 40px;
-        height: 40px;
-        position: relative;
-      }
-      .nombre { /* estilo del "babel" */
+      .nolinks{
+         display: flex;
+         align-items: center;
+         padding: 2vw;
+        .logo {
+          width: 40px;
+          height: 40px;
+          position: relative;
+          margin-right: 1vw;
+        }
+        .nombre { /* estilo del "babel" */
           font-size: 2.5rem;
           font-weight: 400;
-      }
-      .buscador-container { /*esto es para el padding y etc*/
-        position: relative;
-        display: inline-block;
-        width: 23%;
-        padding-right: 10%;
-        height: 39px;
-    
-      @media (width<1500px) {
-          padding-right: 0%;
+          text-decoration: none;
+          color: white;
+          display: block;
+          margin-right: 2vw;
+          
         }
+        .buscador-container { /*esto es para el padding y etc*/
+          position: relative;
+          display: inline-block;
+          width: 23%;
+          padding-right: 10%;
+          height: 39px;
+          
+    
+        @media (width<1500px) {
+          padding-right: 0%;
+         }
         
         .buscador {
           border-radius: 21000px;
           border-style: solid;
           border-color: white;
           height: 39px;
+          width: 23.1vw;
+          
         }
         input { /*estilos para el placeholder e input del buscador*/
             width: 100%;
@@ -90,11 +103,13 @@ window.opensignup = function () {
           height: 20px;
           pointer-events: none; /* Permite hacer clic a través de la imagen hacia el input */
         }
+      }     
       }
     
       .barralinks {
         width: 70vw;
         display: flex;
+        padding: 3.4vw;
         
         .menu {
           position: relative;
@@ -104,9 +119,11 @@ window.opensignup = function () {
           gap: 35%;
           font-size: 30px;
           padding-right: clamp(20px, 5%, 50px);
+          
           button {
-            width: 30vh;
-            height: 40px;
+            
+            height: 2vw;
+            aspect-ratio: 137/40;
             border-radius: 8px;
             background: #FFF;
             border-style: solid;
@@ -246,6 +263,7 @@ window.opensignup = function () {
         border: none;
         border-radius: 8px;
         padding: 10px;
+        
     }
   }
         </style>
@@ -295,18 +313,20 @@ window.opensignup = function () {
           <!-- #endregion -->
   
           <section class="lora-font barra">
-              <img class="logo" src="../logo.svg" alt="">
-              <div class="nombre lora-font">Babel</div>
-              <form id="busca" class="buscador-container">
-                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9wiYOfiSl6tCHwpDPn72D9SZys0KGLXcgtrD5GIAWJQ&s=10" alt="Icono" class="lupita">
-                  <input id="buscador" class="buscador plus-jakarta-sans" type="text" placeholder="Buscar...">
-              </form>
+              <div class= "nolinks">
+                 <img class="logo" src="../logo.svg" alt="">
+                 <a class="nombre lora-font" href="../home/home.html" >Babel</a>
+                 <form id="busca" class="buscador-container">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9wiYOfiSl6tCHwpDPn72D9SZys0KGLXcgtrD5GIAWJQ&s=10" alt="Icono" class="lupita">
+                    <input id="buscador" class="buscador plus-jakarta-sans" type="text" placeholder="Buscar...">
+                 </form>
+              </div>
               <div class="barralinks">
                   <nav class="menu plus-jakarta-sans">
+                      <button onclick="opensignup()" class="botonmenu plus-jakarta-sans"><a href="javascript:void(0)">Sign Up</a></button>
+                      <button onclick="opensignin()" class="botonmenu plus-jakarta-sans"><a href="javascript:void(0)">Sign In</a></button>
                       <button class="botonmenu plus-jakarta-sans"><a href="../dashboard_libros_sinlog/dashboard_libros_sinlog.html">Libros</a></button>
                       <button class="botonmenu plus-jakarta-sans"><a href="../listas_nologueado/listas_nologueado.html">Listas</a></button>
-                      <button onclick="opensignin()" class="botonmenu plus-jakarta-sans"><a href="javascript:void(0)">Sign In</a></button>
-                      <button onclick="opensignup()" class="botonmenu plus-jakarta-sans"><a href="javascript:void(0)">Sign Up</a></button>
                   </nav>
               </div>
           </section> 

@@ -31,24 +31,33 @@ body {
       opacity: 1;
       background-color: rgba(0, 0, 0, 0.60); 
       color: #ffffff;
-      padding: 20px 30px;
-      border-radius: 8px;
+      border-radius: .7vw;
       transform: translateY(0);
       text-align: center;
+      width: 41.5vw;
+      height: 14.7vw;
+      margin-top: 18vw;
+
 
      
 
       h3 {
-        font-size: 2rem;
-        font-weight: 450;
-        margin: 0px;
+        color: #FFF;
+        text-align: center;
+        font-family: Lora;
+        font-size: 2.6vw;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
       }
     
       p {
-        font-size: 1.6rem;
-        font-weight: 350;
-        margin: 0px;
-        padding-top: 12px;
+        color: #FFF;
+        font-family: Lora;
+        font-size: 35px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
       }
     }
     .descripcion {
@@ -62,40 +71,22 @@ body {
       font-size: 2vw;
       text-align: center;
       line-height: 1.6;
-      width: 40%;
+      width: 41.5vw;
+      height: 6.5vw;
       background-color: rgba(0, 0, 0, 0.60); 
       color: #ffffff;
       padding: 5px 10px;
       padding-bottom: 5px;
       border-radius: 8px;
       transform: translateY(50px);
+      color: #FFF;
+      text-align: center;
+      font-family: Lora;
+      font-size: 1.6vw;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
     }
 
-    button {
-      margin-top: 8vh;
-      border-radius: 8px;
-      background: #FFF;
-      border-style: solid;
-      border-color: #FFF;
-
-      color: #000000;
-      text-decoration: none;
-      text-wrap: nowrap;
-      font-size: 20px;
-      padding: 8px;
-
-      transition: transform .5s; /* animacion */
-
-      a {
-        color: #000000;
-        text-decoration: none;
-        text-wrap: nowrap;
-        font-size: 2rem;
-      }
-    }
-    button:hover {
-      transform: scale(1.1);
-
-    }
   }
 }
