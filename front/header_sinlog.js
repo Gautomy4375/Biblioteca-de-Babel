@@ -372,12 +372,13 @@ window.opensignup = function () {
       }
       async function datos(mail, usuario, contraseña,) {
 
-        let endpoint = `/api/auth/registro?username=${usuario}?email=${mail}?password=${contraseña}`;
+        let endpoint = `/api/auth/registro?username=${usuario}&email=${mail}&password=${contraseña}`;
         
         let data = {
           email: mail,
           username: usuario,
           password: contraseña,
+          
         };
         let respuesta = await fetch(endpoint, {
           method: 'POST',
@@ -388,8 +389,9 @@ window.opensignup = function () {
         });
 
         let datitos = await respuesta.json();
-
+        datitos.status = respuesta.status;
         return datitos;
+        
 
 
       }
@@ -401,7 +403,8 @@ window.opensignup = function () {
       let mensajesu = document.getElementById("mensajesu");
   
       if (subtnsend) {
-        subtnsend.addEventListener("click", () => {
+        subtnsend.addEventListener("click", async () => {
+
           let usernamesusave = usernamesu.value;
           let mailsusave = mailsu.value;
           let passwordsusave = passwordsu.value;
@@ -409,27 +412,57 @@ window.opensignup = function () {
           if (!mailsusave.includes("@")) {
               mensajesu.innerText = "Este e-mail no es válido.";
               mensajesu.style.color = "red";
+
           } else if (usernamesusave.includes("@")) {
               mensajesu.innerHTML = 'El nombre de usuario no puede tener "@".';
               mensajesu.style.color = "red";
+
           } else {
-            let objetoDatos = datos(mailsusave, usernamesusave, passwordsusave);
-            let status = "200"
-              if (objetoDatos.created) {
+            
+            let objetoDatos = await datos(mailsusave, usernamesusave, passwordsusave);
+            
+              if (objetoDatos.status === 201) {
                 let userIDStorage = objetoDatos.id;
                 localStorage.setItem('userId', userIDStorage);
                 localStorage.setItem('usernameSession', usernamesusave);
                   mensajesu.innerHTML = "Creación de cuenta exitosa.<br>Bienvenido " + usernamesusave + "!<br>Redirigiendote...";
                   mensajesu.style.color = "green";
                   setTimeout(() => {
-                    window.location.replace("../user_dashboard/user_dashboard.html"); //espera y hace que no se pueda hacer para atras
+                    window.location.replace("../user_dashboard/user_dashboard.html"); 
                 }, 3000);
-              } else if (status === "409") {
+              } else if (objetoDatos.status === 409) {
                   mensajesu.innerText = "Ya existe una cuenta con este mail y/o nombre de usuario.";
                   mensajesu.style.color = "red";
               } 
+            
+              
           }
         });
+      }
+      
+      async function datosLogin(usuario, contraseña,) {
+        
+        let endpoint = `/api/auth/login`;
+        
+        let data = {
+          username: usuario,
+          password: contraseña,
+          
+        };
+        let respuesta = await fetch(endpoint, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+        });
+
+        let datitos = await respuesta.json();
+        datitos.status = respuesta.status;
+        return datitos;
+        
+
+
       }
   
       // SignIn
@@ -439,20 +472,21 @@ window.opensignup = function () {
       const mensajesi = document.getElementById("mensajesi");
   
       if (sibtnsend) {
-        sibtnsend.addEventListener("click", () => {
+        sibtnsend.addEventListener("click", async () => {
           let usernamesisave = usernamesi.value;
           let passwordsisave = passwordsi.value;
+          let objetoDatos = await datosLogin(usernamesisave, passwordsisave);
   
-          let status = "200";
-          if (status === "200") {
+          if (objetoDatos.status === 200) {
               mensajesi.innerText = "Bienvenido " + usernamesisave + " !";
               mensajesi.style.color = "green";
-              //falta poner el user id, pero el username ya esta
+              let idUsu = objetoDatos.id;
+              localStorage.setItem('userId',idUsu)
               localStorage.setItem('usernameSession', usernamesisave);
               setTimeout(() => {
                 window.location.replace("../user_dashboard/user_dashboard.html"); //espera y hace que no se pueda hacer para atras
             }, 3000);
-          } else if (status === "400" || status === "404") {
+          } else if (objetoDatos.status === 400 || objetoDatos.status === 404) {
               mensajesi.innerText = "El nombre de usuario, el mail y/o la contraseña son incorrectos.";
               mensajesi.style.color = "red";
           } 

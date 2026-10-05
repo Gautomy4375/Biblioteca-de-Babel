@@ -3,6 +3,8 @@ let input = document.getElementById('buscador');
 
 let id = localStorage.getItem('userId');
 
+
+
 async function traerSeguidos(id){
 
     let endpoint = `/api/usuarios/:${id}/seguidos`;
