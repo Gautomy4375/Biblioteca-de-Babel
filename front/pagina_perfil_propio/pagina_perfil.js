@@ -208,14 +208,16 @@ enter.addEventListener('submit', function(event){
 })
 
 function logout() {
-    localStorage.removeItem('userId');
-    localStorage.removeItem('usernameSession');
-    window.location.replace("../home/home.html");
+    const userChoice = confirm("⚠ ALERTA ⚠ Vas a cerrar sesión, quieres continuar?");
+
+    if (userChoice) {
+        localStorage.removeItem('userId');
+        localStorage.removeItem('usernameSession');
+        window.location.replace("../home/home.html");
+        } else {
+    }
 
 }
- function charlie(){
-    window.location.href= '../charlie/charlie.html';
- }
 
 
-
+//TETSEO
