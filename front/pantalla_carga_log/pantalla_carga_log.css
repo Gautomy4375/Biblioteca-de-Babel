@@ -1,0 +1,26 @@
+body{
+    margin: 0px;
+    padding: 0;
+    box-sizing: 0;
+    background-color: #F1EEE7;
+}
+
+.todo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    .cargando {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        img {
+            width: 20vw;
+            height: auto;
+        }
+        div {
+            font-size: 2rem;
+        }
+    }
+}
