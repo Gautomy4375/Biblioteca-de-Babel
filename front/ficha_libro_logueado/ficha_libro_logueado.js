@@ -1,45 +1,57 @@
+let titleDesdePaginaanterior = new URLSearchParams(window.location.search);
+let nombre = titleDesdePaginaanterior.get('titulo');
+console.log(nombre);
+
+
+
+
 function openreview () {
     reviewOverlay.classList.remove('hidden');
 }
 
-
-async function traerDatosBack(titulo) {
-
-    let endpoint = '/api/libros' /*YTSMA ES UN EJEMPLO PORQUE GAUDIO NO TRAE LOS ENDPOINTS*/
-
-    let res = await fetch(endpoint);
-    let libro = null;                               //POSTE ACA HICE ALGUNOS FETCH, POR EL MOMENTO NO SE VA A MOSTRAR NADA
-
-    if (res.ok){
-        libro = await res.json();
-    }
-    else{
-        console.log('Hubo un error');
-    }
-    
-}
 reviewOverlay.addEventListener('click', (event) => {
     if (event.target === reviewOverlay) {
         reviewOverlay.classList.add('hidden');
     }
     });
 
-let titulo = document.querySelectorAll('.book-title');
-titulo.forEach(element => {
-    element.textContent = 'El Principito'; 
-    });
+
+    
+
+    async function datosLibro(nombre){
+
+        let endpoint = `http://localhost:3000/api/libros/${encodeURIComponent(nombre)}`;
+        let respuesta = await fetch(endpoint);
+        let datos = null;
+    
+        if(respuesta.ok){
+            datos = await respuesta.json();
+        }
+        else{
+            console.log('hubo un error');
+            
+        }
+    
+        return datos;
+    }
+
+    let ob = await datosLibro(nombre);
+    
+
+let titulo = document.getElementById('titulo');
+titulo.textContent = ob.title;
     
 let tapa = document.getElementById('tapa')
-tapa.src = libro.tapa ; //falta parametro de verdad que obtendremos del endpoint (lo mismo en todas las siguentes).
+tapa.src = ob.portada;
 
 let autor = document.getElementById('autor');
-autor.textContent = libro.autor;
+autor.textContent = ob.authors;
 
 let descripcion = document.getElementById('desc');
-descripcion.textContent = libro.descripcion;
+descripcion.textContent = ob.description;
 
 let idioma = document.getElementById('idioma');
-idioma.textContent = libro.idioma;
+idioma.textContent = ob.idioma;
 
 let año = document.querySelectorAll('.anio');
 año.forEach(element => {
@@ -47,10 +59,10 @@ año.forEach(element => {
     });
 
 let genero = document.getElementById('genero');
-genero.textContent = libro.genero;
+genero.textContent = ob.categorias;
 
 let hojas = document.getElementById('hojas');
-hojas.textContent = libro.cantidadhojas;
+hojas.textContent = ob.cantidad_paginas;
 
 let promedio = document.getElementById('promedio');
 promedio.textContent = '3.4';
@@ -90,141 +102,3 @@ username3.href = '../pagina_perfil_ajeno/pagina_perfil_ajeno.html'
 
 let fotoperfil3 = document.getElementById('fotoperfil3')
 fotoperfil3.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/3840px-Default_pfp.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail';
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    libro = 'harry potter y la odisea'
-    ////async function(libro) {
-    //    let descripcion = await fetch(`/api/libros/:${libro}`)
-    //} 
-    //let descicipon = descripcion.descripcion 
