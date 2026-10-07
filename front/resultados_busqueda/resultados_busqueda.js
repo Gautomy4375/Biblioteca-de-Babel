@@ -1,5 +1,7 @@
 let titleDesdePaginaanterior = new URLSearchParams(window.location.search);
-let titu = titleDesdePaginaanterior.get('q');
+let titu = titleDesdePaginaanterior.get('titulo');
+
+console.log('el titulo es '+ titu)
 
 let conTi = document.getElementById('palabra-buscada');
 let conLi = document.getElementById('lista')
@@ -8,7 +10,10 @@ if (titu){
     if (conTi){
         conTi.textContent = `"${titu}"`;
 
-        buscarLibros(titu);
+            buscarLibros(titu);
+        
+
+        
     }
 }
 else{
@@ -17,15 +22,16 @@ else{
 
 async function buscarLibros(palabra) {
 
-    let endpoint = `http://localhost:3000/api/libros?titulo=${titu}`;
+    let endpoint = `http://localhost:3000/api/libros?titulo=${encodeURIComponent(palabra)}`;
 
     let respuesta = await fetch(endpoint);
 
     if (respuesta.ok){
         let libros = await respuesta.json();
+        console.log("Datos recibidos del backend:", libros);
 
-        if (libros.length > 0){
-            mostrarLibros(libros);
+        if (libros.libros && libros.libros.length > 0){
+            mostrarLibros(libros.libros); // Le pasamos el array real a la función
         }
         else{
             conLi.textContent = 'No se encontraron libros'
@@ -33,7 +39,7 @@ async function buscarLibros(palabra) {
     }
     else{
         conLi.textContent = 'Hubo un error'
-        windown.location.href = '../pagina_error_log/pagina_error_log.html';
+        
     }
 }
 
@@ -42,17 +48,20 @@ function mostrarLibros(libros){
 
     let i = 0;
 
-    if (i < libros.length){
+    libros.forEach(libro =>{
         let divs = document.createElement('a');
         divs.classList.add('boton_libro');
-        divs.href= `../ficha_libro_logueado/ficha_libro_logueado.html?id=${libros.id}`
+        let port = libro.portada
 
-        divs.innerHTML=`
-        <img src='${libros.portada}'><img>
-        <h3>${libros.title}<h3>
-        `
-        i++
-    } 
+        
+
+        divs.innerHTML = `
+        <img src="${port}" alt="${libro.title}" />
+        <h3>${libro.title}</h3>
+         `;
+
+         conLi.appendChild(divs);
+    })
 }
 
 let buscarLista = document.getElementById('listas');

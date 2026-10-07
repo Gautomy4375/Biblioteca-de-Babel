@@ -285,7 +285,7 @@ document.addEventListener("DOMContentLoaded", function() {
     let titulo = input.value.trim();
 
     if(titulo){
-        window.location.href= `../resultados_busqueda/resultados_busqueda.html?q=${encodeURIComponent(titulo)}`; 
+        window.location.href= `../resultados_busqueda/resultados_busqueda.html?titulo=${encodeURIComponent(titulo)}`; 
     }
 })
   });
