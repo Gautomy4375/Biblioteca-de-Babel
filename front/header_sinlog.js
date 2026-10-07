@@ -254,11 +254,7 @@ cursor: pointer;
         box-shadow: none;
       }
 
-<<<<<<< HEAD
-        let endpoint = `http://localhost:3000/api/auth/registro?username=${usuario}&email=${mail}&password=${contraseña}`;
-=======
     }
->>>>>>> 5b9d50a1680d467181364f16de8d63ae23143bc7
         
     .boton {
       font-size: 1.5rem;
@@ -383,13 +379,6 @@ cursor: pointer;
         username: usuario,
         password: contraseña,
         
-<<<<<<< HEAD
-        let endpoint = `http://localhost:3000/api/auth/login`;
-        
-        let data = {
-          username: usuario,
-          password: contraseña,
-=======
       };
       let respuesta = await fetch(endpoint, {
         method: 'POST',
@@ -429,7 +418,6 @@ cursor: pointer;
             mensajesu.style.color = "red";
 
         } else {
->>>>>>> 5b9d50a1680d467181364f16de8d63ae23143bc7
           
           let objetoDatos = await datos(mailsusave, usernamesusave, passwordsusave);
           
