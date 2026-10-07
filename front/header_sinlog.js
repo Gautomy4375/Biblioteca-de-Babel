@@ -372,7 +372,7 @@ window.opensignup = function () {
       }
       async function datos(mail, usuario, contraseña,) {
 
-        let endpoint = `/api/auth/registro?username=${usuario}&email=${mail}&password=${contraseña}`;
+        let endpoint = `http://localhost:3000/api/auth/registro?username=${usuario}&email=${mail}&password=${contraseña}`;
         
         let data = {
           email: mail,
@@ -442,7 +442,7 @@ window.opensignup = function () {
       
       async function datosLogin(usuario, contraseña,) {
         
-        let endpoint = `/api/auth/login`;
+        let endpoint = `http://localhost:3000/api/auth/login`;
         
         let data = {
           username: usuario,

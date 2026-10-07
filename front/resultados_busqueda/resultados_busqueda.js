@@ -17,7 +17,7 @@ else{
 
 async function buscarLibros(palabra) {
 
-    let endpoint = `/api/libros?titulo=${titu}`;
+    let endpoint = `http://localhost:3000/api/libros?titulo=${titu}`;
 
     let respuesta = await fetch(endpoint);
 

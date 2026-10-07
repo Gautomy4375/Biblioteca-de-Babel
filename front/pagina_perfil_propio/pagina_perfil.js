@@ -7,7 +7,7 @@ let id = localStorage.getItem('userId');
 
 async function traerSeguidos(id){
 
-    let endpoint = `/api/usuarios/:${id}/seguidos`;
+    let endpoint = `http://localhost:3000/api/usuarios/:${id}/seguidos`;
     let respuesta = await fetch(endpoint);
     let datosSeguidos = null;
 
@@ -16,14 +16,14 @@ async function traerSeguidos(id){
     }
     else{
         console.log('hubo un error');
-        window.location.href = '../pagina_error_log/pagina_error_log.html';
+        window.location.href = './pagina_error_log/pagina_error_log.html';
     }
 
     return datosSeguidos;
 }
 async function traerSeguidores(id){
 
-    let endpoint = `/api/usuarios/:${id}/seguidores`;
+    let endpoint = `http://localhost:3000/api/usuarios/:${id}/seguidores`;
     let respuesta = await fetch(endpoint);
     let datosSeguidores = null;
 
@@ -39,7 +39,7 @@ async function traerSeguidores(id){
 }
 async function traerReseñas(id){
 
-    let endpoint = `/api/usuarios/:${id}/reseñas`;
+    let endpoint = `http://localhost:3000/api/usuarios/:${id}/reseñas`;
     let respuesta = await fetch(endpoint);
     let datosReseñas = null;
 
