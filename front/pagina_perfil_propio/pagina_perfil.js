@@ -213,9 +213,3 @@ function logout() {
     window.location.replace("../home/home.html");
 
 }
- function charlie(){
-    window.location.href= '../charlie/charlie.html';
- }
-
-
-
