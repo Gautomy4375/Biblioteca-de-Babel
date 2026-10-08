@@ -10,10 +10,7 @@ if (titu){
     if (conTi){
         conTi.textContent = `"${titu}"`;
 
-            buscarLibros(titu);
-        
-
-        
+            buscarLibros(titu);    
     }
 }
 else{
@@ -31,7 +28,7 @@ async function buscarLibros(palabra) {
         console.log("Datos recibidos del backend:", libros);
 
         if (libros.libros && libros.libros.length > 0){
-            mostrarLibros(libros.libros); // Le pasamos el array real a la función
+            mostrarLibros(libros.libros);
         }
         else{
             conLi.textContent = 'No se encontraron libros'
