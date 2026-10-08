@@ -5,55 +5,6 @@ let id = localStorage.getItem('userId');
 
 
 
-async function traerSeguidos(id){
-
-    let endpoint = `http://localhost:3000/api/usuarios/:${id}/seguidos`;
-    let respuesta = await fetch(endpoint);
-    let datosSeguidos = null;
-
-    if(respuesta.ok){
-        datosSegudios = await respuesta.json();
-    }
-    else{
-        console.log('hubo un error');
-        window.location.href = './pagina_error_log/pagina_error_log.html';
-    }
-
-    return datosSeguidos;
-}
-async function traerSeguidores(id){
-
-    let endpoint = `http://localhost:3000/api/usuarios/:${id}/seguidores`;
-    let respuesta = await fetch(endpoint);
-    let datosSeguidores = null;
-
-    if(respuesta.ok){
-        datosSeguidores = await respuesta.json();
-    }
-    else{
-        console.log('hubo un error');
-        window.location.href = '../pagina_error_log/pagina_error_log.html';
-    }
-
-    return datosSeguidores;
-}
-async function traerReseñas(id){
-
-    let endpoint = `http://localhost:3000/api/usuarios/:${id}/reseñas`;
-    let respuesta = await fetch(endpoint);
-    let datosReseñas = null;
-
-    if(respuesta.ok){
-        datosReseñas = await respuesta.json();
-    }
-    else{
-        console.log('hubo un error');
-        window.location.href = '../pagina_error_log/pagina_error_log.html';
-    }
-
-    return datosReseñas;
-}
-
 
 
 /*ytsma, aca empiezo con lo de hacer los datos dinamicos*/

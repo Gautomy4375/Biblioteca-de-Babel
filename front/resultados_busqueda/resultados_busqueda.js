@@ -10,7 +10,8 @@ if (titu){
     if (conTi){
         conTi.textContent = `"${titu}"`;
 
-            buscarLibros(titu);    
+            buscarLibros(titu);
+             
     }
 }
 else{
@@ -29,6 +30,7 @@ async function buscarLibros(palabra) {
 
         if (libros.libros && libros.libros.length > 0){
             mostrarLibros(libros.libros);
+            
         }
         else{
             conLi.textContent = 'No se encontraron libros'
@@ -41,9 +43,8 @@ async function buscarLibros(palabra) {
 }
 
 function mostrarLibros(libros){
+    
     conLi.innerHTML = '';
-
-    let i = 0;
 
     libros.forEach(libro =>{
         let divs = document.createElement('a');

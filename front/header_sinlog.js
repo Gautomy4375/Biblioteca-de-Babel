@@ -285,7 +285,7 @@ cursor: pointer;
                     <div class="lora-font dato">Contraseña</div>
                     <input type="password" class="lora-font input-text" name="" id="passwordsu">
                 </div>
-                <button class="plus-jakarta-sans dato boton" id="signupbtnsend">Sign Up</button>
+                <button class="plus-jakarta-sans dato boton" id="signupbtnsend" type="button">Sign Up</button>
                 <div id="mensajesu" class="lora-font mensajesu"></div>
             </section>
         </article>
@@ -372,8 +372,8 @@ cursor: pointer;
     }
     async function datos(mail, usuario, contraseña,) {
 
-      let endpoint = `/api/auth/registro?username=${usuario}&email=${mail}&password=${contraseña}`;
-      
+      let endpoint = `http://localhost:3000/api/auth/registro`;
+      console.log(endpoint);
       let data = {
         email: mail,
         username: usuario,
@@ -403,7 +403,9 @@ cursor: pointer;
     let mensajesu = document.getElementById("mensajesu");
 
     if (subtnsend) {
-      subtnsend.addEventListener("click", async () => {
+      subtnsend.addEventListener("click", async function(e){
+        e.preventDefault();
+        
 
         let usernamesusave = usernamesu.value;
         let mailsusave = mailsu.value;
