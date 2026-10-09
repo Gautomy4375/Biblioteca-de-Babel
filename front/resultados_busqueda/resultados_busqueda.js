@@ -68,7 +68,7 @@ let buscarLista = document.getElementById('listas');
 buscarLista.addEventListener('click', function(event){
     event.preventDefault();
 
-    let titul = titu;
+    let titul = libro.google_id;
 
     if(titul){
         window.location.href = `../resultados_busqueda_listas/resultados_busqueda_listas.html?q=${encodeURIComponent(titul)}`

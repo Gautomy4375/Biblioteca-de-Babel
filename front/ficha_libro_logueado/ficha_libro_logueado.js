@@ -20,7 +20,7 @@ reviewOverlay.addEventListener('click', (event) => {
 
     async function datosLibro(nombre){
 
-        let endpoint = `http://localhost:3000/api/libros/?titulo=${encodeURIComponent(nombre)}`;
+        let endpoint = `http://localhost:3000/api/libros/especifico?google_id=${encodeURIComponent(nombre)}`;
         let respuesta = await fetch(endpoint);
         let datos = null;
     
@@ -40,6 +40,7 @@ async function cargarDatos(){
 
     if(!ob){
         console.log('no se pudieron cargar los datos');
+        return;
     }
     
 
@@ -48,6 +49,9 @@ async function cargarDatos(){
         
     let tapa = document.getElementById('tapa')
     tapa.src = ob.portada;
+
+    // Si ob.portada no existe, usa una imagen por defecto para evitar el error 404
+    tapa.src = ob.portada || 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/3840px-Default_pfp.svg.png';
     
     let autor = document.getElementById('autor');
     autor.textContent = ob.authors;
