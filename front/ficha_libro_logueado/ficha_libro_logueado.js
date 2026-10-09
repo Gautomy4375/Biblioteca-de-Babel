@@ -1,5 +1,5 @@
 let titleDesdePaginaanterior = new URLSearchParams(window.location.search);
-let nombre = titleDesdePaginaanterior.get('titulo');
+let nombre = titleDesdePaginaanterior.get('google_id');
 console.log(nombre);
 
 
@@ -37,6 +37,7 @@ reviewOverlay.addEventListener('click', (event) => {
 
 async function cargarDatos(){
     let ob = await datosLibro(nombre);
+    console.log(ob.volumeInfo);
 
     if(!ob){
         console.log('no se pudieron cargar los datos');
@@ -45,12 +46,12 @@ async function cargarDatos(){
     
 
     let titulo = document.getElementById('titulo');
-    titulo.textContent = ob.title;
+    titulo.textContent = ob.volumeInfo.title;
         
     let tapa = document.getElementById('tapa')
     tapa.src = ob.portada;
 
-    // Si ob.portada no existe, usa una imagen por defecto para evitar el error 404
+    
     tapa.src = ob.portada || 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/3840px-Default_pfp.svg.png';
     
     let autor = document.getElementById('autor');

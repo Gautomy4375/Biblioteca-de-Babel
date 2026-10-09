@@ -48,7 +48,7 @@ function mostrarLibros(libros){
 
     libros.forEach(libro =>{
         let divs = document.createElement('a');
-        divs.href= `../ficha_libro_logueado/ficha_libro_logueado.html?titulo=${encodeURIComponent(libro.title)}`
+        divs.href= `../ficha_libro_logueado/ficha_libro_logueado.html?google_id=${encodeURIComponent(libro.google_id)}`
         divs.classList.add('boton_libro');
         let port = libro.portada
 
