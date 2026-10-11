@@ -2,6 +2,8 @@ let titleDesdePaginaanterior = new URLSearchParams(window.location.search);
 let nombre = titleDesdePaginaanterior.get('google_id');
 console.log(nombre);
 
+let reviewOverlay = document.getElementById('reviewOverlay')
+
 
 
 
@@ -43,16 +45,19 @@ async function cargarDatos(){
         console.log('no se pudieron cargar los datos');
         return;
     }
+
+    console.log(ob.title);
     
 
     let titulo = document.getElementById('titulo');
-    titulo.textContent = ob.volumeInfo.title;
+    titulo.textContent = ob.title;
+
+    let tituloRes = document.getElementById('titulo_reseña');
+    tituloRes.textContent = ob.title
         
     let tapa = document.getElementById('tapa')
-    tapa.src = ob.portada;
 
-    
-    tapa.src = ob.portada || 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/3840px-Default_pfp.svg.png';
+    tapa.src =  ob.portada;
     
     let autor = document.getElementById('autor');
     autor.textContent = ob.authors;
@@ -61,7 +66,7 @@ async function cargarDatos(){
     descripcion.textContent = ob.description;
     
     let idioma = document.getElementById('idioma');
-    idioma.textContent = ob.idioma;
+    idioma.textContent = 'ob.idioma;'
     
     let año = document.querySelectorAll('.anio');
     año.forEach(element => {
@@ -69,10 +74,10 @@ async function cargarDatos(){
         });
     
     let genero = document.getElementById('genero');
-    genero.textContent = ob.categorias;
+    genero.textContent = 'ob.categor';
     
     let hojas = document.getElementById('hojas');
-    hojas.textContent = ob.cantidad_paginas;
+    hojas.textContent = 'ob.cantida';
     
     let promedio = document.getElementById('promedio');
     promedio.textContent = '3.4';

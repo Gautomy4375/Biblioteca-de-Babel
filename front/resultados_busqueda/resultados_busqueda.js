@@ -5,6 +5,7 @@ console.log('el titulo es '+ titu)
 
 let conTi = document.getElementById('palabra-buscada');
 let conLi = document.getElementById('lista')
+let cargador = document.getElementById('cargadorCon')
 if (titu){
 
     if (conTi){
@@ -20,9 +21,13 @@ else{
 
 async function buscarLibros(palabra) {
 
+    cargador.style.display = 'block';
+
     let endpoint = `http://localhost:3000/api/libros?titulo=${encodeURIComponent(palabra)}`;
 
     let respuesta = await fetch(endpoint);
+
+    cargador.style.display = 'none';
 
     if (respuesta.ok){
         let libros = await respuesta.json();
@@ -56,7 +61,7 @@ function mostrarLibros(libros){
 
         divs.innerHTML = `
         <img src="${port}" alt="${libro.title}" />
-        <h3>${libro.title}</h3>
+        <h3 class="nomLibro" >${libro.title}</h3>
          `;
 
          conLi.appendChild(divs);
