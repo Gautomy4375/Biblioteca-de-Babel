@@ -14,7 +14,7 @@ body {
   aspect-ratio: 3/2;
   background-size: cover;
   background-repeat: no-repeat;
-  
+
   display: flex;
   justify-content: center;
 
@@ -30,7 +30,7 @@ body {
 
     .cita {
       opacity: 1;
-      background-color: rgba(0, 0, 0, 0.60); 
+      background-color: rgba(0, 0, 0, 0.60);
       color: #ffffff;
       border-radius: .7vw;
       transform: translateY(0);
@@ -40,7 +40,7 @@ body {
       margin-top: 18vw;
 
 
-     
+
 
       h3 {
         color: #FFF;
@@ -51,7 +51,7 @@ body {
         font-weight: 400;
         line-height: normal;
       }
-    
+
       p {
         color: #FFF;
         font-family: Lora;
@@ -61,6 +61,7 @@ body {
         line-height: normal;
       }
     }
+
     .descripcion {
       display: flex;
       flex-direction: column;
@@ -74,7 +75,7 @@ body {
       line-height: 1.6;
       width: 41.5vw;
       height: 6.5vw;
-      background-color: rgba(0, 0, 0, 0.60); 
+      background-color: rgba(0, 0, 0, 0.60);
       color: #ffffff;
       padding: 5px 10px;
       padding-bottom: 5px;
@@ -89,8 +90,8 @@ body {
       line-height: normal;
     }
 
-   
+
 
   }
-  
+
 }
