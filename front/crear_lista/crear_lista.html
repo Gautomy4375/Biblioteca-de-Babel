@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,16 +12,42 @@
     <!--FONTS-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap"
+        rel="stylesheet">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
     <main class="arriba">
-        <h1 class="crear">Nueva Lista</h1>
+        <h1>Nueva Lista</h1>
     </main>
-    <main class="abajo"></main>
+    <main class="abajo">
+        <form>
+            <article class="nombreylibro">
+                <div class="cat">
+                    <p class="lora-font">Nombre de la Lista</p>
+                    <input type="text" id="nombre_lista" name="nombre_lista">
+                </div>
+                <div class="cat">
+                    <p class="lora-font">Agregar Libro</p>
+                    <input type="text" id="nuevo_libro" placeholder="Título del libro" name="nuevo_libro">
+                </div>
+            </article>
+            <atricle class="desc">
+                <div class="descripcion-container">
+                    <div class="descripcion">
+                        <p class="lora-font">Descripción</p>
+                        <textarea id="descripcion" name="descripcion" rows="4" cols="50"></textarea>
+                    </div>
+                </div>
+            </atricle>
+            <input type="submit" value="Crear Lista" class="crear-lista-button">
+        </form>
+    </main>
 </body>
+
 </html>

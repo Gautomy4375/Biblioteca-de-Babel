@@ -1,26 +1,24 @@
-*{
+* {
     margin: 0px;
     padding: 0;
     box-sizing: 0;
 }
 
-body{
-  background-color: #F1EEE7;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+body {
+    background-color: #F1EEE7;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.arriba{
+.arriba {
     margin-top: 60px;
     height: 9.3vw;
     width: 94vw;
     border-bottom: 3px solid #842739;
-    display: flex;
 
-    .crear{
+    h1 {
         color: #000;
-        text-align: center;
         font-family: Lora;
         font-size: 2vw;
         font-style: normal;
@@ -30,7 +28,80 @@ body{
         margin-top: 11vh;
     }
 }
-.abajo{
-    height: 36vw;
-    width: 94vw;
+
+.abajo {
+    form {
+        width: 74.2vw;
+        padding-top: 6vh;
+
+        .nombreylibro {
+            display: flex;
+            gap: 20vw;
+            justify-content: center;
+        }
+
+        .cat {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            p {
+                font-size: 1.6rem;
+            }
+
+            input {
+                width: 27vw;
+                height: 4vh;
+                appearance: none;
+                background: white;
+                border: none;
+                border-bottom: 1.5px solid #c79298;
+                border-radius: 0;
+                outline: none;
+                box-shadow: none;
+            }
+        }
+
+        .descripcion-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+
+            .descripcion {
+                width: 100%;
+
+                p {
+                    font-size: 1.6rem;
+                    align-self: first baseline;
+                }
+
+                textarea {
+                    width: 100%;
+                    height: 20vh;
+                    appearance: none;
+                    background: white;
+                    border: none;
+                    border-bottom: 1.5px solid #c79298;
+                    border-radius: 0;
+                    outline: none;
+                    box-shadow: none;
+                }
+            }
+        }
+
+        .crear-lista-button {
+            height: 2vw;
+            aspect-ratio: 137/40;
+            border-radius: 8px;
+            background: #FFF;
+            border-style: solid;
+            border-color: #FFF;
+            color: #000000;
+            text-decoration: none;
+            text-wrap: nowrap;
+            font-size: 20px;
+        }
+    }
+
 }
