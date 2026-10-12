@@ -403,7 +403,7 @@ cursor: pointer;
     let mensajesu = document.getElementById("mensajesu");
 
     if (subtnsend) {
-      subtnsend.addEventListener("click", async function(e){
+      subtnsend.addEventListener("submit", async function(e){
         e.preventDefault();
         
 
@@ -474,7 +474,7 @@ cursor: pointer;
     const mensajesi = document.getElementById("mensajesi");
 
     if (sibtnsend) {
-      sibtnsend.addEventListener("click", async () => {
+      sibtnsend.addEventListener("submit", async () => {
         let usernamesisave = usernamesi.value;
         let passwordsisave = passwordsi.value;
         let objetoDatos = await datosLogin(usernamesisave, passwordsisave);

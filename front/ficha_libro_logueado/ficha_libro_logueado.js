@@ -66,18 +66,18 @@ async function cargarDatos(){
     descripcion.textContent = ob.description;
     
     let idioma = document.getElementById('idioma');
-    idioma.textContent = 'ob.idioma;'
+    idioma.textContent = ob.idioma;
     
     let año = document.querySelectorAll('.anio');
     año.forEach(element => {
-        element.textContent = '1957'; 
+        element.textContent = ob.publishedDate; 
         });
     
     let genero = document.getElementById('genero');
-    genero.textContent = 'ob.categor';
+    genero.textContent = ob.categorias;
     
     let hojas = document.getElementById('hojas');
-    hojas.textContent = 'ob.cantida';
+    hojas.textContent = ob.cantidad_paginas;
     
     let promedio = document.getElementById('promedio');
     promedio.textContent = '3.4';
