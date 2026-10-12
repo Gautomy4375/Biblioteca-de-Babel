@@ -43,8 +43,8 @@ window.opensignup = function () {
     }
     async function datos(mail, usuario, contraseña,) {
 
-      let endpoint = `/api/auth/registro?username=${usuario}&email=${mail}&password=${contraseña}`;
-      
+      let endpoint = `http://localhost:3000/api/auth/registro`;
+      console.log(endpoint);
       let data = {
         email: mail,
         username: usuario,
@@ -59,7 +59,14 @@ window.opensignup = function () {
         body: JSON.stringify(data)
       });
 
-      let datitos = await respuesta.json();
+      let datitos = {};
+
+  
+      let contentType = respuesta.headers.get('content-type');
+      if (contentType && contentType.includes('application/json')) {
+        datitos = await respuesta.json();
+      }
+    
       datitos.status = respuesta.status;
       return datitos;
       
@@ -74,7 +81,9 @@ window.opensignup = function () {
     let mensajesu = document.getElementById("mensajesu");
 
     if (subtnsend) {
-      subtnsend.addEventListener("click", async () => {
+      subtnsend.addEventListener("click", async function(e){
+        e.preventDefault();
+        
 
         let usernamesusave = usernamesu.value;
         let mailsusave = mailsu.value;
@@ -91,15 +100,17 @@ window.opensignup = function () {
         } else {
           
           let objetoDatos = await datos(mailsusave, usernamesusave, passwordsusave);
+
+          console.log(objetoDatos);
           
-            if (objetoDatos.status === 201) {
+            if (objetoDatos.status === 200 || objetoDatos.status === 201) {
               let userIDStorage = objetoDatos.id;
               localStorage.setItem('userId', userIDStorage);
               localStorage.setItem('usernameSession', usernamesusave);
                 mensajesu.innerHTML = "Creación de cuenta exitosa.<br>Bienvenido " + usernamesusave + "!<br>Redirigiendote...";
                 mensajesu.style.color = "green";
                 setTimeout(() => {
-                  window.location.replace("../user_dashboard/user_dashboard.html"); 
+                  window.location.href="../user_dashboard/user_dashboard.html"; 
               }, 3000);
             } else if (objetoDatos.status === 409) {
                 mensajesu.innerText = "Ya existe una cuenta con este mail y/o nombre de usuario.";
@@ -113,7 +124,7 @@ window.opensignup = function () {
     
     async function datosLogin(usuario, contraseña,) {
       
-      let endpoint = `/api/auth/login`;
+      let endpoint = `http://localhost:3000/api/auth/login`;
       
       let data = {
         username: usuario,
@@ -128,13 +139,27 @@ window.opensignup = function () {
         body: JSON.stringify(data)
       });
 
-      let datitos = await respuesta.json();
-      datitos.status = respfuesta.status;
+      let datitos = { status: respuesta.status };
+      let contentType = respuesta.headers.get('content-type');
+  
+       
+      if (contentType && contentType.includes('application/json')) {
+          let respuestaApi = await respuesta.json();
+    
+          // Si la respuesta es un objeto, la asignamos; si es un texto o número, la guardamos dentro de datitos.data
+          if (typeof respuestaApi === 'object' && respuestaApi !== null) {
+            datitos = respuestaApi;
+          } else {
+            datitos.data = respuestaApi;
+          }
+        }
+      datitos.status = respuesta.status;
       return datitos;
       
 
 
     }
+    
 
     // SignIn
     const usernamesi = document.getElementById("usernamesi");
@@ -143,7 +168,9 @@ window.opensignup = function () {
     const mensajesi = document.getElementById("mensajesi");
 
     if (sibtnsend) {
-      sibtnsend.addEventListener("click", async () => {
+      sibtnsend.addEventListener("click", async function (e) {
+
+        e.preventDefault();
         let usernamesisave = usernamesi.value;
         let passwordsisave = passwordsi.value;
         let objetoDatos = await datosLogin(usernamesisave, passwordsisave);
@@ -155,11 +182,16 @@ window.opensignup = function () {
             localStorage.setItem('userId',idUsu)
             localStorage.setItem('usernameSession', usernamesisave);
             setTimeout(() => {
-              window.location.replace("../user_dashboard/user_dashboard.html"); //espera y hace que no se pueda hacer para atras
+              window.location.href="../user_dashboard/user_dashboard.html"; //espera y hace que no se pueda hacer para atras
           }, 3000);
-        } else if (objetoDatos.status === 400 || objetoDatos.status === 404) {
-            mensajesi.innerText = "El nombre de usuario, el mail y/o la contraseña son incorrectos.";
-            mensajesi.style.color = "red";
-        } 
+        }  else if ([400, 401, 403, 404].includes(objetoDatos.status)) {
+             mensajesi.innerText = "El nombre de usuario o la contraseña son incorrectos.";
+             mensajesi.style.color = "red";
+           } else {
+             mensajesi.innerText = "Error en el servidor. Código: " + objetoDatos.status;
+             mensajesi.style.color = "red";
+           } 
       });
     }
+
+    

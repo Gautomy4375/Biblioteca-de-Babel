@@ -388,7 +388,14 @@ cursor: pointer;
         body: JSON.stringify(data)
       });
 
-      let datitos = await respuesta.json();
+      let datitos = {};
+
+  
+      let contentType = respuesta.headers.get('content-type');
+      if (contentType && contentType.includes('application/json')) {
+        datitos = await respuesta.json();
+      }
+    
       datitos.status = respuesta.status;
       return datitos;
       
@@ -403,7 +410,7 @@ cursor: pointer;
     let mensajesu = document.getElementById("mensajesu");
 
     if (subtnsend) {
-      subtnsend.addEventListener("submit", async function(e){
+      subtnsend.addEventListener("click", async function(e){
         e.preventDefault();
         
 
@@ -423,14 +430,14 @@ cursor: pointer;
           
           let objetoDatos = await datos(mailsusave, usernamesusave, passwordsusave);
           
-            if (objetoDatos.status === 201) {
+            if (objetoDatos.status === 200) {
               let userIDStorage = objetoDatos.id;
               localStorage.setItem('userId', userIDStorage);
               localStorage.setItem('usernameSession', usernamesusave);
                 mensajesu.innerHTML = "Creación de cuenta exitosa.<br>Bienvenido " + usernamesusave + "!<br>Redirigiendote...";
                 mensajesu.style.color = "green";
                 setTimeout(() => {
-                  window.location.replace("../user_dashboard/user_dashboard.html"); 
+                  window.location.href="../user_dashboard/user_dashboard.html"; 
               }, 3000);
             } else if (objetoDatos.status === 409) {
                 mensajesu.innerText = "Ya existe una cuenta con este mail y/o nombre de usuario.";
@@ -474,7 +481,10 @@ cursor: pointer;
     const mensajesi = document.getElementById("mensajesi");
 
     if (sibtnsend) {
-      sibtnsend.addEventListener("submit", async () => {
+      sibtnsend.addEventListener("click", async function(e){
+
+        e.preventDefault();
+        
         let usernamesisave = usernamesi.value;
         let passwordsisave = passwordsi.value;
         let objetoDatos = await datosLogin(usernamesisave, passwordsisave);
