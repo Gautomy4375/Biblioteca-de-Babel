@@ -444,7 +444,7 @@ cursor: pointer;
     
     async function datosLogin(usuario, contraseña,) {
       
-      let endpoint = `/api/auth/login`;
+      let endpoint = `http://localhost:3000/api/auth/login`;
       
       let data = {
         username: usuario,
