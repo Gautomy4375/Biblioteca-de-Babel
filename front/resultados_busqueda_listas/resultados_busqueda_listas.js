@@ -4,53 +4,78 @@ let titu = tituloPaginaAnterior.get('q');
 let conTi = document.getElementById('palabra-buscada');
 let conLi = document.getElementById('lista');
 
-if(titu){
-    if(conTi){
-        conTi.textContent= `"${titu}"`;
 
-        buscarListas(titu);
-    }  
+if (titu){
+
+    if (conTi){
+        conTi.textContent = `"${titu}"`;
+
+            buscarlistas(titu);
+             
+    }
 }
 else{
-    conLi.textContent = 'Por favor, escribí un término en el buscador';
+    conLi.textContent = `Por favor, escribí un término en el buscador`;
 }
 
-async function buscarListas(titu){
+async function buscarlistas(palabra) {
 
-    let endpoint = ''; //GAUDIO DAME LOS ENDPOINTSS
+    cargador.style.display = 'block';
+
+    let endpoint = `http://localhost:3000/api/listas?titulo=${encodeURIComponent(palabra)}`;
 
     let respuesta = await fetch(endpoint);
 
+    cargador.style.display = 'none';
+
     if (respuesta.ok){
         let listas = await respuesta.json();
+        console.log("Datos recibidos del backend:", listas);
 
-        if (listas.length > 0){
-            mostrarListas(libros);
+        if (listas.listas && listas.listas.length > 0){
+            mostrarlistas(listas.listas);
+            
         }
         else{
             conLi.textContent = 'No se encontraron listas'
         }
     }
     else{
-        windown.location.href = '../pagina_error_log/pagina_error_log.html';
+        conLi.textContent = 'Hubo un error'
+        
     }
 }
 
-function mostrarListas(libros){
+function mostrarlistas(listas){
+    
     conLi.innerHTML = '';
 
-    let i = 0;
-
-    if (i < listas.length){
+    listas.forEach(libro =>{
         let divs = document.createElement('a');
-        divs.classList.add('boton_lista');
-        //acava el href de las listas
+        divs.href= `../ficha_libro_logueado/ficha_libro_logueado.html?google_id=${encodeURIComponent(libro.google_id)}`
+        divs.classList.add('boton_libro');
+        let port = libro.portada
 
+        
 
-        divs.innerHTML=`
-        <img src='${listas.portada}'><img>
-        <h3>${listas.title}<h3>
-        `
-        i++
-    } 
+        divs.innerHTML = `
+        <img src="${port}" alt="${libro.title}" />
+        <h3 class="nomLibro" >${libro.title}</h3>
+         `;
+
+         conLi.appendChild(divs);
+    })
 }
+
+let buscarLista = document.getElementById('listas');
+
+buscarLista.addEventListener('click', function(event){
+    event.preventDefault();
+
+    let titul = libro.google_id;
+
+    if(titul){
+        window.location.href = `../resultados_busqueda_listas/resultados_busqueda_listas.html?q=${encodeURIComponent(titul)}`
+    }
+
+})
