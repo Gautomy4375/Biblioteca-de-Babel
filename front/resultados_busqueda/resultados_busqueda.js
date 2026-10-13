@@ -80,3 +80,16 @@ buscarLista.addEventListener('click', function(event){
     }
 
 })
+
+let buscarUsuario = document.getElementById("usuario")
+
+buscarUsuario.addEventListener('click', function(event){
+    event.preventDefault();
+
+    let titul = libro.google_id;
+
+    if(titul){
+        window.location.href = `../resultados_busqueda_usuario/resultados_busqueda_usuario.html?q=${encodeURIComponent(titul)}`
+    }
+
+})
