@@ -63,7 +63,7 @@ async function cargarDatos(){
     autor.textContent = ob.authors;
     
     let descripcion = document.getElementById('desc');
-    descripcion.textContent = ob.description;
+    descripcion.innerHTML = ob.description;
     
     let idioma = document.getElementById('idioma');
     idioma.textContent = ob.idioma;

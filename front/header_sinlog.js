@@ -492,8 +492,8 @@ cursor: pointer;
         if (objetoDatos.status === 200) {
             mensajesi.innerText = "Bienvenido " + usernamesisave + " !";
             mensajesi.style.color = "green";
-            let idUsu = objetoDatos.id;
-            localStorage.setItem('userId',idUsu)
+            let userId = objetoDatos.id;
+            localStorage.setItem('userId',userId)
             localStorage.setItem('usernameSession', usernamesisave);
             setTimeout(() => {
               window.location.replace("../user_dashboard/user_dashboard.html"); //espera y hace que no se pueda hacer para atras
