@@ -4,7 +4,7 @@ let input = document.getElementById('buscador');
 let id = localStorage.getItem('userId');
 
 async function datosPerfil(id){
-    let endpoint = `http://localhost:3000/api/usuarios/:${id}`;
+    let endpoint = `http://localhost:3000/api/usuarios/${id}`;
     let respuesta = await fetch(endpoint);
     let datos = null;
 

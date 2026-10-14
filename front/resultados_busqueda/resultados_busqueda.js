@@ -19,11 +19,11 @@ else{
     conLi.textContent = `Por favor, escribí un término en el buscador`;
 }
 
-async function buscarLibros(palabra) {
+async function buscarLibros(titu) {
 
     cargador.style.display = 'block';
 
-    let endpoint = `http://localhost:3000/api/libros?titulo=${encodeURIComponent(palabra)}`;
+    let endpoint = `http://localhost:3000/api/libros?titulo=${encodeURIComponent(titu)}`;
 
     let respuesta = await fetch(endpoint);
 
@@ -73,7 +73,7 @@ let buscarLista = document.getElementById('listas');
 buscarLista.addEventListener('click', function(event){
     event.preventDefault();
 
-    let titul = libro.google_id;
+    let titul = titu;
 
     if(titul){
         window.location.href = `../resultados_busqueda_listas/resultados_busqueda_listas.html?q=${encodeURIComponent(titul)}`
@@ -81,15 +81,15 @@ buscarLista.addEventListener('click', function(event){
 
 })
 
-let buscarUsuario = document.getElementById("usuario")
+let buscarUsuario = document.getElementById('usuarios');
 
 buscarUsuario.addEventListener('click', function(event){
     event.preventDefault();
 
-    let titul = libro.google_id;
+    let nombre = titu;
 
-    if(titul){
-        window.location.href = `../resultados_busqueda_usuario/resultados_busqueda_usuario.html?q=${encodeURIComponent(titul)}`
+    if(titu){
+        window.location.href = `../resultados_busqueda_usuario/resultados_busqueda_usuario.html?q=${encodeURIComponent(titu)}`
     }
 
 })
