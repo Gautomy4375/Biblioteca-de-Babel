@@ -160,3 +160,7 @@ body{
     }
 
   }
+  hr{
+    background-color: #842739;
+    height: 2px;
+  }
