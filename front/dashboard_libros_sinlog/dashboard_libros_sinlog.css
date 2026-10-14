@@ -204,3 +204,26 @@
       background-color: black;
     }
   }
+
+  hr {
+    background-color: #842739;
+    height: 2px;
+    margin-bottom: 5vh;
+  }
+  
+  .categorias {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    justify-content: center;
+    align-content: center;
+  }
+  
+  .cat {
+    text-align: center;
+    justify-self: center;
+    border-radius: 40px;
+    font-size: 1.8rem;
+    background-color: white;
+    width: 20vw;
+  }
