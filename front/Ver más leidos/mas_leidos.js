@@ -2,14 +2,18 @@
 let contenedor = document.getElementById('leidos');
 let id = localStorage.getItem('userId');
 
+if(id){
+    traerLeidos(id);
+}
+
 async function traerLeidos(id){
-    let enpoint = `http://localhost:3000/api/usuarios/${id}`;
+    let endpoint = `http://localhost:3000/api/usuarios/${id}`;
 
     let respuesta = await fetch(endpoint);
-    let datos = null
+    let libros = null
 
     if(respuesta.ok){
-        datos = await respuesta.json();
+        libros = await respuesta.json();
         mostrarLibros(libros.libros);
     }
     else{

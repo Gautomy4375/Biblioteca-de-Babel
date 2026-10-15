@@ -53,13 +53,19 @@ async function cargarDatos(){
     let objeto = await datosPerfil(id);
     let todoSeguidores = await traerSeguidores(id);
     let todoSeguidos = await traerSeguidos(id);
-    console.log
+    
+    console.log(objeto);
 
     let foto_perfil = document.getElementById('foto_perfil');
     foto_perfil.src = 'https://cdn-icons-png.flaticon.com/512/12225/12225881.png';
 
     let nombre = document.getElementById('nom');
     nombre.textContent = localStorage.getItem('usernameSession');
+
+    let fecha = document.getElementById('fecha');
+    fecha.textContent = `Usuario en Babel desde ${objeto.fecha_registro}`;
+
+    
 
     let seguidores = document.getElementById('seguidores');
     seguidores.textContent = todoSeguidores.cantidad;

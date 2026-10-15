@@ -67,6 +67,9 @@ body{
           color: black; 
 
         }
+        #fecha{
+          font-family: lora;
+        }
       }
     }
     .arriba_d{
