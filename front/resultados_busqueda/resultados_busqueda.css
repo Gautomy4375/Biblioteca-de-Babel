@@ -76,26 +76,20 @@ h2{
   }
   #cargadorCon {
     display: none;
-    width: 60px;
-    height: 60px;
+    width: 10vw;
+    aspect-ratio: 3/1;
 
-    .loader {
-    border: 6px solid #e0e0e0;
-    border-top: 6px solid #842739;
-    border-radius: 50%;
-    width: 100%;
-    height: 100%;
-    box-sizing: border-box;
-    animation: girar 1s linear infinite;
-   }
+    .loader{
+      width: 100%;
+      height: 100%;
+    }
+
+    
 }
 
 
 
-@keyframes girar {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
+
 
     .listas{
       display: block;

@@ -121,3 +121,104 @@ async function cargarDatos(){
 }
 
 cargarDatos();
+
+let puntuacion = null; 
+
+let unaEstrella = document.getElementById('star1')
+let dosEstrellas = document.getElementById('star2');
+let tresEstrellas = document.getElementById('star3');
+let cuatroEstrellas = document.getElementById('star4');
+let cincoEstrellas = document.getElementById('star5');
+
+let botonLeido = document.getElementById('botonLeido');
+let botonPor = document.getElementById('botonPor');
+let botonLey = document.getElementById('botonLeyendo');
+let idUsuario = localStorage.getItem('userId');
+
+unaEstrella.addEventListener('click', function(e){
+    e.preventDefault();
+
+    puntuacion = unaEstrella.value;
+    console.log(puntuacion);
+})
+dosEstrellas.addEventListener('click', function(e){
+    e.preventDefault();
+
+    puntuacion = dosEstrellas.value;
+})
+tresEstrellas.addEventListener('click', function(e){
+    e.preventDefault();
+
+    puntuacion = tresEstrellas.value;
+})
+cuatroEstrellas.addEventListener('click', function(e){
+    e.preventDefault();
+
+    puntuacion = cuatroEstrellas.value;
+})
+cincoEstrellas.addEventListener('click', function(e){
+    e.preventDefault();
+
+    puntuacion = cincoEstrellas.value;
+})
+
+let estado = null;
+
+async function crearEstado(){
+    let endpoint = `http://localhost:3000/api/libros/progreso`;
+
+    let data = {
+        estado_libro: estado,
+        id_usuario: idUsuario,
+        puntuacion:puntuacion,
+        google_id: nombre,
+
+        
+    }
+
+    let respuesta = await fetch(endpoint, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    });
+    let datos = null;
+
+    if(respuesta.ok){
+        datos = await respuesta.json();
+    }
+    else{
+        console.log('hubo un error :(');
+    }
+    return datos;
+
+}
+
+botonLeido.addEventListener('click', function(e){
+    e.preventDefault();
+
+    estado = 'leido';
+    crearEstado();
+    alert(`Guardaste este libro como ${estado}, y le diste ${puntuacion} estrella/s`);
+})
+
+botonPor.addEventListener('click', function(e){
+    e.preventDefault();
+
+    estado = 'porleer';
+    crearEstado();
+    alert(`Guardaste este libro como ${estado}, y le diste ${puntuacion} estrella/s`);
+})
+
+botonLey.addEventListener('click', function(e){
+    e.preventDefault();
+
+    estado = 'leyendo';
+    crearEstado();
+    alert(`Guardaste este libro como ${estado}, y le diste ${puntuacion} estrella/s`);
+})
+
+
+
+
