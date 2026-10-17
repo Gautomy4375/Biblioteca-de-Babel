@@ -48,10 +48,12 @@ function ant() {
 //BUSQUEDA DE CATEGORIAS
 
 const fromCategorias = document.getElementById("categorias");
+
 fromCategorias.addEventListener("click", (e) => {
+    const boton = e.target.closest("button");
+    if (!boton) return;
     e.preventDefault();
-    localStorage.setItem("categoria_value", e.target.value);
-    localStorage.setItem("categoria", e.target.textContent);
-    window.location.href = "../categoria_sinlog/categoria_sinlog.html"
-}
-);
+    localStorage.setItem("categoria_value", boton.value);
+    localStorage.setItem("categoria", boton.textContent);
+    window.location.href = "../categoria_sinlog/categoria_sinlog.html";
+});
