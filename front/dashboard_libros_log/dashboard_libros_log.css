@@ -184,13 +184,14 @@ hr {
   align-content: center;
   margin-bottom: 5vh;
 
-}
+  button {
+    border-style: none;
+    text-align: center;
+    justify-self: center;
+    border-radius: 40px;
+    font-size: 1.8rem;
+    background-color: white;
+    width: 20vw;
+  }
 
-.categoria {
-  text-align: center;
-  justify-self: center;
-  border-radius: 40px;
-  font-size: 1.8rem;
-  background-color: white;
-  width: 20vw;
 }

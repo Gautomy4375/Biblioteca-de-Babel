@@ -15,7 +15,7 @@ function siguiente() {
 }
 function anterior() {
     let imagenes = document.getElementById("imagenes");
-    if (pos > 0){
+    if (pos > 0) {
         pos--;
         imagenes.style.transform = `translateX(-${pos * 14}vw)`;
     }
@@ -38,7 +38,7 @@ function sig() {
 }
 function ant() {
     let imag = document.getElementById("imagene");
-    if (posi > 0){
+    if (posi > 0) {
         posi--;
         imag.style.transform = `translateX(-${posi * 14}vw)`;
     }
@@ -63,7 +63,7 @@ uno.src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqPS1Es-Brcsfc0
 dos.src = 'https://i.pinimg.com/originals/7b/b7/cd/7bb7cd6d661d8b49783fbd5f59eabe30.jpg';
 tres.src = 'https://images.cdn3.buscalibre.com/fit-in/660x660/7b/b1/7bb12823686e96de54d1827f51c07114.jpg';
 cuatro.src = 'https://www.blackcat-cideb.com/uploads/2021/01/21038_COVER_Metamorfosi_1_RGB_64aea9572e3617e526f9c181094bef77.jpg';
-cinco.src =  'https://images.cdn2.buscalibre.com/fit-in/660x660/14/96/149639d281dba7278ed0eab0cdb56420.jpg';
+cinco.src = 'https://images.cdn2.buscalibre.com/fit-in/660x660/14/96/149639d281dba7278ed0eab0cdb56420.jpg';
 seis.src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxpi-OypkB0XLiumqnIOayKz_7p_S27xdqxYrxlKkmRr61ZKr1XQ0CtMg&s=10';
 siete.src = 'https://storage-aws-production.publica.la/bajalibros/issues/2024/04/WbparU384FoRaHJZ/5dd15241-d295-4aaa-a76b-8ea56499c419_cover.jpg';
 ocho.src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcrj66irT_0MisKwF1RRTUrzHzPRQbC7zqZDevyPSgva2_PBOhm4DmkijB&s=10';
@@ -94,7 +94,7 @@ eight.textContent = 'Macbeth';
 nine.textContent = 'La biblioteca de Babel';
 ten.textContent = 'Bestiario';
 
-let librosLike = querySelectorAll('.ima');
+let librosLike = document.querySelectorAll('.ima');
 
 let a = librosLike[0];
 let b = librosLike[1];
@@ -111,8 +111,13 @@ a.src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3p69eG5HCNR743z3
 b.src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTQ6EuPooqA4iRMAv_otdD9y4_1G8rTM1pni2pC5m0Cw&s=10';
 c.src = '';
 
+//BUSQUEDA DE CATEGORIAS
 
-
-
-
- 
+const fromCategorias = document.getElementById("categorias");
+fromCategorias.addEventListener("click", (e) => {
+    e.preventDefault();
+    localStorage.setItem("categoria_value", e.target.value);
+    localStorage.setItem("categoria", e.target.textContent);
+    window.location.href = "../categoria_log/categoria_log.html"
+}
+);
