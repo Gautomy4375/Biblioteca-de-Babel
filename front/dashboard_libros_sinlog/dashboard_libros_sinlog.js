@@ -15,7 +15,7 @@ function siguiente() {
 }
 function anterior() {
     let imagenes = document.getElementById("imagenes");
-    if (posi > 0){
+    if (posi > 0) {
         posi--;
         imagenes.style.transform = `translateX(-${posi * 14}vw)`;
     }
@@ -38,8 +38,20 @@ function sig() {
 }
 function ant() {
     let imag = document.getElementById("imagene");
-    if (posi > 0){
+    if (posi > 0) {
         posi--;
         imag.style.transform = `translateX(-${posi * 14}vw)`;
     }
 }
+
+
+//BUSQUEDA DE CATEGORIAS
+
+const fromCategorias = document.getElementById("categorias");
+fromCategorias.addEventListener("click", (e) => {
+    e.preventDefault();
+    localStorage.setItem("categoria_value", e.target.value);
+    localStorage.setItem("categoria", e.target.textContent);
+    window.location.href = "../categoria_sinlog/categoria_sinlog.html"
+}
+);
