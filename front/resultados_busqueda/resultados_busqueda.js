@@ -23,7 +23,7 @@ async function buscarLibros(titu) {
 
     cargador.style.display = 'block';
 
-    let endpoint = `http://localhost:3000/api/libros?titulo=${encodeURIComponent(titu)}`;
+    let endpoint = `http://localhost:3000/api/libros?titulo=${(encodeURIComponent(titu))}`;
 
     let respuesta = await fetch(endpoint);
 

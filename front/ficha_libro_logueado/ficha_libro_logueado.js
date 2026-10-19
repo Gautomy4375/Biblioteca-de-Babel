@@ -1,4 +1,4 @@
-let titleDesdePaginaanterior = new URLSearchParams(window.location.search);
+const titleDesdePaginaanterior = new URLSearchParams(window.location.search);
 let nombre = titleDesdePaginaanterior.get('google_id');
 console.log(nombre);
 
@@ -165,14 +165,12 @@ cincoEstrellas.addEventListener('click', function(e){
 let estado = null;
 
 async function crearEstado(){
-    let endpoint = `http://localhost:3000/api/libros/progreso`;
+    let endpoint = `http://localhost:3000/api/libros/progreso?google_id=${encodeURIComponent(nombre)}`;
 
     let data = {
         estado_libro: estado,
         id_usuario: idUsuario,
         puntuacion:puntuacion,
-        google_id: nombre,
-
         
     }
 
@@ -195,12 +193,17 @@ async function crearEstado(){
 
 }
 
-botonLeido.addEventListener('click', function(e){
+botonLeido.addEventListener('click', async function(e){
     e.preventDefault();
 
     estado = 'leido';
-    crearEstado();
-    alert(`Guardaste este libro como ${estado}, y le diste ${puntuacion} estrella/s`);
+    let resultado = crearEstado();
+    if(resultado){
+        alert(`Guardaste este libro como ${estado}, y le diste ${puntuacion} estrella/s`);
+    }
+    else{
+        console.log('hubo otro error');
+    }
 })
 
 botonPor.addEventListener('click', function(e){
