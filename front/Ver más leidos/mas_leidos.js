@@ -2,6 +2,8 @@
 let contenedor = document.getElementById('leidos');
 let id = localStorage.getItem('userId');
 
+console.log(id);
+
 if(id){
     traerLeidos(id);
 }
@@ -42,20 +44,23 @@ async function datosLibro(nombre){
 async function mostrarLibros(libros){
     contenedor.innerHTML = '';
 
-    libros.forEach(libro, async function(e){ //esto lo tengo q cambiar por un for
-        let datos = await datosLibro(libro);
-        let divs = document.createElement('a');
-        divs.href= `../ficha_libro_logueado/ficha_libro_logueado.html?google_id=${encodeURIComponent(libro.google_id)}`
-        divs.classList.add('boton_libro');
-        let port = datos.portada
+    for (let i = 0; i < libros.length; i++) {
+        let libro = await datosLibro(libros[i]);
+        let card = document.createElement('a');
+        card.classList.add('libro');
+        card.href = `detalle.html?id=${libro.id}`;
 
-        
+        card.innerHTML = `
+            <img src="${libro.portada}" alt="${libro.title}">
+            <h3 class="titulo">${libro.title}</h3>
+            <p class="autor">${libro.authors}</p>
+        `;  
 
-        divs.innerHTML = `
-        <img src="${port}" alt="${datos.title}" />
-        <h3 class="nomLibro" >${datos.title}</h3>
-         `;
 
-         contenedor.appendChild(divs);
-    })
+        contenedor.appendChild(card);
+
+
+    }
+
+    
 }

@@ -47,6 +47,38 @@ async function traerSeguidos(id){
     return datosSeguidos
 
 }
+async function traerLeidos(id){
+    let endpoint = `http://localhost:3000/api/libros/${id}/leidos`;
+
+    let respuesta = await fetch(endpoint);
+    let libros = null
+
+    if(respuesta.ok){
+        libros = await respuesta.json();
+        mostrarLibros(libros.libros);
+    }
+    else{
+        console.log('hubo un eror')
+    }
+    console.log(libros);
+    return libros
+}
+async function datosLibro(nombre){
+
+    let endpoint = `http://localhost:3000/api/libros/especifico?google_id=${encodeURIComponent(nombre)}`;
+    let respuesta = await fetch(endpoint);
+    let datos = null;
+
+    if(respuesta.ok){
+        datos = await respuesta.json();
+    }
+    else{
+        console.log('hubo un error');
+        
+    }
+
+    return datos;
+}
 
 
 async function cargarDatos(){
@@ -75,6 +107,12 @@ async function cargarDatos(){
     leidos.textContent = '27';
     let listas = document.getElementById('listas');
     listas.textContent = '12';
+
+    let idLeidos = await traerLeidos(id);
+
+    
+
+    
 
     
     
