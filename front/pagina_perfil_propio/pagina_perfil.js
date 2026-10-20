@@ -79,6 +79,34 @@ async function datosLibro(nombre){
 
     return datos;
 }
+async function traerListas(idDueño, idSolicitante){
+    let endpoint = `http://localhost:3000/api/usuarios/${idDueño}/${idSolicitante}/listas`;
+    let respuesta = await fetch(endpoint);
+    let datosListas = null;
+
+    if(respuesta.ok){
+        datosListas = await respuesta.json();
+    }
+    else{
+        console.log('hubo un error');
+    }
+    return datosListas;
+}
+function mostrarListas(listas){
+    let calis = document.querySelectorAll('.cali');
+
+    for(let i = 0; i < calis.length && i < listas.length; i++){
+        calis[i].querySelector('.nombre').textContent = listas[i].nombre;
+        calis[i].addEventListener('click', function(){
+            window.location.href = `../ficha_lista_logueado/ficha_lista_logueado.html?id=${listas[i].id_lista}`;
+        });
+
+        let portadas = calis[i].querySelectorAll('.librito');
+        for(let j = 0; j < portadas.length && j < listas[i].libros.length; j++){
+            portadas[j].src = listas[i].libros[j].libro.portada;
+        }
+    }
+}
 
 
 async function cargarDatos(){
@@ -106,7 +134,14 @@ async function cargarDatos(){
     let leidos = document.getElementById('leidos');
     leidos.textContent = '27';
     let listas = document.getElementById('listas');
-    listas.textContent = '12';
+    let todoListas = await traerListas(id, id);
+    if(todoListas){
+        listas.textContent = todoListas.listas.length;
+        mostrarListas(todoListas.listas);
+    }
+    else{
+        listas.textContent = '0';
+    }
 
     let idLeidos = await traerLeidos(id);
 

@@ -50,39 +50,104 @@ im[21].src = 'https://images.cdn1.buscalibre.com/fit-in/360x360/c6/78/c678ab2c90
 im[22].src = 'https://images.cdn1.buscalibre.com/fit-in/360x360/c6/78/c678ab2c90ed50d7d8849e30bc92b05a.jpg';
 im[23].src = 'https://images.cdn1.buscalibre.com/fit-in/360x360/c6/78/c678ab2c90ed50d7d8849e30bc92b05a.jpg';
 
-let nom = document.querySelectorAll('.nom_res');
-
-nom[0].textContent = 'Nombre';
-nom[1].textContent = 'Nombre';
-nom[2].textContent = 'Nombre';
-nom[3].textContent = 'Nombre';
-
-let aut = document.querySelectorAll('.aut_res');
-
-aut[0].textContent = 'Nombre del autor';
-aut[1].textContent = 'Nombre del autor';
-aut[2].textContent = 'Nombre del autor';
-aut[3].textContent = 'Nombre del autor';
-
-
-let ima = document.querySelectorAll('.lib');
-
-ima[0].src = 'https://images.cdn1.buscalibre.com/fit-in/360x360/c6/78/c678ab2c90ed50d7d8849e30bc92b05a.jpg';
-ima[1].src = 'https://images.cdn1.buscalibre.com/fit-in/360x360/c6/78/c678ab2c90ed50d7d8849e30bc92b05a.jpg'; 
-ima[2].src = 'https://images.cdn1.buscalibre.com/fit-in/360x360/c6/78/c678ab2c90ed50d7d8849e30bc92b05a.jpg'; 
-ima[3].src = 'https://images.cdn1.buscalibre.com/fit-in/360x360/c6/78/c678ab2c90ed50d7d8849e30bc92b05a.jpg'; 
-ima[4].src = 'https://images.cdn1.buscalibre.com/fit-in/360x360/c6/78/c678ab2c90ed50d7d8849e30bc92b05a.jpg'; 
-ima[5].src = 'https://images.cdn1.buscalibre.com/fit-in/360x360/c6/78/c678ab2c90ed50d7d8849e30bc92b05a.jpg'; 
-ima[6].src = 'https://images.cdn1.buscalibre.com/fit-in/360x360/c6/78/c678ab2c90ed50d7d8849e30bc92b05a.jpg'; 
-ima[7].src = 'https://images.cdn1.buscalibre.com/fit-in/360x360/c6/78/c678ab2c90ed50d7d8849e30bc92b05a.jpg'; 
-ima[8].src = 'https://images.cdn1.buscalibre.com/fit-in/360x360/c6/78/c678ab2c90ed50d7d8849e30bc92b05a.jpg'; 
-ima[9].src = 'https://images.cdn1.buscalibre.com/fit-in/360x360/c6/78/c678ab2c90ed50d7d8849e30bc92b05a.jpg'; 
-ima[10].src = 'https://images.cdn1.buscalibre.com/fit-in/360x360/c6/78/c678ab2c90ed50d7d8849e30bc92b05a.jpg'; 
-ima[11].src = 'https://images.cdn1.buscalibre.com/fit-in/360x360/c6/78/c678ab2c90ed50d7d8849e30bc92b05a.jpg'; 
-ima[12].src = 'https://images.cdn1.buscalibre.com/fit-in/360x360/c6/78/c678ab2c90ed50d7d8849e30bc92b05a.jpg'; 
-ima[13].src = 'https://images.cdn1.buscalibre.com/fit-in/360x360/c6/78/c678ab2c90ed50d7d8849e30bc92b05a.jpg'; 
-ima[14].src = 'https://images.cdn1.buscalibre.com/fit-in/360x360/c6/78/c678ab2c90ed50d7d8849e30bc92b05a.jpg'; 
-ima[15].src = 'https://images.cdn1.buscalibre.com/fit-in/360x360/c6/78/c678ab2c90ed50d7d8849e30bc92b05a.jpg'; 
 
 
 
+let id = localStorage.getItem('userId');
+
+async function traerListas(idDueño, idSolicitante){
+    let endpoint = `http://localhost:3000/api/usuarios/${idDueño}/${idSolicitante}/listas`;
+    let respuesta = await fetch(endpoint);
+    let datosListas = null;
+
+    if(respuesta.ok){
+        datosListas = await respuesta.json();
+    }
+    else{
+        console.log('hubo un error');
+    }
+    return datosListas;
+}
+
+async function cargarMisListas(){
+    let datosListas = await traerListas(id, id);
+
+    if(!datosListas){
+        return;
+    }
+
+    let misListas = document.querySelectorAll('.mis_li');
+
+    for(let i = 0; i < misListas.length && i < datosListas.listas.length; i++){
+        let lista = datosListas.listas[i];
+
+        misListas[i].querySelector('.aml_1').textContent = lista.nombre;
+        misListas[i].querySelector('.aml_2').textContent = localStorage.getItem('usernameSession');
+        misListas[i].addEventListener('click', function(){
+            window.location.href = `../ficha_lista_logueado/ficha_lista_logueado.html?id=${lista.id_lista}`;
+        });
+
+        let portadas = misListas[i].querySelectorAll('.mlibro');
+        for(let j = 0; j < portadas.length && j < lista.libros.length; j++){
+            portadas[j].src = lista.libros[j].libro.portada;
+        }
+    }
+}
+cargarMisListas();
+
+async function traerMasLikeadas(){
+    let endpoint = `http://localhost:3000/api/listas/likes`;
+    let respuesta = await fetch(endpoint);
+    let datosListas = null;
+
+    if(respuesta.ok){
+        datosListas = await respuesta.json();
+    }
+    else{
+        console.log('hubo un error');
+    }
+    return datosListas;
+}
+async function traerAutor(id){
+    let endpoint = `http://localhost:3000/api/usuarios/${id}`;
+    let respuesta = await fetch(endpoint);
+    let datos = null;
+
+    if(respuesta.ok){
+        datos = await respuesta.json();
+    }
+    else{
+        console.log('hubo un error');
+    }
+    return datos;
+}
+
+async function cargarMasLikeadas(){
+    let datosListas = await traerMasLikeadas();
+
+    if(!datosListas){
+        return;
+    }
+
+    let medios = document.querySelectorAll('.medios');
+
+    for(let i = 0; i < medios.length && i < datosListas.listas.length; i++){
+        let lista = datosListas.listas[i];
+
+        medios[i].querySelector('.nom_res').textContent = lista.nombre;
+        medios[i].addEventListener('click', function(){
+            window.location.href = `../ficha_lista_logueado/ficha_lista_logueado.html?id=${lista.id_lista}`;
+        });
+
+        let autor = await traerAutor(lista.id_usuario);
+        if(autor){
+            medios[i].querySelector('.aut_res').textContent = autor.username;
+        }
+
+        let portadas = medios[i].querySelectorAll('.lib');
+        for(let j = 0; j < portadas.length && j < lista.libros.length; j++){
+            portadas[j].src = lista.libros[j].libro.portada;
+        }
+    }
+}
+cargarMasLikeadas();
