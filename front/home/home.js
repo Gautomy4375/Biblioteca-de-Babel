@@ -43,7 +43,7 @@ window.opensignup = function () {
     }
     async function datos(mail, usuario, contraseña,) {
 
-      let endpoint = `http://localhost:3000/api/auth/registro`;
+      let endpoint = `https://proyectos-tic.ort.edu.ar/biblioteca-de-babel/api/api/auth/registro`;
       console.log(endpoint);
       let data = {
         email: mail,
@@ -124,7 +124,7 @@ window.opensignup = function () {
     
     async function datosLogin(usuario, contraseña,) {
       
-      let endpoint = `http://localhost:3000/api/auth/login`;
+      let endpoint = `https://proyectos-tic.ort.edu.ar/biblioteca-de-babel/api/api/auth/login`;
       
       let data = {
         username: usuario,

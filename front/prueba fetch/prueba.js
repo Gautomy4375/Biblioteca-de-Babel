@@ -12,7 +12,7 @@ let nombre = 'harry potter';
 
 async function probar(nombre){
 
-    let endpoint = `http://localhost:3000/api/libros/${encodeURIComponent(nombre)}`;
+    let endpoint = `https://proyectos-tic.ort.edu.ar/biblioteca-de-babel/api/api/libros/${encodeURIComponent(nombre)}`;
     let respuesta = await fetch(endpoint);
     let datos = null;
 

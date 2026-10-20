@@ -23,7 +23,7 @@ async function buscarLibros(palabra) {
 
     cargador.style.display = 'block';
 
-    let endpoint = `http://localhost:3000/api/libros?titulo=${encodeURIComponent(palabra)}`;
+    let endpoint = `https://proyectos-tic.ort.edu.ar/biblioteca-de-babel/api/api/libros?titulo=${encodeURIComponent(palabra)}`;
 
     let respuesta = await fetch(endpoint);
 

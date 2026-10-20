@@ -2,7 +2,7 @@ let formulario = document.querySelector('form');
 let idUsuario = localStorage.getItem('userId');
 
 async function crearLista(nombre, descripcion){
-    let endpoint = `http://localhost:3000/api/listas`;
+    let endpoint = `https://proyectos-tic.ort.edu.ar/biblioteca-de-babel/api/api/listas`;
     let respuesta = await fetch(endpoint, {
         method: 'POST',
         headers: {
@@ -21,7 +21,7 @@ async function crearLista(nombre, descripcion){
     return datos;
 }
 async function buscarLibro(titulo){
-    let endpoint = `http://localhost:3000/api/libros?titulo=${encodeURIComponent(titulo)}`;
+    let endpoint = `https://proyectos-tic.ort.edu.ar/biblioteca-de-babel/api/api/libros?titulo=${encodeURIComponent(titulo)}`;
     let respuesta = await fetch(endpoint);
     let datos = null;
 
@@ -34,7 +34,7 @@ async function buscarLibro(titulo){
     return datos;
 }
 async function agregarLibro(idLista, google_id){
-    let endpoint = `http://localhost:3000/api/listas/${idLista}/libros`;
+    let endpoint = `https://proyectos-tic.ort.edu.ar/biblioteca-de-babel/api/api/listas/${idLista}/libros`;
     let respuesta = await fetch(endpoint, {
         method: 'PATCH',
         headers: {

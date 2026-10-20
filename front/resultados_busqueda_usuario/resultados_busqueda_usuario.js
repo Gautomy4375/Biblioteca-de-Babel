@@ -23,7 +23,7 @@ async function buscarusuarios(nombre) {
 
 
 
-    let endpoint = `http://localhost:3000/api/usuarios/buscar/${nombre}`;
+    let endpoint = `https://proyectos-tic.ort.edu.ar/biblioteca-de-babel/api/api/usuarios/buscar/${nombre}`;
 
     let respuesta = await fetch(endpoint);
 

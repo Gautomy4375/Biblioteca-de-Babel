@@ -4,7 +4,7 @@ let input = document.getElementById('buscador');
 let id = localStorage.getItem('userId');
 
 async function datosPerfil(id){
-    let endpoint = `http://localhost:3000/api/usuarios/${id}`;
+    let endpoint = `https://proyectos-tic.ort.edu.ar/biblioteca-de-babel/api/api/usuarios/${id}`;
     let respuesta = await fetch(endpoint);
     let datos = null;
 
@@ -19,7 +19,7 @@ async function datosPerfil(id){
 
 }
 async function traerSeguidores(id){
-    let endpoint = `http://localhost:3000/api/usuarios/${id}/seguidores`
+    let endpoint = `https://proyectos-tic.ort.edu.ar/biblioteca-de-babel/api/api/usuarios/${id}/seguidores`
     let respuesta = await fetch(endpoint);
     let datosSeguidores = null;
 
@@ -34,7 +34,7 @@ async function traerSeguidores(id){
 }
 
 async function traerSeguidos(id){
-    let endpoint = `http://localhost:3000/api/usuarios/${id}/seguidos`;
+    let endpoint = `https://proyectos-tic.ort.edu.ar/biblioteca-de-babel/api/api/usuarios/${id}/seguidos`;
     let respuesta = await fetch(endpoint);
     let datosSeguidos= null;
 
@@ -48,7 +48,7 @@ async function traerSeguidos(id){
 
 }
 async function traerLeidos(id){
-    let endpoint = `http://localhost:3000/api/libros/${id}/leidos`;
+    let endpoint = `https://proyectos-tic.ort.edu.ar/biblioteca-de-babel/api/api/libros/${id}/leidos`;
 
     let respuesta = await fetch(endpoint);
     let libros = null
@@ -65,7 +65,7 @@ async function traerLeidos(id){
 }
 async function datosLibro(nombre){
 
-    let endpoint = `http://localhost:3000/api/libros/especifico?google_id=${encodeURIComponent(nombre)}`;
+    let endpoint = `https://proyectos-tic.ort.edu.ar/biblioteca-de-babel/api/api/libros/especifico?google_id=${encodeURIComponent(nombre)}`;
     let respuesta = await fetch(endpoint);
     let datos = null;
 
@@ -80,7 +80,7 @@ async function datosLibro(nombre){
     return datos;
 }
 async function traerListas(idDueño, idSolicitante){
-    let endpoint = `http://localhost:3000/api/usuarios/${idDueño}/${idSolicitante}/listas`;
+    let endpoint = `https://proyectos-tic.ort.edu.ar/biblioteca-de-babel/api/api/usuarios/${idDueño}/${idSolicitante}/listas`;
     let respuesta = await fetch(endpoint);
     let datosListas = null;
 

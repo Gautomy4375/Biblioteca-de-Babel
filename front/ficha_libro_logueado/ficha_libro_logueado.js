@@ -22,7 +22,7 @@ reviewOverlay.addEventListener('click', (event) => {
 
     async function datosLibro(nombre){
 
-        let endpoint = `http://localhost:3000/api/libros/especifico?google_id=${encodeURIComponent(nombre)}`;
+        let endpoint = `https://proyectos-tic.ort.edu.ar/biblioteca-de-babel/api/api/libros/especifico?google_id=${encodeURIComponent(nombre)}`;
         let respuesta = await fetch(endpoint);
         let datos = null;
     
@@ -165,7 +165,7 @@ cincoEstrellas.addEventListener('click', function(e){
 let estado = null;
 
 async function crearEstado(){
-    let endpoint = `http://localhost:3000/api/libros/progreso?google_id=${encodeURIComponent(nombre)}`;
+    let endpoint = `https://proyectos-tic.ort.edu.ar/biblioteca-de-babel/api/api/libros/progreso?google_id=${encodeURIComponent(nombre)}`;
 
     let data = {
         estado_libro: estado,

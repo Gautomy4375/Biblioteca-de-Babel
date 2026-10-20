@@ -5,7 +5,7 @@ const librosGrid = document.getElementById('libros-grid');
 const plantilla = document.getElementById('libro-template');
 
 async function traerLista(idLista){
-    let endpoint = `http://localhost:3000/api/listas/${idLista}`;
+    let endpoint = `https://proyectos-tic.ort.edu.ar/biblioteca-de-babel/api/api/listas/${idLista}`;
     let respuesta = await fetch(endpoint);
     let datos = null;
 
@@ -18,7 +18,7 @@ async function traerLista(idLista){
     return datos;
 }
 async function traerAutor(id){
-    let endpoint = `http://localhost:3000/api/usuarios/${id}`;
+    let endpoint = `https://proyectos-tic.ort.edu.ar/biblioteca-de-babel/api/api/usuarios/${id}`;
     let respuesta = await fetch(endpoint);
     let datos = null;
 

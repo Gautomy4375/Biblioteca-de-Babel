@@ -16,7 +16,7 @@ async function cambiarNombreAvatar(usuario, foto){
         datosEditar.avatar = foto;
     }
 
-    const endpoint = `http://localhost:3000/usuarios/${id}`;
+    const endpoint = `https://proyectos-tic.ort.edu.ar/biblioteca-de-babel/api/api/usuarios/${id}`;
     let datosNuevos = null;
 
     let respuesta = await fetch(endpoint, {
