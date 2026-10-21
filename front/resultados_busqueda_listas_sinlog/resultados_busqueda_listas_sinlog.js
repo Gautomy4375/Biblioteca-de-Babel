@@ -25,10 +25,10 @@ async function buscarlistas(palabra) {
     let respuesta = await fetch(endpoint);
 
     if (respuesta.ok){
-        let lista = await respuesta.json();
-        console.log("Datos recibidos del backend:", lista);
+        let listas = await respuesta.json();
+        console.log("Datos recibidos del backend:", listas);
 
-        mostrarlistas(lista);
+        mostrarlistas(listas.listas);
     }
     else if (respuesta.status === 404){
         conLi.textContent = 'No se encontraron listas'
@@ -39,17 +39,19 @@ async function buscarlistas(palabra) {
     }
 }
 
-function mostrarlistas(lista){
+function mostrarlistas(listas){
 
     conLi.innerHTML = '';
 
-    let divs = document.createElement('a');
-    divs.href= `../ficha_lista_nologueado/ficha_lista_nologueado.html?id=${lista.id_lista}`
-    divs.classList.add('boton_libro');
+    listas.forEach(lista =>{
+        let divs = document.createElement('a');
+        divs.href= `../ficha_lista_nologueado/ficha_lista_nologueado.html?id=${lista.id_lista}`
+        divs.classList.add('boton_libro');
 
-    divs.innerHTML = `
-    <h3 class="nomLibro" >${lista.nombre}</h3>
-     `;
+        divs.innerHTML = `
+        <h3 class="nomLibro" >${lista.nombre}</h3>
+         `;
 
-    conLi.appendChild(divs);
+        conLi.appendChild(divs);
+    })
 }

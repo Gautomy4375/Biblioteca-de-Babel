@@ -225,3 +225,60 @@ botonLey.addEventListener('click', function(e){
 
 
 
+
+
+let selectLista = document.getElementById('selectLista');
+let botonLista = document.getElementById('botonLista');
+
+async function traerMisListas(){
+    let endpoint = `https://proyectos-tic.ort.edu.ar/biblioteca-de-babel/api/api/usuarios/${idUsuario}/${idUsuario}/listas`;
+    let respuesta = await fetch(endpoint);
+    let datos = null;
+
+    if(respuesta.ok){
+        datos = await respuesta.json();
+    }
+    else{
+        console.log('hubo un error');
+    }
+    return datos;
+}
+
+async function cargarMisListas(){
+    let datos = await traerMisListas();
+
+    if(!datos){
+        return;
+    }
+
+    datos.listas.forEach(lista => {
+        let opcion = document.createElement('option');
+        opcion.value = lista.id_lista;
+        opcion.textContent = lista.nombre;
+        selectLista.appendChild(opcion);
+    });
+}
+cargarMisListas();
+
+botonLista.addEventListener('click', async function(e){
+    e.preventDefault();
+
+    let endpoint = `https://proyectos-tic.ort.edu.ar/biblioteca-de-babel/api/api/listas/${selectLista.value}/libros`;
+    let respuesta = await fetch(endpoint, {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ id_usuario: Number(idUsuario), google_id: nombre })
+    });
+
+    if(respuesta.ok){
+        alert('Agregaste este libro a la lista');
+    }
+    else if(respuesta.status === 409){
+        alert('Este libro ya está en la lista');
+    }
+    else{
+        console.log('hubo un error');
+    }
+})

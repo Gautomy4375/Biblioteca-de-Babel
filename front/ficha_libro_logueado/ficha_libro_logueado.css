@@ -220,6 +220,10 @@ hr{
       .ancho {
         width: 85%;
       }
+
+      .mitad {
+        width: 40%;
+      }
     }
     .promedio {
       height: 20%;
