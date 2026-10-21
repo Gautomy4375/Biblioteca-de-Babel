@@ -263,6 +263,11 @@ cargarMisListas();
 botonLista.addEventListener('click', async function(e){
     e.preventDefault();
 
+    if(!selectLista.value){
+        alert('Primero tenés que crear una lista');
+        return;
+    }
+
     let endpoint = `https://proyectos-tic.ort.edu.ar/biblioteca-de-babel/api/api/listas/${selectLista.value}/libros`;
     let respuesta = await fetch(endpoint, {
         method: 'PATCH',

@@ -14,8 +14,6 @@ let seguidos = document.getElementById('seguidos');
 seguidos.textContent = '98';
 let leidos = document.getElementById('leidos');
 leidos.textContent = '27';
-let listas = document.getElementById('listas');
-listas.textContent = '12';
 
 let imagen_1 = document.getElementById('libro_uno')
 imagen_1.src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqPS1Es-Brcsfc0g7ZQovCNTvLISpbpLoOOUOgvzSSNspl0wds7TdJMw&s=10';
@@ -54,63 +52,48 @@ pl5.src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqPS1Es-Brcsfc0
 let pl6 = document.getElementById('six');
 pl6.src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqPS1Es-Brcsfc0g7ZQovCNTvLISpbpLoOOUOgvzSSNspl0wds7TdJMw&s=10';
 
-let ein = document.getElementById('ein');
-ein.textContent = 'Nombre lista';
-let tzwei = document.getElementById('tzwei');
-tzwei.textContent = 'Nombre lista';
-let drei = document.getElementById('drei');
-drei.textContent = 'Nombre lista';
-let vier = document.getElementById('vier');
-vier.textContent = 'Nombre lista';
+let id = new URLSearchParams(window.location.search).get('id');
 
-let ima1 = document.getElementById('I');
-ima1.src ='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqPS1Es-Brcsfc0g7ZQovCNTvLISpbpLoOOUOgvzSSNspl0wds7TdJMw&s=10'
-let ima2 = document.getElementById('II');
-ima2.src ='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqPS1Es-Brcsfc0g7ZQovCNTvLISpbpLoOOUOgvzSSNspl0wds7TdJMw&s=10'
-let ima3 = document.getElementById('III')
-ima3.src ='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqPS1Es-Brcsfc0g7ZQovCNTvLISpbpLoOOUOgvzSSNspl0wds7TdJMw&s=10'
-let ima4 = document.getElementById('IV')
-ima4.src ='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqPS1Es-Brcsfc0g7ZQovCNTvLISpbpLoOOUOgvzSSNspl0wds7TdJMw&s=10'
-let ima5 = document.getElementById('V')
-ima5.src ='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqPS1Es-Brcsfc0g7ZQovCNTvLISpbpLoOOUOgvzSSNspl0wds7TdJMw&s=10'
-let ima6 = document.getElementById('VI')
-ima6.src ='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqPS1Es-Brcsfc0g7ZQovCNTvLISpbpLoOOUOgvzSSNspl0wds7TdJMw&s=10'
-let ima7 = document.getElementById('VII')
-ima7.src ='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqPS1Es-Brcsfc0g7ZQovCNTvLISpbpLoOOUOgvzSSNspl0wds7TdJMw&s=10'
-let ima8 = document.getElementById('VIII')
-ima8.src ='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqPS1Es-Brcsfc0g7ZQovCNTvLISpbpLoOOUOgvzSSNspl0wds7TdJMw&s=10'
-let ima9 = document.getElementById('IX')
-ima9.src ='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqPS1Es-Brcsfc0g7ZQovCNTvLISpbpLoOOUOgvzSSNspl0wds7TdJMw&s=10'
-let ima10 = document.getElementById('X')
-ima10.src ='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqPS1Es-Brcsfc0g7ZQovCNTvLISpbpLoOOUOgvzSSNspl0wds7TdJMw&s=10'
-let ima11 = document.getElementById('XI')
-ima11.src ='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqPS1Es-Brcsfc0g7ZQovCNTvLISpbpLoOOUOgvzSSNspl0wds7TdJMw&s=10'
-let ima12 = document.getElementById('XII')
-ima12.src ='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqPS1Es-Brcsfc0g7ZQovCNTvLISpbpLoOOUOgvzSSNspl0wds7TdJMw&s=10'
-let ima13 = document.getElementById('XIII')
-ima13.src ='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqPS1Es-Brcsfc0g7ZQovCNTvLISpbpLoOOUOgvzSSNspl0wds7TdJMw&s=10'
-let ima14 = document.getElementById('XIV')
-ima14.src ='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqPS1Es-Brcsfc0g7ZQovCNTvLISpbpLoOOUOgvzSSNspl0wds7TdJMw&s=10'
-let ima15 = document.getElementById('XV')
-ima15.src ='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqPS1Es-Brcsfc0g7ZQovCNTvLISpbpLoOOUOgvzSSNspl0wds7TdJMw&s=10'
-let ima16 = document.getElementById('XVI')
-ima16.src ='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqPS1Es-Brcsfc0g7ZQovCNTvLISpbpLoOOUOgvzSSNspl0wds7TdJMw&s=10'
-let ima17 = document.getElementById('XVII')
-ima17.src ='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqPS1Es-Brcsfc0g7ZQovCNTvLISpbpLoOOUOgvzSSNspl0wds7TdJMw&s=10'
-let ima18 = document.getElementById('XVIII')
-ima18.src ='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqPS1Es-Brcsfc0g7ZQovCNTvLISpbpLoOOUOgvzSSNspl0wds7TdJMw&s=10'
-let ima19 = document.getElementById('XIX')
-ima19.src ='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqPS1Es-Brcsfc0g7ZQovCNTvLISpbpLoOOUOgvzSSNspl0wds7TdJMw&s=10'
-let ima20 = document.getElementById('XX')
-ima20.src ='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqPS1Es-Brcsfc0g7ZQovCNTvLISpbpLoOOUOgvzSSNspl0wds7TdJMw&s=10'
-let ima21 = document.getElementById('XXI')
-ima21.src ='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqPS1Es-Brcsfc0g7ZQovCNTvLISpbpLoOOUOgvzSSNspl0wds7TdJMw&s=10'
-let ima22 = document.getElementById('XXII')
-ima22.src ='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqPS1Es-Brcsfc0g7ZQovCNTvLISpbpLoOOUOgvzSSNspl0wds7TdJMw&s=10'
-let ima23 = document.getElementById('XXIII')
-ima23.src ='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqPS1Es-Brcsfc0g7ZQovCNTvLISpbpLoOOUOgvzSSNspl0wds7TdJMw&s=10'
-let ima24 = document.getElementById('XXIV')
-ima24.src ='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqPS1Es-Brcsfc0g7ZQovCNTvLISpbpLoOOUOgvzSSNspl0wds7TdJMw&s=10'
+async function traerListas(idDueño){
+    let endpoint = `https://proyectos-tic.ort.edu.ar/biblioteca-de-babel/api/api/usuarios/${idDueño}/0/listas`;
+    let respuesta = await fetch(endpoint);
+    let datosListas = null;
+
+    if(respuesta.ok){
+        datosListas = await respuesta.json();
+    }
+    else{
+        console.log('hubo un error');
+    }
+    return datosListas;
+}
+function mostrarListas(listas){
+    let calis = document.querySelectorAll('.cali');
+
+    for(let i = 0; i < calis.length && i < listas.length; i++){
+        calis[i].querySelector('.nombre').textContent = listas[i].nombre;
+        calis[i].addEventListener('click', function(){
+            window.location.href = `../ficha_lista_nologueado/ficha_lista_nologueado.html?id=${listas[i].id_lista}`;
+        });
+
+        let portadas = calis[i].querySelectorAll('.librito');
+        for(let j = 0; j < portadas.length && j < listas[i].libros.length; j++){
+            portadas[j].src = listas[i].libros[j].libro.portada;
+        }
+    }
+}
+async function cargarListas(){
+    let listas = document.getElementById('listas');
+    let todoListas = await traerListas(id);
+    if(todoListas){
+        listas.textContent = todoListas.listas.length;
+        mostrarListas(todoListas.listas);
+    }
+    else{
+        listas.textContent = '0';
+    }
+}
+cargarListas();
 
 
 

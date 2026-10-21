@@ -4,6 +4,11 @@ let idLista = parametros.get('id');
 const librosGrid = document.getElementById('libros-grid');
 const plantilla = document.getElementById('libro-template');
 
+document.getElementById('heart-btn').addEventListener('click', function(e){
+    e.preventDefault();
+    opensignup();
+});
+
 async function traerLista(idLista){
     let endpoint = `https://proyectos-tic.ort.edu.ar/biblioteca-de-babel/api/api/listas/${idLista}`;
     let respuesta = await fetch(endpoint);

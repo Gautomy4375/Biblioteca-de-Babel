@@ -99,7 +99,7 @@ h2{
       border-radius: .4vw;
       border-color: white;
       width: 20vw;
-      height: 7vh;
+      min-height: 7vh;
       margin-left: 3vw;
       background-color: white;
       color: black;
