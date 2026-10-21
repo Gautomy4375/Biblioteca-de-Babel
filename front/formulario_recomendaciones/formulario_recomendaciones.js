@@ -1,5 +1,6 @@
 const searchInput = document.getElementById('searchInput');
 const resultsList = document.getElementById('resultsList');
+
 const capasLibros = [
   document.getElementById('tapa1'),
   document.getElementById('tapa2'),
@@ -8,19 +9,28 @@ const capasLibros = [
   document.getElementById('tapa5')
 ];
 
-let seleccionados = 0;
+let googleIdsSeleccionados = [];
 
-// Escuchar lo que escribe el usuario en el buscador
+// Búsqueda únicamente al presionar Enter
 searchInput.addEventListener('keydown', async (e) => {
-  if (e.key === "Enter") {
-    const query = e.target.value.trim();
+  if (e.key === 'Enter') {
+    e.preventDefault();
 
-    // Si hay menos de 2 letras escritas, ocultamos el menú
+    const query = searchInput.value.trim();
+
     if (query.length < 2) {
       resultsList.style.display = 'none';
       resultsList.innerHTML = '';
       return;
     }
+
+    // 1. Mostrar GIF de carga mientras espera al servidor
+    resultsList.innerHTML = `
+      <div style="display: flex; justify-content: center; align-items: center; padding: 12px;">
+        <img src="../loading_gif.gif" alt="Cargando..." style="height: 35px; width: auto;">
+      </div>
+    `;
+    resultsList.style.display = 'block';
 
     try {
       let endpoint = `https://proyectos-tic.ort.edu.ar/biblioteca-de-babel/api/api/libros?titulo=${encodeURIComponent(query)}`;
@@ -28,52 +38,61 @@ searchInput.addEventListener('keydown', async (e) => {
 
       if (respuesta.ok) {
         let data = await respuesta.json();
-        console.log("Libros recibidos para el dropdown:", data);
 
-        // Verificamos si devuelve el array 'libros'
         if (data.libros && data.libros.length > 0) {
-          renderResults(data.libros);
+          mostrarResultadosDropdown(data.libros);
         } else {
-          resultsList.style.display = 'none';
+          resultsList.innerHTML = `<div style="padding: 10px; color: #666; font-size: 13px; text-align: center;">No se encontraron libros</div>`;
         }
       } else {
-        resultsList.style.display = 'none';
+        // Manejo de error 500 o 504 de la API
+        resultsList.innerHTML = `<div style="padding: 10px; color: #dc2626; font-size: 13px; text-align: center;">El servidor falló (${respuesta.status}). Intentá buscar de nuevo.</div>`;
       }
     } catch (error) {
-      console.error('Error al consultar la API:', error);
-      resultsList.style.display = 'none';
+      console.error('Error de conexión:', error);
+      resultsList.innerHTML = `<div style="padding: 10px; color: #dc2626; font-size: 13px; text-align: center;">Error de conexión con el servidor</div>`;
     }
   }
 });
 
-function renderResults(libros) {
+function mostrarResultadosDropdown(libros) {
   resultsList.innerHTML = '';
 
   libros.forEach(libro => {
     const title = libro.title || 'Sin título';
-    const portada = libro.portada || 'https://via.placeholder.com/32x45?text=Sin+Tapa';
+
+    // SOLUCIÓN MIXED CONTENT: Forzamos 'https://' para que el navegador no bloquee la imagen
+    let port = libro.portada || 'https://via.placeholder.com/32x45?text=Sin+Tapa';
+    if (port.startsWith('http://')) {
+      port = port.replace('http://', 'https://');
+    }
 
     const itemEl = document.createElement('div');
     itemEl.classList.add('result-item');
 
     itemEl.innerHTML = `
-      <img class="title-photo" src="${portada}" alt="${title}">
+      <img class="title-photo" src="${port}" alt="${title}">
       <span class="result-title">${title}</span>
     `;
 
-    // Al hacer clic en un libro de la lista desplegable
     itemEl.addEventListener('click', () => {
-      if (seleccionados < 5) {
-        // Asignar la portada al siguiente contenedor (#tapa1, #tapa2, etc.)
-        capasLibros[seleccionados].src = portada;
-        capasLibros[seleccionados].alt = title;
-        seleccionados++;
+      if (googleIdsSeleccionados.length < 5) {
+        const posicionActual = googleIdsSeleccionados.length;
 
-        // Limpiar el buscador y ocultar el dropdown
+        // Guardar el google_id en el array
+        googleIdsSeleccionados.push(libro.google_id);
+
+        // Colocar la portada segura (HTTPS) en la tapa correspondiente
+        capasLibros[posicionActual].src = port;
+        capasLibros[posicionActual].alt = title;
+
+        console.log('Array actual de google_ids:', googleIdsSeleccionados);
+
+        // Limpiar buscador y cerrar menú
         searchInput.value = '';
         resultsList.style.display = 'none';
       } else {
-        alert('¡Ya seleccionaste tus 5 libros!');
+        alert('¡Ya elegiste tus 5 libros!');
       }
     });
 
@@ -83,7 +102,7 @@ function renderResults(libros) {
   resultsList.style.display = 'block';
 }
 
-// Ocultar la lista si el usuario hace clic fuera del buscador o del dropdown
+// Ocultar desplegable si se hace clic fuera
 document.addEventListener('click', (e) => {
   if (!searchInput.contains(e.target) && !resultsList.contains(e.target)) {
     resultsList.style.display = 'none';
