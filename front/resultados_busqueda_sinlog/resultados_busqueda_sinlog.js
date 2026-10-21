@@ -29,7 +29,10 @@ async function buscarLibros(palabra) {
 
     cargador.style.display = 'none';
 
-    if (respuesta.ok){
+    if(!respuesta) {
+        console.log('Por alguna razon no funciono')
+    }
+    else if (respuesta.ok){
         let libros = await respuesta.json();
         console.log("Datos recibidos del backend:", libros);
 
@@ -42,8 +45,8 @@ async function buscarLibros(palabra) {
         }
     }
     else{
+        console.log('Error del servidor:', respuesta.status);
         conLi.textContent = 'Hubo un error'
-        
     }
 }
 
