@@ -21,14 +21,27 @@
 
 <body>
     <main class="todo">
-        <h1 class="lora-font">¡Dejanos Conocerte!</h1>
-        <h2 class="lora-font">Decinos cuales son tus 5 libros favoritos</h2>
-        <article class="libro-container lora-font"></article>
-        <article class="libro-container lora-font"></article>
-        <article class="libro-container lora-font"></article>
-        <article class="libro-container lora-font"></article>
-        <article class="libro-container lora-font"></article>
-    </main>     
+        <article class="arriba">
+            <div class="inputytitu">
+                <h1 class="lora-font">¡Dejanos Conocerte!</h1>
+                <h2 class="lora-font">Decinos cuales son tus 5 libros favoritos:</h2>
+                <div class="container-input">
+                    <input class="lora-font" type="text" id="searchInput">
+                    <div id="resultsList" class="results-dropdown"></div>
+                </div>
+            </div>
+            <button class="lora-font btnSend" id="btnSend">Enviar</button>
+        </article>
+        <article class="tapas">
+            <div class="libro-container lora-font"><img id="tapa1" src="" alt=""></div>
+            <div class="libro-container lora-font"><img id="tapa2" src="" alt=""></div>
+            <div class="libro-container lora-font"><img id="tapa3" src="" alt=""></div>
+            <div class="libro-container lora-font"><img id="tapa4" src="" alt=""></div>
+            <div class="libro-container lora-font"><img id="tapa5" src="" alt=""></div>
+        </article>
+    </main>
+
+    <script src="formulario_recomendaciones.js"></script>
 </body>
 
 </html>

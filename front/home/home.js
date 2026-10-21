@@ -37,7 +37,7 @@ window.opensignup = function () {
         event.preventDefault();
         let titulo = input ? input.value.trim() : '';
         if (titulo) {
-            window.location.href = `../resultados_busqueda_sinlog/resultados_busqueda_sinlog.html?q=${encodeURIComponent(titulo)}`; 
+            window.location.href = `../resultados_busqueda_sinlog/resultados_busqueda_sinlog.html?titulo=${encodeURIComponent(titulo)}`; 
         }
       });
     }

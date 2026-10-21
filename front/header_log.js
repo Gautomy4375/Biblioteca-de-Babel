@@ -60,6 +60,8 @@ document.addEventListener("DOMContentLoaded", function() {
             .nombre { /* estilo del "babel" */
                 font-size: 2.5rem;
                 font-weight: 400;
+                text-decoration: none;
+                color: white;
             }
             .buscador-container { /*esto es para el padding y etc*/
             position: relative;
@@ -251,8 +253,8 @@ document.addEventListener("DOMContentLoaded", function() {
   
 <!-- #region signup y login popups y header -->
     <section class="barra">
-        <img class="logo" src="../logo.svg" alt="">
-        <div class="nombre lora-font">Babel</div>
+        <a href="../user_dashboard/user_dashboard.html"><img class="logo" src="../logo.svg" alt="Babel"></a>
+        <a class="nombre lora-font" href="../user_dashboard/user_dashboard.html">Babel</a>
         <div class="buscador-container">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9wiYOfiSl6tCHwpDPn72D9SZys0KGLXcgtrD5GIAWJQ&s=10" alt="Icono" class="lupita">
             <form id="busca">
