@@ -11,36 +11,38 @@ const capasLibros = [
 let seleccionados = 0;
 
 // Escuchar lo que escribe el usuario en el buscador
-searchInput.addEventListener('input', async (e) => {
-  const query = e.target.value.trim();
+searchInput.addEventListener('keydown', async (e) => {
+  if (e.key === "Enter") {
+    const query = e.target.value.trim();
 
-  // Si hay menos de 2 letras escritas, ocultamos el menú
-  if (query.length < 2) {
-    resultsList.style.display = 'none';
-    resultsList.innerHTML = '';
-    return;
-  }
+    // Si hay menos de 2 letras escritas, ocultamos el menú
+    if (query.length < 2) {
+      resultsList.style.display = 'none';
+      resultsList.innerHTML = '';
+      return;
+    }
 
-  try {
-    let endpoint = `https://proyectos-tic.ort.edu.ar/biblioteca-de-babel/api/api/libros?titulo=${encodeURIComponent(query)}`;
-    let respuesta = await fetch(endpoint);
+    try {
+      let endpoint = `https://proyectos-tic.ort.edu.ar/biblioteca-de-babel/api/api/libros?titulo=${encodeURIComponent(query)}`;
+      let respuesta = await fetch(endpoint);
 
-    if (respuesta.ok) {
-      let data = await respuesta.json();
-      console.log("Libros recibidos para el dropdown:", data);
+      if (respuesta.ok) {
+        let data = await respuesta.json();
+        console.log("Libros recibidos para el dropdown:", data);
 
-      // Verificamos si devuelve el array 'libros'
-      if (data.libros && data.libros.length > 0) {
-        renderResults(data.libros);
+        // Verificamos si devuelve el array 'libros'
+        if (data.libros && data.libros.length > 0) {
+          renderResults(data.libros);
+        } else {
+          resultsList.style.display = 'none';
+        }
       } else {
         resultsList.style.display = 'none';
       }
-    } else {
+    } catch (error) {
+      console.error('Error al consultar la API:', error);
       resultsList.style.display = 'none';
     }
-  } catch (error) {
-    console.error('Error al consultar la API:', error);
-    resultsList.style.display = 'none';
   }
 });
 
