@@ -229,11 +229,22 @@ body{
       display: flex;
       align-items: center;
       justify-content: center;
+      gap: 2vw;
 
       .title_maa{
         background-color:#A9A9A9;
         width: 23.9vw;
         height: 26.6%;
+      }
+
+      .crear_lista{
+        padding: 1vh 1.5vw;
+        border-radius: .4vw;
+        background-color: #842739;
+        color: #FFF;
+        font-family: "Plus Jakarta Sans";
+        font-size: 1.5625rem;
+        text-decoration: none;
       }
     }
     .abajo_todo{

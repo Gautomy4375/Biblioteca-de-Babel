@@ -1,5 +1,6 @@
 let formulario = document.querySelector('form');
 let idUsuario = localStorage.getItem('userId');
+let libroDePaginaAnterior = new URLSearchParams(window.location.search).get('google_id');
 
 async function crearLista(nombre, descripcion){
     let endpoint = `https://proyectos-tic.ort.edu.ar/biblioteca-de-babel/api/api/listas`;
@@ -59,6 +60,10 @@ formulario.addEventListener('submit', async function(event){
 
     if(!lista){
         return;
+    }
+
+    if(libroDePaginaAnterior){
+        await agregarLibro(lista.id_lista, libroDePaginaAnterior);
     }
 
     if(tituloLibro){

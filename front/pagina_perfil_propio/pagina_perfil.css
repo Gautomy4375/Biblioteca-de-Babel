@@ -361,6 +361,21 @@ body{
         flex-direction: column;
         gap: 2.4vh;
 
+        .titulo_crear{
+          display: flex;
+          align-items: center;
+          gap: 1vw;
+        }
+        .crear_lista{
+          margin-top: 1.7vh;
+          padding: .3vh .8vw;
+          border-radius: .4vw;
+          background-color: #842739;
+          color: #FFF;
+          font-family: "Plus Jakarta Sans";
+          font-size: 1.25rem;
+          text-decoration: none;
+        }
         .titulo{
           display: flex;
           align-items: center;

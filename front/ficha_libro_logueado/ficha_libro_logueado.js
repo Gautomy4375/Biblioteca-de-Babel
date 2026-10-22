@@ -247,24 +247,37 @@ async function traerMisListas(){
 async function cargarMisListas(){
     let datos = await traerMisListas();
 
-    if(!datos){
-        return;
+    if(datos){
+        datos.listas.forEach(lista => {
+            let opcion = document.createElement('option');
+            opcion.value = lista.id_lista;
+            opcion.textContent = lista.nombre;
+            selectLista.appendChild(opcion);
+        });
     }
 
-    datos.listas.forEach(lista => {
-        let opcion = document.createElement('option');
-        opcion.value = lista.id_lista;
-        opcion.textContent = lista.nombre;
-        selectLista.appendChild(opcion);
-    });
+    let crear = document.createElement('option');
+    crear.value = 'crear';
+    crear.textContent = '+ Crear lista';
+    selectLista.appendChild(crear);
 }
 cargarMisListas();
+
+function irACrearLista(){
+    window.location.href = `../crear_lista/crear_lista.html?google_id=${encodeURIComponent(nombre)}`;
+}
+
+selectLista.addEventListener('change', function(){
+    if(selectLista.value === 'crear'){
+        irACrearLista();
+    }
+})
 
 botonLista.addEventListener('click', async function(e){
     e.preventDefault();
 
-    if(!selectLista.value){
-        alert('Primero tenés que crear una lista');
+    if(selectLista.value === 'crear'){
+        irACrearLista();
         return;
     }
 
