@@ -1,6 +1,3 @@
-let enter = document.getElementById('busca');
-let input = document.getElementById('buscador');
-
 /*ytsma, aca empiezo con lo de hacer los datos dinamicos*/
 let foto_perfil = document.getElementById('foto_perfil');
 foto_perfil.src = 'https://cdn-icons-png.flaticon.com/512/12225/12225881.png';
@@ -124,13 +121,3 @@ des3.textContent = 'Es un cuento poético y filosófico. Narra la historia de un
 let des4 = document.getElementById('des4');
 des4.textContent = 'Es un cuento poético y filosófico. Narra la historia de un aviador varado en el desierto del Sahara que conoce a un pequeño príncipe de otro planeta. Es una obra maestra universal sobre la pérdida de la inocencia, el amor y los lazos afectivos';
 
-
-enter.addEventListener('submit', function(event){
-    event.preventDefault();
-
-    let titulo = input.value.trim();
-
-    if(titulo){
-        window.location.href= `../resultados_busqueda/resultados_busqueda.html?q=${encodeURIComponent(titulo)}`; 
-    }
-})
