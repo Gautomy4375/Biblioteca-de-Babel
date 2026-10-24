@@ -25,7 +25,7 @@
         <article class="arriba">
             <div class="inputytitu">
                 <h1 class="lora-font">¡Dejanos Conocerte!</h1>
-                <h2 class="lora-font">Decinos cuales son tus 5 libros favoritos:</h2>
+                <h2 class="lora-font">Contanos cuales son tus 5 libros favoritos:</h2>
                 <div class="container-input">
                     <input class="lora-font" type="text" id="searchInput">
                     <div id="resultsList" class="results-dropdown"></div>
@@ -35,6 +35,17 @@
         </article>
         <article class="tapas" id="tapasContainer"></article>
     </main>
+
+    <!-- #region popup bienvenida -->
+    <article id="bienvenidaOverlay" class="bienvenida hidden">
+        <section class="bienvenida-card">
+            <h1 class="lora-font">¡Bienvenido a Babel!</h1>
+            <hr width="100%">
+            <p class="lora-font">Ya guardamos tus favoritos. Con ellos vamos a recomendarte libros que te van a encantar.</p>
+            <button class="lora-font btnSend" id="btnEmpezar">Empezar</button>
+        </section>
+    </article>
+    <!-- #endregion -->
 
     <script src="formulario_recomendaciones.js"></script>
 </body>

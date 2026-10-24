@@ -15,30 +15,30 @@ function siguiente() {
 }
 function anterior() {
     let imagenes = document.getElementById("imagenes");
-    if (pos > 0){
+    if (pos > 0) {
         pos--;
         imagenes.style.transform = `translateX(-${pos * 12.5}vw)`;
     }
 }
 let posi = 0;
 
-function sig(){
+function sig() {
     let imag = document.getElementById('imagene');
 
-    if (posi < 6){
+    if (posi < 6) {
         posi++;
 
-        if (posi === 4){
-            imag.style.transform =  `translateX(-${posi * 12}vw)`
+        if (posi === 4) {
+            imag.style.transform = `translateX(-${posi * 12}vw)`
         }
-        else{
-            imag.style.transform =  `translateX(-${posi * 10.2}vw)`
+        else {
+            imag.style.transform = `translateX(-${posi * 10.2}vw)`
         }
     }
 }
 function ant() {
     let imagenes = document.getElementById("imagene");
-    if (posi > 0){
+    if (posi > 0) {
         posi--;
         imagenes.style.transform = `translateX(-${posi * 10.2}vw)`;
     }
@@ -103,7 +103,7 @@ one.src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqPS1Es-Brcsfc0
 two.src = 'https://i.pinimg.com/originals/7b/b7/cd/7bb7cd6d661d8b49783fbd5f59eabe30.jpg';
 three.src = 'https://images.cdn3.buscalibre.com/fit-in/660x660/7b/b1/7bb12823686e96de54d1827f51c07114.jpg';
 four.src = 'https://www.blackcat-cideb.com/uploads/2021/01/21038_COVER_Metamorfosi_1_RGB_64aea9572e3617e526f9c181094bef77.jpg';
-five.src =  'https://images.cdn2.buscalibre.com/fit-in/660x660/14/96/149639d281dba7278ed0eab0cdb56420.jpg';
+five.src = 'https://images.cdn2.buscalibre.com/fit-in/660x660/14/96/149639d281dba7278ed0eab0cdb56420.jpg';
 six.src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxpi-OypkB0XLiumqnIOayKz_7p_S27xdqxYrxlKkmRr61ZKr1XQ0CtMg&s=10';
 seven.src = 'https://storage-aws-production.publica.la/bajalibros/issues/2024/04/WbparU384FoRaHJZ/5dd15241-d295-4aaa-a76b-8ea56499c419_cover.jpg';
 eight.src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcrj66irT_0MisKwF1RRTUrzHzPRQbC7zqZDevyPSgva2_PBOhm4DmkijB&s=10';
@@ -111,5 +111,5 @@ nine.src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgmnd16pFGi-yc
 ten.src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjy_eO-aGOn4Ggvq7ds5cWDoQ7S_fHrGQ0yk26fvyCBlp2mUH_8mPROC8&s=10';
 
 let userName = document.getElementById('username');
-userName.textContent= "hola como va";
+
 

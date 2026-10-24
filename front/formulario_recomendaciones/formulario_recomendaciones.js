@@ -3,6 +3,13 @@ const resultsList = document.getElementById('resultsList');
 
 const tapasContainer = document.getElementById('tapasContainer');
 
+const bienvenidaOverlay = document.getElementById('bienvenidaOverlay');
+const btnEmpezar = document.getElementById('btnEmpezar');
+
+btnEmpezar.addEventListener('click', () => {
+  window.location.href = '../dashboard_libros_log/dashboard_libros_log.html';
+});
+
 let arrayFavoritos = [];
 let librosElegidos = [];
 
@@ -25,8 +32,10 @@ searchInput.addEventListener('keydown', async (e) => {
     e.preventDefault();
 
     const query = searchInput.value.trim();
+    console.log('[búsqueda] query:', query);
 
     if (query.length < 2) {
+      console.log('[búsqueda] query muy corta, no se busca');
       resultsList.style.display = 'none';
       resultsList.innerHTML = '';
       return;
@@ -42,18 +51,27 @@ searchInput.addEventListener('keydown', async (e) => {
 
     try {
       let endpoint = `${BASE_URL}/api/libros?titulo=${encodeURIComponent(query)}`;
+      console.log('[búsqueda] fetch a:', endpoint);
       let respuesta = await fetch(endpoint);
+      console.log('[búsqueda] status:', respuesta.status);
 
       if (respuesta.ok) {
         let data = await respuesta.json();
+        console.log('[búsqueda] data recibida:', data);
 
         if (data.libros && data.libros.length > 0) {
+          console.log(`[búsqueda] ${data.libros.length} libros encontrados`);
           mostrarResultadosDropdown(data.libros);
         } else {
+          console.log('[búsqueda] respuesta ok pero sin libros');
           resultsList.innerHTML = `<div style="padding: 10px; color: #666; font-size: 13px; text-align: center;">No se encontraron libros</div>`;
         }
+      } else if (respuesta.status === 404) {
+        console.log('[búsqueda] 404: no existe un libro con ese nombre');
+        resultsList.innerHTML = `<div style="padding: 10px; color: #666; font-size: 13px; text-align: center;">No existe un libro con este nombre, buscá otro</div>`;
       } else {
         // Manejo de error 500 o 504 de la API
+        console.error('[búsqueda] error del servidor:', respuesta.status);
         resultsList.innerHTML = `<div style="padding: 10px; color: #dc2626; font-size: 13px; text-align: center;">El servidor falló (${respuesta.status}). Intentá buscar de nuevo.</div>`;
       }
     } catch (error) {
@@ -125,11 +143,12 @@ async function enviarPreferencias() {
     let respuesta = await fetch(endpoint, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ google_ids: arrayFavoritos })
+      body: JSON.stringify({ libros: arrayFavoritos })
     });
 
     if (respuesta.ok) {
       console.log('Preferencias guardadas');
+      bienvenidaOverlay.classList.remove('hidden');
     } else {
       console.error('Error al guardar preferencias:', respuesta.status);
     }
