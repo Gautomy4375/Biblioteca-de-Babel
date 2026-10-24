@@ -1,15 +1,25 @@
 const searchInput = document.getElementById('searchInput');
 const resultsList = document.getElementById('resultsList');
 
-const capasLibros = [
-  document.getElementById('tapa1'),
-  document.getElementById('tapa2'),
-  document.getElementById('tapa3'),
-  document.getElementById('tapa4'),
-  document.getElementById('tapa5')
-];
+const tapasContainer = document.getElementById('tapasContainer');
 
 let arrayFavoritos = [];
+let librosElegidos = [];
+
+// Dibuja en el grid una tapa con portada y título por cada libro elegido
+function renderizarTapas() {
+  tapasContainer.innerHTML = '';
+
+  librosElegidos.forEach(libro => {
+    tapasContainer.innerHTML +=
+    `
+    <div class="libro-container lora-font">
+      <img src="${libro.portada}" alt="${libro.titulo}">
+      <p class="lora-font">${libro.titulo}</p>
+    </div>
+    `
+  });
+}
 
 // Búsqueda únicamente al presionar Enter
 searchInput.addEventListener('keydown', async (e) => {
@@ -60,6 +70,9 @@ function mostrarResultadosDropdown(libros) {
 
   libros.forEach(libro => {
     const title = libro.title || 'Sin título';
+    const authors = Array.isArray(libro.authors)
+      ? libro.authors.join(', ')
+      : (libro.authors || 'Autor desconocido');
 
     let port = libro.portada || 'https://via.placeholder.com/32x45?text=Sin+Tapa';
     if (port.startsWith('http://')) {
@@ -71,19 +84,20 @@ function mostrarResultadosDropdown(libros) {
 
     itemEl.innerHTML = `
       <img class="title-photo" src="${port}" alt="${title}">
-      <span class="result-title">${title}</span>
+      <div class="result-info">
+        <span class="result-title">${title}</span>
+        <span class="result-author">${authors}</span>
+      </div>
     `;
 
     itemEl.addEventListener('click', () => {
       if (arrayFavoritos.length < 5) {
-        const posicionActual = arrayFavoritos.length;
-
         // Guardar el google_id en el array
         arrayFavoritos.push(libro.google_id);
 
-        // Colocar la portada segura (HTTPS) en la tapa correspondiente
-        capasLibros[posicionActual].src = port;
-        capasLibros[posicionActual].alt = title;
+        // Guardar portada segura (HTTPS) y título, y redibujar las tapas
+        librosElegidos.push({ portada: port, titulo: title });
+        renderizarTapas();
 
         console.log('Array actual de google_ids:', arrayFavoritos);
 
@@ -109,7 +123,7 @@ async function enviarPreferencias() {
   const userId = localStorage.getItem('userId');
 
   try {
-    let endpoint = `http://localhost:3000/api/usuarios/${userId}/preferencias`;
+    let endpoint = `${BASE_URL}/api/usuarios/${userId}/preferencias`;
     let respuesta = await fetch(endpoint, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
