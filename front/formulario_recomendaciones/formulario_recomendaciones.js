@@ -9,7 +9,7 @@ const capasLibros = [
   document.getElementById('tapa5')
 ];
 
-let googleIdsSeleccionados = [];
+let arrayFavoritos = [];
 
 // Búsqueda únicamente al presionar Enter
 searchInput.addEventListener('keydown', async (e) => {
@@ -33,7 +33,7 @@ searchInput.addEventListener('keydown', async (e) => {
     resultsList.style.display = 'block';
 
     try {
-      let endpoint = `https://proyectos-tic.ort.edu.ar/biblioteca-de-babel/api/api/libros?titulo=${encodeURIComponent(query)}`;
+      let endpoint = `http://localhost:3000/api/libros?titulo=${encodeURIComponent(query)}`;
       let respuesta = await fetch(endpoint);
 
       if (respuesta.ok) {
@@ -61,7 +61,6 @@ function mostrarResultadosDropdown(libros) {
   libros.forEach(libro => {
     const title = libro.title || 'Sin título';
 
-    // SOLUCIÓN MIXED CONTENT: Forzamos 'https://' para que el navegador no bloquee la imagen
     let port = libro.portada || 'https://via.placeholder.com/32x45?text=Sin+Tapa';
     if (port.startsWith('http://')) {
       port = port.replace('http://', 'https://');
@@ -76,21 +75,25 @@ function mostrarResultadosDropdown(libros) {
     `;
 
     itemEl.addEventListener('click', () => {
-      if (googleIdsSeleccionados.length < 5) {
-        const posicionActual = googleIdsSeleccionados.length;
+      if (arrayFavoritos.length < 5) {
+        const posicionActual = arrayFavoritos.length;
 
         // Guardar el google_id en el array
-        googleIdsSeleccionados.push(libro.google_id);
+        arrayFavoritos.push(libro.google_id);
 
         // Colocar la portada segura (HTTPS) en la tapa correspondiente
         capasLibros[posicionActual].src = port;
         capasLibros[posicionActual].alt = title;
 
-        console.log('Array actual de google_ids:', googleIdsSeleccionados);
+        console.log('Array actual de google_ids:', arrayFavoritos);
 
         // Limpiar buscador y cerrar menú
         searchInput.value = '';
         resultsList.style.display = 'none';
+
+        if (arrayFavoritos.length === 5) {
+          enviarPreferencias();
+        }
       } else {
         alert('¡Ya elegiste tus 5 libros!');
       }
@@ -100,6 +103,27 @@ function mostrarResultadosDropdown(libros) {
   });
 
   resultsList.style.display = 'block';
+}
+
+async function enviarPreferencias() {
+  const userId = localStorage.getItem('userId');
+
+  try {
+    let endpoint = `http://localhost:3000/api/usuarios/${userId}/preferencias`;
+    let respuesta = await fetch(endpoint, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ google_ids: arrayFavoritos })
+    });
+
+    if (respuesta.ok) {
+      console.log('Preferencias guardadas');
+    } else {
+      console.error('Error al guardar preferencias:', respuesta.status);
+    }
+  } catch (error) {
+    console.error('Error de conexión:', error);
+  }
 }
 
 // Ocultar desplegable si se hace clic fuera
