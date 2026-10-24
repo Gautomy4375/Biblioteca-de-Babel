@@ -11,7 +11,7 @@
 10. Sobre nosotros no esta completo
 11. buscar libros si no estas loggeado no funciona --- LISTO
 12. listas para un no loggeado no funciona
-13. libros para no loggeado no funciona
+13. libros para no loggeado no funciona --- LISTO
 14. pagina home 
 
 # FALTAN
