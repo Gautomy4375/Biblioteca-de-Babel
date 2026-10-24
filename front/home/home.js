@@ -110,8 +110,8 @@ window.opensignup = function () {
                 mensajesu.innerHTML = "Creación de cuenta exitosa.<br>Bienvenido " + usernamesusave + "!<br>Redirigiendote...";
                 mensajesu.style.color = "green";
                 setTimeout(() => {
-                  window.location.href="../user_dashboard/user_dashboard.html"; 
-              }, 3000);
+                  window.location.href = "../formulario_recomendaciones/formulario_recomendaciones.html"; //espera y hace que no se pueda hacer para atras
+                }, 3000);
             } else if (objetoDatos.status === 409) {
                 mensajesu.innerText = "Ya existe una cuenta con este mail y/o nombre de usuario.";
                 mensajesu.style.color = "red";

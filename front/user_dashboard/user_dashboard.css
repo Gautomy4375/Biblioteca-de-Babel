@@ -200,7 +200,14 @@ body{
         width: 9vw ;
         height: 27vh ;
       }
-    
+
+      /* texto cuando no hay libros en el carrusel */
+      .vacio {
+        font-family: 'Plus Jakarta Sans';
+        font-size: 1.2vw;
+        color: #666;
+      }
+
     }
     
 
