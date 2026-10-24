@@ -1,11 +1,13 @@
-const titleDesdePaginaanterior = new URLSearchParams(window.location.search);
-let nombre = titleDesdePaginaanterior.get('google_id');
-console.log(nombre);
+// google_id del libro que viene en la url
+let nombre = new URLSearchParams(window.location.search).get('google_id');
+let idUsuario = localStorage.getItem('userId');
+
+let puntuacion = null;
+let estado = null;
+
+const FOTO_DEFAULT = 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/3840px-Default_pfp.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail';
 
 let reviewOverlay = document.getElementById('reviewOverlay')
-
-
-
 
 function openreview() {
     reviewOverlay.classList.remove('hidden');
@@ -17,32 +19,23 @@ reviewOverlay.addEventListener('click', (event) => {
     }
 });
 
-
-
+// ---------- DATOS DEL LIBRO ----------
 
 async function datosLibro(nombre) {
+    let respuesta = await fetch(`${BASE_URL}/api/libros/especifico?google_id=${encodeURIComponent(nombre)}`);
 
-    let endpoint = `${BASE_URL}/api/libros/especifico?google_id=${encodeURIComponent(nombre)}`;
-    let respuesta = await fetch(endpoint);
-    let datos = null;
-
-    if (respuesta.ok) {
-        datos = await respuesta.json();
-    }
-    else {
+    if (!respuesta.ok) {
         console.log('hubo un error');
-
+        return null;
     }
-
-    return datos;
+    return respuesta.json();
 }
 
 // traduce un texto del ingles al español con la api de MyMemory
 // si falla devuelve el texto original
 async function traducir(texto) {
     try {
-        let endpoint = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(texto)}&langpair=en|es`;
-        let respuesta = await fetch(endpoint);
+        let respuesta = await fetch(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(texto)}&langpair=en|es`);
         let datos = await respuesta.json();
 
         if (datos.responseStatus == 200) {
@@ -52,7 +45,6 @@ async function traducir(texto) {
     catch (error) {
         console.log('no se pudo traducir', error);
     }
-
     return texto;
 }
 
@@ -60,8 +52,7 @@ async function traducir(texto) {
 // si el codigo no es valido devuelve el codigo tal cual
 function nombreIdioma(codigo) {
     try {
-        let nombres = new Intl.DisplayNames(['es'], { type: 'language' });
-        let nombre = nombres.of(codigo);
+        let nombre = new Intl.DisplayNames(['es'], { type: 'language' }).of(codigo);
         return nombre.charAt(0).toUpperCase() + nombre.slice(1);
     }
     catch (error) {
@@ -69,60 +60,40 @@ function nombreIdioma(codigo) {
     }
 }
 
-let cargador = document.getElementById('cargadorCon');
-
 async function cargarDatos() {
     let ob = await datosLibro(nombre);
 
-    cargador.classList.add('hidden');
+    document.getElementById('cargadorCon').classList.add('hidden');
 
     if (!ob) {
         console.log('no se pudieron cargar los datos');
         return;
     }
 
-    console.log(ob);
+    document.getElementById('titulo').textContent = ob.title;
+    document.getElementById('tapa').src = ob.portada;
+    document.getElementById('autor').textContent = ob.authors;
+    document.getElementById('idioma').textContent = nombreIdioma(ob.idioma);
+    document.getElementById('hojas').textContent = ob.cantidad_paginas;
 
-
-    let titulo = document.getElementById('titulo');
-    titulo.textContent = ob.title;
-
-    let tapa = document.getElementById('tapa')
-    tapa.src = ob.portada;
-
-    let autor = document.getElementById('autor');
-    autor.textContent = ob.authors;
-
-    let descripcion = document.getElementById('desc');
-    if (ob.description === undefined || ob.description.trim() === '') {
-        descripcion.innerHTML = 'No hay descripción disponible';
+    if (ob.description && ob.description.trim() !== '') {
+        document.getElementById('desc').innerHTML = ob.description;
     } else {
-        descripcion.innerHTML = ob.description;
+        document.getElementById('desc').innerHTML = 'No hay descripción disponible';
     }
 
-    let idioma = document.getElementById('idioma');
-    idioma.textContent = nombreIdioma(ob.idioma);
-
-    let año = document.querySelectorAll('.anio');
-    año.forEach(element => {
+    document.querySelectorAll('.anio').forEach(element => {
         element.textContent = ob.publishedDate;
     });
 
-    let genero = document.getElementById('genero');
-    console.log(ob.categorias);
     if (ob.categorias && ob.categorias.length > 0) {
+        let genero = document.getElementById('genero');
         // muestro la original y la cambio cuando llega la traduccion
         genero.textContent = ob.categorias[0];
         traducir(ob.categorias[0]).then(traducida => {
             genero.textContent = traducida;
         });
     }
-
-    let hojas = document.getElementById('hojas');
-    hojas.textContent = ob.cantidad_paginas;
-
-    let promedio = document.getElementById('promedio');
-    promedio.textContent = '3.4';
 
     // ytsma: datos de las reseñas
 
@@ -135,181 +106,143 @@ async function cargarDatos() {
     let portadaRes = document.getElementById('portadaReseña');
     portadaRes.src = ob.portada;
 
-    let link1 = document.getElementById('link1');
-    link1.href = `https://www.yenny-elateneo.com/search/?q=${encodeURIComponent(ob.title)}`;
+    // links para conseguir el libro
+    let titulo = encodeURIComponent(ob.title);
 
-    let link2 = document.getElementById('link2');
-    link2.href = `https://cuspide.com/?s=${encodeURIComponent(ob.title)}&post_type=product`;
+    document.getElementById('link1').href = `https://www.yenny-elateneo.com/search/?q=${titulo}`;
+    document.getElementById('link2').href = `https://cuspide.com/?s=${titulo}&post_type=product`;
+    document.getElementById('link3').href = ob.link_compra ?? `https://www.google.com/search?q=${titulo}+comprar`;
+    document.getElementById('link4').href = ob.link_gratis ?? `https://www.google.com/search?q=${titulo}+libro+leer+gratis`;
 
-    let link3 = document.getElementById('link3');
-    if (ob.link_compra === undefined) {
-        link3.href = `https://www.google.com/search?q=${encodeURIComponent(ob.title)}+comprar`;
-    } else {
-        link3.href = ob.link_compra;
+    // usuarios de ejemplo (username1..3 y fotoperfil1..3)
+    for (let i = 1; i <= 3; i++) {
+        let username = document.getElementById(`username${i}`);
+        username.textContent = `USERNAME${i}`;
+        username.href = '../pagina_perfil_ajeno/pagina_perfil_ajeno.html';
+
+        document.getElementById(`fotoperfil${i}`).src = FOTO_DEFAULT;
     }
-
-    let link4 = document.getElementById('link4');
-    if (ob.link_gratis === undefined) {
-        link4.href = `https://www.google.com/search?q=${encodeURIComponent(ob.title)}+libro+leer+gratis`;
-    } else {
-        link4.href = ob.link_gratis;
-    }
-
-    console.log(ob.link_compra);
-    console.log(ob.link_gratis);
-
-
-    let username1 = document.getElementById('username1');
-    username1.textContent = 'USERNAME1';
-    username1.href = '../pagina_perfil_ajeno/pagina_perfil_ajeno.html'
-
-    let fotoperfil1 = document.getElementById('fotoperfil1')
-    fotoperfil1.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/3840px-Default_pfp.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail';
-
-    let username2 = document.getElementById('username2');
-    username2.textContent = 'USERNAME2';
-    username2.href = '../pagina_perfil_ajeno/pagina_perfil_ajeno.html'
-
-    let fotoperfil2 = document.getElementById('fotoperfil2')
-    fotoperfil2.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/3840px-Default_pfp.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail';
-
-    let username3 = document.getElementById('username3');
-    username3.textContent = 'USERNAME3';
-    username3.href = '../pagina_perfil_ajeno/pagina_perfil_ajeno.html'
-
-    let fotoperfil3 = document.getElementById('fotoperfil3')
-    fotoperfil3.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/3840px-Default_pfp.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail';
-
 }
 
 cargarDatos();
 
-let puntuacion = null;
+// ---------- PROMEDIO ----------
 
-let unaEstrella = document.getElementById('star1')
-let dosEstrellas = document.getElementById('star2');
-let tresEstrellas = document.getElementById('star3');
-let cuatroEstrellas = document.getElementById('star4');
-let cincoEstrellas = document.getElementById('star5');
-
-let botonLeido = document.getElementById('botonLeido');
-let botonPor = document.getElementById('botonPor');
-let botonLey = document.getElementById('botonLeyendo');
-let idUsuario = localStorage.getItem('userId');
-
-unaEstrella.addEventListener('click', function () {
-    puntuacion = unaEstrella.value;
-    console.log(puntuacion);
-})
-dosEstrellas.addEventListener('click', function () {
-    puntuacion = dosEstrellas.value;
-})
-tresEstrellas.addEventListener('click', function () {
-    puntuacion = tresEstrellas.value;
-})
-cuatroEstrellas.addEventListener('click', function () {
-    puntuacion = cuatroEstrellas.value;
-})
-cincoEstrellas.addEventListener('click', function () {
-    puntuacion = cincoEstrellas.value;
-})
-
-// si el usuario ya le puso estrellas a este libro, las marco
-async function traerProgreso() {
-    let endpoint = `${BASE_URL}/api/libros/progreso?google_id=${encodeURIComponent(nombre)}&id_usuario=${idUsuario}`;
+async function traerRanking() {
+    let endpoint = `${BASE_URL}/api/libros/ranking?google_id=${encodeURIComponent(nombre)}`;
     let respuesta = await fetch(endpoint);
-    let datos = {};
-
-    if (respuesta.ok) {
-        datos = await respuesta.json();
-    }
-    return datos;
-}
-
-async function cargarPuntuacion() {
-    let datos = await traerProgreso();
-    // el README dice { Progreso } pero el backend manda el objeto directo, acepto las dos
-    let progreso = datos && datos.Progreso ? datos.Progreso : datos;
-
-    if (progreso && progreso.puntuacion > 0) {
-        puntuacion = progreso.puntuacion;
-        let estrella = document.getElementById(`star${progreso.puntuacion}`);
-        if (estrella) {
-            estrella.checked = true;
-        }
-    }
-    if (progreso && progreso.estado_libro) {
-        estado = progreso.estado_libro;
-        marcarEstado(estado);
-    }
-}
-cargarPuntuacion();
-
-let estado = null;
-
-async function crearEstado() {
-    let endpoint = `${BASE_URL}/api/libros/progreso?google_id=${encodeURIComponent(nombre)}`;
-
-    let data = {
-        estado_libro: estado,
-        id_usuario: idUsuario,
-        puntuacion: puntuacion,
-
-    }
-
-    let respuesta = await fetch(endpoint, {
-        method: 'PUT',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-    });
     let datos = null;
 
     if (respuesta.ok) {
         datos = await respuesta.json();
     }
     else {
-        console.log('hubo un error :(');
+        console.log('hubo un error');
     }
     return datos;
-
 }
 
-// pinta de verde el boton del estado actual (no_empezado = Por Leer)
+async function cargarPromedio() {
+    let datos = await traerRanking();
+
+    if (!datos) {
+        return;
+    }
+
+    document.getElementById('promedio').textContent = datos.promedio;
+
+    // pinto doradas tantas estrellas como el promedio redondeado, el resto grises
+    let estrellasLlenas = Math.round(datos.promedio);
+    let estrellas = document.querySelectorAll('.star-promedio .star');
+
+    estrellas.forEach((estrella, i) => {
+        estrella.classList.toggle('grey', i >= estrellasLlenas);
+    });
+}
+
+cargarPromedio();
+
+// ---------- ESTRELLAS ----------
+
+for (let i = 1; i <= 5; i++) {
+    let estrella = document.getElementById(`star${i}`);
+    estrella.addEventListener('click', function () {
+        puntuacion = estrella.value;
+    });
+}
+
+// ---------- ESTADO (leido / por leer / leyendo) ----------
+
+// no_empezado = Por Leer
+let botonesEstado = {
+    leido: document.getElementById('botonLeido'),
+    no_empezado: document.getElementById('botonPor'),
+    leyendo: document.getElementById('botonLeyendo'),
+};
+
+// pinta de verde el boton del estado actual
 function marcarEstado(est) {
-    botonLeido.classList.toggle('activo', est === 'leido');
-    botonPor.classList.toggle('activo', est === 'no_empezado');
-    botonLey.classList.toggle('activo', est === 'leyendo');
+    for (let clave in botonesEstado) {
+        botonesEstado[clave].classList.toggle('activo', clave === est);
+    }
 }
 
 async function guardarEstado(nuevoEstado) {
     estado = nuevoEstado;
-    let resultado = await crearEstado();
-    if (resultado) {
-        marcarEstado(estado);
-        alert(`Guardaste este libro como ${estado}, y le diste ${puntuacion} estrella/s`);
+
+    let respuesta = await fetch(`${BASE_URL}/api/libros/progreso?google_id=${encodeURIComponent(nombre)}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ estado_libro: estado, id_usuario: idUsuario, puntuacion: puntuacion })
+    });
+
+    if (!respuesta.ok) {
+        console.log('hubo un error :(');
+        return;
     }
-    else {
-        console.log('hubo otro error');
+
+    marcarEstado(estado);
+    alert(`Guardaste este libro como ${estado}, y le diste ${puntuacion} estrella/s`);
+}
+
+for (let clave in botonesEstado) {
+    botonesEstado[clave].addEventListener('click', function (e) {
+        e.preventDefault();
+        guardarEstado(clave);
+    });
+}
+
+// si el usuario ya tiene estrellas o estado en este libro, los marco
+async function cargarProgreso() {
+    let respuesta = await fetch(`${BASE_URL}/api/libros/progreso?google_id=${encodeURIComponent(nombre)}&id_usuario=${idUsuario}`);
+    if (!respuesta.ok) {
+        return;
+    }
+
+    let datos = await respuesta.json();
+    // el README dice { Progreso } pero el backend manda el objeto directo, acepto las dos
+    let progreso = datos && datos.Progreso ? datos.Progreso : datos;
+    if (!progreso) {
+        return;
+    }
+
+    if (progreso.puntuacion > 0) {
+        puntuacion = progreso.puntuacion;
+        let estrella = document.getElementById(`star${progreso.puntuacion}`);
+        if (estrella) {
+            estrella.checked = true;
+        }
+    }
+
+    if (progreso.estado_libro) {
+        estado = progreso.estado_libro;
+        marcarEstado(estado);
     }
 }
 
-botonLeido.addEventListener('click', function (e) {
-    e.preventDefault();
-    guardarEstado('leido');
-})
-
-botonPor.addEventListener('click', function (e) {
-    e.preventDefault();
-    // el backend no acepta 'porleer', el estado de "por leer" es 'no_empezado'
-    guardarEstado('no_empezado');
-})
-
-botonLey.addEventListener('click', function (e) {
-    e.preventDefault();
-    guardarEstado('leyendo');
-})
+cargarProgreso();
 
 let selectLista = document.getElementById('selectLista');
 let botonLista = document.getElementById('botonLista');
