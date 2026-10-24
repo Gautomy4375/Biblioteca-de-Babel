@@ -79,6 +79,7 @@ async function datosLibro(nombre){
 
     return datos;
 }
+
 async function traerListas(idDueño, idSolicitante){
     let endpoint = `${BASE_URL}/api/usuarios/${idDueño}/${idSolicitante}/listas`;
     let respuesta = await fetch(endpoint);
