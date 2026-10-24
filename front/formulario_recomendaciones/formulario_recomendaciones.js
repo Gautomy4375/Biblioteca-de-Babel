@@ -6,13 +6,12 @@ const tapasContainer = document.getElementById('tapasContainer');
 let arrayFavoritos = [];
 let librosElegidos = [];
 
-// Dibuja en el grid una tapa con portada y título por cada libro elegido
 function renderizarTapas() {
   tapasContainer.innerHTML = '';
 
   librosElegidos.forEach(libro => {
     tapasContainer.innerHTML +=
-    `
+      `
     <div class="libro-container lora-font">
       <img src="${libro.portada}" alt="${libro.titulo}">
       <p class="lora-font">${libro.titulo}</p>
@@ -21,7 +20,6 @@ function renderizarTapas() {
   });
 }
 
-// Búsqueda únicamente al presionar Enter
 searchInput.addEventListener('keydown', async (e) => {
   if (e.key === 'Enter') {
     e.preventDefault();
