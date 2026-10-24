@@ -85,6 +85,8 @@ body{
   #imagenes {
     display: flex;
     gap: 1.5vw;
+
+    transition: transform 0.4s ease;
   }
 
   .ima {
@@ -190,6 +192,7 @@ body{
       #containerLeidos {
         display: flex;
         gap: 1.2vw;
+        transition: transform 0.4s ease;
       }
     
       .libros {
