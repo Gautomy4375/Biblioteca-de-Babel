@@ -113,6 +113,8 @@ async function cargarDatos(){
     let objeto = await datosPerfil(id);
     let todoSeguidores = await traerSeguidores(id);
     let todoSeguidos = await traerSeguidos(id);
+
+    ;
     
     console.log(objeto);
 
@@ -143,7 +145,27 @@ async function cargarDatos(){
         listas.textContent = '0';
     }
 
+    let contenedor = document.getElementById('lele')
+
     let idLeidos = await traerLeidos(id);
+
+    let cincoLeidos = idLeidos.slice(0,4);
+
+    let clases = ['libr uno', 'libr dos', 'libr tres', 'libr cuatro', 'libr cinco'];
+
+    for(let i = 0; i < cincoLeidos.length; i++){
+
+        let libroLeido = cincoLeidos[i];
+
+        let ob = await datosLibro(libroLeido);
+
+        let ima = document.createElement('img');
+        ima.className = clases[i];
+        ima.src = ob.libros.portada;
+
+        contenedor.appendChild(ima);
+    }
+    
 
     
 
