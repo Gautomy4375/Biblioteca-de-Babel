@@ -159,7 +159,7 @@ body{
         align-items: center;
       }
     
-      #imagene {
+      #containerLeidos {
         display: flex;
         gap: 1.2vw;
       }

@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard del usuario</title>
     <link rel="stylesheet" href="user_dashboard.css">
+        <script src="../utils.js"></script>
+
     <script src="../header_log.js" defer></script>
 
 
@@ -19,7 +21,7 @@
 </head>
 <body>
      <section class="arriba">
-        <article class="title">Tendencias</article>
+        <article class="title">Recomendaciones</article>
       </section>
       <section class="tendencias">
         <button class="flecha_izquierda" onclick="anterior()"><</button>
@@ -41,31 +43,22 @@
       </section>
       <main class="abajo">
         <section class="nom_rele">
-            <div class="titles">Recomendaciones</div>
+            <div class="titles">Leyendo</div>
             <div class="titles">Últimos leídos</div>
         </section>
         <section class="reco_le">
-            <div class="recomendaciones">
-              <img class="libro uno"></img>
-              <img class="libro dos"></img>
-              <img class="libro tres"></img>
-              <img class="libro cuatro"></img>
-              <img class="libro cinco"></img>
+          <div class="leidos">
+            <button class="fle" onclick="ant()"><</button>
+            <div class="imagene">
+              <div id="containerLeyendo">
+              </div>
             </div>
+            <button class="fle" onclick="sig()">></button>
+          </div>
             <div class="leidos">
               <button class="fle" onclick="ant()"><</button>
               <div class="imagene">
-                <div id="imagene">
-                  <img class="libros "></img>
-                  <img class="libros "></img>
-                  <img class="libros "></img>
-                  <img class="libros "></img>
-                  <img class="libros "></img>
-                  <img class="libros "></img>
-                  <img class="libros "></img>
-                  <img class="libros "></img>
-                  <img class="libros "></img>
-                  <img class="libros "></img>
+                <div id="containerLeidos">
                 </div>
               </div>
               <button class="fle" onclick="sig()">></button>

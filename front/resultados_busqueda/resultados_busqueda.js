@@ -1,21 +1,21 @@
 let titleDesdePaginaanterior = new URLSearchParams(window.location.search);
 let titu = titleDesdePaginaanterior.get('titulo');
 
-console.log('el titulo es '+ titu)
+console.log('el titulo es ' + titu)
 
 let conTi = document.getElementById('palabra-buscada');
 let conLi = document.getElementById('lista')
 let cargador = document.getElementById('cargadorCon')
-if (titu){
+if (titu) {
 
-    if (conTi){
+    if (conTi) {
         conTi.textContent = `"${titu}"`;
 
-            buscarLibros(titu);
-             
+        buscarLibros(titu);
+
     }
 }
-else{
+else {
     conLi.textContent = `Por favor, escribí un término en el buscador`;
 }
 
@@ -29,53 +29,53 @@ async function buscarLibros(titu) {
 
     cargador.style.display = 'none';
 
-    if (respuesta.ok){
+    if (respuesta.ok) {
         let libros = await respuesta.json();
         console.log("Datos recibidos del backend:", libros);
 
-        if (libros.libros && libros.libros.length > 0){
+        if (libros.libros && libros.libros.length > 0) {
             mostrarLibros(libros.libros);
-            
+
         }
-        else{
+        else {
             conLi.textContent = 'No se encontraron libros'
         }
     }
-    else{
+    else {
         conLi.textContent = 'Hubo un error'
-        
+
     }
 }
 
-function mostrarLibros(libros){
-    
+function mostrarLibros(libros) {
+
     conLi.innerHTML = '';
 
-    libros.forEach(libro =>{
+    libros.forEach(libro => {
         let divs = document.createElement('a');
-        divs.href= `../ficha_libro_logueado/ficha_libro_logueado.html?google_id=${encodeURIComponent(libro.google_id)}`
+        divs.href = `../ficha_libro_logueado/ficha_libro_logueado.html?google_id=${encodeURIComponent(libro.google_id)}`
         divs.classList.add('boton_libro');
         let port = libro.portada
 
-        
+
 
         divs.innerHTML = `
         <img src="${port}" alt="${libro.title}" />
         <h3 class="nomLibro" >${libro.title}</h3>
          `;
 
-         conLi.appendChild(divs);
+        conLi.appendChild(divs);
     })
 }
 
 let buscarLista = document.getElementById('listas');
 
-buscarLista.addEventListener('click', function(event){
+buscarLista.addEventListener('click', function (event) {
     event.preventDefault();
 
     let titul = titu;
 
-    if(titul){
+    if (titul) {
         window.location.href = `../resultados_busqueda_listas/resultados_busqueda_listas.html?q=${encodeURIComponent(titul)}`
     }
 
@@ -83,12 +83,12 @@ buscarLista.addEventListener('click', function(event){
 
 let buscarUsuario = document.getElementById('usuarios');
 
-buscarUsuario.addEventListener('click', function(event){
+buscarUsuario.addEventListener('click', function (event) {
     event.preventDefault();
 
     let nombre = titu;
 
-    if(titu){
+    if (titu) {
         window.location.href = `../resultados_busqueda_usuario/resultados_busqueda_usuario.html?q=${encodeURIComponent(titu)}`
     }
 

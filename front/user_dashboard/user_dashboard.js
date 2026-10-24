@@ -23,7 +23,7 @@ function anterior() {
 let posi = 0;
 
 function sig() {
-    let imag = document.getElementById('imagene');
+    let imag = document.getElementById('containerLeidos');
 
     if (posi < 6) {
         posi++;
@@ -37,7 +37,7 @@ function sig() {
     }
 }
 function ant() {
-    let imagenes = document.getElementById("imagene");
+    let imagenes = document.getElementById("containerLeidos");
     if (posi > 0) {
         posi--;
         imagenes.style.transform = `translateX(-${posi * 10.2}vw)`;
@@ -70,46 +70,94 @@ imaj.src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjy_eO-aGOn4Gg
 
 //Pruebita para que sea mas eficiente la dinamización:
 
-let libros = document.querySelectorAll('.libro');
 
-let uno = libros[0];
-let dos = libros[1];
-let tres = libros[2];
-let cuatro = libros[3];
-let cinco = libros[4];
-
-uno.src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqPS1Es-Brcsfc0g7ZQovCNTvLISpbpLoOOUOgvzSSNspl0wds7TdJMw&s=10';
-dos.src = 'https://i.pinimg.com/originals/7b/b7/cd/7bb7cd6d661d8b49783fbd5f59eabe30.jpg';
-tres.src = 'https://images.cdn3.buscalibre.com/fit-in/660x660/7b/b1/7bb12823686e96de54d1827f51c07114.jpg';
-cuatro.src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgmnd16pFGi-ycjUe-TzNYcnJ1i5ameqo9wudqhj3VvTQrqBKVwEr-RBbw&s=10';
-cinco.src = 'https://images.cdn2.buscalibre.com/fit-in/660x660/14/96/149639d281dba7278ed0eab0cdb56420.jpg';
 
 //
 
-let librosa = document.querySelectorAll('.libros');
 
-let one = librosa[0];
-let two = librosa[1];
-let three = librosa[2];
-let four = librosa[3];
-let five = librosa[4];
-let six = librosa[5];
-let seven = librosa[6];
-let eight = librosa[7];
-let nine = librosa[8];
-let ten = librosa[9];
-
-one.src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqPS1Es-Brcsfc0g7ZQovCNTvLISpbpLoOOUOgvzSSNspl0wds7TdJMw&s=10';
-two.src = 'https://i.pinimg.com/originals/7b/b7/cd/7bb7cd6d661d8b49783fbd5f59eabe30.jpg';
-three.src = 'https://images.cdn3.buscalibre.com/fit-in/660x660/7b/b1/7bb12823686e96de54d1827f51c07114.jpg';
-four.src = 'https://www.blackcat-cideb.com/uploads/2021/01/21038_COVER_Metamorfosi_1_RGB_64aea9572e3617e526f9c181094bef77.jpg';
-five.src = 'https://images.cdn2.buscalibre.com/fit-in/660x660/14/96/149639d281dba7278ed0eab0cdb56420.jpg';
-six.src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxpi-OypkB0XLiumqnIOayKz_7p_S27xdqxYrxlKkmRr61ZKr1XQ0CtMg&s=10';
-seven.src = 'https://storage-aws-production.publica.la/bajalibros/issues/2024/04/WbparU384FoRaHJZ/5dd15241-d295-4aaa-a76b-8ea56499c419_cover.jpg';
-eight.src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcrj66irT_0MisKwF1RRTUrzHzPRQbC7zqZDevyPSgva2_PBOhm4DmkijB&s=10';
-nine.src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgmnd16pFGi-ycjUe-TzNYcnJ1i5ameqo9wudqhj3VvTQrqBKVwEr-RBbw&s=10';
-ten.src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjy_eO-aGOn4Ggvq7ds5cWDoQ7S_fHrGQ0yk26fvyCBlp2mUH_8mPROC8&s=10';
 
 let userName = document.getElementById('username');
 
+//hasta aca las cosas raras de ytsma
 
+async function fetchBookInfo(google_id) {
+    let endpoint = `${BASE_URL}/api/libros/especifico?google_id=${google_id}`
+    let respuesta = await fetch(endpoint);
+    if (respuesta.ok) {
+        let libro = await respuesta.json();
+        return libro;
+    }
+}
+function irAFicha(google_id) {
+    window.location.href = `../ficha_libro_logueado/ficha_libro_logueado.html?google_id=${google_id}`
+}
+
+let leidos = [];
+async function cargarLeidos() {
+    await fetchUltimosLeidos();
+
+}
+cargarLeidos();
+
+async function fetchUltimosLeidos() {
+    let endpoint = `${BASE_URL}/api/libros/${localStorage.getItem("userId")}/leidos`;
+    let respuesta = await fetch(endpoint);
+    if (respuesta.ok) {
+        leidos = (await respuesta.json()).libros;
+        console.log(leidos);
+    } else {
+        console.error("Error al obtener los últimos leídos");
+    }
+    await mostrarLeidos();
+
+}
+
+async function mostrarLeidos() {
+    containerLeidos = document.getElementById('containerLeidos');
+    containerLeidos.innerHTML = '';
+    for (let leido of leidos.slice(0, 10)) {
+        let libro = await fetchBookInfo(leido)
+        containerLeidos.innerHTML += `
+        <img class="libros" src="${libro.portada}" onclick="irAFicha('${leido}')"/>
+
+        `
+    };
+}
+
+
+let leyendos = [];
+async function cargarLeyendo() {
+    await fetchLeyendo();
+}
+cargarLeyendo();
+
+async function fetchLeyendo() {
+    let endpoint = `${BASE_URL}/api/usuarios/${localStorage.getItem("userId")}/progreso`;
+    let respuesta = await fetch(endpoint);
+    if (respuesta.ok) {
+        let progreso = (await respuesta.json()).progreso;
+        for (let item of progreso) {
+            if (item.estado_libro === 'leyendo') {
+                leyendos.push(item.google_id);
+            }
+        }
+        console.log(leyendos);
+    } else {
+        console.error("Error al obtener los leyendo");
+    }
+    await mostrarLeyendo();
+
+
+}
+
+async function mostrarLeyendo() {
+    containerLeyendo = document.getElementById('containerLeyendo');
+    containerLeyendo.innerHTML = '';
+    for (let leyendo of leyendos) {
+        let libro = await fetchBookInfo(leyendo)
+        containerLeyendo.innerHTML += `
+        <img class="libros" src="${libro.portada}" onclick="irAFicha('${leyendo}')"/>
+
+        `
+    };
+}
