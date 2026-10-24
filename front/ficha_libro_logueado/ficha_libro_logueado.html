@@ -20,6 +20,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
 </head>
 <body>
+  <div id="cargadorCon" class="cargador">
+    <img class="loader" src="../loading_gif.gif" alt="Cargando...">
+  </div>
+
   <!-- #region review popup -->
 
   <article id="reviewOverlay" class="review hidden">
@@ -33,7 +37,7 @@
           <div class="lora-font anio" id="anio_reseña"></div>
           <textarea id="reviewText" class="plus-jakarta-sans input-review" rows="1" placeholder="Escribí tu reseña..."></textarea>
           <section class="lora-font star-rating">
-            <input type="radio" id="star5res" name="rating" value="5" />
+            <input type="radio" id="star5res" name="ratingres" value="5" />
             <label for="star5" title="5 stars">
               <svg viewBox="0 0 1280 1181" class="lora-font star">
                 <g transform="translate(0.000000,1181.000000) scale(0.100000,-0.100000)">
@@ -42,7 +46,7 @@
               </svg>
             </label>
           
-            <input type="radio" id="star4res" name="rating" value="4" />
+            <input type="radio" id="star4res" name="ratingres" value="4" />
             <label for="star4" title="4 stars">
               <svg viewBox="0 0 1280 1181" class="lora-font star">
                 <g transform="translate(0.000000,1181.000000) scale(0.100000,-0.100000)">
@@ -51,7 +55,7 @@
               </svg>
             </label>
           
-            <input type="radio" id="star3res" name="rating" value="3" />
+            <input type="radio" id="star3res" name="ratingres" value="3" />
             <label for="star3" title="3 stars">
               <svg viewBox="0 0 1280 1181" class="lora-font star">
                 <g transform="translate(0.000000,1181.000000) scale(0.100000,-0.100000)">
@@ -60,7 +64,7 @@
               </svg>
             </label>
           
-            <input type="radio" id="star2res" name="rating" value="2" />
+            <input type="radio" id="star2res" name="ratingres" value="2" />
             <label for="star2" title="2 stars">
               <svg viewBox="0 0 1280 1181" class="lora-font star">
                 <g transform="translate(0.000000,1181.000000) scale(0.100000,-0.100000)">
@@ -69,7 +73,7 @@
               </svg>
             </label>
           
-            <input type="radio" id="star1res" name="rating" value="1" />
+            <input type="radio" id="star1res" name="ratingres" value="1" />
             <label for="star1" title="1 star">
               <svg viewBox="0 0 1280 1181" class="lora-font star">
                 <g transform="translate(0.000000,1181.000000) scale(0.100000,-0.100000)">

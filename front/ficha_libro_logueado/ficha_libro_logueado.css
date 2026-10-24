@@ -15,6 +15,28 @@ body {
   background-color: #F1EEE7;
 }
 
+/* pantalla de carga hasta que llegan los datos del libro (queda abajo del header) */
+.cargador {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 60px);
+  background-color: #F1EEE7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+
+  .loader {
+    width: 10vw;
+  }
+}
+
+.cargador.hidden {
+  display: none;
+}
+
 hr{
   border: none;
   height: 2px;
@@ -215,6 +237,12 @@ hr{
         display: flex;
         justify-content: center;
         align-items: center;
+      }
+
+      /* estado actual del libro (leido / por leer / leyendo) */
+      .boton.activo {
+        background: #2e8b57;
+        color: #FFF;
       }
 
       .ancho {

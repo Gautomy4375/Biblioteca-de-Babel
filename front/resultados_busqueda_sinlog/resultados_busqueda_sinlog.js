@@ -19,20 +19,17 @@ else{
     conLi.textContent = `Por favor, escribí un término en el buscador`;
 }
 
-async function buscarLibros(palabra) {
+async function buscarLibros(titu) {
 
     cargador.style.display = 'block';
 
-    let endpoint = `${BASE_URL}/api/libros?titulo=${encodeURIComponent(palabra)}`;
+    let endpoint = `${BASE_URL}/api/libros?titulo=${(encodeURIComponent(titu))}`;
 
     let respuesta = await fetch(endpoint);
 
     cargador.style.display = 'none';
 
-    if(!respuesta) {
-        console.log('Por alguna razon no funciono')
-    }
-    else if (respuesta.ok){
+    if (respuesta.ok){
         let libros = await respuesta.json();
         console.log("Datos recibidos del backend:", libros);
 
@@ -45,8 +42,8 @@ async function buscarLibros(palabra) {
         }
     }
     else{
-        console.log('Error del servidor:', respuesta.status);
         conLi.textContent = 'Hubo un error'
+        
     }
 }
 
@@ -80,6 +77,19 @@ buscarLista.addEventListener('click', function(event){
 
     if(titul){
         window.location.href = `../resultados_busqueda_listas_sinlog/resultados_busqueda_listas_sinlog.html?q=${encodeURIComponent(titul)}`
+    }
+
+})
+
+let buscarUsuario = document.getElementById('usuarios');
+
+buscarUsuario.addEventListener('click', function(event){
+    event.preventDefault();
+
+    let nombre = titu;
+
+    if(titu){
+        window.location.href = `../resultados_busqueda_usuario_sinlog/resultados_busqueda_usuario_sinlog.html?q=${encodeURIComponent(titu)}`
     }
 
 })
