@@ -95,6 +95,10 @@ async function fetchUltimosLeidos() {
 async function mostrarLeidos() {
     containerLeidos = document.getElementById('containerLeidos');
     containerLeidos.innerHTML = '';
+    if (!leidos || leidos.length === 0) {
+        containerLeidos.innerHTML = `<p class="vacio">No tenés ningún libro leído</p>`;
+        return;
+    }
     for (let leido of leidos.slice(0, 10)) {
         let libro = await fetchBookInfo(leido)
         containerLeidos.innerHTML += `
@@ -133,6 +137,10 @@ async function fetchLeyendo() {
 async function mostrarLeyendo() {
     containerLeyendo = document.getElementById('containerLeyendo');
     containerLeyendo.innerHTML = '';
+    if (leyendos.length === 0) {
+        containerLeyendo.innerHTML = `<p class="vacio">No tenés ningún libro que estés leyendo</p>`;
+        return;
+    }
     for (let leyendo of leyendos) {
         let libro = await fetchBookInfo(leyendo)
         containerLeyendo.innerHTML += `

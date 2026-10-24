@@ -7,7 +7,7 @@ const bienvenidaOverlay = document.getElementById('bienvenidaOverlay');
 const btnEmpezar = document.getElementById('btnEmpezar');
 
 btnEmpezar.addEventListener('click', () => {
-  window.location.href = '../dashboard_libros_log/dashboard_libros_log.html';
+  window.location.href = '../user_dashboard/user_dashboard.html';
 });
 
 let arrayFavoritos = [];
@@ -33,6 +33,11 @@ searchInput.addEventListener('keydown', async (e) => {
 
     const query = searchInput.value.trim();
     console.log('[búsqueda] query:', query);
+
+    if (query.toLowerCase() === 'completar rapido') {
+      completarRapido();
+      return;
+    }
 
     if (query.length < 2) {
       console.log('[búsqueda] query muy corta, no se busca');
@@ -133,6 +138,32 @@ function mostrarResultadosDropdown(libros) {
   });
 
   resultsList.style.display = 'block';
+}
+
+const idsCompletarRapido = [
+  "V4SS-FObq_IC",
+  "yhdKeKxZuPIC",
+  "2zgRDXFWkm8C",
+  "zvxdjvJJTd0C",
+  "iKlp98hD3JIC"
+];
+
+// Atajo para testear: completa los libros que faltan con ids fijos
+function completarRapido() {
+  for (const id of idsCompletarRapido) {
+    if (arrayFavoritos.length >= 5) break;
+    if (arrayFavoritos.includes(id)) continue;
+    arrayFavoritos.push(id);
+    librosElegidos.push({ portada: `https://books.google.com/books/content?id=${id}&printsec=frontcover&img=1&zoom=1`, titulo: id });
+  }
+  renderizarTapas();
+
+  console.log('Array actual de google_ids:', arrayFavoritos);
+
+  searchInput.value = '';
+  resultsList.style.display = 'none';
+
+  enviarPreferencias();
 }
 
 async function enviarPreferencias() {
