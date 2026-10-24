@@ -4,7 +4,7 @@
 //    window.location.replace("../home/home.html");
 //}
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     const usernameSession = localStorage.getItem('usernameSession');
 
     const headerContent = `
@@ -22,7 +22,9 @@ document.addEventListener("DOMContentLoaded", function() {
             font-optical-sizing: auto;
             font-style: normal;
         }
-        
+        [onclick] {
+    cursor: pointer;
+}
         body {
             margin: 0;
         }
@@ -272,7 +274,7 @@ document.addEventListener("DOMContentLoaded", function() {
     </section> 
 <!-- #endregion -->
     `;
-  
+
     // lo pone arriba de todo
     document.body.insertAdjacentHTML('afterbegin', headerContent);
 
@@ -281,13 +283,13 @@ document.addEventListener("DOMContentLoaded", function() {
     let enter = document.getElementById('busca');
     let input = document.getElementById('buscador');
 
-    enter.addEventListener('submit', function(event){
-    event.preventDefault();
+    enter.addEventListener('submit', function (event) {
+        event.preventDefault();
 
-    let titulo = input.value.trim();
+        let titulo = input.value.trim();
 
-    if(titulo){
-        window.location.href= `../resultados_busqueda/resultados_busqueda.html?titulo=${encodeURIComponent(titulo)}`; 
-    }
-})
-  });
+        if (titulo) {
+            window.location.href = `../resultados_busqueda/resultados_busqueda.html?titulo=${encodeURIComponent(titulo)}`;
+        }
+    })
+});

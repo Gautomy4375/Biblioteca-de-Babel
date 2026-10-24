@@ -25,6 +25,9 @@ document.addEventListener("DOMContentLoaded", function () {
   font-optical-sizing: auto;
   font-style: normal;
 }
+  [onclick] {
+    cursor: pointer;
+}
 button {
 cursor: pointer;
 }
