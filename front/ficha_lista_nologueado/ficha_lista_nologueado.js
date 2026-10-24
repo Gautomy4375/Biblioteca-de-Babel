@@ -10,7 +10,7 @@ document.getElementById('heart-btn').addEventListener('click', function(e){
 });
 
 async function traerLista(idLista){
-    let endpoint = `https://proyectos-tic.ort.edu.ar/biblioteca-de-babel/api/api/listas/${idLista}`;
+    let endpoint = `${BASE_URL}/api/listas/${idLista}`;
     let respuesta = await fetch(endpoint);
     let datos = null;
 
@@ -23,7 +23,7 @@ async function traerLista(idLista){
     return datos;
 }
 async function traerAutor(id){
-    let endpoint = `https://proyectos-tic.ort.edu.ar/biblioteca-de-babel/api/api/usuarios/${id}`;
+    let endpoint = `${BASE_URL}/api/usuarios/${id}`;
     let respuesta = await fetch(endpoint);
     let datos = null;
 

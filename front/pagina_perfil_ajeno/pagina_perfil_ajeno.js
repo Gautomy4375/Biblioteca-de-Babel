@@ -5,7 +5,7 @@ let nombredesdepaginaanterior = new URLSearchParams(window.location.search);
 let id = nombredesdepaginaanterior.get('id');
 
 async function datosPerfil(id){
-    let endpoint = `https://proyectos-tic.ort.edu.ar/biblioteca-de-babel/api/api/usuarios/${id}`;
+    let endpoint = `${BASE_URL}/api/usuarios/${id}`;
     let respuesta = await fetch(endpoint);
     let datos = null;
 
@@ -20,7 +20,7 @@ async function datosPerfil(id){
 
 }
 async function traerSeguidores(id){
-    let endpoint = `https://proyectos-tic.ort.edu.ar/biblioteca-de-babel/api/api/usuarios/${id}/seguidores`
+    let endpoint = `${BASE_URL}/api/usuarios/${id}/seguidores`
     let respuesta = await fetch(endpoint);
     let datosSeguidores = null;
 
@@ -34,7 +34,7 @@ async function traerSeguidores(id){
     return datosSeguidores
 }
 async function traerSeguidos(id){
-    let endpoint = `https://proyectos-tic.ort.edu.ar/biblioteca-de-babel/api/api/usuarios/${id}/seguidos`;
+    let endpoint = `${BASE_URL}/api/usuarios/${id}/seguidos`;
     let respuesta = await fetch(endpoint);
     let datosSeguidos= null;
 
@@ -48,7 +48,7 @@ async function traerSeguidos(id){
 
 }
 async function traerListas(idDueño, idSolicitante){
-    let endpoint = `https://proyectos-tic.ort.edu.ar/biblioteca-de-babel/api/api/usuarios/${idDueño}/${idSolicitante}/listas`;
+    let endpoint = `${BASE_URL}/api/usuarios/${idDueño}/${idSolicitante}/listas`;
     let respuesta = await fetch(endpoint);
     let datosListas = null;
 

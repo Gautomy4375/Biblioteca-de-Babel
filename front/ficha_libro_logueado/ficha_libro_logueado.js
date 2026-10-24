@@ -22,7 +22,7 @@ reviewOverlay.addEventListener('click', (event) => {
 
     async function datosLibro(nombre){
 
-        let endpoint = `https://proyectos-tic.ort.edu.ar/biblioteca-de-babel/api/api/libros/especifico?google_id=${encodeURIComponent(nombre)}`;
+        let endpoint = `${BASE_URL}/api/libros/especifico?google_id=${encodeURIComponent(nombre)}`;
         let respuesta = await fetch(endpoint);
         let datos = null;
     
@@ -165,7 +165,7 @@ cincoEstrellas.addEventListener('click', function(e){
 let estado = null;
 
 async function crearEstado(){
-    let endpoint = `https://proyectos-tic.ort.edu.ar/biblioteca-de-babel/api/api/libros/progreso?google_id=${encodeURIComponent(nombre)}`;
+    let endpoint = `${BASE_URL}/api/libros/progreso?google_id=${encodeURIComponent(nombre)}`;
 
     let data = {
         estado_libro: estado,
@@ -231,7 +231,7 @@ let selectLista = document.getElementById('selectLista');
 let botonLista = document.getElementById('botonLista');
 
 async function traerMisListas(){
-    let endpoint = `https://proyectos-tic.ort.edu.ar/biblioteca-de-babel/api/api/usuarios/${idUsuario}/${idUsuario}/listas`;
+    let endpoint = `${BASE_URL}/api/usuarios/${idUsuario}/${idUsuario}/listas`;
     let respuesta = await fetch(endpoint);
     let datos = null;
 
@@ -281,7 +281,7 @@ botonLista.addEventListener('click', async function(e){
         return;
     }
 
-    let endpoint = `https://proyectos-tic.ort.edu.ar/biblioteca-de-babel/api/api/listas/${selectLista.value}/libros`;
+    let endpoint = `${BASE_URL}/api/listas/${selectLista.value}/libros`;
     let respuesta = await fetch(endpoint, {
         method: 'PATCH',
         headers: {

@@ -9,7 +9,7 @@ if(id){
 }
 
 async function traerLeidos(id){
-    let endpoint = `https://proyectos-tic.ort.edu.ar/biblioteca-de-babel/api/api/libros/${id}/leidos`;
+    let endpoint = `${BASE_URL}/api/libros/${id}/leidos`;
 
     let respuesta = await fetch(endpoint);
     let libros = null
@@ -26,7 +26,7 @@ async function traerLeidos(id){
 }
 async function datosLibro(nombre){
 
-    let endpoint = `https://proyectos-tic.ort.edu.ar/biblioteca-de-babel/api/api/libros/especifico?google_id=${encodeURIComponent(nombre)}`;
+    let endpoint = `${BASE_URL}/api/libros/especifico?google_id=${encodeURIComponent(nombre)}`;
     let respuesta = await fetch(endpoint);
     let datos = null;
 
