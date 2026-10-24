@@ -21,6 +21,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
 </head>
 <body>
+  <div id="cargadorCon" class="cargador">
+    <img class="loader" src="../loading_gif.gif" alt="Cargando...">
+  </div>
+
   <!-- #region review popup -->
 
   <article id="reviewOverlay" class="review hidden">
@@ -92,15 +96,15 @@
                 <section class="lora-font comprar">
                     <div class="lora-font titulo">Comprar Libro</div>
                     <div class="link-botones-buy">
-                      <button class="plus-jakarta-sans link-boton"><a target="_blank" id="link1">Yenny</a></button>
-                      <button class="plus-jakarta-sans link-boton"><a target="_blank" id="link2">Cúspide</a></button>
-                      <button class="plus-jakarta-sans link-boton"><a target="_blank" id="link3">Otra</a></button>
+                      <button class="plus-jakarta-sans link-boton"><a target="_blank" id="link1" href="#">Yenny</a></button>
+                      <button class="plus-jakarta-sans link-boton"><a target="_blank" id="link2" href="#">Cúspide</a></button>
+                      <button class="plus-jakarta-sans link-boton"><a target="_blank" id="link3" href="#">Otra</a></button>
                     </div>
                 </section>
                 <hr>
                 <section class="lora-font gratis">
                     <div class="lora-font titulo">Leer Gratis</div>
-                    <button class="plus-jakarta-sans link-boton"><a target="_blank" id="link4">Link Gratis</a></button>
+                    <button class="plus-jakarta-sans link-boton"><a target="_blank" id="link4" href="#">Link Gratis</a></button>
                 </section>
             </section>
         </section>
@@ -113,27 +117,22 @@
             </section>
 
             <section class="lora-font specs">
-                <section class="lora-font renglon">
-                    <div class="lora-font spec divider-middle divider-bottom">
-                        <div class="lora-font spec-name">Idioma</div>
-                        <div class="lora-font spec-info" id="idioma"></div>
-                    </div>
-                    <div class="lora-font spec divider-middle spec-abajo">
-                        <div class="lora-font spec-name">Fecha</div>
-                        <div class="lora-font spec-info anio" id="año"></div>
-                    </div>
-                </section>
-
-                <section class="lora-font renglon">
-                    <div class="lora-font spec  divider-bottom">
-                        <div class="lora-font spec-name">Género</div>
-                        <div class="lora-font spec-info" id="genero"></div>
-                    </div>
-                    <div class="lora-font spec spec-abajo">
-                        <div class="lora-font spec-name"> Cant. de Hojas</div>
-                        <div class="lora-font spec-info" id="hojas"></div>
-                    </div>
-                </section>
+                <div class="lora-font spec divider-middle divider-bottom">
+                    <div class="lora-font spec-name">Idioma</div>
+                    <div class="lora-font spec-info" id="idioma"></div>
+                </div>
+                <div class="lora-font spec divider-bottom">
+                    <div class="lora-font spec-name">Género</div>
+                    <div class="lora-font spec-info" id="genero"></div>
+                </div>
+                <div class="lora-font spec divider-middle">
+                    <div class="lora-font spec-name">Fecha</div>
+                    <div class="lora-font spec-info anio" id="año"></div>
+                </div>
+                <div class="lora-font spec">
+                    <div class="lora-font spec-name">Cant. de Hojas</div>
+                    <div class="lora-font spec-info" id="hojas"></div>
+                </div>
             </section>
         </section>
 

@@ -18,8 +18,44 @@ async function datosLibro(nombre){
     return datos;
 }
 
+// traduce un texto del ingles al español con la api de MyMemory
+// si falla devuelve el texto original
+async function traducir(texto) {
+    try {
+        let endpoint = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(texto)}&langpair=en|es`;
+        let respuesta = await fetch(endpoint);
+        let datos = await respuesta.json();
+
+        if (datos.responseStatus == 200) {
+            return datos.responseData.translatedText;
+        }
+    }
+    catch (error) {
+        console.log('no se pudo traducir', error);
+    }
+
+    return texto;
+}
+
+// pasa el codigo del idioma (es, en, fr...) al nombre completo en español
+// si el codigo no es valido devuelve el codigo tal cual
+function nombreIdioma(codigo) {
+    try {
+        let nombres = new Intl.DisplayNames(['es'], { type: 'language' });
+        let nombre = nombres.of(codigo);
+        return nombre.charAt(0).toUpperCase() + nombre.slice(1);
+    }
+    catch (error) {
+        return codigo;
+    }
+}
+
+let cargador = document.getElementById('cargadorCon');
+
 async function cargarDatos(){
     let ob = await datosLibro(nombre);
+
+    cargador.classList.add('hidden');
 
     if(!ob){
         console.log('no se pudieron cargar los datos');
@@ -41,7 +77,7 @@ async function cargarDatos(){
     descripcion.innerHTML = ob.description;
 
     let idioma = document.getElementById('idioma');
-    idioma.textContent = ob.idioma;
+    idioma.textContent = nombreIdioma(ob.idioma);
 
     let año = document.querySelectorAll('.anio');
     año.forEach(element => {
@@ -49,7 +85,13 @@ async function cargarDatos(){
         });
 
     let genero = document.getElementById('genero');
-    genero.textContent = ob.categorias;
+    if (ob.categorias && ob.categorias.length > 0) {
+        // muestro la original y la cambio cuando llega la traduccion
+        genero.textContent = ob.categorias[0];
+        traducir(ob.categorias[0]).then(traducida => {
+            genero.textContent = traducida;
+        });
+    }
 
     let hojas = document.getElementById('hojas');
     hojas.textContent = ob.cantidad_paginas;
@@ -58,16 +100,24 @@ async function cargarDatos(){
     promedio.textContent = '3.4';
 
     let link1 = document.getElementById('link1');
-    link1.href = 'https://cuspide.com/';
+    link1.href = `https://www.yenny-elateneo.com/search/?q=${encodeURIComponent(ob.title)}`;
 
     let link2 = document.getElementById('link2');
-    link2.href = 'https://cuspide.com/';
+    link2.href = `https://cuspide.com/?s=${encodeURIComponent(ob.title)}&post_type=product`;
 
     let link3 = document.getElementById('link3');
-    link3.href = 'https://cuspide.com/';
+    if (ob.link_compra === undefined) {
+        link3.href = `https://www.google.com/search?q=${encodeURIComponent(ob.title)}+comprar`;
+    } else {
+        link3.href = ob.link_compra;
+    }
 
     let link4 = document.getElementById('link4');
-    link4.href = 'https://archive.org/';
+    if (ob.link_gratis === undefined) {
+        link4.href = `https://www.google.com/search?q=${encodeURIComponent(ob.title)}+libro+leer+gratis`;
+    } else {
+        link4.href = ob.link_gratis;
+    }
 
 
     let username1 = document.getElementById('username1');

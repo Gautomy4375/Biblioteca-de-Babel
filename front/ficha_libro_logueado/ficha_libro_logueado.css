@@ -128,35 +128,37 @@ hr{
     }
 
     .specs {
-      display: flex;
-      flex-direction: row;
+      /* tabla de 2x2, las columnas se achican con la pantalla sin romperse */
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      align-items: stretch; /* pisa el align-items: center de .todo-arriba * */
       margin-top: 42px;
-
       width: 75%;
-      .renglon {
-        width: 100%;
 
+      .spec {
         display: flex;
         flex-direction: column;
-        .spec {
-          display: flex;
-          flex-direction: column;
-          width: 100%;
-          
-        }
-        
-        .spec-abajo {
-          padding-top: 10px;
-        }
-        
-        .divider-middle {
-          border-right: 2px solid #842739;
-        }
-        
-        .divider-bottom {
-          border-bottom: 2px solid #842739;
-          padding-bottom: 10px;
-        }
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 20px 10px;
+        overflow-wrap: anywhere;
+      }
+
+      .spec-name {
+        font-size: 1.6rem;
+      }
+
+      .spec-info {
+        font-size: 1.1rem;
+      }
+
+      .divider-middle {
+        border-right: 1px solid #842739;
+      }
+
+      .divider-bottom {
+        border-bottom: 1px solid #842739;
       }
     }
   }
