@@ -52,8 +52,7 @@ async function cargarDatos(){
     let titulo = document.getElementById('titulo');
     titulo.textContent = ob.title;
 
-    let tituloRes = document.getElementById('titulo_reseña');
-    tituloRes.textContent = ob.title
+    
         
     let tapa = document.getElementById('tapa')
 
@@ -81,8 +80,17 @@ async function cargarDatos(){
     
     let promedio = document.getElementById('promedio');
     promedio.textContent = '3.4';
+
+    // ytsma: datos de las reseñas
     
-    
+    let tituloRes = document.getElementById('titulo_reseña');
+    tituloRes.textContent = ob.title
+
+    let anioRes = document.getElementById('anio_reseña');
+    anioRes.textContent = new Date();
+
+    let portadaRes = document.getElementById('portadaReseña');
+    portadaRes.src = ob.portada;
     
     let link1 = document.getElementById('link1');
     link1.href = 'https://cuspide.com/';
@@ -171,7 +179,7 @@ async function crearEstado(){
         estado_libro: estado,
         id_usuario: idUsuario,
         puntuacion:puntuacion,
-        
+    
     }
 
     let respuesta = await fetch(endpoint, {
@@ -300,3 +308,93 @@ botonLista.addEventListener('click', async function(e){
         console.log('hubo un error');
     }
 })
+
+// HAGO LOS FETCH DE LAS RESEÑAS
+
+let idUsuarioReseña = localStorage.getItem('userId');
+
+let puntuacionReseña = null;
+
+let unaReseña = document.getElementById('star1res');
+let dosReseñas = document.getElementById('star2res');
+let tresReseñas = document.getElementById('star3res');
+let cuatroReseñas = document.getElementById('star4res');
+let cincoReseñas = document.getElementById('star5res');
+
+let textoReseña = document.getElementById('reviewText');
+let enviarReseña = document.getElementById('reviewbtnsend');
+
+unaReseña.addEventListener('click', function(e){
+    e.preventDefault();
+
+    puntuacionReseña = unaReseña.value;
+
+    console.log(puntuacionReseña);
+})
+
+dosReseñas.addEventListener('click', function(e){
+    e.preventDefault();     
+
+    puntuacionReseña = dosReseñas.value;
+    console.log(puntuacionReseña);
+})
+
+tresReseñas.addEventListener('click', function(e){
+    e.preventDefault();
+
+    puntuacionReseña = tresReseñas.value;
+    console.log(puntuacionReseña);
+})
+
+cuatroReseñas.addEventListener('click', function(e){
+    e.preventDefault(); 
+
+    puntuacionReseña = cuatroReseñas.value;
+    console.log(puntuacionReseña);
+})
+
+cincoReseñas.addEventListener('click', function(e){
+    e.preventDefault();
+    
+    puntuacionReseña = cincoReseñas.value;
+    console.log(puntuacionReseña);
+})
+
+
+async function crearResenia(){
+
+    let endpoint = `${BASE_URL}/api/libros/resenias?google_id=${nombre}`
+
+    let dataReseñas = {
+        id_usuario: idUsuarioReseña,
+        contenido: textoReseña.value,
+    }
+
+    let respuesta = await fetch(endpoint, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(dataReseñas)
+    });
+    let datosReseña = null;
+
+    if(respuesta.ok){
+        datosReseña = await respuesta.json();
+    }
+    else{
+        console.log('hubo un error :(');
+    }
+    return datosReseña;
+
+}
+enviarReseña.addEventListener('click', function(e){
+    e.preventDefault();
+
+    let resultado =  crearResenia();
+
+    if (resultado){
+        alert(`Creaste una reseña para el libro ${ob.title}`)
+    }
+})
+
