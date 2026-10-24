@@ -1,5 +1,5 @@
 async function traerMasLikeadas(){
-    let endpoint = `https://proyectos-tic.ort.edu.ar/biblioteca-de-babel/api/api/listas/likes`;
+    let endpoint = `${BASE_URL}/api/listas/likes`;
     let respuesta = await fetch(endpoint);
     let datosListas = null;
 
@@ -12,7 +12,7 @@ async function traerMasLikeadas(){
     return datosListas;
 }
 async function traerAutor(id){
-    let endpoint = `https://proyectos-tic.ort.edu.ar/biblioteca-de-babel/api/api/usuarios/${id}`;
+    let endpoint = `${BASE_URL}/api/usuarios/${id}`;
     let respuesta = await fetch(endpoint);
     let datos = null;
 

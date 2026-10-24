@@ -3,7 +3,7 @@ let idUsuario = localStorage.getItem('userId');
 let libroDePaginaAnterior = new URLSearchParams(window.location.search).get('google_id');
 
 async function crearLista(nombre, descripcion){
-    let endpoint = `https://proyectos-tic.ort.edu.ar/biblioteca-de-babel/api/api/listas`;
+    let endpoint = `${BASE_URL}/api/listas`;
     let respuesta = await fetch(endpoint, {
         method: 'POST',
         headers: {
@@ -22,7 +22,7 @@ async function crearLista(nombre, descripcion){
     return datos;
 }
 async function buscarLibro(titulo){
-    let endpoint = `https://proyectos-tic.ort.edu.ar/biblioteca-de-babel/api/api/libros?titulo=${encodeURIComponent(titulo)}`;
+    let endpoint = `${BASE_URL}/api/libros?titulo=${encodeURIComponent(titulo)}`;
     let respuesta = await fetch(endpoint);
     let datos = null;
 
@@ -35,7 +35,7 @@ async function buscarLibro(titulo){
     return datos;
 }
 async function agregarLibro(idLista, google_id){
-    let endpoint = `https://proyectos-tic.ort.edu.ar/biblioteca-de-babel/api/api/listas/${idLista}/libros`;
+    let endpoint = `${BASE_URL}/api/listas/${idLista}/libros`;
     let respuesta = await fetch(endpoint, {
         method: 'PATCH',
         headers: {

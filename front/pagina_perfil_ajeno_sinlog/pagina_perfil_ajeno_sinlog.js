@@ -52,7 +52,7 @@ pl6.src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqPS1Es-Brcsfc0
 let id = new URLSearchParams(window.location.search).get('id');
 
 async function traerListas(idDueño){
-    let endpoint = `https://proyectos-tic.ort.edu.ar/biblioteca-de-babel/api/api/usuarios/${idDueño}/0/listas`;
+    let endpoint = `${BASE_URL}/api/usuarios/${idDueño}/0/listas`;
     let respuesta = await fetch(endpoint);
     let datosListas = null;
 

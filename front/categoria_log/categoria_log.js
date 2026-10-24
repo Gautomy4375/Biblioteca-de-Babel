@@ -18,7 +18,7 @@ if (categoria) {
 async function buscarLibros(categoriaSeleccionada) {
     if (cargador) cargador.style.display = 'block';
 
-    let endpoint = `https://proyectos-tic.ort.edu.ar/biblioteca-de-babel/api/api/categorias/${encodeURIComponent(categoria_value)}/libros`;
+    let endpoint = `${BASE_URL}/api/categorias/${encodeURIComponent(categoria_value)}/libros`;
 
     try {
         let respuesta = await fetch(endpoint);

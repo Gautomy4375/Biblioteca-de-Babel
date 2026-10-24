@@ -8,7 +8,7 @@ let corazon = document.getElementById('heart-btn');
 let nroLikes = document.getElementById('nrodelikes');
 
 async function traerLista(idLista, idUsuario){
-    let endpoint = `https://proyectos-tic.ort.edu.ar/biblioteca-de-babel/api/api/listas/${idLista}?id_usuario=${idUsuario}`;
+    let endpoint = `${BASE_URL}/api/listas/${idLista}?id_usuario=${idUsuario}`;
     let respuesta = await fetch(endpoint);
     let datos = null;
 
@@ -21,7 +21,7 @@ async function traerLista(idLista, idUsuario){
     return datos;
 }
 async function traerAutor(id){
-    let endpoint = `https://proyectos-tic.ort.edu.ar/biblioteca-de-babel/api/api/usuarios/${id}`;
+    let endpoint = `${BASE_URL}/api/usuarios/${id}`;
     let respuesta = await fetch(endpoint);
     let datos = null;
 
@@ -63,7 +63,7 @@ async function cargarLista(){
 cargarLista();
 
 corazon.addEventListener('change', async function(){
-    let endpoint = `https://proyectos-tic.ort.edu.ar/biblioteca-de-babel/api/api/listas/${idLista}/like`;
+    let endpoint = `${BASE_URL}/api/listas/${idLista}/like`;
     let respuesta = await fetch(endpoint, {
         method: 'PATCH',
         headers: {

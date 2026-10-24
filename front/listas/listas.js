@@ -56,7 +56,7 @@ im[23].src = 'https://images.cdn1.buscalibre.com/fit-in/360x360/c6/78/c678ab2c90
 let id = localStorage.getItem('userId');
 
 async function traerListas(idDueño, idSolicitante){
-    let endpoint = `https://proyectos-tic.ort.edu.ar/biblioteca-de-babel/api/api/usuarios/${idDueño}/${idSolicitante}/listas`;
+    let endpoint = `${BASE_URL}/api/usuarios/${idDueño}/${idSolicitante}/listas`;
     let respuesta = await fetch(endpoint);
     let datosListas = null;
 
@@ -96,7 +96,7 @@ async function cargarMisListas(){
 cargarMisListas();
 
 async function traerMasLikeadas(){
-    let endpoint = `https://proyectos-tic.ort.edu.ar/biblioteca-de-babel/api/api/listas/likes`;
+    let endpoint = `${BASE_URL}/api/listas/likes`;
     let respuesta = await fetch(endpoint);
     let datosListas = null;
 
@@ -109,7 +109,7 @@ async function traerMasLikeadas(){
     return datosListas;
 }
 async function traerAutor(id){
-    let endpoint = `https://proyectos-tic.ort.edu.ar/biblioteca-de-babel/api/api/usuarios/${id}`;
+    let endpoint = `${BASE_URL}/api/usuarios/${id}`;
     let respuesta = await fetch(endpoint);
     let datos = null;
 

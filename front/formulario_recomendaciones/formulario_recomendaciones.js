@@ -33,7 +33,7 @@ searchInput.addEventListener('keydown', async (e) => {
     resultsList.style.display = 'block';
 
     try {
-      let endpoint = `http://localhost:3000/api/libros?titulo=${encodeURIComponent(query)}`;
+      let endpoint = `${BASE_URL}/api/libros?titulo=${encodeURIComponent(query)}`;
       let respuesta = await fetch(endpoint);
 
       if (respuesta.ok) {
