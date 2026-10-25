@@ -9,7 +9,7 @@ body {
   width: 100%;
   top: 60px;
   height: auto;
-  background-image: url(https://www.designer-daily.com/wp-content/uploads/2022/03/rozier-babel-library-scaled.jpg);
+  background-image: url(https://deleahora.com/assets/images/resized/e588e758c19424b0435813b01cef4a93.jpg);
   background-position: center;
   aspect-ratio: 3/2;
   background-size: cover;
@@ -30,7 +30,9 @@ body {
 
     .cita {
       opacity: 1;
-      background-color: rgba(0, 0, 0, 0.60);
+      background: rgba(255, 255, 255, 0.1); 
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);   
       color: #ffffff;
       border-radius: .7vw;
       transform: translateY(0);
@@ -63,6 +65,8 @@ body {
     }
 
     .descripcion {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);   
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -75,7 +79,7 @@ body {
       line-height: 1.6;
       width: 41.5vw;
       height: 6.5vw;
-      background-color: rgba(0, 0, 0, 0.60);
+      
       color: #ffffff;
       padding: 5px 10px;
       padding-bottom: 5px;
