@@ -129,7 +129,7 @@ cargarDatos();
 // ---------- PROMEDIO ----------
 
 async function traerRanking() {
-    let endpoint = `${BASE_URL}/api/libros/ranking?google_id=${encodeURIComponent(nombre)}`;
+    let endpoint = `${BASE_URL}/api/libros/ranking?google_id=${nombre}`;
     let respuesta = await fetch(endpoint);
     let datos = null;
 
@@ -226,14 +226,6 @@ async function cargarProgreso() {
     let progreso = datos && datos.Progreso ? datos.Progreso : datos;
     if (!progreso) {
         return;
-    }
-
-    if (progreso.puntuacion > 0) {
-        puntuacion = progreso.puntuacion;
-        let estrella = document.getElementById(`star${progreso.puntuacion}`);
-        if (estrella) {
-            estrella.checked = true;
-        }
     }
 
     if (progreso.estado_libro) {
