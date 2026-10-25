@@ -41,9 +41,11 @@ async function buscarusuarios(nombre) {
             conLi.textContent = 'No se encontraron usuarios'
         }
     }
-    else{
-        conLi.textContent = 'Hubo un error'
-        
+    else if (respuesta.status === 404) {
+        conLi.textContent = 'No se encontraron usuarios'
+    } else {
+
+        conLi.textContent = 'Error en la búsqueda de usuarios'
     }
 }
 
