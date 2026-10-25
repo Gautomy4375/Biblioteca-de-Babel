@@ -1,6 +1,7 @@
 // google_id del libro que viene en la url
 let nombre = new URLSearchParams(window.location.search).get('google_id');
 let idUsuario = localStorage.getItem('userId');
+let nombreLibro = null;
 
 let puntuacion = null;
 let estado = null;
@@ -31,6 +32,8 @@ async function datosLibro(nombre) {
     return respuesta.json();
 }
 
+
+
 // traduce un texto del ingles al español con la api de MyMemory
 // si falla devuelve el texto original
 async function traducir(texto) {
@@ -48,8 +51,7 @@ async function traducir(texto) {
     return texto;
 }
 
-// pasa el codigo del idioma (es, en, fr...) al nombre completo en español
-// si el codigo no es valido devuelve el codigo tal cual
+
 function nombreIdioma(codigo) {
     try {
         let nombre = new Intl.DisplayNames(['es'], { type: 'language' }).of(codigo);
@@ -114,7 +116,7 @@ async function cargarDatos() {
     document.getElementById('link3').href = ob.link_compra ?? `https://www.google.com/search?q=${titulo}+comprar`;
     document.getElementById('link4').href = ob.link_gratis ?? `https://www.google.com/search?q=${titulo}+libro+leer+gratis`;
 
-    // usuarios de ejemplo (username1..3 y fotoperfil1..3)
+
     for (let i = 1; i <= 3; i++) {
         let username = document.getElementById(`username${i}`);
         username.textContent = `USERNAME${i}`;
@@ -126,7 +128,7 @@ async function cargarDatos() {
 
 cargarDatos();
 
-// ---------- PROMEDIO ----------
+
 
 async function traerRanking() {
     let endpoint = `${BASE_URL}/api/libros/ranking?google_id=${nombre}`;
@@ -359,7 +361,10 @@ async function crearResenia() {
     let dataReseñas = {
         id_usuario: idUsuarioReseña,
         contenido: textoReseña.value,
+        puntuacion: puntuacionReseña
     }
+    console.log(dataReseñas);
+    console.log(nombre);
 
     let respuesta = await fetch(endpoint, {
         method: 'POST',
@@ -379,13 +384,15 @@ async function crearResenia() {
     return datosReseña;
 
 }
-enviarReseña.addEventListener('click', function (e) {
+enviarReseña.addEventListener('click', async function (e) {
     e.preventDefault();
 
-    let resultado = crearResenia();
+    nombreLibro = await datosLibro(nombre);
+
+    let resultado = await crearResenia();
 
     if (resultado) {
-        alert(`Creaste una reseña para el libro ${ob.title}`)
+        alert(`Creaste una reseña para el libro ${nombreLibro.title}`)
     }
 })
 

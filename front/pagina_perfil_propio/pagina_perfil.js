@@ -55,7 +55,6 @@ async function traerLeidos(id){
 
     if(respuesta.ok){
         libros = await respuesta.json();
-        mostrarLibros(libros.libros);
     }
     else{
         console.log('hubo un eror')
@@ -125,8 +124,7 @@ async function cargarDatos(){
     let nombre = document.getElementById('nom');
     nombre.textContent = localStorage.getItem('usernameSession');
 
-    let fecha = document.getElementById('fecha');
-    fecha.textContent = `Usuario en Babel desde ${objeto.fecha_registro}`;
+    
 
     
 
@@ -150,21 +148,27 @@ async function cargarDatos(){
 
     let idLeidos = await traerLeidos(id);
 
-    let cincoLeidos = idLeidos.slice(0,4);
+
+    let leidosArray = idLeidos.libros;
+
+    let cincoLeidos = leidosArray.slice(0,5);
+
+    console.log(cincoLeidos);
 
     let clases = ['libr uno', 'libr dos', 'libr tres', 'libr cuatro', 'libr cinco'];
 
+    contenedor.innerHTML= '';
+
     for(let i = 0; i < cincoLeidos.length; i++){
 
-        let libroLeido = cincoLeidos[i];
+        let ob = await datosLibro(cincoLeidos[i]);
 
-        let ob = await datosLibro(libroLeido);
+        contenedor.innerHTML+=`
+        <img src='${ob.portada}' class='${clases[i]}'></img>
+        
+        `
 
-        let ima = document.createElement('img');
-        ima.className = clases[i];
-        ima.src = ob.libros.portada;
-
-        contenedor.appendChild(ima);
+        
     }
     
 
