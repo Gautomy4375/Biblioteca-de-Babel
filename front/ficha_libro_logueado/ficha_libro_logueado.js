@@ -111,10 +111,27 @@ async function cargarDatos() {
     // links para conseguir el libro
     let titulo = encodeURIComponent(ob.title);
 
-    document.getElementById('link1').href = `https://www.yenny-elateneo.com/search/?q=${titulo}`;
-    document.getElementById('link2').href = `https://cuspide.com/?s=${titulo}&post_type=product`;
-    document.getElementById('link3').href = ob.link_compra ?? `https://www.google.com/search?q=${titulo}+comprar`;
-    document.getElementById('link4').href = ob.link_gratis ?? `https://www.google.com/search?q=${titulo}+libro+leer+gratis`;
+    let link1 = document.getElementById('link1');
+    link1.href = `https://www.yenny-elateneo.com/search/?q=${titulo}`;
+
+    let link2 = document.getElementById('link2');
+    link2.href = `https://cuspide.com/?s=${titulo}&post_type=product`;
+
+    let link3 = document.getElementById('link3');
+    if (ob.link_compra === undefined) {
+        link3.href = `https://www.google.com/search?q=${titulo}+comprar`;
+    }
+    else {
+        link3.href = ob.link_compra;
+    }
+
+    let link4 = document.getElementById('link4');
+    if (ob.link_gratis === undefined) {
+        link4.href = `https://www.google.com/search?q=${titulo}+libro+leer+gratis`;
+    }
+    else {
+        link4.href = ob.link_gratis;
+    }
 
 
     for (let i = 1; i <= 3; i++) {
@@ -173,19 +190,26 @@ for (let i = 1; i <= 5; i++) {
     });
 }
 
-// ---------- ESTADO (leido / por leer / leyendo) ----------
+// ---------- ESTADO ----------
 
-// no_empezado = Por Leer
-let botonesEstado = {
-    leido: document.getElementById('botonLeido'),
-    no_empezado: document.getElementById('botonPor'),
-    leyendo: document.getElementById('botonLeyendo'),
-};
+let botonLeido = document.getElementById('botonLeido');
+let botonPor = document.getElementById('botonPor');
+let botonLeyendo = document.getElementById('botonLeyendo');
 
-// pinta de verde el boton del estado actual
+// la clase activo lo pinta de verde
 function marcarEstado(est) {
-    for (let clave in botonesEstado) {
-        botonesEstado[clave].classList.toggle('activo', clave === est);
+    botonLeido.classList.remove('activo');
+    botonPor.classList.remove('activo');
+    botonLeyendo.classList.remove('activo');
+
+    if (est === 'leido') {
+        botonLeido.classList.add('activo');
+    }
+    else if (est === 'no_empezado') {
+        botonPor.classList.add('activo');
+    }
+    else if (est === 'leyendo') {
+        botonLeyendo.classList.add('activo');
     }
 }
 
@@ -209,28 +233,39 @@ async function guardarEstado(nuevoEstado) {
     alert(`Guardaste este libro como ${estado}, y le diste ${puntuacion} estrella/s`);
 }
 
-for (let clave in botonesEstado) {
-    botonesEstado[clave].addEventListener('click', function (e) {
-        e.preventDefault();
-        guardarEstado(clave);
-    });
+botonLeido.addEventListener('click', function (e) {
+    e.preventDefault();
+    guardarEstado('leido');
+})
+
+botonPor.addEventListener('click', function (e) {
+    e.preventDefault();
+    guardarEstado('no_empezado');
+})
+
+botonLeyendo.addEventListener('click', function (e) {
+    e.preventDefault();
+    guardarEstado('leyendo');
+})
+
+async function traerProgreso() {
+    let endpoint = `${BASE_URL}/api/libros/progreso?google_id=${nombre}&id_usuario=${idUsuario}`;
+    let respuesta = await fetch(endpoint);
+    let datos = null;
+
+    if (respuesta.ok) {
+        datos = await respuesta.json();
+    }
+    else {
+        console.log('hubo un error');
+    }
+    return datos;
 }
 
-// si el usuario ya tiene estrellas o estado en este libro, los marco
 async function cargarProgreso() {
-    let respuesta = await fetch(`${BASE_URL}/api/libros/progreso?google_id=${encodeURIComponent(nombre)}&id_usuario=${idUsuario}`);
-    if (!respuesta.ok) {
-        return;
-    }
+    let progreso = await traerProgreso();
 
-    let datos = await respuesta.json();
-    // el README dice { Progreso } pero el backend manda el objeto directo, acepto las dos
-    let progreso = datos && datos.Progreso ? datos.Progreso : datos;
-    if (!progreso) {
-        return;
-    }
-
-    if (progreso.estado_libro) {
+    if (progreso) {
         estado = progreso.estado_libro;
         marcarEstado(estado);
     }
