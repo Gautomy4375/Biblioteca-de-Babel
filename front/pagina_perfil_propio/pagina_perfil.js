@@ -79,6 +79,22 @@ async function datosLibro(nombre){
     return datos;
 }
 
+async function traerResenias(id){
+
+    let endpoint = `${BASE_URL}/api/usuarios/${id}/resenias`;
+    let respuesta = await fetch(endpoint);
+    let datos = null;
+
+    if(respuesta.ok){
+        datos = await respuesta.json();
+    }
+    else{
+        console.log('hubo un error');
+    }
+    return datos;
+}
+
+
 async function traerListas(idDueño, idSolicitante){
     let endpoint = `${BASE_URL}/api/usuarios/${idDueño}/${idSolicitante}/listas`;
     let respuesta = await fetch(endpoint);
@@ -170,14 +186,30 @@ async function cargarDatos(){
 
         
     }
-    
 
-    
+    let reseniasUsuarioObjeto = await traerResenias(id);
+    let reseniasUsuarioArray = reseniasUsuarioObjeto.reseñas
+    let res = reseniasUsuarioArray.slice(0,4);
+    let cont = document.getElementById('todo');
+    console.log(res);
 
-    
+    cont.innerHTML = '';
 
-    
-    
+    for (let i = 0; i < res.length; i++){
+
+        let ob = await datosLibro(res[i].google_id);
+        cont.innerHTML += `
+         <section class="res">
+            <img src='${ob.portada}' class="imagen" ></img>
+            <div class="ladoim">
+                <article class="til">${ob.title}</article>
+                <article class="datos"></article>
+                <article class="des" >${res[i].contenido}</article>
+            </div>
+        </section>
+        `
+    }
+
 
                  
 }

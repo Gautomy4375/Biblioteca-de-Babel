@@ -20,7 +20,7 @@ reviewOverlay.addEventListener('click', (event) => {
     }
 });
 
-// ---------- DATOS DEL LIBRO ----------
+
 
 async function datosLibro(nombre) {
     let respuesta = await fetch(`${BASE_URL}/api/libros/especifico?google_id=${encodeURIComponent(nombre)}`);
@@ -185,7 +185,7 @@ async function cargarPromedio() {
 
 cargarPromedio();
 
-// ---------- ESTRELLAS ----------
+
 
 let unaEstrella = document.getElementById('star1');
 let dosEstrellas = document.getElementById('star2');
