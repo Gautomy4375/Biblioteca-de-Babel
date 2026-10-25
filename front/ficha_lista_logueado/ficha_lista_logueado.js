@@ -59,6 +59,10 @@ async function cargarLista(){
     lista.libros.forEach((item) => {
         const clon = plantilla.content.cloneNode(true);
         clon.querySelector('img').src = item.libro.portada;
+        clon.querySelector('img').onclick = function(){
+            irAFicha(item.libro.google_id);
+        } 
+            
         clon.querySelector('p').textContent = item.libro.title;
         librosGrid.appendChild(clon);
     });
@@ -85,3 +89,8 @@ corazon.addEventListener('change', async function(){
         console.log('hubo un error');
     }
 });
+
+function irAFicha(google_id) {
+    window.location.href = `../ficha_libro_logueado/ficha_libro_logueado.html?google_id=${google_id}`
+}
+
