@@ -19,172 +19,18 @@
         <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
 </head>
 <body>
-      <div class="todo">
-        <main class="arriba">
-            <article class="title"></article>
-          </main>
-          <main class="arriba_medio">
-            <section class="listas">
-                <div class="arriba_lista">
-                    <div class="al_1"></div>
-                    <div class="al_2"></div>
-                </div>
-                <div class="abajo_lista">
-                    <article class="listillas">
-                        <div class="libro uno"></div>
-                        <div class="libro dos"></div>
-                        <div class="libro tres"></div>
-                        <div class="libro cuatro"></div>
-                        <div class="libro cinco"></div>
-                        <div class="libro seis"></div>
-                    </article>
-                </div>
-            </section>
-            <section class="listas">
-                <div class="arriba_lista">
-                    <div class="al_1"></div>
-                    <div class="al_2"></div>
-                </div>
-                <div class="abajo_lista">
-                    <article class="listillas">
-                        <div class="libro uno"></div>
-                        <div class="libro dos"></div>
-                        <div class="libro tres"></div>
-                        <div class="libro cuatro"></div>
-                        <div class="libro cinco"></div>
-                        <div class="libro seis"></div>
-                    </article>
-                </div>
-            </section>
-            <section class="listas">
-                <div class="arriba_lista">
-                    <div class="al_1"></div>
-                    <div class="al_2"></div>
-                </div>
-                <div class="abajo_lista">
-                    <article class="listillas">
-                        <div class="libro uno"></div>
-                        <div class="libro dos"></div>
-                        <div class="libro tres"></div>
-                        <div class="libro cuatro"></div>
-                        <div class="libro cinco"></div>
-                        <div class="libro seis"></div>
-                    </article>
-                </div>
-            </section>
-            <section class="listas">
-                <div class="arriba_lista">
-                    <div class="al_1"></div>
-                    <div class="al_2"></div>
-                </div>
-                <div class="abajo_lista">
-                    <article class="listillas">
-                        <div class="libro uno"></div>
-                        <div class="libro dos"></div>
-                        <div class="libro tres"></div>
-                        <div class="libro cuatro"></div>
-                        <div class="libro cinco"></div>
-                        <div class="libro seis"></div>
-                    </article>
-                </div>
-            </section>
-          </main>
-      </div>
+    <div id="cargadorCon" class="cargador">
+        <img class="loader" src="../loading_gif.gif" alt="Cargando...">
+    </div>
+
       <div class="todo_medio">
         <main class="medio">
-            <section class="medio_arriba">
-                <article class="title_ml">Más Likeadas</article>
+            <section class="arriba">
+                <article class="title">Populares</article>
+                <a class="crear" href="javascript:void(0)" onclick="opensignup()">+</a>
             </section>
-            <section class="medio_medio">
-                <div class="medios">
-                    <div class="am">
-                        <div class="nom_res"></div>
-                        <div class="aut_res"></div>
-                    </div>
-                    <div class="abm">
-                        <img class="lib">
-                        <img class="lib">
-                        <img class="lib">
-                        <img class="lib">
-                    </div>
-                </div>
-                <div class="medios">
-                    <div class="am">
-                        <div class="nom_res"></div>
-                        <div class="aut_res"></div>
-                    </div>
-                    <div class="abm">
-                        <img class="lib">
-                        <img class="lib">
-                        <img class="lib">
-                        <img class="lib">
-                    </div>
-                </div>
-                <div class="medios">
-                    <div class="am">
-                        <div class="nom_res"></div>
-                        <div class="aut_res"></div>
-                    </div>
-                    <div class="abm">
-                        <img class="lib">
-                        <img class="lib">
-                        <img class="lib">
-                        <img class="lib">
-                    </div>
-                </div>
-                <div class="medios">
-                    <div class="am">
-                        <div class="nom_res"></div>
-                        <div class="aut_res"></div>
-                    </div>
-                    <div class="abm">
-                        <img class="lib">
-                        <img class="lib">
-                        <img class="lib">
-                        <img class="lib">
-                    </div>
-                </div>
-            </section>
-        </main>
-        <main class="abajo">
-            <section class="medio_ab_ar">
-                <article class="title_maa"></article>
-            </section>
-            <section class="abajo_todo">
-                <section class="mis_li">
-                    <div class="arriba_misli">
-                        <div class="aml_1"></div>
-                        <div class="aml_2"></div>
-                    </div>
-                    <div class="abajo_mlista">
-                        <article class="mlistillas">
-                            <div class="mlibro uno"></div>
-                            <div class="mlibro dos"></div>
-                            <div class="mlibro tres"></div>
-                            <div class="mlibro cuatro"></div>
-                            <div class="mlibro cinco"></div>
-                            <div class="mlibro seis"></div>
-                        </article> 
-                    </div>
-                </section>
-                <section class="mis_li">
-                    <div class="arriba_misli">
-                        <div class="aml_1"></div>
-                        <div class="aml_2"></div>
-                    </div>
-                    <div class="abajo_mlista">
-                        <article class="mlistillas">
-                            <div class="mlibro uno"></div>
-                            <div class="mlibro dos"></div>
-                            <div class="mlibro tres"></div>
-                            <div class="mlibro cuatro"></div>
-                            <div class="mlibro cinco"></div>
-                            <div class="mlibro seis"></div>
-                        </article>
-                    </div>
-                </section>
-            </section>
+            <section class="arriba_medio" id="grilla-populares"></section>
         </main>
       </div>
 </body>
-</html>
+</html>

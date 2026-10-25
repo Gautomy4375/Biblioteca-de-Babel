@@ -125,3 +125,24 @@
         }
     }
     }
+/* pantalla de carga hasta que llegan los datos de la lista (queda abajo del header) */
+.cargador {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 60px);
+  background-color: #F1EEE7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+
+  .loader {
+    width: 20vw;
+  }
+}
+
+.cargador.hidden {
+  display: none;
+}

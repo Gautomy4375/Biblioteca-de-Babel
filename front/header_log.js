@@ -25,6 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
         [onclick] {
     cursor: pointer;
 }
+    
         body {
             margin: 0;
         }

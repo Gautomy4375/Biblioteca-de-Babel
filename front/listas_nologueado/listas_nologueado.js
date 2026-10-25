@@ -1,4 +1,4 @@
-async function traerMasLikeadas(){
+async function traerPopulares(){
     let endpoint = `${BASE_URL}/api/listas/likes`;
     let respuesta = await fetch(endpoint);
     let datosListas = null;
@@ -25,32 +25,74 @@ async function traerAutor(id){
     return datos;
 }
 
-async function cargarMasLikeadas(){
-    let datosListas = await traerMasLikeadas();
+async function cargarPopulares(){
+    let datosListas = await traerPopulares();
 
     if(!datosListas){
         return;
     }
 
-    let medios = document.querySelectorAll('.medios');
+    let grillaPopulares = document.getElementById('grilla-populares');
 
-    for(let i = 0; i < medios.length && i < datosListas.listas.length; i++){
-        let lista = datosListas.listas[i];
-
-        medios[i].querySelector('.nom_res').textContent = lista.nombre;
-        medios[i].addEventListener('click', function(){
-            window.location.href = `../ficha_lista_nologueado/ficha_lista_nologueado.html?id=${lista.id_lista}`;
-        });
-
+    let html = '';
+    for(let lista of datosListas.listas){
+        let nombreAutor = '';
         let autor = await traerAutor(lista.id_usuario);
         if(autor){
-            medios[i].querySelector('.aut_res').textContent = autor.username;
+            nombreAutor = autor.username;
         }
 
-        let portadas = medios[i].querySelectorAll('.lib');
-        for(let j = 0; j < portadas.length && j < lista.libros.length; j++){
-            portadas[j].src = lista.libros[j].libro.portada;
-        }
+        let link = `../ficha_lista_nologueado/ficha_lista_nologueado.html?id=${lista.id_lista}`;
+        html = html + crearTarjeta(lista, nombreAutor, link);
     }
+    grillaPopulares.innerHTML = html;
 }
-cargarMasLikeadas();
+
+// arma el html de una tarjeta de lista (la misma para populares y mis listas)
+// si autor viene vacio no se pone el nombre del autor
+function crearTarjeta(lista, autor, link){
+    let htmlAutor = '';
+    if(autor){
+        htmlAutor = `<div class="al_2">${autor}</div>`;
+    }
+
+    // las 5 tapas superpuestas
+    let posiciones = ['uno', 'dos', 'tres', 'cuatro', 'cinco'];
+    let htmlTapas = '';
+    let numero = 0;
+    for(let posicion of posiciones){
+        if(numero < lista.libros.length){
+            let portada = lista.libros[numero].libro.portada;
+            htmlTapas = htmlTapas + `<img class="libro ${posicion}" src="${portada}">`;
+        }
+        else{
+            // si la lista tiene menos de 5 libros queda la tapa gris
+            htmlTapas = htmlTapas + `<img class="libro ${posicion}">`;
+        }
+        numero = numero + 1;
+    }
+
+    let html = `
+        <article class="listas clickeable" onclick="window.location.href='${link}'">
+            <div class="arriba_lista">
+                <div class="al_1">${lista.nombre}</div>
+                ${htmlAutor}
+            </div>
+            <div class="abajo_lista">
+                <div class="listillas">
+                    ${htmlTapas}
+                </div>
+            </div>
+        </article>
+    `;
+
+    return html;
+}
+
+let cargador = document.getElementById('cargadorCon');
+
+async function cargarTodo(){
+    await cargarPopulares();
+    cargador.classList.add('hidden');
+}
+cargarTodo();

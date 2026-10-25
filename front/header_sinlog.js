@@ -34,6 +34,7 @@ cursor: pointer;
 
 
 
+
   .barra {
     position: fixed;
     top: 0;

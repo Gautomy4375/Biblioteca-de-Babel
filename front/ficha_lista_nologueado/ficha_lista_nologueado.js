@@ -36,11 +36,14 @@ async function traerAutor(id){
     return datos;
 }
 
+let cargador = document.getElementById('cargadorCon');
+
 async function cargarLista(){
     let lista = await traerLista(idLista);
 
     if(!lista){
         document.getElementById('list-name').textContent = 'Hubo un error';
+        cargador.classList.add('hidden');
         return;
     }
 
@@ -60,5 +63,7 @@ async function cargarLista(){
         clon.querySelector('p').textContent = item.libro.title;
         librosGrid.appendChild(clon);
     });
+
+    cargador.classList.add('hidden');
 }
 cargarLista();
