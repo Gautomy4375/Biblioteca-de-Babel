@@ -561,6 +561,27 @@ body{
         background-color: black;
       }
     }
+    .masReseñas{
+      display: block;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: .4vw;
+      border-color: white;
+      width: 20vw;
+      min-height: 7vh;
+      margin-left: 3vw;
+      background-color: #842739;
+      color: white;
+      text-align: center;
+      font-family: "Plus Jakarta Sans";
+      font-size: 1.5625rem;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      text-decoration: none;
+
+    }
     
   }
 

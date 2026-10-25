@@ -4,8 +4,30 @@
 //    window.location.replace("../home/home.html");
 //}
 
-document.addEventListener("DOMContentLoaded", function () {
-    const usernameSession = localStorage.getItem('usernameSession');
+let idHeader = localStorage.getItem('userId');
+
+async function datosPerfil(idHeader){
+    let endpoint = `${BASE_URL}/api/usuarios/${idHeader}`;
+    let respuesta = await fetch(endpoint);
+    let datos = null;
+
+    if(respuesta.ok){
+        datos = await respuesta.json();
+    }
+    else{
+        console.log('HUBO UN ERROR :(');
+    }
+
+    return datos;
+
+}
+
+
+
+document.addEventListener("DOMContentLoaded", async function () {
+    let objeto = await datosPerfil(idHeader);
+    const usernameSession = objeto.username;
+    
 
     const headerContent = `
       <!-- CSS STYLES FOR THE HEADER -->

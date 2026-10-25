@@ -8,17 +8,19 @@ let id = localStorage.getItem('userId');
 
 async function cambiarNombreAvatar(usuario, foto){
 
+    
+
     let datosEditar = {};
+    
     if(usuario){
         datosEditar.username = usuario;
     }
     if(foto){
         datosEditar.avatar = foto;
     }
-
     const endpoint = `${BASE_URL}/api/usuarios/${id}`;
     let datosNuevos = null;
-
+    
     let respuesta = await fetch(endpoint, {
         method: 'PATCH',
         headers: {
@@ -28,14 +30,14 @@ async function cambiarNombreAvatar(usuario, foto){
     });
 
     if(respuesta.ok){
-        datosNuevos = await respuesta.json();
-
-    }
+       console.log('actualizado');
+       datosNuevos = true;
+     }
     else{
-        console.log('hubo un error');
-    }
-    return datosNuevos
-}
+      console.log('hubo un error');
+     }
+      return datosNuevos
+     }
 
 
 
@@ -44,9 +46,11 @@ async function cambiarNombreAvatar(usuario, foto){
 formTodo.addEventListener('submit', function(e){
     e.preventDefault(); 
 
-    cambiarNombreAvatar(inputUsuario.value, inputFoto.files[0].name);
+    cambiarNombreAvatar(inputUsuario.value, inputFoto.value);
 
-    console.log(inputUsuario.value)
+    console.log(inputUsuario.value);
+
+    alert('Datos actualizados con éxito. Los cambios deberían reflejarse en tu perfil');
 
 
 })

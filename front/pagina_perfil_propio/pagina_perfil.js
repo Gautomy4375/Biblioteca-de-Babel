@@ -62,7 +62,7 @@ async function traerLeidos(id){
     console.log(libros);
     return libros
 }
-async function datosLibro(nombre){
+ async function datosLibro(nombre){
 
     let endpoint = `${BASE_URL}/api/libros/especifico?google_id=${encodeURIComponent(nombre)}`;
     let respuesta = await fetch(endpoint);
@@ -133,12 +133,13 @@ async function cargarDatos(){
     ;
     
     console.log(objeto);
+    console.log('avatar:', objeto.avatar);
 
     let foto_perfil = document.getElementById('foto_perfil');
-    foto_perfil.src = 'https://cdn-icons-png.flaticon.com/512/12225/12225881.png';
+    foto_perfil.src = objeto.avatar;
 
     let nombre = document.getElementById('nom');
-    nombre.textContent = localStorage.getItem('usernameSession');
+    nombre.textContent = objeto.username;
 
     
 
@@ -228,6 +229,15 @@ async function cargarTodo() {
 }
 cargarTodo();
 
+let masResenias = document.getElementById('masReseñas');
+
+masResenias.addEventListener('click', function(e){
+    e.preventDefault();
+
+    window.location.href='../ver mas reseñas/ver_masr.html'
+
+})
+
 
 
 
@@ -245,6 +255,8 @@ function logout() {
     }
 
 }
+
+
 
 
 //TETSEO
