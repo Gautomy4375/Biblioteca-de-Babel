@@ -29,7 +29,7 @@ body {
   z-index: 999;
 
   .loader {
-    width: 10vw;
+    width: 20vw;
   }
 }
 

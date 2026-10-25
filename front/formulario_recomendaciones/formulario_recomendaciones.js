@@ -49,7 +49,7 @@ searchInput.addEventListener('keydown', async (e) => {
     // 1. Mostrar GIF de carga mientras espera al servidor
     resultsList.innerHTML = `
       <div style="display: flex; justify-content: center; align-items: center; padding: 12px;">
-        <img src="../loading_gif.gif" alt="Cargando..." style="height: 6.7vh; width: auto;">
+        <img src="../loading_gif.gif" alt="Cargando..." style="height: 13.4vh; width: auto;">
       </div>
     `;
     resultsList.style.display = 'block';

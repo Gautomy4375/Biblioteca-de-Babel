@@ -8,8 +8,6 @@ body {
   background-color: #F1EEE7;
 }
 
-/*Ytsma dice que hasta aca es el header*/
-
 .arriba {
   width: 100%;
   height: 28vh;
@@ -19,9 +17,15 @@ body {
   justify-content: center;
 
   .popu {
-    background-color: #d9d9d9;
     width: 26.6875rem;
     height: 5.125rem;
+    color: #000;
+    font-family: Lora;
+    font-size: 3.1vw;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-align: center;
   }
 }
 
@@ -30,6 +34,21 @@ body {
   height: 21.67vw;
   display: flex;
   justify-content: center;
+
+  .flecha {
+    border: none;
+    background: none;
+    font-size: 4vw;
+    color: #666;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 1vw;
+
+  }
+
+  .izquierda {
+    margin-right: 1vw;
+  }
 
 
   .imagenes {
@@ -41,6 +60,7 @@ body {
   #imagenes {
     display: flex;
     gap: 2.4vw;
+    transition: transform 0.4s ease;
   }
 
   .ima {
@@ -51,63 +71,23 @@ body {
     flex-direction: column;
     justify-content: space-between;
 
+
     .title {
-      background-color: #d9d9d9;
       width: 100%;
       height: 5.5%;
+      color: #000;
+      text-align: center;
+      font-family: Lora;
+      font-size: 1.56vw;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
     }
 
     .imag {
-      background-color: #d9d9d9;
       width: 100%;
       height: 75%;
     }
-
-    .estrellas {
-      background-color: #d9d9d9;
-      width: 100%;
-      height: 10.4%;
-    }
-  }
-
-  .a {
-    background-color: aqua;
-  }
-
-  .b {
-    background-color: brown;
-  }
-
-  .c {
-    background-color: blue;
-  }
-
-  .d {
-    background-color: aquamarine;
-  }
-
-  .e {
-    background-color: cadetblue;
-  }
-
-  .f {
-    background-color: chocolate;
-  }
-
-  .g {
-    background-color: chartreuse;
-  }
-
-  .h {
-    background-color: burlywood;
-  }
-
-  .i {
-    background-color: blueviolet;
-  }
-
-  .j {
-    background-color: rgb(146, 94, 148);
   }
 }
 
@@ -119,9 +99,12 @@ body {
   justify-content: center;
 
   .li {
-    background-color: #d9d9d9;
-    width: 21.4375rem;
-    height: 4.3125rem;
+    color: #000;
+    font-family: Lora;
+    font-size: 3.1vw;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
   }
 }
 
@@ -132,6 +115,16 @@ body {
   justify-content: center;
   align-items: center;
   margin-bottom: 10vh;
+
+  .fle {
+    border: none;
+    background: none;
+    font-size: 4vw;
+    color: #666;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 1vw;
+  }
 
 
   .imagene {
@@ -164,7 +157,6 @@ body {
     }
 
     .ima {
-      background-color: #d9d9d9;
       width: 100%;
       height: 80%;
     }
@@ -176,45 +168,6 @@ body {
     }
   }
 
-  .k {
-    background-color: aqua;
-  }
-
-  .l {
-    background-color: brown;
-  }
-
-  .m {
-    background-color: blue;
-  }
-
-  .n {
-    background-color: aquamarine;
-  }
-
-  .o {
-    background-color: cadetblue;
-  }
-
-  .p {
-    background-color: chocolate;
-  }
-
-  .q {
-    background-color: chartreuse;
-  }
-
-  .r {
-    background-color: burlywood;
-  }
-
-  .s {
-    background-color: blueviolet;
-  }
-
-  .t {
-    background-color: black;
-  }
 }
 
 hr {
@@ -222,7 +175,6 @@ hr {
   height: 2px;
   margin-bottom: 5vh;
 }
-
 
 .categorias {
   display: grid;

@@ -76,7 +76,7 @@ h2{
   }
   #cargadorCon {
     display: none;
-    width: 10vw;
+    width: 20vw;
     aspect-ratio: 3/1;
 
     .loader{
