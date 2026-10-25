@@ -20,10 +20,15 @@ function anterior() {
         imagenes.style.transform = `translateX(-${pos * 12.5}vw)`;
     }
 }
-let posi = 0;
+// cada carrusel de abajo tiene su propia posicion, asi no se mueven entre si
+let posiciones = {
+    containerLeidos: 0,
+    containerLeyendo: 0
+};
 
-function sig() {
-    let imag = document.getElementById('containerLeidos');
+function sig(idContainer) {
+    let imag = document.getElementById(idContainer);
+    let posi = posiciones[idContainer];
 
     if (posi < 6) {
         posi++;
@@ -35,13 +40,16 @@ function sig() {
             imag.style.transform = `translateX(-${posi * 10.2}vw)`
         }
     }
+    posiciones[idContainer] = posi;
 }
-function ant() {
-    let imagenes = document.getElementById("containerLeidos");
+function ant(idContainer) {
+    let imagenes = document.getElementById(idContainer);
+    let posi = posiciones[idContainer];
     if (posi > 0) {
         posi--;
         imagenes.style.transform = `translateX(-${posi * 10.2}vw)`;
     }
+    posiciones[idContainer] = posi;
 }
 
 //Hasta aca es lo de los carruseles, empiezo con dinamización de datos:

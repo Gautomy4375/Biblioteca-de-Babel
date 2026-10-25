@@ -189,7 +189,7 @@ body{
         align-items: center;
       }
     
-      #containerLeidos {
+      #containerLeidos, #containerLeyendo {
         display: flex;
         gap: 1.2vw;
         transition: transform 0.4s ease;
