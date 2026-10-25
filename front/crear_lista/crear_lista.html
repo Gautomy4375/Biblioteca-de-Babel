@@ -35,7 +35,10 @@
                 </div>
                 <div class="cat">
                     <p class="lora-font">Agregar Libro</p>
-                    <input type="text" id="nuevo_libro" placeholder="Título del libro" name="nuevo_libro">
+                    <div class="container-input">
+                        <input type="text" id="nuevo_libro" placeholder="Título del libro" name="nuevo_libro" autocomplete="off">
+                        <div id="resultsList" class="results-dropdown"></div>
+                    </div>
                 </div>
             </article>
             <atricle class="desc">
@@ -46,6 +49,7 @@
                     </div>
                 </div>
             </atricle>
+            <article class="tapas" id="tapasContainer"></article>
             <input type="submit" value="Crear Lista" class="crear-lista-button">
         </form>
     </main>
