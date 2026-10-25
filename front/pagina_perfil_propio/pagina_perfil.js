@@ -211,9 +211,22 @@ async function cargarDatos(){
     }
 
 
-                 
+
 }
-cargarDatos();
+
+//carga de todo + gif
+
+let cargador = document.getElementById('cargadorCon');
+
+async function cargarTodo() {
+    try {
+        await cargarDatos();
+    } catch (error) {
+        console.error("Error cargando el perfil", error);
+    }
+    cargador.classList.add('hidden');
+}
+cargarTodo();
 
 
 
