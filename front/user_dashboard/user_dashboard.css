@@ -39,8 +39,6 @@ body{
   justify-content: center;
 
   .title{
-    width: 15.15vw;
-    height: 30.3%;
     color: #000;
     font-family: Lora;
     font-size: 3.1vw;
@@ -112,8 +110,6 @@ body{
     margin-bottom: -2vh;
 
     .titles{
-      height: 29.6%;
-      width: 23.4vw;
       color: #000;
       font-family: Lora;
       font-size: 3.1vw;
