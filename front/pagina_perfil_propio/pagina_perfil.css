@@ -67,9 +67,7 @@ body{
           color: black; 
 
         }
-        #fecha{
-          font-family: lora;
-        }
+        
       }
     }
     .arriba_d{
@@ -208,6 +206,7 @@ body{
             }
             .uno{
               z-index: 6;
+              margin-left: 0px;
             }
             .dos{
               z-index: 5;
