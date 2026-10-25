@@ -107,12 +107,12 @@ body {
             .result-title {
               font-weight: 500;
               color: #1f2937;
-              font-size: 14px;
+              font-size: 1.5rem;
             }
 
             .result-author {
               color: #6b7280;
-              font-size: 12px;
+              font-size: 1.3rem;
             }
           }
         }

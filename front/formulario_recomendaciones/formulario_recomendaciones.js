@@ -7,7 +7,7 @@ const bienvenidaOverlay = document.getElementById('bienvenidaOverlay');
 const btnEmpezar = document.getElementById('btnEmpezar');
 
 btnEmpezar.addEventListener('click', () => {
-  window.location.href = '../user_dashboard/user_dashboard.html';
+  window.location.replace('../dashboard_libros_log/dashboard_libros_log.html');
 });
 
 let arrayFavoritos = [];
@@ -106,8 +106,8 @@ function mostrarResultadosDropdown(libros) {
     itemEl.innerHTML = `
       <img class="title-photo" src="${port}" alt="${title}">
       <div class="result-info">
-        <span class="result-title">${title}</span>
-        <span class="result-author">${authors}</span>
+        <span class="result-title lora-font">${title}</span>
+        <span class="result-author plus-jakarta-sans">${authors}</span>
       </div>
     `;
 

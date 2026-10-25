@@ -3,15 +3,16 @@ const conLi = document.getElementById("lista");
 
 const categoria = localStorage.getItem("categoria");
 const categoria_value = localStorage.getItem("categoria_value");
+const tituloElemento = document.getElementById("categoria-buscada");
 
 if (categoria) {
-    const tituloElemento = document.getElementById("categoria-buscada");
     if (tituloElemento) {
-        tituloElemento.innerText = categoria;
-    }
-
+        tituloElemento.innerText = "Categoria: " + categoria;
+    } 
+    
     buscarLibros(categoria);
 } else {
+    tituloElemento.innerText = "No elegiste ninguna categoría, podes encontrarlas en la pestaña de 'Libros'";
     console.log("No se seleccionó ninguna categoría.");
 }
 
