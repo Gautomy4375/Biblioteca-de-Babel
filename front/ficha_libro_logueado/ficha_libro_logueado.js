@@ -170,25 +170,48 @@ async function cargarPromedio() {
 
     document.getElementById('promedio').textContent = datos.promedio;
 
-    // pinto doradas tantas estrellas como el promedio redondeado, el resto grises
     let estrellasLlenas = Math.round(datos.promedio);
     let estrellas = document.querySelectorAll('.star-promedio .star');
 
-    estrellas.forEach((estrella, i) => {
-        estrella.classList.toggle('grey', i >= estrellasLlenas);
-    });
+    for (let i = 0; i < estrellas.length; i++) {
+        if (i < estrellasLlenas) {
+            estrellas[i].classList.remove('grey');
+        }
+        else {
+            estrellas[i].classList.add('grey');
+        }
+    }
 }
 
 cargarPromedio();
 
 // ---------- ESTRELLAS ----------
 
-for (let i = 1; i <= 5; i++) {
-    let estrella = document.getElementById(`star${i}`);
-    estrella.addEventListener('click', function () {
-        puntuacion = estrella.value;
-    });
-}
+let unaEstrella = document.getElementById('star1');
+let dosEstrellas = document.getElementById('star2');
+let tresEstrellas = document.getElementById('star3');
+let cuatroEstrellas = document.getElementById('star4');
+let cincoEstrellas = document.getElementById('star5');
+
+unaEstrella.addEventListener('click', function () {
+    puntuacion = unaEstrella.value;
+})
+
+dosEstrellas.addEventListener('click', function () {
+    puntuacion = dosEstrellas.value;
+})
+
+tresEstrellas.addEventListener('click', function () {
+    puntuacion = tresEstrellas.value;
+})
+
+cuatroEstrellas.addEventListener('click', function () {
+    puntuacion = cuatroEstrellas.value;
+})
+
+cincoEstrellas.addEventListener('click', function () {
+    puntuacion = cincoEstrellas.value;
+})
 
 // ---------- ESTADO ----------
 

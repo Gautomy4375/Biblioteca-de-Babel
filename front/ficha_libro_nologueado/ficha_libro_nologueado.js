@@ -96,9 +96,6 @@ async function cargarDatos(){
     let hojas = document.getElementById('hojas');
     hojas.textContent = ob.cantidad_paginas;
 
-    let promedio = document.getElementById('promedio');
-    promedio.textContent = '3.4';
-
     let link1 = document.getElementById('link1');
     link1.href = `https://www.yenny-elateneo.com/search/?q=${encodeURIComponent(ob.title)}`;
 
@@ -143,3 +140,41 @@ async function cargarDatos(){
 }
 
 cargarDatos();
+
+async function traerRanking() {
+    let endpoint = `${BASE_URL}/api/libros/ranking?google_id=${nombre}`;
+    let respuesta = await fetch(endpoint);
+    let datos = null;
+
+    if (respuesta.ok) {
+        datos = await respuesta.json();
+    }
+    else {
+        console.log('hubo un error');
+    }
+    return datos;
+}
+
+async function cargarPromedio() {
+    let datos = await traerRanking();
+
+    if (!datos) {
+        return;
+    }
+
+    document.getElementById('promedio').textContent = datos.promedio;
+
+    let estrellasLlenas = Math.round(datos.promedio);
+    let estrellas = document.querySelectorAll('.star-promedio .star');
+
+    for (let i = 0; i < estrellas.length; i++) {
+        if (i < estrellasLlenas) {
+            estrellas[i].classList.remove('grey');
+        }
+        else {
+            estrellas[i].classList.add('grey');
+        }
+    }
+}
+
+cargarPromedio();
