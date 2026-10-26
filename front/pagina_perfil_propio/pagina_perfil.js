@@ -149,8 +149,7 @@ async function cargarDatos(){
     seguidores.textContent = todoSeguidores.cantidad;
     let seguidos = document.getElementById('seguidos');
     seguidos.textContent = todoSeguidos.cantidad;
-    let leidos = document.getElementById('leidos');
-    leidos.textContent = '27';
+    //ytsma: leidos lo puse abajo paraq ue este todo mas ordenado :)
     let listas = document.getElementById('listas');
     let todoListas = await traerListas(id, id);
     if(todoListas){
@@ -167,6 +166,9 @@ async function cargarDatos(){
 
 
     let leidosArray = idLeidos.libros;
+
+    let leidos = document.getElementById('leidos');
+    leidos.textContent = leidosArray.length;
 
     let cincoLeidos = leidosArray.slice(0,5);
 

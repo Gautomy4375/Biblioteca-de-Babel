@@ -120,6 +120,27 @@ async function traerResenias(id){
     }
     return datos;
 }
+async function seguir(id){
+
+    let endpoint = `${BASE_URL}/api/usuarios/${id}/seguir`;
+
+    let respuuesta = await fetch(endpoint, {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+
+    let datosSeguir = null;
+
+    if(respuesta.ok){
+        datosSeguir = await respuesta.json();
+    }
+    else{
+        console.log('hubo un error');
+    }
+    return datosSeguir;
+}
 
 
 async function cargarDatos(){
@@ -129,7 +150,7 @@ async function cargarDatos(){
     console.log(objeto, todoSeguidores, todoSeguidos);
 
     let foto_perfil = document.getElementById('foto_perfil');
-    foto_perfil.src = 'https://cdn-icons-png.flaticon.com/512/12225/12225881.png';
+    foto_perfil.src = objeto.avatar;
 
     let nombre = document.getElementById('nom');
     nombre.textContent = objeto.username;
@@ -138,8 +159,6 @@ async function cargarDatos(){
     seguidores.textContent = todoSeguidores.cantidad;
     let seguidos = document.getElementById('seguidos');
     seguidos.textContent = todoSeguidos.cantidad;
-    let leidos = document.getElementById('leidos');
-    leidos.textContent = '27';
     let listas = document.getElementById('listas');
     let todoListas = await traerListas(id, localStorage.getItem('userId'));
     if(todoListas){
@@ -156,6 +175,9 @@ async function cargarDatos(){
 
 
     let leidosArray = idLeidos.libros;
+
+    let leidos = document.getElementById('leidos');
+    leidos.textContent = leidosArray.length;
 
     let cincoLeidos = leidosArray.slice(0,5);
 
@@ -197,6 +219,22 @@ async function cargarDatos(){
         </section>
         `
     }
+
+    let btnSeguir = document.getElementById('seguir');
+
+    btnSeguir.addEventListener('click', async function(e){
+        e.preventDefault();
+
+        let resultado = await seguir(id);
+
+        let nombreSeguido = await datosPerfil(id);
+
+        if(resultado){
+            alert(`Ahora estas siguiendo a ${nombreSeguido.username}`)
+        }
+    })
+
+    
 
 
 }
