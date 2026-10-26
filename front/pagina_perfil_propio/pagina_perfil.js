@@ -184,8 +184,6 @@ async function cargarDatos(){
         <img src='${ob.portada}' class='${clases[i]}'></img>
         
         `
-
-        
     }
 
     let reseniasUsuarioObjeto = await traerResenias(id);

@@ -75,6 +75,52 @@ function mostrarListas(listas){
         }
     }
 }
+async function traerLeidos(id){
+    let endpoint = `${BASE_URL}/api/libros/${id}/leidos`;
+
+    let respuesta = await fetch(endpoint);
+    let libros = null
+
+    if(respuesta.ok){
+        libros = await respuesta.json();
+    }
+    else{
+        console.log('hubo un eror')
+    }
+    console.log(libros);
+    return libros
+}
+async function datosLibro(nombre){
+
+    let endpoint = `${BASE_URL}/api/libros/especifico?google_id=${encodeURIComponent(nombre)}`;
+    let respuesta = await fetch(endpoint);
+    let datos = null;
+
+    if(respuesta.ok){
+        datos = await respuesta.json();
+    }
+    else{
+        console.log('hubo un error');
+        
+    }
+
+    return datos;
+}
+async function traerResenias(id){
+
+    let endpoint = `${BASE_URL}/api/usuarios/${id}/resenias`;
+    let respuesta = await fetch(endpoint);
+    let datos = null;
+
+    if(respuesta.ok){
+        datos = await respuesta.json();
+    }
+    else{
+        console.log('hubo un error');
+    }
+    return datos;
+}
+
 
 async function cargarDatos(){
     let objeto = await datosPerfil(id);
@@ -102,6 +148,54 @@ async function cargarDatos(){
     }
     else{
         listas.textContent = '0';
+    }
+
+    let contenedor = document.getElementById('lele')
+
+    let idLeidos = await traerLeidos(id);
+
+
+    let leidosArray = idLeidos.libros;
+
+    let cincoLeidos = leidosArray.slice(0,5);
+
+    console.log(cincoLeidos);
+
+    let clases = ['libr uno', 'libr dos', 'libr tres', 'libr cuatro', 'libr cinco'];
+
+    contenedor.innerHTML= '';
+
+    for(let i = 0; i < cincoLeidos.length; i++){
+
+        let ob = await datosLibro(cincoLeidos[i]);
+
+        contenedor.innerHTML+=`
+        <img src='${ob.portada}' class='${clases[i]}'></img>
+        
+        `
+    }
+
+    let reseniasUsuarioObjeto = await traerResenias(id);
+    let reseniasUsuarioArray = reseniasUsuarioObjeto.reseñas
+    let res = reseniasUsuarioArray.slice(0,4);
+    let cont = document.getElementById('todo');
+    console.log(res);
+
+    cont.innerHTML = '';
+
+    for (let i = 0; i < res.length; i++){
+
+        let ob = await datosLibro(res[i].google_id);
+        cont.innerHTML += `
+         <section class="res">
+            <img src='${ob.portada}' class="imagen" ></img>
+            <div class="ladoim">
+                <article class="til">${ob.title}</article>
+                <article class="datos"></article>
+                <article class="des" >${res[i].contenido}</article>
+            </div>
+        </section>
+        `
     }
 
 
