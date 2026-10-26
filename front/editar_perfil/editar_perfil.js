@@ -55,5 +55,42 @@ formTodo.addEventListener('submit', function(e){
 
 })
 
+async function matarCuenta(id){
+    let endpoint = `${BASE_URL}/api/usuarios/${id}`
+
+    let respuesta = await fetch(endpoint, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        
+    })
+
+    let datos = null;
+    if(respuesta.ok){
+        datos = await respuesta.json();
+    }
+    else{
+        console.log('Hubo un error');
+    }
+    return datos;
+}
+
+let eliminarCuenta = document.getElementById('eliminarCuenta');
+
+eliminarCuenta.addEventListener('click', function(e){
+    e.preventDefault();
+
+    const userChoice = confirm("⚠ ALERTA ⚠ Vas a borrar tu cuenta, no la podrás recuperar, ¿Estás seguro de que querés borrarla?");
+
+    if (userChoice) {
+        localStorage.removeItem('userId');
+        localStorage.removeItem('usernameSession');
+        matarCuenta(id);
+        window.location.href= '../home/home.html'
+        } else {
+    }
+})
+
 
 

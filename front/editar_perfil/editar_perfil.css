@@ -79,4 +79,19 @@ main {
             font-size: 30px;
         }
     }
+    .eliminarCuenta{
+        width: 20vw;
+        height: 3vw;
+        aspect-ratio: 137/40;
+        border-radius: 8px;
+        background: #FFF;
+        border-style: solid;
+        border-color: #FFF;
+        color: #000000;
+        text-decoration: none;
+        text-wrap: nowrap;
+        font-size: 30px; 
+        margin-left: 7vw;
+        margin-top: 8vh;
+    }
 }

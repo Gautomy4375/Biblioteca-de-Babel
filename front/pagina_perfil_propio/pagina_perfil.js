@@ -124,6 +124,45 @@ function mostrarListas(listas){
     }
 }
 
+async function traerFavoritos(id){
+    let endpoint = `${BASE_URL}/api/usuarios/${id}/preferencias`
+
+    let respuesta = await fetch(endpoint);
+
+    let datos = null;
+
+    if(respuesta.ok){
+        datos = await respuesta.json();
+
+    }
+    else{
+        console.log('Hubo un error (de vuelta)')
+    }
+    return datos;
+}
+
+async function traerPorLeer(id){
+    let endpoint = `${BASE_URL}/api/usuarios/${id}/progreso`;
+
+    let respuesta = await fetch(endpoint); 
+
+    if(respuesta.ok){
+        let progreso = (await respuesta.json()).progreso;
+        let porLeer = [];
+
+        for(let item of progreso) {
+            if (item.estado_libro === 'no_empezado') {
+               porLeer.push(item.google_id);
+            }
+        }
+        console.log(porLeer);
+    }
+    else{
+        console.log('ocurrió un error');
+    }
+    return porLeer;
+}
+
 
 async function cargarDatos(){
     let objeto = await datosPerfil(id);
@@ -211,11 +250,30 @@ async function cargarDatos(){
         `
     }
 
+    let favoritosUsuarioObjeto = await traerFavoritos(id);
+    let favoritos = favoritosUsuarioObjeto.libros_elegidos;
+    let conte = document.getElementById('libs');
+
+    conte.innerHTML='';
+
+    for(let i = 0; i < favoritos.length; i++){
+        let ob = await datosLibro(favoritos[i].google_id);
+        conte.innerHTML += `
+        <img src="${ob.portada}" class="lib"></img>
+        `
+    }
+
+
+    let arrayPorLeer = await traerPorLeer(id);
+    let librosPorLeer = arrayPorLeer.slice(0,5);
+
+    //SEGUIR ACÁ MAÑANA :)
+
 
 
 }
 
-//carga de todo + gif
+//carga de todo + gif (lit ya lo usamos en cuarenta mil paginas :)
 
 let cargador = document.getElementById('cargadorCon');
 

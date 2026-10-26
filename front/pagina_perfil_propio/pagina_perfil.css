@@ -587,9 +587,9 @@ body{
 
 .logout {
   text-align: center;
-  font-size: 3rem;
-  width: 60vw;
-  height: 20vh;
+  font-size: 1rem;
+  width: 15vw;
+  height: 5vh;
   display: block;
   margin: 0 auto;
   margin-top: 10vh;

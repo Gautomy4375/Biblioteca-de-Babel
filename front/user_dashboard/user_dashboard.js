@@ -67,7 +67,7 @@ function ant(idContainer) {
 let userName = document.getElementById('username');
 
 //hasta aca las cosas raras de ytsma
-//leidos
+//leidos  A BUE QUE LE DECIS COSAS RARAS A LO QUE HAGO POSTE
 
 async function fetchBookInfo(google_id) {
     let endpoint = `${BASE_URL}/api/libros/especifico?google_id=${google_id}`
