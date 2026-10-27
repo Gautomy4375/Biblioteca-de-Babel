@@ -4,6 +4,8 @@ let input = document.getElementById('buscador');
 let nombredesdepaginaanterior = new URLSearchParams(window.location.search);
 let id = nombredesdepaginaanterior.get('id');
 
+let idTuyo = localStorage.getItem('userId')
+
 async function datosPerfil(id){
     let endpoint = `${BASE_URL}/api/usuarios/${id}`;
     let respuesta = await fetch(endpoint);
@@ -124,11 +126,16 @@ async function seguir(id){
 
     let endpoint = `${BASE_URL}/api/usuarios/${id}/seguir`;
 
-    let respuuesta = await fetch(endpoint, {
+    let data = {
+        Seguido: idTuyo
+    }
+
+    let respuesta = await fetch(endpoint, {
         method: 'PATCH',
         headers: {
             'Content-Type': 'application/json'
-        }
+        },
+        body: JSON.stringify(data)
     })
 
     let datosSeguir = null;
@@ -144,34 +151,39 @@ async function seguir(id){
 
 
 async function cargarDatos(){
+
+    console.log('me fijo si funciona la funcion')
     let objeto = await datosPerfil(id);
     let todoSeguidores = await traerSeguidores(id);
     let todoSeguidos = await traerSeguidos(id);
-    console.log(objeto, todoSeguidores, todoSeguidos);
+
+    console.log(todoSeguidos);
+    
 
     let foto_perfil = document.getElementById('foto_perfil');
     foto_perfil.src = objeto.avatar;
 
+    console.log('fijo');
+
     let nombre = document.getElementById('nom');
     nombre.textContent = objeto.username;
+
+    console.log('fijo1');
 
     let seguidores = document.getElementById('seguidores');
     seguidores.textContent = todoSeguidores.cantidad;
     let seguidos = document.getElementById('seguidos');
     seguidos.textContent = todoSeguidos.cantidad;
     let listas = document.getElementById('listas');
-    let todoListas = await traerListas(id, localStorage.getItem('userId'));
-    if(todoListas){
-        listas.textContent = todoListas.listas.length;
-        mostrarListas(todoListas.listas);
-    }
-    else{
-        listas.textContent = '0';
-    }
+   
+    
+    console.log('fijo2');
 
     let contenedor = document.getElementById('lele')
 
     let idLeidos = await traerLeidos(id);
+
+    console.log(idLeidos)
 
 
     let leidosArray = idLeidos.libros;
@@ -221,9 +233,12 @@ async function cargarDatos(){
     }
 
     let btnSeguir = document.getElementById('seguir');
+    console.log('me fijo si funciona el bo', btnSeguir)
 
     btnSeguir.addEventListener('click', async function(e){
         e.preventDefault();
+
+        console.log('me fijo si funciona cuando clickeo');
 
         let resultado = await seguir(id);
 

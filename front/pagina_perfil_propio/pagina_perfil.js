@@ -144,11 +144,12 @@ async function traerFavoritos(id){
 async function traerPorLeer(id){
     let endpoint = `${BASE_URL}/api/usuarios/${id}/progreso`;
 
-    let respuesta = await fetch(endpoint); 
+    let respuesta = await fetch(endpoint);
+    let porLeer = []; 
 
     if(respuesta.ok){
         let progreso = (await respuesta.json()).progreso;
-        let porLeer = [];
+        
 
         for(let item of progreso) {
             if (item.estado_libro === 'no_empezado') {
@@ -265,9 +266,25 @@ async function cargarDatos(){
 
 
     let arrayPorLeer = await traerPorLeer(id);
-    let librosPorLeer = arrayPorLeer.slice(0,5);
+    let librosPorLeer = arrayPorLeer.slice(0,6);
 
-    //SEGUIR ACÁ MAÑANA :)
+    console.log(librosPorLeer);
+
+    let clasesPl = ['book one', 'book two', 'book three', 'book four', 'book five', 'book six'];
+
+    let conten = document.getElementById('plpl');
+
+    conten.innerHTML='';
+
+    for(let i = 0; i < librosPorLeer.length; i++){
+        let ob = await datosLibro(librosPorLeer[i]);
+
+        conten.innerHTML+=`
+          <img src='${ob.portada}' class='${clasesPl[i]}' ></img>
+        `
+    }
+
+    
 
 
 
