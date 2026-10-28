@@ -523,9 +523,10 @@ body{
         .ladoim{
           height: 11.7vw;
           width: 70vw;
+          
 
           .til{
-            width: 13.5vw;
+            width: 100%;
             height: 6.7vh;
             color: #1F1A16;
             text-align: center;

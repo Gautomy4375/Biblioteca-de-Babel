@@ -292,7 +292,7 @@ document.addEventListener("DOMContentLoaded", async function () {
                 <button class="botonmenu plus-jakarta-sans"><a href="../dashboard_libros_log/dashboard_libros_log.html">Libros</a></button>
                 <button class="botonmenu plus-jakarta-sans"><a href="../listas/listas.html">Listas</a></button>
             </nav>
-            <button class="botonperfil plus-jakarta-sans"><a id="username" class="username" href="../pagina_perfil_propio/pagina_perfil.html">${usernameSession}<img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/250px-Default_pfp.svg.png?utm_source=es.wikipedia.org&utm_campaign=index&utm_content=thumbnail" alt=""></a></button>
+            <button class="botonperfil plus-jakarta-sans"><a id="username" class="username" href="../pagina_perfil_propio/pagina_perfil.html">${usernameSession}<img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/250px-Default_pfp.svg.png?utm_source=es.wikipedia.org&utm_campaign=index&utm_content=thumbnail" id='mauritania' alt=""></a></button>
         </div>
     </section> 
 <!-- #endregion -->

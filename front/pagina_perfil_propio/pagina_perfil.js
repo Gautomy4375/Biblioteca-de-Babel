@@ -186,10 +186,10 @@ async function cargarDatos(){
     
 
     let seguidores = document.getElementById('seguidores');
-    seguidores.textContent = todoSeguidores.cantidad;
+    seguidores.textContent = todoSeguidos.cantidad;
     let seguidos = document.getElementById('seguidos');
-    seguidos.textContent = todoSeguidos.cantidad;
-    //ytsma: leidos lo puse abajo paraq ue este todo mas ordenado :)
+    seguidos.textContent =todoSeguidores.cantidad;
+
     let listas = document.getElementById('listas');
     let todoListas = await traerListas(id, id);
     if(todoListas){

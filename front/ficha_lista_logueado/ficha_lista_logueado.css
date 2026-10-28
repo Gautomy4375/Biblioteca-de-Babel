@@ -117,6 +117,7 @@
     grid-template-columns: repeat(5, 1fr);
     gap: 5vw;
     padding: 20px;
+    margin-left: 7vw;
 
     .libro {
       display: flex;

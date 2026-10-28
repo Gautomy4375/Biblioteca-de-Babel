@@ -42,7 +42,7 @@ async function buscarLibros(titu) {
         }
     }
     else {
-        conLi.textContent = 'Hubo un error'
+        window.location.href='../pagina_error_log/pagina_error.html'
 
     }
 }

@@ -9,7 +9,7 @@ let idTuyo = localStorage.getItem('userId')
 async function datosPerfil(id){
     let endpoint = `${BASE_URL}/api/usuarios/${id}`;
     let respuesta = await fetch(endpoint);
-    let datos = null;
+    let datos = {datos: []};
 
     if(respuesta.ok){
         datos = await respuesta.json();
@@ -24,7 +24,7 @@ async function datosPerfil(id){
 async function traerSeguidores(id){
     let endpoint = `${BASE_URL}/api/usuarios/${id}/seguidores`
     let respuesta = await fetch(endpoint);
-    let datosSeguidores = null;
+    let datosSeguidores = {seguidores: []};
 
     if (respuesta.ok){
         datosSeguidores = await respuesta.json();
@@ -38,7 +38,7 @@ async function traerSeguidores(id){
 async function traerSeguidos(id){
     let endpoint = `${BASE_URL}/api/usuarios/${id}/seguidos`;
     let respuesta = await fetch(endpoint);
-    let datosSeguidos= null;
+    let datosSeguidos= {seguidos: []};
 
     if(respuesta.ok){
         datosSeguidos = await respuesta.json();
@@ -52,7 +52,7 @@ async function traerSeguidos(id){
 async function traerListas(idDueño, idSolicitante){
     let endpoint = `${BASE_URL}/api/usuarios/${idDueño}/${idSolicitante}/listas`;
     let respuesta = await fetch(endpoint);
-    let datosListas = null;
+    let datosListas = {Listas: []};
 
     if(respuesta.ok){
         datosListas = await respuesta.json();
@@ -81,7 +81,7 @@ async function traerLeidos(id){
     let endpoint = `${BASE_URL}/api/libros/${id}/leidos`;
 
     let respuesta = await fetch(endpoint);
-    let libros = null
+    let libros = {libros: []};
 
     if(respuesta.ok){
         libros = await respuesta.json();
@@ -96,7 +96,7 @@ async function datosLibro(nombre){
 
     let endpoint = `${BASE_URL}/api/libros/especifico?google_id=${encodeURIComponent(nombre)}`;
     let respuesta = await fetch(endpoint);
-    let datos = null;
+    let datos = {libros: 0};
 
     if(respuesta.ok){
         datos = await respuesta.json();
@@ -112,7 +112,7 @@ async function traerResenias(id){
 
     let endpoint = `${BASE_URL}/api/usuarios/${id}/resenias`;
     let respuesta = await fetch(endpoint);
-    let datos = null;
+    let datos = {resenias: 0};
 
     if(respuesta.ok){
         datos = await respuesta.json();
@@ -171,9 +171,9 @@ async function cargarDatos(){
     console.log('fijo1');
 
     let seguidores = document.getElementById('seguidores');
-    seguidores.textContent = todoSeguidores.cantidad;
+    seguidores.textContent = todoSeguidos.cantidad;
     let seguidos = document.getElementById('seguidos');
-    seguidos.textContent = todoSeguidos.cantidad;
+    seguidos.textContent = todoSeguidores.cantidad;
     let listas = document.getElementById('listas');
    
     
@@ -231,8 +231,8 @@ async function cargarDatos(){
         </section>
         `
     }
-
-    let btnSeguir = document.getElementById('seguir');
+}
+let btnSeguir = document.getElementById('seguir');
     console.log('me fijo si funciona el bo', btnSeguir)
 
     btnSeguir.addEventListener('click', async function(e){
@@ -248,9 +248,4 @@ async function cargarDatos(){
             alert(`Ahora estas siguiendo a ${nombreSeguido.username}`)
         }
     })
-
-    
-
-
-}
 cargarDatos();
