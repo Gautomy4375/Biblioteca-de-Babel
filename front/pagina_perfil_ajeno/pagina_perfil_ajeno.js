@@ -148,6 +148,72 @@ async function seguir(id){
     }
     return datosSeguir;
 }
+async function traerFavoritos(id){
+    let endpoint = `${BASE_URL}/api/usuarios/${id}/preferencias`
+
+    let respuesta = await fetch(endpoint);
+
+    let datos = { libros_elegidos: [] };
+
+    if(respuesta.ok){
+        datos = await respuesta.json();
+
+    }
+    else{
+        console.log('Hubo un error (de vuelta)')
+    }
+    return datos;
+}
+async function traerPorLeer(id){
+    let endpoint = `${BASE_URL}/api/usuarios/${id}/progreso`;
+
+    let respuesta = await fetch(endpoint);
+    let porLeer = []; 
+
+    if(respuesta.ok){
+        let progreso = (await respuesta.json()).progreso;
+        
+
+        for(let item of progreso) {
+            if (item.estado_libro === 'no_empezado') {
+               porLeer.push(item.google_id);
+            }
+        }
+        console.log(porLeer);
+    }
+    else{
+        console.log('ocurrió un error');
+    }
+    return porLeer;
+}
+async function traerListas(idDueño, idSolicitante){
+    let endpoint = `${BASE_URL}/api/usuarios/${idDueño}/${idSolicitante}/listas`;
+    let respuesta = await fetch(endpoint);
+    let datosListas = { listas: [] };
+
+    if(respuesta.ok){
+        datosListas = await respuesta.json();
+    }
+    else{
+        console.log('hubo un error');
+    }
+    return datosListas;
+}
+function mostrarListas(listas){
+    let calis = document.querySelectorAll('.cali');
+
+    for(let i = 0; i < calis.length && i < listas.length; i++){
+        calis[i].querySelector('.nombre').textContent = listas[i].nombre;
+        calis[i].addEventListener('click', function(){
+            window.location.href = `../ficha_lista_logueado/ficha_lista_logueado.html?id=${listas[i].id_lista}`;
+        });
+
+        let portadas = calis[i].querySelectorAll('.librito');
+        for(let j = 0; j < portadas.length && j < listas[i].libros.length; j++){
+            portadas[j].src = listas[i].libros[j].libro.portada;
+        }
+    }
+}
 
 
 async function cargarDatos(){
@@ -175,6 +241,14 @@ async function cargarDatos(){
     let seguidos = document.getElementById('seguidos');
     seguidos.textContent = todoSeguidores.cantidad;
     let listas = document.getElementById('listas');
+    let todoListas = await traerListas(id, id);
+    if(todoListas){
+        listas.textContent = todoListas.listas.length;
+        mostrarListas(todoListas.listas);
+    }
+    else{
+        listas.textContent = '0';
+    }
    
     
     console.log('fijo2');
@@ -231,7 +305,56 @@ async function cargarDatos(){
         </section>
         `
     }
+
+    let favoritosUsuarioObjeto = await traerFavoritos(id);
+    let favoritos = favoritosUsuarioObjeto.libros_elegidos;
+
+    console.log('peruti',favoritos);
+    let conte = document.getElementById('libs');
+
+    conte.innerHTML='';
+
+    for(let i = 0; i < favoritos.length; i++){
+        let ob = await datosLibro(favoritos[i].google_id);
+        conte.innerHTML += `
+        <img src="${ob.portada}" class="lib"></img>
+        `
+    }
+
+    let arrayPorLeer = await traerPorLeer(id);
+    let librosPorLeer = arrayPorLeer.slice(0,6);
+
+    console.log(librosPorLeer);
+
+    let clasesPl = ['book one', 'book two', 'book three', 'book four', 'book five', 'book six'];
+
+    let conten = document.getElementById('plpl');
+
+    conten.innerHTML='';
+
+    for(let i = 0; i < librosPorLeer.length; i++){
+        let ob = await datosLibro(librosPorLeer[i]);
+
+        conten.innerHTML+=`
+          <img src='${ob.portada}' class='${clasesPl[i]}' ></img>
+        `
+    }
 }
+let cargador = document.getElementById('cargadorCon');
+
+async function cargarTodo() {
+    console.log('aver');
+    try {
+        await cargarDatos();
+    } catch (error) {
+        console.error("Error cargando el perfil", error);
+    }
+    cargador.classList.add('hidden');
+}
+cargarTodo();
+
+
+
 let btnSeguir = document.getElementById('seguir');
     console.log('me fijo si funciona el bo', btnSeguir)
 
@@ -248,4 +371,19 @@ let btnSeguir = document.getElementById('seguir');
             alert(`Ahora estas siguiendo a ${nombreSeguido.username}`)
         }
     })
-cargarDatos();
+
+let vermLeidos = document.getElementById('verm');
+
+vermLeidos.addEventListener('click', function(e){
+    e.preventDefault();
+
+    window.location.href= `../Ver más leidos/mas_leidos.html?q=${id}`;
+})
+
+let vermp = document.getElementById('vermp');
+
+vermp.addEventListener('click', function(e){
+    e.preventDefault();
+
+    window.location.href = `../Ver más por leer/mas_leer.html?q=${id}`;
+})

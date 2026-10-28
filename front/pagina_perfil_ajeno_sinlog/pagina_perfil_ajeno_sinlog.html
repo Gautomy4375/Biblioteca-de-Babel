@@ -3,14 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil ajeno</title>
+    <title>Perfil</title>
     <link rel="stylesheet" href="pagina_perfil_ajeno_sinlog.css">
     <script src="../utils.js"></script>
     <script src="../header_sinlog.js" defer></script>
     <script src="pagina_perfil_ajeno_sinlog.js" defer></script>
-
-    
-
         <!--FONTS-->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,13 +18,18 @@
         <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div id="cargadorCon" class="cargador">
+        <img class="loader" src="../loading_gif.gif" alt="Cargando...">
+      </div>
    <main class="arriba">
         <section class="arriba_i">
             <img class="ima" id="foto_perfil"></img>
             <div class="nom_aju">
                 <div href="#" class="nom" id="nom"></div>
             </div>
+            <button class="seguir" id="seguir">Seguir</button>
         </section>
+        
         <section class="arriba_d">
             <div class="stat">
                 <div class="stat_arriba" id="seguidores"></div>
@@ -51,7 +53,7 @@
         <section class="medio_i">
             <div class="favs">
                 <div class="ti">Favoritos</div>
-                <div class="libs">
+                <div class="libs" id="libs">
                     <img class="lib" id="libro_uno"></img>
                     <img class="lib" id="libro_dos"></img>
                     <img class="lib" id="libro_tres"></img>
@@ -62,15 +64,10 @@
             <div class="le">
                 <div class="t">Leídos</div>
                 <div class="aba">
-                    <div class="lele">
-                        <img class="libr uno" id="libr_1"></img>
-                        <img class="libr dos" id="libr_2"></img>
-                        <img class="libr tres" id="libr_3"></img>
-                        <img class="libr cuatro" id="libr_4"></img>
-                        <img class="libr cinco" id="libr_5"></img>
-                        <img class="libr seis" id="libr_6"></img>
+                    <div class="lele" id="lele">
+                        
                     </div>
-                    <a href="../Ver más leidos/mas_leidos.html" class="verm">Ver más</a>
+                    <button class="verm" id="verm">Ver más</a>
                 </div>
             </div>
         </section>
@@ -78,7 +75,7 @@
             <div class="pl">
                 <div class="titl">Por leer</div>
                 <div class="abaj">
-                    <div class="plpl">
+                    <div class="plpl" id="plpl">
                         <img class="book one" id="one"></img>
                         <img class="book two" id="two"></img>
                         <img class="book three" id="three"></img>
@@ -86,7 +83,7 @@
                         <img class="book five" id="five"></img>
                         <img class="book six" id="six"></img>
                     </div>
-                    <a href="../Ver más por leer/mas_leer.html" class="vermp">Ver más</a>
+                    <button class="vermp" id="vermp">Ver más</button>
                 </div>
             </div>
             <div class="listas">
@@ -145,44 +142,8 @@
         <section class="titleres">
             <div class="title_resea">Reseñas</div>
         </section>
-        <section class="todas_res">
-        <hr class="linea">
-        <section class="res">
-            <img class="imagen" id="a"></img>
-            <div class="ladoim">
-                <article class="til" id="tiUno"></article>
-                <article class="datos"></article>
-                <article class="des" id="des1"></article>
-            </div>
-        </section>
-        <hr class="linea">
-        <section class="res">
-            <img class="imagen" id="b"></img>
-            <div class="ladoim">
-                <article class="til" id="tiDos"></article>
-                <article class="datos"></article>
-                <article class="des" id="des2"></article>
-            </div>
-        </section>
-        <hr class="linea">
-        <section class="res">
-            <img class="imagen" id="c"></img>
-            <div class="ladoim">
-                <article class="til" id="tiTres"></article>
-                <article class="datos"></article>
-                <article class="des" id="des3"></article>
-            </div>
-        </section>
-        <hr class="linea">
-        <section class="res">
-            <img class="imagen" id="d"></img>
-            <div class="ladoim">
-                <article class="til" id="tiCuatro"></article>
-                <article class="datos"></article>
-                <article class="des" id="des4"></article>
-            </div>
-        </section>
-        <hr class="linea">
+        <section class="todas_res" id="todo">
+    
         </section>
     </main>
     <main class="bottom"></main>

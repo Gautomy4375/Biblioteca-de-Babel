@@ -2,7 +2,8 @@
                           
 
 let contenedor = document.getElementById('leidos');
-let id = localStorage.getItem('userId');
+let nombredesdepaginaanterior = new URLSearchParams(window.location.search);
+let id = nombredesdepaginaanterior.get('q');
 
 console.log(id);
 

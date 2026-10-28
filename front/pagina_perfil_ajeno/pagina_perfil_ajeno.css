@@ -4,6 +4,28 @@ body{
     box-sizing: 0;
     background-color: #F1EEE7;
 }
+
+.cargador {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 60px);
+  background-color: #F1EEE7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+
+  .loader {
+    width: 20vw;
+  }
+
+  
+}
+.cargador.hidden {
+    display: none;
+   }
   /*Ytsma dice que hasta aca es el header*/
 
   .arriba{

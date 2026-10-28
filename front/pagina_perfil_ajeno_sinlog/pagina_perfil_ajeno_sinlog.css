@@ -4,6 +4,28 @@ body{
     box-sizing: 0;
     background-color: #F1EEE7;
 }
+
+.cargador {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 60px);
+  background-color: #F1EEE7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+
+  .loader {
+    width: 20vw;
+  }
+
+  
+}
+.cargador.hidden {
+    display: none;
+   }
   /*Ytsma dice que hasta aca es el header*/
 
   .arriba{
@@ -54,6 +76,26 @@ body{
 
         }
       }
+
+      .seguir{
+        display: block;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: .4vw;
+        width: 7rem;
+        height: 2rem;
+        margin-left: 3vw;
+        background-color: #842739;
+        color: #FFF;
+        text-align: center;
+        font-family: "Plus Jakarta Sans";
+        font-size: 1.5625rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        text-decoration: none;
+        }
     }
     .arriba_d{
       width: 20.6vw;

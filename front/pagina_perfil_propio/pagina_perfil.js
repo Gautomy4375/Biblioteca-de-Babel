@@ -311,8 +311,23 @@ let masResenias = document.getElementById('masReseñas');
 masResenias.addEventListener('click', function(e){
     e.preventDefault();
 
-    window.location.href='../ver mas reseñas/ver_masr.html'
+    window.location.href=`../ver mas reseñas/ver_masr.html?idUsu=${id}`
 
+})
+let vermLeidos = document.getElementById('verm');
+
+vermLeidos.addEventListener('click', function(e){
+    e.preventDefault();
+
+    window.location.href= `../Ver más leidos/mas_leidos.html?q=${id}`;
+})
+
+let vermp = document.getElementById('vermp');
+
+vermp.addEventListener('click', function(e){
+    e.preventDefault();
+
+    window.location.href = `../Ver más por leer/mas_leer.html?q=${id}`;
 })
 
 
