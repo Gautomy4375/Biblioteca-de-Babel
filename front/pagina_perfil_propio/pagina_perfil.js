@@ -36,7 +36,7 @@ async function traerSeguidores(id){
 async function traerSeguidos(id){
     let endpoint = `${BASE_URL}/api/usuarios/${id}/seguidos`;
     let respuesta = await fetch(endpoint);
-    let datosSeguidos= null;
+    let datosSeguidos = { cantidad: 0 };
 
     if(respuesta.ok){
         datosSeguidos = await respuesta.json();
@@ -51,7 +51,7 @@ async function traerLeidos(id){
     let endpoint = `${BASE_URL}/api/libros/${id}/leidos`;
 
     let respuesta = await fetch(endpoint);
-    let libros = null
+    let libros = { libros: [] }; 
 
     if(respuesta.ok){
         libros = await respuesta.json();
@@ -83,7 +83,7 @@ async function traerResenias(id){
 
     let endpoint = `${BASE_URL}/api/usuarios/${id}/resenias`;
     let respuesta = await fetch(endpoint);
-    let datos = null;
+    let datos = { reseñas: [] };
 
     if(respuesta.ok){
         datos = await respuesta.json();
@@ -98,7 +98,7 @@ async function traerResenias(id){
 async function traerListas(idDueño, idSolicitante){
     let endpoint = `${BASE_URL}/api/usuarios/${idDueño}/${idSolicitante}/listas`;
     let respuesta = await fetch(endpoint);
-    let datosListas = null;
+    let datosListas = { listas: [] };
 
     if(respuesta.ok){
         datosListas = await respuesta.json();
@@ -129,7 +129,7 @@ async function traerFavoritos(id){
 
     let respuesta = await fetch(endpoint);
 
-    let datos = null;
+    let datos = { libros_elegidos: [] };
 
     if(respuesta.ok){
         datos = await respuesta.json();
@@ -253,6 +253,8 @@ async function cargarDatos(){
 
     let favoritosUsuarioObjeto = await traerFavoritos(id);
     let favoritos = favoritosUsuarioObjeto.libros_elegidos;
+
+    console.log('peruti',favoritos);
     let conte = document.getElementById('libs');
 
     conte.innerHTML='';

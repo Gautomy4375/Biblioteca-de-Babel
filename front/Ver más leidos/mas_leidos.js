@@ -1,4 +1,6 @@
 
+                          
+
 let contenedor = document.getElementById('leidos');
 let id = localStorage.getItem('userId');
 
@@ -48,7 +50,7 @@ async function mostrarLibros(libros){
         let libro = await datosLibro(libros[i]);
         let card = document.createElement('a');
         card.classList.add('libro');
-        card.href = `detalle.html?id=${libro.id}`;
+        card.href = `../ficha_libro_logueado/ficha_libro_logueado.html?google_id=${encodeURIComponent(libro.google_id)}`;
 
         card.innerHTML = `
             <img src="${libro.portada}" alt="${libro.title}">

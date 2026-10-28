@@ -1,13 +1,74 @@
-let cantidad_mul = 24;
-const padre = document.getElementById('pleer');
-let i = 0;
-while(i<cantidad_mul){
-    const nuevoDiv = document.createElement('a')
-    nuevoDiv.className = 'libro';
-    padre.appendChild(nuevoDiv);
-    nuevoDiv.innerHTML =
-`<article class="titulo"></article>
-<div class="imagen"></div>`
+
+                          
+
+let contenedor = document.getElementById('pleer');
+let id = localStorage.getItem('userId');
+
+console.log(id);
+
+if(id){
+    traerPorLeer(id);
+}
+
+async function traerPorLeer(id){
+    let endpoint = `${BASE_URL}/api/usuarios/${id}/progreso`;
+
+    let respuesta = await fetch(endpoint);
+    let porLeer = []; 
+
+    if(respuesta.ok){
+        let progreso = (await respuesta.json()).progreso;
+        
+
+        for(let item of progreso) {
+            if (item.estado_libro === 'no_empezado') {
+               porLeer.push(item.google_id);
+            }
+        }
+        console.log(porLeer);
+        mostrarLibros(porLeer);
+    }
+    else{
+        console.log('ocurrió un error');
+    }
+    return porLeer;
+}
+async function datosLibro(nombre){
+
+    let endpoint = `${BASE_URL}/api/libros/especifico?google_id=${encodeURIComponent(nombre)}`;
+    let respuesta = await fetch(endpoint);
+    let datos = null;
+
+    if(respuesta.ok){
+        datos = await respuesta.json();
+    }
+    else{
+        console.log('hubo un error');
+        
+    }
+
+    return datos;
+}
+
+async function mostrarLibros(libros){
+    contenedor.innerHTML = '';
+
+    for (let i = 0; i < libros.length; i++) {
+        let libro = await datosLibro(libros[i]);
+        let card = document.createElement('a');
+        card.classList.add('libro');
+        card.href = `../ficha_libro_logueado/ficha_libro_logueado.html?google_id=${encodeURIComponent(libro.google_id)}`;
+
+        card.innerHTML = `
+            <img class='imagen' src="${libro.portada}" alt="${libro.title}">
+            <h3 class="titulo">${libro.title}</h3>
+        `;  
+
+
+        contenedor.appendChild(card);
+
+
+    }
+
     
-    i++
 }
