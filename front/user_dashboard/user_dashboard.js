@@ -160,7 +160,7 @@ async function mostrarLeyendo() {
 
 //recomendaciones
 
-// COMENTADO hasta que ande el endpoint (se cuelga). Mientras, el HTML tiene placeholders.
+//lo comento hasta que ande el endpoint. el HTML tiene placeholders.
 /*
 let recomendaciones = [];
 async function cargarRecomendaciones() {
@@ -194,7 +194,6 @@ async function mostrarRecomendaciones() {
 let cargador = document.getElementById('cargadorCon');
 
 async function cargarTodo() {
-    // cuando ande recomendaciones, sumar cargarRecomendaciones() al Promise.all
     try {
         await Promise.all([cargarLeidos(), cargarLeyendo()]);
     } catch (error) {
