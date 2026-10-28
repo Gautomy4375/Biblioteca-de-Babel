@@ -7,28 +7,28 @@ const plantilla = document.getElementById('libro-template');
 let corazon = document.getElementById('heart-btn');
 let nroLikes = document.getElementById('nrodelikes');
 
-async function traerLista(idLista, idUsuario){
+async function traerLista(idLista, idUsuario) {
     let endpoint = `${BASE_URL}/api/listas/${idLista}?id_usuario=${idUsuario}`;
     let respuesta = await fetch(endpoint);
     let datos = null;
 
-    if(respuesta.ok){
+    if (respuesta.ok) {
         datos = await respuesta.json();
     }
-    else{
+    else {
         console.log('hubo un error');
     }
     return datos;
 }
-async function traerAutor(id){
+async function traerAutor(id) {
     let endpoint = `${BASE_URL}/api/usuarios/${id}`;
     let respuesta = await fetch(endpoint);
     let datos = null;
 
-    if(respuesta.ok){
+    if (respuesta.ok) {
         datos = await respuesta.json();
     }
-    else{
+    else {
         console.log('hubo un error');
     }
     return datos;
@@ -36,10 +36,10 @@ async function traerAutor(id){
 
 let cargador = document.getElementById('cargadorCon');
 
-async function cargarLista(){
+async function cargarLista() {
     let lista = await traerLista(idLista, idUsuario);
 
-    if(!lista){
+    if (!lista) {
         document.getElementById('list-name').textContent = 'Hubo un error';
         cargador.classList.add('hidden');
         return;
@@ -49,7 +49,7 @@ async function cargarLista(){
     document.getElementById('descripcion').textContent = lista.descripcion;
 
     let autor = await traerAutor(lista.id_usuario);
-    if(autor){
+    if (autor) {
         document.getElementById('author-name').textContent = autor.username;
     }
 
@@ -59,10 +59,10 @@ async function cargarLista(){
     lista.libros.forEach((item) => {
         const clon = plantilla.content.cloneNode(true);
         clon.querySelector('img').src = item.libro.portada;
-        clon.querySelector('img').onclick = function(){
+        clon.querySelector('img').onclick = function () {
             irAFicha(item.libro.google_id);
-        } 
-            
+        }
+
         clon.querySelector('p').textContent = item.libro.title;
         librosGrid.appendChild(clon);
     });
@@ -71,7 +71,7 @@ async function cargarLista(){
 }
 cargarLista();
 
-corazon.addEventListener('change', async function(){
+corazon.addEventListener('change', async function () {
     let endpoint = `${BASE_URL}/api/listas/${idLista}/like`;
     let respuesta = await fetch(endpoint, {
         method: 'PATCH',
@@ -81,16 +81,44 @@ corazon.addEventListener('change', async function(){
         body: JSON.stringify({ id_usuario: Number(idUsuario) })
     });
 
-    if(respuesta.ok){
+    if (respuesta.ok) {
         let lista = await traerLista(idLista, idUsuario);
         nroLikes.textContent = lista.likes.length;
     }
-    else{
+    else {
         console.log('hubo un error');
     }
 });
 
 function irAFicha(google_id) {
     window.location.href = `../ficha_libro_logueado/ficha_libro_logueado.html?google_id=${google_id}`
+}
+
+let btnBorrar = document.getElementById("deleteList")
+
+btnBorrar.addEventListener('click', (e) => {
+    e.preventDefault()
+    borrarLista()
+
+
+})
+
+async function borrarLista() {
+    let endpoint = `${BASE_URL}/api/listas/${idLista}`
+    const response = await fetch(endpoint, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            id_usuario: idUsuario
+        })
+    });
+    if (response.ok) {
+        console.log("Pefeeeeeto")
+        window.location.href = `../listas/listas.html`; 
+
+    }
+
 }
 
