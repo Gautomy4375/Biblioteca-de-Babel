@@ -289,7 +289,7 @@ cursor: pointer;
                     <div class="lora-font dato">Contraseña</div>
                     <input type="password" class="lora-font input-text" name="" id="passwordsu">
                 </div>
-                <button class="plus-jakarta-sans dato boton" id="signupbtnsend" type="button">Sign Up</button>
+                <button class="plus-jakarta-sans dato boton" id="signupbtnsend" type="button">Registrarse</button>
                 <div id="mensajesu" class="lora-font mensajesu"></div>
             </section>
         </article>
