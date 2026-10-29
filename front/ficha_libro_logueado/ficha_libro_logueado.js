@@ -62,6 +62,24 @@ function nombreIdioma(codigo) {
     }
 }
 
+
+async function traerReseñas(nombre){
+    let endpoint = `${BASE_URL}/api/libros/reseñas?google_id=${nombre}`;
+
+    let respuesta = await fetch(respuesta);
+
+    let datos = {reseñas: []};
+
+    if(respuesta.ok){
+        datos = await respuesta.json();
+    }
+    else{
+        console.log('hubo un error');
+    }
+
+    return datos;
+}
+
 async function cargarDatos() {
     let ob = await datosLibro(nombre);
 
@@ -141,6 +159,9 @@ async function cargarDatos() {
 
         document.getElementById(`fotoperfil${i}`).src = FOTO_DEFAULT;
     }
+
+
+    
 }
 
 cargarDatos();
