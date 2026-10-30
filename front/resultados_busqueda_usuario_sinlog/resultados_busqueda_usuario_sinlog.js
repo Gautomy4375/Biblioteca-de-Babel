@@ -44,8 +44,7 @@ async function buscarusuarios(nombre) {
     else if (respuesta.status === 404) {
         conLi.textContent = 'No se encontraron usuarios'
     } else {
-
-        conLi.textContent = 'Error en la búsqueda de usuarios'
+        window.location.href='../pagina_error_log/pagina_error.html';
     }
 }
 

@@ -1,10 +1,10 @@
 // google_id del libro que viene en la url
 let nombre = new URLSearchParams(window.location.search).get('google_id');
 let idUsuario = localStorage.getItem('userId');
-let nombreLibro = null;
+let nombreLibro = '';
 
-let puntuacion = null;
-let estado = null;
+let puntuacion = '';
+let estado = '';
 
 const FOTO_DEFAULT = 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/3840px-Default_pfp.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail';
 
@@ -26,8 +26,8 @@ async function datosLibro(nombre) {
     let respuesta = await fetch(`${BASE_URL}/api/libros/especifico?google_id=${encodeURIComponent(nombre)}`);
 
     if (!respuesta.ok) {
-        console.log('hubo un error');
-        return null;
+        window.location.href='../pagina_error_log/pagina_error.html';
+        return '';
     }
     return respuesta.json();
 }
@@ -171,13 +171,13 @@ cargarDatos();
 async function traerRanking() {
     let endpoint = `${BASE_URL}/api/libros/ranking?google_id=${nombre}`;
     let respuesta = await fetch(endpoint);
-    let datos = null;
+    let datos = '';
 
     if (respuesta.ok) {
         datos = await respuesta.json();
     }
-    else {
-        console.log('hubo un error');
+    else if (respuesta.status !== 404) {
+        window.location.href='../pagina_error_log/pagina_error.html';
     }
     return datos;
 }
@@ -269,7 +269,7 @@ async function guardarEstado(nuevoEstado) {
     });
 
     if (!respuesta.ok) {
-        console.log('hubo un error :(');
+        window.location.href='../pagina_error_log/pagina_error.html';
         return;
     }
 
@@ -295,13 +295,13 @@ botonLeyendo.addEventListener('click', function (e) {
 async function traerProgreso() {
     let endpoint = `${BASE_URL}/api/libros/progreso?google_id=${nombre}&id_usuario=${idUsuario}`;
     let respuesta = await fetch(endpoint);
-    let datos = null;
+    let datos = '';
 
     if (respuesta.ok) {
         datos = await respuesta.json();
     }
-    else {
-        console.log('hubo un error');
+    else if (respuesta.status !== 404 && respuesta.status !== 400) {
+        window.location.href='../pagina_error_log/pagina_error.html';
     }
     return datos;
 }
@@ -323,13 +323,13 @@ let botonLista = document.getElementById('botonLista');
 async function traerMisListas() {
     let endpoint = `${BASE_URL}/api/usuarios/${idUsuario}/${idUsuario}/listas`;
     let respuesta = await fetch(endpoint);
-    let datos = null;
+    let datos = '';
 
     if (respuesta.ok) {
         datos = await respuesta.json();
     }
-    else {
-        console.log('hubo un error');
+    else if (respuesta.status !== 404) {
+        window.location.href='../pagina_error_log/pagina_error.html';
     }
     return datos;
 }
@@ -387,7 +387,7 @@ botonLista.addEventListener('click', async function (e) {
         alert('Este libro ya está en la lista');
     }
     else {
-        console.log('hubo un error');
+        window.location.href='../pagina_error_log/pagina_error.html';
     }
 })
 
@@ -395,7 +395,7 @@ botonLista.addEventListener('click', async function (e) {
 
 let idUsuarioReseña = localStorage.getItem('userId');
 
-let puntuacionReseña = null;
+let puntuacionReseña = '';
 
 let unaReseña = document.getElementById('star1res');
 let dosReseñas = document.getElementById('star2res');
@@ -452,13 +452,13 @@ async function crearResenia() {
         },
         body: JSON.stringify(dataReseñas)
     });
-    let datosReseña = null;
+    let datosReseña = '';
 
     if (respuesta.ok) {
         datosReseña = await respuesta.json();
     }
-    else {
-        console.log('hubo un error :(');
+    else if (respuesta.status !== 400) {
+        window.location.href='../pagina_error_log/pagina_error.html';
     }
     return datosReseña;
 

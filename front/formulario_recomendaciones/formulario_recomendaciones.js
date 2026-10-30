@@ -76,8 +76,7 @@ searchInput.addEventListener('keydown', async (e) => {
         resultsList.innerHTML = `<div style="padding: 10px; color: #666; font-size: 13px; text-align: center;">No existe un libro con este nombre, buscá otro</div>`;
       } else {
         // Manejo de error 500 o 504 de la API
-        console.error('[búsqueda] error del servidor:', respuesta.status);
-        resultsList.innerHTML = `<div style="padding: 10px; color: #dc2626; font-size: 13px; text-align: center;">El servidor falló (${respuesta.status}). Intentá buscar de nuevo.</div>`;
+        window.location.href='../pagina_error_log/pagina_error.html';
       }
     } catch (error) {
       console.error('Error de conexión:', error);
@@ -181,7 +180,7 @@ async function enviarPreferencias() {
       console.log('Preferencias guardadas');
       bienvenidaOverlay.classList.remove('hidden');
     } else {
-      console.error('Error al guardar preferencias:', respuesta.status);
+      window.location.href='../pagina_error_log/pagina_error.html';
     }
   } catch (error) {
     console.error('Error de conexión:', error);

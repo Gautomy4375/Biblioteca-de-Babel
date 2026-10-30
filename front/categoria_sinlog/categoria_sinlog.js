@@ -33,6 +33,8 @@ async function buscarLibros(categoriaSeleccionada) {
             if (listaLibros && listaLibros.length > 0) {
                 mostrarLibros(listaLibros);
             }
+        } else if (respuesta.status !== 404) {
+            window.location.href='../pagina_error_log/pagina_error.html';
         }
     } catch (error) {
         console.error("Error en la petición:", error);

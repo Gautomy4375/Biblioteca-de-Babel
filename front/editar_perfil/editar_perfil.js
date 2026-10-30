@@ -19,7 +19,7 @@ async function cambiarNombreAvatar(usuario, foto){
         datosEditar.avatar = foto;
     }
     const endpoint = `${BASE_URL}/api/usuarios/${id}`;
-    let datosNuevos = null;
+    let datosNuevos = '';
     
     let respuesta = await fetch(endpoint, {
         method: 'PATCH',
@@ -33,9 +33,9 @@ async function cambiarNombreAvatar(usuario, foto){
        console.log('actualizado');
        datosNuevos = true;
      }
-    else{
-      console.log('hubo un error');
-     }
+    else if(respuesta.status !== 400 && respuesta.status !== 409){
+        window.location.href='../pagina_error_log/pagina_error.html';
+    }
       return datosNuevos
      }
 
@@ -66,28 +66,30 @@ async function matarCuenta(id){
         
     })
 
-    let datos = null;
+    let datos = '';
     if(respuesta.ok){
-        datos = await respuesta.json();
+        datos = true;
     }
     else{
-        console.log('Hubo un error');
+        window.location.href='../pagina_error_log/pagina_error.html';
     }
     return datos;
 }
 
 let eliminarCuenta = document.getElementById('eliminarCuenta');
 
-eliminarCuenta.addEventListener('click', function(e){
+eliminarCuenta.addEventListener('click', async function(e){
     e.preventDefault();
 
     const userChoice = confirm("⚠ ALERTA ⚠ Vas a borrar tu cuenta, no la podrás recuperar, ¿Estás seguro de que querés borrarla?");
 
     if (userChoice) {
-        localStorage.removeItem('userId');
-        localStorage.removeItem('usernameSession');
-        matarCuenta(id);
-        window.location.href= '../home/home.html'
+        let cuentaBorrada = await matarCuenta(id);
+        if(cuentaBorrada){
+            localStorage.removeItem('userId');
+            localStorage.removeItem('usernameSession');
+            window.location.href= '../home/home.html'
+        }
         } else {
     }
 })

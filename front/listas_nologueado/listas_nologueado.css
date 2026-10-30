@@ -53,6 +53,10 @@ body{
           text-decoration: none;
           position: absolute;
           left: 13.1vw;
+          &:hover {
+            background-color: #3f040a;
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+          }
         }
       }
     }

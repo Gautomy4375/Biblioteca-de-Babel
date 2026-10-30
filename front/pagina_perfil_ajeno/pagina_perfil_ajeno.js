@@ -15,7 +15,7 @@ async function datosPerfil(id){
         datos = await respuesta.json();
     }
     else{
-        console.log('HUBO UN ERROR :(');
+        window.location.href='../pagina_error_log/pagina_error.html';
     }
 
     return datos;
@@ -29,9 +29,8 @@ async function traerSeguidores(id){
     if (respuesta.ok){
         datosSeguidores = await respuesta.json();
     }
-    else{
-        console.log('hubo un error');
-
+    else if(respuesta.status !== 404){
+        window.location.href='../pagina_error_log/pagina_error.html';
     }
     return datosSeguidores
 }
@@ -43,8 +42,8 @@ async function traerSeguidos(id){
     if(respuesta.ok){
         datosSeguidos = await respuesta.json();
     }
-    else{
-        console.log('hubo un error')
+    else if(respuesta.status !== 404){
+        window.location.href='../pagina_error_log/pagina_error.html';
     }
     return datosSeguidos
 
@@ -57,8 +56,8 @@ async function traerListas(idDueño, idSolicitante){
     if(respuesta.ok){
         datosListas = await respuesta.json();
     }
-    else{
-        console.log('hubo un error');
+    else if(respuesta.status !== 404){
+        window.location.href='../pagina_error_log/pagina_error.html';
     }
     return datosListas;
 }
@@ -86,8 +85,8 @@ async function traerLeidos(id){
     if(respuesta.ok){
         libros = await respuesta.json();
     }
-    else{
-        console.log('hubo un eror')
+    else if(respuesta.status !== 404){
+        window.location.href='../pagina_error_log/pagina_error.html';
     }
     console.log(libros);
     return libros
@@ -101,9 +100,8 @@ async function datosLibro(nombre){
     if(respuesta.ok){
         datos = await respuesta.json();
     }
-    else{
-        console.log('hubo un error');
-        
+    else if(respuesta.status !== 404){
+        window.location.href='../pagina_error_log/pagina_error.html';
     }
 
     return datos;
@@ -112,13 +110,13 @@ async function traerResenias(id){
 
     let endpoint = `${BASE_URL}/api/usuarios/${id}/resenias`;
     let respuesta = await fetch(endpoint);
-    let datos = {resenias: 0};
+    let datos = {reseñas: []};
 
     if(respuesta.ok){
         datos = await respuesta.json();
     }
-    else{
-        console.log('hubo un error');
+    else if(respuesta.status !== 404){
+        window.location.href='../pagina_error_log/pagina_error.html';
     }
     return datos;
 }
@@ -138,13 +136,13 @@ async function seguir(id){
         body: JSON.stringify(data)
     })
 
-    let datosSeguir = null;
+    let datosSeguir = '';
 
     if(respuesta.ok){
         datosSeguir = await respuesta.json();
     }
-    else{
-        console.log('hubo un error');
+    else if(respuesta.status !== 400 && respuesta.status !== 409){
+        window.location.href='../pagina_error_log/pagina_error.html';
     }
     return datosSeguir;
 }
@@ -159,8 +157,8 @@ async function traerFavoritos(id){
         datos = await respuesta.json();
 
     }
-    else{
-        console.log('Hubo un error (de vuelta)')
+    else if(respuesta.status !== 404){
+        window.location.href='../pagina_error_log/pagina_error.html';
     }
     return datos;
 }
@@ -181,8 +179,8 @@ async function traerPorLeer(id){
         }
         console.log(porLeer);
     }
-    else{
-        console.log('ocurrió un error');
+    else if(respuesta.status !== 404){
+        window.location.href='../pagina_error_log/pagina_error.html';
     }
     return porLeer;
 }
@@ -194,8 +192,8 @@ async function traerListas(idDueño, idSolicitante){
     if(respuesta.ok){
         datosListas = await respuesta.json();
     }
-    else{
-        console.log('hubo un error');
+    else if(respuesta.status !== 404){
+        window.location.href='../pagina_error_log/pagina_error.html';
     }
     return datosListas;
 }

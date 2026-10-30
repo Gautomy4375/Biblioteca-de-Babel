@@ -67,9 +67,10 @@ async function buscarPuntuados() {
         puntuados = (await respuesta.json()).libros;
         console.log(puntuados);
         await mostrarPuntuados();
-    } else {
-        console.log("Error al obtener los libros puntuados");
+    } else if (respuesta.status === 404) {
         containerPuntuados.textContent = 'Hubo un error al cargar los mejores puntuados';
+    } else {
+        window.location.href='../pagina_error_log/pagina_error.html';
     }
 }
 
@@ -91,8 +92,8 @@ async function buscarLikeados() {
     if (respuesta.ok) {
         likeados = (await respuesta.json()).libros;
         console.log(likeados);
-    } else {
-        console.log("Error al obtener los libros mas likeados");
+    } else if (respuesta.status !== 404) {
+        window.location.href='../pagina_error_log/pagina_error.html';
     }
     await mostrarLikeados();
 }

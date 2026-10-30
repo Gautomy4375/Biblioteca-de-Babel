@@ -1,26 +1,26 @@
 async function traerPopulares(){
     let endpoint = `${BASE_URL}/api/listas/likes`;
     let respuesta = await fetch(endpoint);
-    let datosListas = null;
+    let datosListas = '';
 
     if(respuesta.ok){
         datosListas = await respuesta.json();
     }
     else{
-        console.log('hubo un error');
+        window.location.href='../pagina_error_log/pagina_error.html';
     }
     return datosListas;
 }
 async function traerAutor(id){
     let endpoint = `${BASE_URL}/api/usuarios/${id}`;
     let respuesta = await fetch(endpoint);
-    let datos = null;
+    let datos = '';
 
     if(respuesta.ok){
         datos = await respuesta.json();
     }
-    else{
-        console.log('hubo un error');
+    else if(respuesta.status !== 404){
+        window.location.href='../pagina_error_log/pagina_error.html';
     }
     return datos;
 }

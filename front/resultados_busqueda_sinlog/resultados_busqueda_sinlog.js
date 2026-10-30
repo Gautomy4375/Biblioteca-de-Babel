@@ -41,9 +41,11 @@ async function buscarLibros(titu) {
             conLi.textContent = 'No se encontraron libros'
         }
     }
+    else if (respuesta.status === 404){
+        conLi.textContent = 'No se encontraron libros'
+    }
     else{
-        conLi.textContent = 'Hubo un error'
-        
+        window.location.href='../pagina_error_log/pagina_error.html';
     }
 }
 

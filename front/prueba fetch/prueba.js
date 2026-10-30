@@ -14,14 +14,13 @@ async function probar(nombre){
 
     let endpoint = `${BASE_URL}/api/libros/${encodeURIComponent(nombre)}`;
     let respuesta = await fetch(endpoint);
-    let datos = null;
+    let datos = '';
 
     if(respuesta.ok){
         datos = await respuesta.json();
     }
     else{
-        console.log('hubo un error');
-        
+        window.location.href='../pagina_error_log/pagina_error.html';
     }
 
     return datos;

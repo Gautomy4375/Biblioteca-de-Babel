@@ -18,13 +18,13 @@ async function crearLista(nombre, descripcion) {
         },
         body: JSON.stringify({ id_usuario: Number(idUsuario), nombre: nombre, descripcion: descripcion })
     });
-    let datos = null;
+    let datos = '';
 
     if (respuesta.ok) {
         datos = await respuesta.json();
     }
-    else {
-        console.log('hubo un error');
+    else if (respuesta.status !== 400) {
+        window.location.href='../pagina_error_log/pagina_error.html';
     }
     return datos;
 }
@@ -39,8 +39,9 @@ async function agregarLibro(idLista, google_id) {
     });
 
     if (!respuesta.ok) {
-        console.log('hubo un error');
+        window.location.href='../pagina_error_log/pagina_error.html';
     }
+    return respuesta.ok;
 }
 
 function renderizarTapas() {
@@ -154,7 +155,7 @@ searchInput.addEventListener('keydown', async function (event) {
             resultsList.innerHTML = `<div style="padding: 10px; color: #666; font-size: 13px; text-align: center;">No existe un libro con este nombre, buscá otro</div>`;
         }
         else {
-            resultsList.innerHTML = `<div style="padding: 10px; color: #dc2626; font-size: 13px; text-align: center;">El servidor falló (${respuesta.status}). Intentá buscar de nuevo.</div>`;
+            window.location.href='../pagina_error_log/pagina_error.html';
         }
     }
     catch (error) {
@@ -183,14 +184,20 @@ formulario.addEventListener('submit', async function (event) {
     }
 
     if (libroDePaginaAnterior) {
-        await agregarLibro(lista.id_lista, libroDePaginaAnterior);
+        let agregado = await agregarLibro(lista.id_lista, libroDePaginaAnterior);
+        if (!agregado) {
+            return;
+        }
     }
 
     for (let i = 0; i < idsElegidos.length; i++) {
         let googleId = idsElegidos[i];
         // si es el mismo libro de la pagina anterior, ya se agrego
         if (googleId !== libroDePaginaAnterior) {
-            await agregarLibro(lista.id_lista, googleId);
+            let agregado = await agregarLibro(lista.id_lista, googleId);
+            if (!agregado) {
+                return;
+            }
         }
     }
 

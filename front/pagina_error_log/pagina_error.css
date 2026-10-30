@@ -40,6 +40,10 @@ h2{
     line-height: normal;
     text-decoration: none;
 }
+.volver:hover {
+    background-color: #3f040a;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
 
 #cargadorCon {
     display: none;

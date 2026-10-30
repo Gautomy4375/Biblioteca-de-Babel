@@ -29,8 +29,8 @@ async function traerPorLeer(id){
         console.log(porLeer);
         mostrarLibros(porLeer);
     }
-    else{
-        console.log('ocurrió un error');
+    else if(respuesta.status !== 404){
+        window.location.href='../pagina_error_log/pagina_error.html';
     }
     return porLeer;
 }
@@ -38,14 +38,13 @@ async function datosLibro(nombre){
 
     let endpoint = `${BASE_URL}/api/libros/especifico?google_id=${encodeURIComponent(nombre)}`;
     let respuesta = await fetch(endpoint);
-    let datos = null;
+    let datos = '';
 
     if(respuesta.ok){
         datos = await respuesta.json();
     }
-    else{
-        console.log('hubo un error');
-        
+    else if(respuesta.status !== 404){
+        window.location.href='../pagina_error_log/pagina_error.html';
     }
 
     return datos;

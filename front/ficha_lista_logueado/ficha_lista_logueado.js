@@ -10,26 +10,26 @@ let nroLikes = document.getElementById('nrodelikes');
 async function traerLista(idLista, idUsuario) {
     let endpoint = `${BASE_URL}/api/listas/${idLista}?id_usuario=${idUsuario}`;
     let respuesta = await fetch(endpoint);
-    let datos = null;
+    let datos = '';
 
     if (respuesta.ok) {
         datos = await respuesta.json();
     }
     else {
-        console.log('hubo un error');
+        window.location.href='../pagina_error_log/pagina_error.html';
     }
     return datos;
 }
 async function traerAutor(id) {
     let endpoint = `${BASE_URL}/api/usuarios/${id}`;
     let respuesta = await fetch(endpoint);
-    let datos = null;
+    let datos = '';
 
     if (respuesta.ok) {
         datos = await respuesta.json();
     }
-    else {
-        console.log('hubo un error');
+    else if (respuesta.status !== 404) {
+        window.location.href='../pagina_error_log/pagina_error.html';
     }
     return datos;
 }
@@ -40,8 +40,6 @@ async function cargarLista() {
     let lista = await traerLista(idLista, idUsuario);
 
     if (!lista) {
-        document.getElementById('list-name').textContent = 'Hubo un error';
-        cargador.classList.add('hidden');
         return;
     }
 
@@ -86,7 +84,7 @@ corazon.addEventListener('change', async function () {
         nroLikes.textContent = lista.likes.length;
     }
     else {
-        console.log('hubo un error');
+        window.location.href='../pagina_error_log/pagina_error.html';
     }
 });
 
@@ -118,6 +116,9 @@ async function borrarLista() {
         console.log("Pefeeeeeto")
         window.location.href = `../listas/listas.html`; 
 
+    }
+    else if (response.status !== 403) {
+        window.location.href='../pagina_error_log/pagina_error.html';
     }
 
 }

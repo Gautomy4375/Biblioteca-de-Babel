@@ -9,13 +9,13 @@ let idHeader = localStorage.getItem('userId');
 async function datosPerfil(idHeader){
     let endpoint = `${BASE_URL}/api/usuarios/${idHeader}`;
     let respuesta = await fetch(endpoint);
-    let datos = null;
+    let datos = '';
 
     if(respuesta.ok){
         datos = await respuesta.json();
     }
-    else{
-        console.log('HUBO UN ERROR :(');
+    else if(respuesta.status !== 404 && !window.location.pathname.includes('pagina_error')){
+        window.location.href='../pagina_error_log/pagina_error.html';
     }
 
     return datos;
@@ -26,7 +26,7 @@ async function datosPerfil(idHeader){
 
 document.addEventListener("DOMContentLoaded", async function () {
     let objeto = await datosPerfil(idHeader);
-    const usernameSession = objeto.username;
+    const usernameSession = objeto.username || '';
     
 
     const headerContent = `

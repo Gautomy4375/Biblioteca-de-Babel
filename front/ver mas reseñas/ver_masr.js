@@ -7,13 +7,13 @@ async function traerResenias(id){
 
     let endpoint = `${BASE_URL}/api/usuarios/${id}/resenias`;
     let respuesta = await fetch(endpoint);
-    let datos = null;
+    let datos = '';
 
     if(respuesta.ok){
         datos = await respuesta.json();
     }
-    else{
-        console.log('hubo un error');
+    else if(respuesta.status !== 404){
+        window.location.href='../pagina_error_log/pagina_error.html';
     }
     return datos;
 }
@@ -21,14 +21,13 @@ async function datosLibro(nombre){
 
     let endpoint = `${BASE_URL}/api/libros/especifico?google_id=${encodeURIComponent(nombre)}`;
     let respuesta = await fetch(endpoint);
-    let datos = null;
+    let datos = '';
 
     if(respuesta.ok){
         datos = await respuesta.json();
     }
-    else{
-        console.log('hubo un error');
-        
+    else if(respuesta.status !== 404){
+        window.location.href='../pagina_error_log/pagina_error.html';
     }
 
     return datos;
@@ -36,7 +35,7 @@ async function datosLibro(nombre){
 
 async function cargarDatos(){
 let reseniasUsuarioObjeto = await traerResenias(id);
-    let res = reseniasUsuarioObjeto.reseñas
+    let res = reseniasUsuarioObjeto.reseñas || []
     let cont = document.getElementById('todo');
     console.log(res);
 

@@ -448,7 +448,9 @@ cursor: pointer;
           } else if (objetoDatos.status === 409) {
               mensajesu.innerText = "Ya existe una cuenta con este mail y/o nombre de usuario.";
               mensajesu.style.color = "red";
-          } 
+          } else if (objetoDatos.status !== 400) {
+              window.location.href='../pagina_error_log/pagina_error.html';
+          }
         
           
       }
@@ -521,8 +523,7 @@ cursor: pointer;
            mensajesi.innerText = "El nombre de usuario o la contraseña son incorrectos.";
            mensajesi.style.color = "red";
          } else {
-           mensajesi.innerText = "Error en el servidor. Código: " + objetoDatos.status;
-           mensajesi.style.color = "red";
+           window.location.href='../pagina_error_log/pagina_error.html';
          } 
     });
   }

@@ -6,13 +6,13 @@ let id = localStorage.getItem('userId');
 async function datosPerfil(id){
     let endpoint = `${BASE_URL}/api/usuarios/${id}`;
     let respuesta = await fetch(endpoint);
-    let datos = null;
+    let datos = '';
 
     if(respuesta.ok){
         datos = await respuesta.json();
     }
     else{
-        console.log('HUBO UN ERROR :(');
+        window.location.href='../pagina_error_log/pagina_error.html';
     }
 
     return datos;
@@ -21,14 +21,13 @@ async function datosPerfil(id){
 async function traerSeguidores(id){
     let endpoint = `${BASE_URL}/api/usuarios/${id}/seguidores`
     let respuesta = await fetch(endpoint);
-    let datosSeguidores = null;
+    let datosSeguidores = '';
 
     if (respuesta.ok){
         datosSeguidores = await respuesta.json();
     }
-    else{
-        console.log('hubo un error');
-
+    else if(respuesta.status !== 404){
+        window.location.href='../pagina_error_log/pagina_error.html';
     }
     return datosSeguidores
 }
@@ -41,8 +40,8 @@ async function traerSeguidos(id){
     if(respuesta.ok){
         datosSeguidos = await respuesta.json();
     }
-    else{
-        console.log('hubo un error')
+    else if(respuesta.status !== 404){
+        window.location.href='../pagina_error_log/pagina_error.html';
     }
     return datosSeguidos
 
@@ -56,8 +55,8 @@ async function traerLeidos(id){
     if(respuesta.ok){
         libros = await respuesta.json();
     }
-    else{
-        console.log('hubo un eror')
+    else if(respuesta.status !== 404){
+        window.location.href='../pagina_error_log/pagina_error.html';
     }
     console.log(libros);
     return libros
@@ -66,14 +65,13 @@ async function traerLeidos(id){
 
     let endpoint = `${BASE_URL}/api/libros/especifico?google_id=${encodeURIComponent(nombre)}`;
     let respuesta = await fetch(endpoint);
-    let datos = null;
+    let datos = '';
 
     if(respuesta.ok){
         datos = await respuesta.json();
     }
-    else{
-        console.log('hubo un error');
-        
+    else if(respuesta.status !== 404){
+        window.location.href='../pagina_error_log/pagina_error.html';
     }
 
     return datos;
@@ -88,8 +86,8 @@ async function traerResenias(id){
     if(respuesta.ok){
         datos = await respuesta.json();
     }
-    else{
-        console.log('hubo un error');
+    else if(respuesta.status !== 404){
+        window.location.href='../pagina_error_log/pagina_error.html';
     }
     return datos;
 }
@@ -103,8 +101,8 @@ async function traerListas(idDueño, idSolicitante){
     if(respuesta.ok){
         datosListas = await respuesta.json();
     }
-    else{
-        console.log('hubo un error');
+    else if(respuesta.status !== 404){
+        window.location.href='../pagina_error_log/pagina_error.html';
     }
     return datosListas;
 }
@@ -135,8 +133,8 @@ async function traerFavoritos(id){
         datos = await respuesta.json();
 
     }
-    else{
-        console.log('Hubo un error (de vuelta)')
+    else if(respuesta.status !== 404){
+        window.location.href='../pagina_error_log/pagina_error.html';
     }
     return datos;
 }
@@ -158,8 +156,8 @@ async function traerPorLeer(id){
         }
         console.log(porLeer);
     }
-    else{
-        console.log('ocurrió un error');
+    else if(respuesta.status !== 404){
+        window.location.href='../pagina_error_log/pagina_error.html';
     }
     return porLeer;
 }

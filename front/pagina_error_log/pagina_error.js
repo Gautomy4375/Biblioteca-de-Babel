@@ -7,7 +7,12 @@ boton.addEventListener('click', function(event){
     if(boton){
         cargadorCon.style.display = 'block';
         setTimeout(() => {
-            window.location.replace("../user_dashboard/user_dashboard.html"); 
+            if(localStorage.getItem('userId')){
+                window.location.replace("../user_dashboard/user_dashboard.html");
+            }
+            else{
+                window.location.replace("../home/home.html");
+            }
         }, 3000);
         
     }

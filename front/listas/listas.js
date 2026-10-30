@@ -6,14 +6,14 @@ async function traerListas(idDueño, idSolicitante){
     console.log('MIS LISTAS - endpoint:', endpoint);
     let respuesta = await fetch(endpoint);
     console.log('MIS LISTAS - status:', respuesta.status);
-    let datosListas = null;
+    let datosListas = '';
 
     if(respuesta.ok){
         datosListas = await respuesta.json();
         console.log('MIS LISTAS - datos:', datosListas);
     }
-    else{
-        console.log('MIS LISTAS - hubo un error:', await respuesta.text());
+    else if(respuesta.status !== 404){
+        window.location.href='../pagina_error_log/pagina_error.html';
     }
     return datosListas;
 }
@@ -40,14 +40,14 @@ async function traerPopulares(){
     console.log('POPULARES - endpoint:', endpoint);
     let respuesta = await fetch(endpoint);
     console.log('POPULARES - status:', respuesta.status);
-    let datosListas = null;
+    let datosListas = '';
 
     if(respuesta.ok){
         datosListas = await respuesta.json();
         console.log('POPULARES - datos:', datosListas);
     }
     else{
-        console.log('POPULARES - hubo un error:', await respuesta.text());
+        window.location.href='../pagina_error_log/pagina_error.html';
     }
     return datosListas;
 }
@@ -56,14 +56,14 @@ async function traerAutor(id){
     console.log('AUTOR - endpoint:', endpoint);
     let respuesta = await fetch(endpoint);
     console.log('AUTOR - status:', respuesta.status);
-    let datos = null;
+    let datos = '';
 
     if(respuesta.ok){
         datos = await respuesta.json();
         console.log('AUTOR - datos:', datos);
     }
-    else{
-        console.log('AUTOR - hubo un error:', await respuesta.text());
+    else if(respuesta.status !== 404){
+        window.location.href='../pagina_error_log/pagina_error.html';
     }
     return datos;
 }

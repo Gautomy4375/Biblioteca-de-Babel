@@ -34,8 +34,7 @@ async function buscarlistas(palabra) {
         conLi.textContent = 'No se encontraron listas'
     }
     else{
-        conLi.textContent = 'Hubo un error'
-
+        window.location.href='../pagina_error_log/pagina_error.html';
     }
 }
 

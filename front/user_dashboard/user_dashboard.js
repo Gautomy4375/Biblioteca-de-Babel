@@ -72,10 +72,13 @@ let userName = document.getElementById('username');
 async function fetchBookInfo(google_id) {
     let endpoint = `${BASE_URL}/api/libros/especifico?google_id=${google_id}`
     let respuesta = await fetch(endpoint);
+    let libro = '';
     if (respuesta.ok) {
-        let libro = await respuesta.json();
-        return libro;
+        libro = await respuesta.json();
+    } else if (respuesta.status !== 404) {
+        window.location.href='../pagina_error_log/pagina_error.html';
     }
+    return libro;
 }
 function irAFicha(google_id) {
     window.location.href = `../ficha_libro_logueado/ficha_libro_logueado.html?google_id=${google_id}`
@@ -93,8 +96,8 @@ async function fetchUltimosLeidos() {
     if (respuesta.ok) {
         leidos = (await respuesta.json()).libros;
         console.log(leidos);
-    } else {
-        console.error("Error al obtener los últimos leídos");
+    } else if (respuesta.status !== 404) {
+        window.location.href='../pagina_error_log/pagina_error.html';
     }
     await mostrarLeidos();
 
@@ -134,8 +137,8 @@ async function fetchLeyendo() {
             }
         }
         console.log(leyendos);
-    } else {
-        console.error("Error al obtener los leyendo");
+    } else if (respuesta.status !== 404) {
+        window.location.href='../pagina_error_log/pagina_error.html';
     }
     await mostrarLeyendo();
 

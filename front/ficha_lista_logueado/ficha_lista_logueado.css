@@ -159,16 +159,14 @@
 }
 .BorrarListaDiv {
   display: flex;
-  justify-content: center;
   align-items: center;
-  padding: 20px;
   width: 100%;
 }
 
 .BorrarLista {
-  background-color: #dc3545;
+  background-color: #842739;
   color: #ffffff; 
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Lora', serif;
   font-size: 14px;
   font-weight: 600;
   letter-spacing: 1px; 
@@ -181,7 +179,7 @@
 }
 /* HOVER */
 .BorrarLista:hover {
-  background-color: #bd2130; 
+  background-color: #3f040a; 
   box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); 
 }
 /* CUANDO SE CLICKEA */ 
