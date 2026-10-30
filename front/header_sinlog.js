@@ -432,7 +432,13 @@ cursor: pointer;
 
       } else {
         
+        subtnsend.disabled = true;
+
         let objetoDatos = await datos(mailsusave, usernamesusave, passwordsusave);
+
+        if (objetoDatos.status !== 200 && objetoDatos.status !== 201) {
+          subtnsend.disabled = false;
+        }
 
         console.log(objetoDatos);
         

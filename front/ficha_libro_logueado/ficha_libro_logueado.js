@@ -371,6 +371,8 @@ botonLista.addEventListener('click', async function (e) {
         return;
     }
 
+    botonLista.disabled = true;
+
     let endpoint = `${BASE_URL}/api/listas/${selectLista.value}/libros`;
     let respuesta = await fetch(endpoint, {
         method: 'PATCH',
@@ -379,6 +381,8 @@ botonLista.addEventListener('click', async function (e) {
         },
         body: JSON.stringify({ id_usuario: Number(idUsuario), google_id: nombre })
     });
+
+    botonLista.disabled = false;
 
     if (respuesta.ok) {
         alert('Agregaste este libro a la lista');
@@ -466,12 +470,17 @@ async function crearResenia() {
 enviarReseña.addEventListener('click', async function (e) {
     e.preventDefault();
 
+    enviarReseña.disabled = true;
+
     nombreLibro = await datosLibro(nombre);
 
     let resultado = await crearResenia();
 
     if (resultado) {
         alert(`Creaste una reseña para el libro ${nombreLibro.title}`)
+    }
+    else {
+        enviarReseña.disabled = false;
     }
 })
 

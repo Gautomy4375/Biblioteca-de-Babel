@@ -96,6 +96,7 @@ let btnBorrar = document.getElementById("deleteList")
 
 btnBorrar.addEventListener('click', (e) => {
     e.preventDefault()
+    btnBorrar.disabled = true
     borrarLista()
 
 
@@ -117,8 +118,11 @@ async function borrarLista() {
         window.location.href = `../listas/listas.html`; 
 
     }
-    else if (response.status !== 403) {
-        window.location.href='../pagina_error_log/pagina_error.html';
+    else {
+        btnBorrar.disabled = false
+        if (response.status !== 403) {
+            window.location.href='../pagina_error_log/pagina_error.html';
+        }
     }
 
 }

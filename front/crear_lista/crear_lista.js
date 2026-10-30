@@ -5,6 +5,7 @@ let libroDePaginaAnterior = new URLSearchParams(window.location.search).get('goo
 let searchInput = document.getElementById('nuevo_libro');
 let resultsList = document.getElementById('resultsList');
 let tapasContainer = document.getElementById('tapasContainer');
+let botonCrear = document.querySelector('.crear-lista-button');
 
 let idsElegidos = [];
 let librosElegidos = [];
@@ -174,12 +175,15 @@ document.addEventListener('click', function (event) {
 formulario.addEventListener('submit', async function (event) {
     event.preventDefault();
 
+    botonCrear.disabled = true;
+
     let nombre = document.getElementById('nombre_lista').value.trim();
     let descripcion = document.getElementById('descripcion').value.trim();
 
     let lista = await crearLista(nombre, descripcion);
 
     if (!lista) {
+        botonCrear.disabled = false;
         return;
     }
 
@@ -201,5 +205,5 @@ formulario.addEventListener('submit', async function (event) {
         }
     }
 
-    window.location.href = `../ficha_lista_logueado/ficha_lista_logueado.html?id=${lista.id_lista}`;
+    window.location.replace(`../pantalla_carga_log/pantalla_carga_log.html?id=${lista.id_lista}`);
 });

@@ -84,11 +84,15 @@ eliminarCuenta.addEventListener('click', async function(e){
     const userChoice = confirm("⚠ ALERTA ⚠ Vas a borrar tu cuenta, no la podrás recuperar, ¿Estás seguro de que querés borrarla?");
 
     if (userChoice) {
+        eliminarCuenta.disabled = true;
         let cuentaBorrada = await matarCuenta(id);
         if(cuentaBorrada){
             localStorage.removeItem('userId');
             localStorage.removeItem('usernameSession');
             window.location.href= '../home/home.html'
+        }
+        else{
+            eliminarCuenta.disabled = false;
         }
         } else {
     }
