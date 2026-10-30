@@ -157,3 +157,36 @@
 .cargador.hidden {
   display: none;
 }
+.BorrarListaDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  width: 100%;
+}
+
+.BorrarLista {
+  background-color: #dc3545;
+  color: #ffffff; 
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px; 
+  padding: 12px 24px;
+  border: none; 
+  border-radius: 6px; 
+  cursor: pointer; 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+  transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+}
+/* HOVER */
+.BorrarLista:hover {
+  background-color: #bd2130; 
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); 
+}
+/* CUANDO SE CLICKEA */ 
+.BorrarLista:active {
+  transform: scale(0.98); 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
