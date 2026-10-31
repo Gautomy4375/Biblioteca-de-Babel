@@ -62,7 +62,8 @@ function mostrarusuarios(usuarios) {
 
         divs.innerHTML = `
         
-        <h3 class="nomUsu" >${usuario.nombre || usuario.username}</h3>
+        <h3 class="nomUsu" >${usuario.username}</h3>
+        <img src="${usuario.avatar}" class="fotoPerfil">
          `;
 
         conLi.appendChild(divs);

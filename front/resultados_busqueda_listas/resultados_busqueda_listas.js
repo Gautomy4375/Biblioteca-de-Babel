@@ -37,20 +37,87 @@ async function buscarlistas(palabra) {
         window.location.href='../pagina_error_log/pagina_error.html';
     }
 }
+ async function datosLibro(nombre){
 
-function mostrarlistas(listas){
+    let endpoint = `${BASE_URL}/api/libros/especifico?google_id=${encodeURIComponent(nombre)}`;
+    let respuesta = await fetch(endpoint);
+    let datos = '';
 
-    conLi.innerHTML = '';
+    if(respuesta.ok){
+        datos = await respuesta.json();
+    }
+    
 
-    listas.forEach(lista =>{
+    return datos;
+}
+async function datosPerfil(id){
+    let endpoint = `${BASE_URL}/api/usuarios/${id}`;
+    let respuesta = await fetch(endpoint);
+    let datos = '';
+
+    if(respuesta.ok){
+        datos = await respuesta.json();
+    }
+    
+
+    return datos;
+
+}
+
+async function traerLeidos(id){
+    let endpoint = `${BASE_URL}/api/libros/${id}/leidos`;
+
+    let respuesta = await fetch(endpoint);
+    let libros = { libros: [] }; 
+
+    if(respuesta.ok){
+        libros = await respuesta.json();
+    }
+    else if(respuesta.status !== 404){
+        window.location.href='../pagina_error_log/pagina_error.html';
+    }
+    console.log(libros);
+    return libros
+}
+
+async function mostrarlistas(listas){
+
+    //conLi.innerHTML = '';
+
+    for(let i = 0; i < listas.length; i++){
+        console.log('primer ciclo')
+        let nombre = listas[i].nombre;
+        let datosPer = await datosPerfil(listas[i].id_usuario);
+        let autor = datosPer?.username || "Usuario";
+        let libros = listas[i].libros;
+        let id_lista = listas[i].id_lista
+        let arrayPortadas = [];
+
+        for(let j = 0; j < libros.length; j++ ){
+            console.log('segundo ciclio')
+            let ob = await datosLibro(libros[j].google_id);
+            let portada = ob?.portada || ''; 
+            arrayPortadas.push(portada);
+        }
         let divs = document.createElement('a');
-        divs.href= `../ficha_lista_logueado/ficha_lista_logueado.html?id=${lista.id_lista}`
-        divs.classList.add('boton_libro');
+        divs.href= `../ficha_lista_logueado/ficha_lista_logueado.html?id=${id_lista}`
+        divs.classList.add('cali');
 
         divs.innerHTML = `
-        <h3 class="nomLibro" >${lista.nombre}</h3>
+        <div class="minilista">
+                <img class="librito uno" src="${arrayPortadas[0] || ''}">
+                <img class="librito dos" src="${arrayPortadas[1] || ''}">
+                <img class="librito tres" src="${arrayPortadas[2] || ''}">
+                <img class="librito cuatro" src="${arrayPortadas[3] || ''}">
+                <img class="librito cinco" src="${arrayPortadas[4] || ''}">
+                <img class="librito seis" src="${arrayPortadas[5] || ''}">
+            </div>
+            <article class="nombre">${nombre}</article>
+            <p class="autor">${autor}</p>
          `;
 
-        conLi.appendChild(divs);
-    })
+        document.getElementById('lista').appendChild(divs); 
+        
+        
+    }
 }

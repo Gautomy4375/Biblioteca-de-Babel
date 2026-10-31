@@ -1,20 +1,78 @@
-*{
+* {
     margin: 0px;
     padding: 0;
-    box-sizing: 0;
+    box-sizing: border-box;
 }
-body{
-  background-color: #F1EEE7;
+
+body {
+    background-color: #F1EEE7;
 }
-  .ejemplo{
+
+#lista {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3vw;
+    justify-content: center;
+    width: 100%;
+    padding: 4vh 2vw;
+}
+
+.ejemplo {
     margin-top: 60px;
     display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: center;
 
-    .titulo{
-      font-family: Lora;
-      font-size: 2.6vw;
+    .titulo {
+        font-family: Lora;
+        font-size: 2.6vw;
     }
-  }
+
+    .cali {
+        width: 16vw;
+        height: auto;
+        background-color: #ffffff;
+        padding: 1.5vw;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        display: flex;
+        flex-direction: column;
+        gap: 1.5vh;
+        display: inline-block;
+        
+        .minilista {
+            width: 100%;
+            height: 8vh;
+            display: flex;
+            
+            .librito {
+                width: 2.7vw;
+                height: 100%;
+                box-shadow: 10px 0 15px -5px rgba(0, 0, 0, 0.3);
+            }
+            .uno { z-index: 6; }
+            .dos { z-index: 5; margin-left: -0.8vw; }
+            .tres { z-index: 4; margin-left: -0.8vw; }
+            .cuatro { z-index: 3; margin-left: -0.8vw; }
+            .cinco { z-index: 2; margin-left: -0.8vw; }
+            .seis { z-index: 1; margin-left: -0.8vw; }
+        }
+
+        .nombre {
+            width: 100%;
+            color: #000;
+            font-family: Lora;
+            font-size: 1.3vw;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+        }
+
+        .autor {
+            font-family: 'Plus Jakarta Sans';
+            font-size: 1vw;
+            color: #666;
+        }
+    }
+}
