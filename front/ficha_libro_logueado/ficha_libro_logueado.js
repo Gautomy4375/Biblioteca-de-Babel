@@ -6,8 +6,6 @@ let nombreLibro = '';
 let puntuacion = '';
 let estado = '';
 
-const FOTO_DEFAULT = 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/3840px-Default_pfp.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail';
-
 let reviewOverlay = document.getElementById('reviewOverlay')
 
 function openreview() {
@@ -64,17 +62,15 @@ function nombreIdioma(codigo) {
 
 
 async function traerReseñas(nombre){
-    let endpoint = `${BASE_URL}/api/libros/reseñas?google_id=${nombre}`;
-
-    let respuesta = await fetch(respuesta);
-
+    let endpoint = `${BASE_URL}/api/libros/resenias?google_id=${nombre}`;
+    let respuesta = await fetch(endpoint);
     let datos = {reseñas: []};
 
     if(respuesta.ok){
         datos = await respuesta.json();
     }
-    else{
-        console.log('hubo un error');
+    else if(respuesta.status !== 404){
+        window.location.href='../pagina_error_log/pagina_error.html';
     }
 
     return datos;
@@ -151,21 +147,50 @@ async function cargarDatos() {
     else {
         link4.href = ob.link_gratis;
     }
-
-
-    for (let i = 1; i <= 3; i++) {
-        let username = document.getElementById(`username${i}`);
-        username.textContent = `USERNAME${i}`;
-        username.href = '../pagina_perfil_ajeno/pagina_perfil_ajeno.html';
-
-        document.getElementById(`fotoperfil${i}`).src = FOTO_DEFAULT;
-    }
-
-
-    
 }
 
 cargarDatos();
+
+async function cargarReseñas() {
+    let datos = await traerReseñas(nombre);
+    let reseñas = datos.reseñas;
+    let lista = document.getElementById('lista-reseñas');
+    let plantilla = document.getElementById('reseña-template');
+
+    if (reseñas.length === 0) {
+        lista.textContent = 'Todavía no hay reseñas';
+        return;
+    }
+
+    for (let i = 0; i < reseñas.length; i++) {
+        if (i > 0) {
+            let linea = document.createElement('hr');
+            linea.classList.add('hr-reseñas');
+            lista.appendChild(linea);
+        }
+
+        let clon = plantilla.content.cloneNode(true);
+
+        let estrellas = clon.querySelectorAll('.star');
+        for (let j = 0; j < estrellas.length; j++) {
+            if (j >= reseñas[i].puntuacion) {
+                estrellas[j].classList.add('grey');
+            }
+        }
+
+        clon.querySelector('.profile_pic').src = reseñas[i].autor.avatar;
+
+        let username = clon.querySelector('.username');
+        username.textContent = reseñas[i].autor.username;
+        username.href = `../pagina_perfil_ajeno/pagina_perfil_ajeno.html?id=${reseñas[i].autor.id}`;
+
+        clon.querySelector('.texto').textContent = reseñas[i].contenido;
+
+        lista.appendChild(clon);
+    }
+}
+
+cargarReseñas();
 
 
 

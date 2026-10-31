@@ -115,31 +115,66 @@ async function cargarDatos(){
     } else {
         link4.href = ob.link_gratis;
     }
-
-
-    let username1 = document.getElementById('username1');
-    username1.textContent = 'USERNAME1';
-    username1.href = '../pagina_perfil_ajeno_sinlog/pagina_perfil_ajeno_sinlog.html'
-
-    let fotoperfil1 = document.getElementById('fotoperfil1')
-    fotoperfil1.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/3840px-Default_pfp.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail';
-
-    let username2 = document.getElementById('username2');
-    username2.textContent = 'USERNAME2';
-    username2.href = '../pagina_perfil_ajeno_sinlog/pagina_perfil_ajeno_sinlog.html'
-
-    let fotoperfil2 = document.getElementById('fotoperfil2')
-    fotoperfil2.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/3840px-Default_pfp.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail';
-
-    let username3 = document.getElementById('username3');
-    username3.textContent = 'USERNAME3';
-    username3.href = '../pagina_perfil_ajeno_sinlog/pagina_perfil_ajeno_sinlog.html'
-
-    let fotoperfil3 = document.getElementById('fotoperfil3')
-    fotoperfil3.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/3840px-Default_pfp.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail';
 }
 
 cargarDatos();
+
+async function traerReseñas(nombre){
+    let endpoint = `${BASE_URL}/api/libros/resenias?google_id=${nombre}`;
+    let respuesta = await fetch(endpoint);
+    let datos = {reseñas: []};
+
+    if(respuesta.ok){
+        datos = await respuesta.json();
+    }
+    else if(respuesta.status !== 404){
+        window.location.href='../pagina_error_log/pagina_error.html';
+    }
+
+    return datos;
+}
+
+async function cargarReseñas() {
+    let datos = await traerReseñas(nombre);
+    let reseñas = datos.reseñas;
+    let lista = document.getElementById('lista-reseñas');
+    let plantilla = document.getElementById('reseña-template');
+
+    if (reseñas.length === 0) {
+        lista.textContent = 'Todavía no hay reseñas';
+        return;
+    }
+
+    for (let i = 0; i < reseñas.length; i++) {
+        // la linea que separa una reseña de la otra
+        if (i > 0) {
+            let linea = document.createElement('hr');
+            linea.classList.add('hr-reseñas');
+            lista.appendChild(linea);
+        }
+
+        let clon = plantilla.content.cloneNode(true);
+
+        let estrellas = clon.querySelectorAll('.star');
+        for (let j = 0; j < estrellas.length; j++) {
+            if (j >= reseñas[i].puntuacion) {
+                estrellas[j].classList.add('grey');
+            }
+        }
+
+        clon.querySelector('.profile_pic').src = reseñas[i].autor.avatar;
+
+        let username = clon.querySelector('.username');
+        username.textContent = reseñas[i].autor.username;
+        username.href = `../pagina_perfil_ajeno_sinlog/pagina_perfil_ajeno_sinlog.html?id=${reseñas[i].autor.id}`;
+
+        clon.querySelector('.texto').textContent = reseñas[i].contenido;
+
+        lista.appendChild(clon);
+    }
+}
+
+cargarReseñas();
 
 async function traerRanking() {
     let endpoint = `${BASE_URL}/api/libros/ranking?google_id=${nombre}`;
