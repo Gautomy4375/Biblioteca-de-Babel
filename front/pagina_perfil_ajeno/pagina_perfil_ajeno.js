@@ -299,7 +299,7 @@ async function cargarDatos(){
         let ob = await datosLibro(cincoLeidos[i]);
 
         contenedor.innerHTML+=`
-        <img src='${ob.portada}' class='${clases[i]}'></img>
+        <img src='${ob.portada}' class='${clases[i]}' onclick="irAFicha('${cincoLeidos[i]}')"></img>
         
         `
     }
@@ -317,7 +317,7 @@ async function cargarDatos(){
         let ob = await datosLibro(res[i].google_id);
         cont.innerHTML += `
          <section class="res">
-            <img src='${ob.portada}' class="imagen" ></img>
+            <img src='${ob.portada}' class="imagen" onclick="irAFicha('${res[i].google_id}')"></img>
             <div class="ladoim">
                 <article class="til">${ob.title}</article>
                 <article class="datos">${armarEstrellas(res[i].puntuacion)}</article>
@@ -338,7 +338,7 @@ async function cargarDatos(){
     for(let i = 0; i < favoritos.length; i++){
         let ob = await datosLibro(favoritos[i].google_id);
         conte.innerHTML += `
-        <img src="${ob.portada}" class="lib"></img>
+        <img src="${ob.portada}" class="lib" onclick="irAFicha('${favoritos[i].google_id}')"></img>
         `
     }
 
@@ -357,7 +357,7 @@ async function cargarDatos(){
         let ob = await datosLibro(librosPorLeer[i]);
 
         conten.innerHTML+=`
-          <img src='${ob.portada}' class='${clasesPl[i]}' ></img>
+          <img src='${ob.portada}' class='${clasesPl[i]}' onclick="irAFicha('${librosPorLeer[i]}')"></img>
         `
     }
 }
@@ -392,6 +392,10 @@ let btnSeguir = document.getElementById('seguir');
             alert(`Ahora estas siguiendo a ${nombreSeguido.username}`)
         }
     })
+
+function irAFicha(google_id) {
+    window.location.href = `../ficha_libro_logueado/ficha_libro_logueado.html?google_id=${google_id}`
+}
 
 let vermLeidos = document.getElementById('verm');
 

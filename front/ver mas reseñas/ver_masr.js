@@ -46,7 +46,7 @@ let reseniasUsuarioObjeto = await traerResenias(id);
         let ob = await datosLibro(res[i].google_id);
         cont.innerHTML += `
          <section class="res">
-            <img src='${ob.portada}' class="imagen" ></img>
+            <img src='${ob.portada}' class="imagen" onclick="irAFicha('${res[i].google_id}')"></img>
             <div class="ladoim">
                 <article class="til">${ob.title}</article>
                 <article class="datos"></article>
@@ -57,3 +57,7 @@ let reseniasUsuarioObjeto = await traerResenias(id);
     }
 };
 cargarDatos();
+
+function irAFicha(google_id) {
+    window.location.href = `../ficha_libro_logueado/ficha_libro_logueado.html?google_id=${google_id}`
+}
