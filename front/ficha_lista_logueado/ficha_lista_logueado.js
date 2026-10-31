@@ -122,6 +122,8 @@ async function borrarLista() {
         btnBorrar.disabled = false
         if (response.status !== 403) {
             window.location.href='../pagina_error_log/pagina_error.html';
+        } else if (response.status === 403) {
+            alert("ERROR: Esta lista no es tuya, no la podes borrar");
         }
     }
 
