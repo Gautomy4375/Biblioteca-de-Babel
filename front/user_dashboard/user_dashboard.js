@@ -1,3 +1,35 @@
+//ESTO ES SOLO INTERINO PARA PODER PRESENTAR: RECOMENDACIONES PUESTAS MANUALMENTE
+
+let imags = document.querySelectorAll('.ima');
+
+let uno = imags[0];
+let dos = imags[1];
+let tres = imags[2];
+let cuatro = imags[3];
+let cinco = imags[4];
+let seis = imags[5];
+let siete = imags[6];
+let ocho = imags[7];
+let nueve = imags[8];
+let diez = imags[9];
+
+uno.src= 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSKu5Tm9p9GRoOa29toEAJ-aDq9_LfaV9WzLlJUSrcag&s=10';
+dos.src= 'https://images.cdn1.buscalibre.com/fit-in/360x360/82/42/8242358e096e12d3535b6c4eda641aa1.jpg';
+tres.src= 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_maukOth4AlDyVHSUVHHYm8HmR1ogWuNmW14mWcimkw&s=10';
+cuatro.src= 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQmfwySihEMv_UYajerZq-H3JdTfXCbfa_q7JyWmcrxnwCNWM_POSNYOyA&s=10';
+cinco.src= 'https://www.thebookdesigner.com/wp-content/uploads/2024/05/J.R.R.Tolkien-The-Hobbit.png';
+seis.src= 'https://storage-aws-production.publica.la/bookwire-direct-sales/issues/2024/08/ZdkvZLJgUuYsbQPA/a8cb5bcb-fb62-4616-aae5-e5d230cca941_cover.jpg';
+siete.src= 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzJWKV_cbh8SjZbu22MN3VaFKN6RdcYV9JHEJ3TCVsW2evgnyohHy2Rsrf&s=10';
+ocho.src= 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKRs7JhHgzwKHeXLMUpMOMHqUHWImb2uzDf-_4gLOAYA&s=10';
+nueve.src= 'https://images.cdn1.buscalibre.com/fit-in/360x360/ea/1f/ea1fc691874fa49ce341d876a981e2c1.jpg';
+diez.src= 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSM4lbEIzIakDQdCVMUJxFAZTV_VQatnE4UrKDHPHcvew&s=10';
+
+
+
+
+
+
+
 let pos = 0;
 
 function siguiente() {

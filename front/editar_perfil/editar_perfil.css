@@ -38,6 +38,7 @@ main {
             display: flex;
             flex-direction: column;
 
+
             label {
                 font-size: 1.5rem;
                 font-weight: 600;
@@ -64,6 +65,11 @@ main {
             }
 
         }
+        .Pas{
+                #password{
+                    margin-bottom: 2vh;
+                }
+            }
 
         .boton {
             width: 20vw;

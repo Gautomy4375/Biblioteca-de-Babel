@@ -2,13 +2,16 @@ let inputUsuario = document.getElementById('username');
 let inputFoto = document.getElementById('avatar');
 let formTodo = document.getElementById('avUs');
 let id = localStorage.getItem('userId');
+let username = localStorage.getItem('usernameSession')
 
+inputUsuario.value = username;
+
+let contrAnterior = document.getElementById('password');
+let contrNueva = document.getElementById('passwordNueva');
 
 
 
 async function cambiarNombreAvatar(usuario, foto){
-
-    
 
     let datosEditar = {};
     
