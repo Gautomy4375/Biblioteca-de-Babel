@@ -55,7 +55,7 @@ function mostrarusuarios(usuarios) {
     usuarios.forEach(usuario => {
         let divs = document.createElement('a');
         divs.href = `../pagina_perfil_ajeno/pagina_perfil_ajeno.html?id=${encodeURIComponent(usuario.id)}`
-        divs.classList.add('boton_libro');
+        divs.classList.add('boton_usuario');
 
 
 

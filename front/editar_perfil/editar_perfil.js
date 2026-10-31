@@ -40,23 +40,59 @@ async function cambiarNombreAvatar(usuario, foto){
         window.location.href='../pagina_error_log/pagina_error.html';
     }
       return datosNuevos
-     }
+}
+
+async function cambiarContraseña(){
+    let endpoint = `${BASE_URL}/api/usuarios/${id}/password`;
+
+    let datos = {
+        ContraseñaVieja: contrAnterior.value,
+        ContraseñaNueva: contrNueva.value
+    }
+
+    let datoNuevo = '';
+
+    let respuesta = await fetch(endpoint, {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(datos)
+    });
+
+    if(respuesta.ok){
+        console.log('actualizado');
+        datoNuevo = true;
+
+    }
+    else{
+        alert('hubo un error, comprobá que no haya errores en tu contraseña anterior');
+    }
+}
+
+    
 
 
 
 
 
-formTodo.addEventListener('submit', function(e){
-    e.preventDefault(); 
 
-    cambiarNombreAvatar(inputUsuario.value, inputFoto.value);
+formTodo.addEventListener('submit', async function(e) {
+    e.preventDefault();
 
-    console.log(inputUsuario.value);
+    if (inputUsuario.value || inputFoto.value) {
+        await cambiarNombreAvatar(
+            inputUsuario.value,
+            inputFoto.value
+        );
+    }
+
+    if (contrAnterior.value && contrNueva.value) {
+        await cambiarContraseña();
+    }
 
     alert('Datos actualizados con éxito. Los cambios deberían reflejarse en tu perfil');
-
-
-})
+});
 
 async function matarCuenta(id){
     let endpoint = `${BASE_URL}/api/usuarios/${id}`
