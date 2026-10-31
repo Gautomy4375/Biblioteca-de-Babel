@@ -82,6 +82,7 @@ async function traerReseñas(nombre){
 
 async function cargarDatos() {
     let ob = await datosLibro(nombre);
+    console.log(ob);
 
     document.getElementById('cargadorCon').classList.add('hidden');
 
