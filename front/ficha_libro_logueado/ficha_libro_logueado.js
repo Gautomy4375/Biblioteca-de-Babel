@@ -209,31 +209,21 @@ cargarPromedio();
 
 
 
-let unaEstrella = document.getElementById('star1');
-let dosEstrellas = document.getElementById('star2');
-let tresEstrellas = document.getElementById('star3');
-let cuatroEstrellas = document.getElementById('star4');
-let cincoEstrellas = document.getElementById('star5');
+// pinta de dorado las estrellas de la ficha segun el valor de puntuacion
+function pintarEstrellas() {
+    for (let i = 1; i <= 5; i++) {
+        let estrella = document.querySelector(`label[for="star${i}"] .star`);
 
-unaEstrella.addEventListener('click', function () {
-    puntuacion = unaEstrella.value;
-})
+        if (i <= Number(puntuacion)) {
+            estrella.classList.add('marcada');
+        }
+        else {
+            estrella.classList.remove('marcada');
+        }
+    }
+}
 
-dosEstrellas.addEventListener('click', function () {
-    puntuacion = dosEstrellas.value;
-})
-
-tresEstrellas.addEventListener('click', function () {
-    puntuacion = tresEstrellas.value;
-})
-
-cuatroEstrellas.addEventListener('click', function () {
-    puntuacion = cuatroEstrellas.value;
-})
-
-cincoEstrellas.addEventListener('click', function () {
-    puntuacion = cincoEstrellas.value;
-})
+pintarEstrellas();
 
 // ---------- ESTADO ----------
 
@@ -484,4 +474,29 @@ enviarReseña.addEventListener('click', async function (e) {
         enviarReseña.disabled = false;
     }
 })
+
+// fetch de reseña propia
+let reseniaPropia = [];
+cargarPuntuacionPropia();
+async function buscarResenia() {
+    let endpoint = `${BASE_URL}/api/libros/resenias?google_id=${nombre}`;
+    let respuesta = await fetch(endpoint);
+
+    if (respuesta.ok) {
+        let todasResenias = await respuesta.json();
+        for (let resenia of todasResenias.reseñas) {
+            if (resenia.id_usuario == idUsuario) {
+                reseniaPropia.push(resenia);
+            }
+        }
+    }
+}
+async function cargarPuntuacionPropia() {
+    await buscarResenia();
+
+    if (reseniaPropia.length > 0) {
+        puntuacion = reseniaPropia[0].puntuacion;
+        pintarEstrellas();
+    }
+}
 
